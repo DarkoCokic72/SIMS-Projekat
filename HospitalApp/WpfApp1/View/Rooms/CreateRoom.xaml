@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.CreateRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Create room" Height="450" Width="600">
+    <Grid>
+        <Label FontSize="40" Content="Id*:" HorizontalAlignment="Left" Margin="74,42,0,0" VerticalAlignment="Top" Width="167" Height="59"/>
+        <Label FontSize="40" Content="Name*:" HorizontalAlignment="Left" Margin="74,101,0,0" VerticalAlignment="Top" Width="167" Height="60"/>
+        <Label FontSize="40" Content="Type*:" HorizontalAlignment="Left" Margin="74,166,0,0" VerticalAlignment="Top" Width="167" Height="67"/>
+        <Label FontSize="40" Content="Floor*:" HorizontalAlignment="Left" Margin="74,237,0,0" VerticalAlignment="Top" Width="161" Height="59"/>
+        <TextBox FontSize="40" Name="Id" HorizontalAlignment="Left" Height="59" Margin="246,42,0,0" TextWrapping="Wrap" Text="{Binding Path=IdBinding,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="251" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
+        <TextBox FontSize="40" Name="Floor" HorizontalAlignment="Left" Height="59" Margin="246,237,0,0" TextWrapping="Wrap" Text="{Binding Path=FloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="251" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
+        <TextBox FontSize="40" Name="Name" HorizontalAlignment="Left" Height="55" Margin="246,106,0,0" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="251" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
+        <Button FontSize="40" Content="Cancel" HorizontalAlignment="Left" Margin="123,336,0,0" VerticalAlignment="Top" Width="155" Height="61" Click="Button_Click"/>
+        <Button FontSize="40" Content="Save" HorizontalAlignment="Left" Margin="334,336,0,0" VerticalAlignment="Top" Width="163" Height="61" Click="Button_Click" Command="Save">
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
+            </Button.CommandBindings>
+        </Button>
+        <ComboBox FontSize="30" Name="ComboBox" HorizontalAlignment="Left" Margin="246,172,0,0" VerticalAlignment="Top" Width="251" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
+</Window>

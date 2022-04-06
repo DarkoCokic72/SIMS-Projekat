@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApp1.RoomsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Rooms" Height="450" Width="800">
+
+    <Grid Margin="0,0,0,-0.4" HorizontalAlignment="Left" Width="760">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="84*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name ="dgRooms" HorizontalAlignment="Left" Height="318" Margin="58,79,0,0" VerticalAlignment="Top" Width="666" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="6"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" Width="129" Height="43" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Button Content="Read" Grid.Column="1" HorizontalAlignment="Left" Margin="98.8,10,0,0" VerticalAlignment="Top" Width="134" Height="43" Grid.ColumnSpan="2" Click="Button_Click" />
+        <Button Content="Edit" Grid.Column="3" HorizontalAlignment="Left" Margin="38.2,10,0,0" VerticalAlignment="Top" Width="131" Height="43" Grid.ColumnSpan="2" Click="Button_Click" />
+        <Button Grid.ColumnSpan="2" Content="Delete" Grid.Column="4" HorizontalAlignment="Left" Margin="90.8,10,0,0" VerticalAlignment="Top" Width="126" Height="43" RenderTransformOrigin="0.655,0.539" Click="Button_Click" />
+    </Grid>
+
+
+
+</Window>
