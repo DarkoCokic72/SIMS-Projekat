@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
        
-       Title="Zdravo hospital" Height="450" Width="800">
+       Title="Zdravo hospital" Height="450" Width="816.253">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,22 +16,89 @@ using Model;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for RoomsRead.xaml
-    /// </summary>
+  
     public partial class RoomsRead : Window
     {
+
+        private string idBinding;
+        public string IdBinding
+        {
+            get
+            {
+                return idBinding;
+            }
+            set
+            {
+                idBinding = value;
+                OnPropertyChanged("IdBinding");
+            }
+        }
+
+        private string nameBinding;
+        public string NameBinding
+        {
+            get
+            {
+                return nameBinding;
+            }
+            set
+            {
+                nameBinding = value;
+                OnPropertyChanged("NameBinding");
+            }
+        }
+
+        private int floorBinding;
+        public int FloorBinding
+        {
+            get
+            {
+                return floorBinding;
+            }
+            set
+            {
+                floorBinding = value;
+                OnPropertyChanged("FloorBinding");
+            }
+        }
+
+
+        private RoomType typeBinding;
+        public RoomType TypeBinding
+        {
+            get
+            {
+                return typeBinding;
+            }
+            set
+            {
+                typeBinding = value;
+                OnPropertyChanged("TypeBinding");
+            }
+        }
+
         public RoomsRead()
         {
             InitializeComponent();
+            this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            Id.Text = room.Id;
-            Name.Text = room.Name;
-            ComboBox.SelectedItem = room.Type;
-            Floor.Text = room.Floor.ToString();
+            IdBinding = room.Id;
+            NameBinding = room.Name;
+            TypeBinding = room.Type;
+            FloorBinding = room.Floor;
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,7 +109,6 @@ namespace WpfApp1
             {
                 Close();
             }
-
 
         }
     }

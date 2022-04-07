@@ -15,9 +15,7 @@ using Model;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for RoomsDelete.xaml
-    /// </summary>
+    
     public partial class RoomsDelete : Window
     {
         public RoomsDelete()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,36 +16,119 @@ using Model;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for RoomsEdit.xaml
-    /// </summary>
-
-    public partial class RoomsEdit : Window
+ 
+    public partial class RoomsEdit : Window, INotifyPropertyChanged
     {
         public static Boolean editedRoom = false;
+        private Room room;
+
+        private string idBinding;
+        public string IdBinding
+        {
+            get
+            {
+                return idBinding;
+            }
+            set
+            {
+                idBinding = value;
+                OnPropertyChanged("IdBinding");
+            }
+        }
+
+        private string nameBinding;
+        public string NameBinding
+        {
+            get
+            {
+                return nameBinding;
+            }
+            set
+            {
+                nameBinding = value;
+                OnPropertyChanged("NameBinding");
+            }
+        }
+
+        private int floorBinding;
+        public int FloorBinding
+        {
+            get
+            {
+                return floorBinding;
+            }
+            set
+            {
+                floorBinding = value;
+                OnPropertyChanged("FloorBinding");
+            }
+        }
+
+        private RoomType typeBinding;
+        public RoomType TypeBinding
+        {
+            get
+            {
+                return typeBinding;
+            }
+            set
+            {
+                typeBinding = value;
+                OnPropertyChanged("TypeBinding");
+            }
+        }
+
+
 
         public RoomsEdit()
         {
-           
+
             InitializeComponent();
+            this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
+            
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            Id.Text = room.Id;
-            Name.Text = room.Name;
-            ComboBox.SelectedItem = room.Type;
-            Floor.Text = room.Floor.ToString();
+            room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
+            IdBinding = room.Id;
+            NameBinding= room.Name;
+            TypeBinding = room.Type;
+            FloorBinding = room.Floor;
 
-            SaveBtn.IsEnabled = false;
+            Validation.MinMaxValidationRule.ValidationHasError = false;
+            Validation.StringToIntegerValidationRule.ValidationHasError = false;
+            Validation.IdValidationRule.ValidationHasError = false;
 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-            SaveBtn.IsEnabled = true;
-
+           
+            if (IdBinding == room.Id && NameBinding == room.Name && FloorBinding == room.Floor)
+            {
+                 SaveBtn.IsEnabled = false;      
+            }
+            else if(string.IsNullOrEmpty(IdBinding) || string.IsNullOrEmpty(NameBinding) || string.IsNullOrEmpty(Floor.Text))
+            {
+                SaveBtn.IsEnabled = false;
+            }
+            else if(Validation.StringToIntegerValidationRule.ValidationHasError || Validation.MinMaxValidationRule.ValidationHasError || Validation.IdValidationRule.ValidationHasError)
+            {
+                SaveBtn.IsEnabled = false;
+            }
+            else
+            {
+                SaveBtn.IsEnabled = true;
+            }
         }
 
       
@@ -60,11 +144,8 @@ namespace WpfApp1
             else if(btn.Content.Equals("Save"))
             {
 
-                string id = Id.Text;
-                string name = Name.Text;
-                RoomType type = (RoomType)ComboBox.SelectedItem;
 
-                if (type == RoomType.Warehouse)
+                if (TypeBinding == RoomType.Warehouse)
                 {
                     foreach (Room r in RoomsWindow.roomController.GetAll())
                     {
@@ -76,9 +157,7 @@ namespace WpfApp1
                     }
                 }
 
-                int floor = int.Parse(Floor.Text);
-                Room room = new Room(id, name, type, floor);
-                RoomsWindow.roomController.Update(room);
+                RoomsWindow.roomController.Update(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding));
 
                 if (editedRoom == true)
                 {
@@ -93,7 +172,19 @@ namespace WpfApp1
 
             }
      
+        }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if ((RoomType)ComboBox.SelectedItem != room.Type && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
+            {
+                SaveBtn.IsEnabled = true;
+            }
+            else
+            {
+                SaveBtn.IsEnabled = false;
+            }
         }
     }
 }

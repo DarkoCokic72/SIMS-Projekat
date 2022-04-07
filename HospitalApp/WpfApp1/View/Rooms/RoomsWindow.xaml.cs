@@ -98,7 +98,7 @@ namespace WpfApp1
             {
                 if (room.Type == RoomType.Warehouse)
                 {
-                    MessageBox.Show("The stockroom cannot be edited!", "Error");
+                    MessageBox.Show("The warehouse cannot be edited!", "Error");
                     return;
                 }
                 RoomsEdit roomsEdit = new RoomsEdit();

@@ -1,25 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Controller;
 using Model;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for CreateRoom.xaml
-    /// </summary>
+
     public partial class CreateRoom : Window 
     {
 
@@ -30,6 +19,10 @@ namespace WpfApp1
             DataContext = this;
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Validation.MinMaxValidationRule.ValidationHasError = false;
+            Validation.StringToIntegerValidationRule.ValidationHasError = false;
+            Validation.IdValidationRule.ValidationHasError = false;
         }
 
 
@@ -61,8 +54,8 @@ namespace WpfApp1
             }
         }
 
-        private string floorBinding;
-        public string FloorBinding
+        private int floorBinding;
+        public int FloorBinding
         {
             get
             {
@@ -75,8 +68,8 @@ namespace WpfApp1
             }
         }
 
-        private string typeBinding;
-        public string TypeBinding
+        private RoomType typeBinding;
+        public RoomType TypeBinding
         {
             get
             {
@@ -105,11 +98,8 @@ namespace WpfApp1
             else if(btn.Content.Equals("Save"))
             {
 
-                string id = Id.Text;
-                string name = Name.Text;
-                RoomType type = (RoomType)ComboBox.SelectedItem;
 
-                if (type == RoomType.Warehouse)
+                if (TypeBinding == RoomType.Warehouse)
                 {
                     foreach (Room r in RoomsWindow.roomController.GetAll())
                     {
@@ -121,9 +111,8 @@ namespace WpfApp1
                     }
                 }
 
-                int floor = int.Parse(Floor.Text);
-                Room room = new Room(id, name, type, floor);
-                RoomsWindow.roomController.Add(room);
+                
+                RoomsWindow.roomController.Add(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding));
 
                 if (addedRoom == true)
                 {
@@ -134,8 +123,6 @@ namespace WpfApp1
                 {
                     MessageBox.Show("Room with that Id already exists!", "Error");
                 }
-                
-
             }
         }
 
@@ -152,12 +139,15 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if(!string.IsNullOrEmpty(IdBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(FloorBinding) && !string.IsNullOrEmpty(TypeBinding))
+            
+            if(!string.IsNullOrEmpty(IdBinding) && !string.IsNullOrEmpty(NameBinding)  && !string.IsNullOrEmpty(Floor.Text) && 
+                !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
             {
                 e.CanExecute = true;
             }
            
         }
+
     }
 }
 
