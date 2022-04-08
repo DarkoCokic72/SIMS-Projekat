@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -20,26 +21,26 @@ using Service;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for RoomsWindow.xaml
-    /// </summary>
+   
     public partial class RoomsWindow : Window
     {
         public static RoomsWindow roomsWindowInstance;
         public static RoomController roomController;
+        public ObservableCollection<Room> Rooms { get; set; } 
 
         public RoomsWindow()
         {
 
             InitializeComponent();
+            this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
+            
             RoomFileHandler fileHandler = new RoomFileHandler();
             RoomRepository repository = new RoomRepository(fileHandler);
             RoomService service = new RoomService(repository);
             roomController = new RoomController(service);
-            dgRooms.ItemsSource = roomController.GetAll();
 
+            Rooms = new ObservableCollection<Room>(roomController.GetAll());      
         }
 
         public static RoomsWindow GetRoomsWindow()

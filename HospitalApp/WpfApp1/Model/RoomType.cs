@@ -10,7 +10,7 @@ namespace Model
 {
    public enum RoomType
    {
-      ExaminatonRoom,
+      ExaminationRoom,
       OperatingRoom,
       RestRoom,
       MeetingRoom,
