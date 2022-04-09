@@ -12,7 +12,11 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Rooms" HorizontalAlignment="Left" Margin="130,102,0,0" VerticalAlignment="Top" Width="168" Click="Button_Click" Height="65"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button  FontSize="40" Content="Rooms" Margin="73,62,56.8,40.4" Width="Auto" Click="Button_Click" Height="Auto"/>
 
     </Grid>
 </Window>

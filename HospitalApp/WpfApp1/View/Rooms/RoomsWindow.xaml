@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Rooms" Height="450" Width="816.253">
 
-    <Grid HorizontalAlignment="Left" Width="806">
+    <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="84*"/>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="84*"/>
-            <RowDefinition Height="84*"/>
-            <RowDefinition Height="84*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -24,11 +24,11 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" Name ="dgRooms" ItemsSource="{Binding Path=Rooms}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="318" Margin="58,79,0,0" VerticalAlignment="Top" Width="696" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="6"/>
-        <Button FontSize="30" Content="Create" HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" Width="129" Height="43" Click="Button_Click" Grid.ColumnSpan="2"/>
-        <Button FontSize="30" Content="Read" Grid.Column="1" HorizontalAlignment="Left" Margin="98.8,10,0,0" VerticalAlignment="Top" Width="134" Height="43" Grid.ColumnSpan="2" Click="Button_Click" />
-        <Button FontSize="30" Content="Edit" Grid.Column="3" HorizontalAlignment="Left" Margin="38.2,10,0,0" VerticalAlignment="Top" Width="131" Height="43" Grid.ColumnSpan="2" Click="Button_Click" />
-        <Button FontSize="30"  Grid.ColumnSpan="2" Content="Delete" Grid.Column="4" HorizontalAlignment="Left" Margin="90.8,10,0,0" VerticalAlignment="Top" Width="126" Height="43" RenderTransformOrigin="0.655,0.539" Click="Button_Click" />
+        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" Name ="dgRooms" ItemsSource="{Binding Path=Rooms}" AutoGenerateColumns="True" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1"/>
+        <Button FontSize="30" Content="Create" Grid.Row="0"  Height ="Auto" Margin="10.2,10,0,4" Click="Button_Click" Width="Auto" Grid.Column="1"/>
+        <Button FontSize="30" Content="Read" Margin="10.4,10,9.6,4" Grid.Row="0" Height="Auto" Click="Button_Click" Grid.Column="2" Width="Auto"/>
+        <Button FontSize="30" Content="Edit" Grid.Column="3" Width="Auto" Grid.Row="0" Height ="Auto" Margin="0.4,10,7.6,4" Click="Button_Click"/>
+        <Button FontSize="30"  Grid.ColumnSpan="1" Content="Delete" Grid.Row="0" Height ="Auto" Grid.Column="4" Width="Auto" Margin="5.4,10,9.6,4" Click="Button_Click"/>
     </Grid>
 
 

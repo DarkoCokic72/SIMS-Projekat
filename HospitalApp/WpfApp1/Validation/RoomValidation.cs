@@ -48,7 +48,7 @@ namespace WpfApp1.Validation
                 if (d < 0)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Floors start from 0.");
+                    return new ValidationResult(false, "Floors start\nfrom 0.");
                 }
                 if (d > 5)
                 {
