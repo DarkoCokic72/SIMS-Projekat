@@ -10,14 +10,30 @@
         mc:Ignorable="d"
         Title="Read room" Height="450" Width="695.485">
     <Grid>
-        <Label FontSize="40" Content="Id:" HorizontalAlignment="Left" Margin="74,42,0,0" VerticalAlignment="Top" Width="167" Height="59"/>
-        <Label FontSize="40" Content="Name:" HorizontalAlignment="Left" Margin="74,101,0,0" VerticalAlignment="Top" Width="167" Height="60"/>
-        <Label FontSize="40" Content="Type:" HorizontalAlignment="Left" Margin="74,166,0,0" VerticalAlignment="Top" Width="167" Height="67"/>
-        <Label FontSize="40" Content="Floor:" HorizontalAlignment="Left" Margin="74,237,0,0" VerticalAlignment="Top" Width="161" Height="59"/>
-        <TextBox FontSize="40" x:Name="Id" HorizontalAlignment="Left" Height="59" Margin="246,42,0,0" TextWrapping="Wrap" Text="{Binding IdBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="272" RenderTransformOrigin="-0.274,-0.822" IsReadOnly="true"/>
-        <TextBox FontSize="40" x:Name="Name" HorizontalAlignment="Left" Height="55" Margin="246,106,0,0" TextWrapping="Wrap" Text="{Binding NameBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="272" RenderTransformOrigin="-0.274,-0.822" IsReadOnly="true"/>
-        <ComboBox FontSize="30" x:Name="ComboBox"  HorizontalAlignment="Left" Margin="246,172,0,0" VerticalAlignment="Top" Width="272" Height="49" IsEditable="False" IsHitTestVisible="False" Focusable="False" Text="{Binding TypeBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox FontSize="40" x:Name="Floor" HorizontalAlignment="Left" Height="59" Margin="246,237,0,0" TextWrapping="Wrap" Text="{Binding FloorBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="272" RenderTransformOrigin="-0.274,-0.822" IsReadOnly="True"/>
-        <Button FontSize="40" Content="Cancel" HorizontalAlignment="Left" Margin="276,334,0,0" VerticalAlignment="Top" Width="155" Height="61" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label FontSize="40" Content="Id:" Margin="15,11,4.6,0.4" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="Name:" Margin="10,10.6,0,0" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0"/>
+        <Label FontSize="40" Content="Type:" Margin="15,3.2,0,0" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0"/>
+        <Label FontSize="40" Content="Floor:" Margin="15,4.8,0,0" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="0"/>
+        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="10.4,11,10.4,0.4" TextWrapping="Wrap" Text="{Binding IdBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" RenderTransformOrigin="-0.274,-0.822" IsReadOnly="true" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="0"/>
+        <TextBox FontSize="40" x:Name="Name" Height="Auto" Margin="10.4,9.6,10.4,0.8" TextWrapping="Wrap" Text="{Binding NameBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" IsReadOnly="true" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="1"/>
+        <ComboBox FontSize="30" x:Name="ComboBox"  Margin="10.4,11.2,10.4,0.2" Width="Auto" Height="Auto" IsEditable="False" IsHitTestVisible="False" Focusable="False" Text="{Binding TypeBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="2"/>
+        <TextBox FontSize="40" x:Name="Floor" Height="Auto" Margin="10.4,10.6,10.4,9.8" TextWrapping="Wrap" Text="{Binding FloorBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" IsReadOnly="True" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="3"/>
+        <Button FontSize="40" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2" Margin="24.2,24.2,24.2,23" Width="Auto" Height="Auto" />
     </Grid>
 </Window>
