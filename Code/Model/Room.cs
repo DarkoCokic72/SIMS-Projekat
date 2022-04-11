@@ -10,6 +10,10 @@ namespace Model
 {
    public class Room
    {
+      private string Id;
+      private string Name;
+      private int Floor;
+
       public System.Collections.ArrayList equipment;
       
       /// <pdGenerated>default getter</pdGenerated>
@@ -58,8 +62,9 @@ namespace Model
    
       private string Id;
       private string Name;
-      private RoomType Type;
       private int Floor;
-   
-   }
+
+      public RoomType roomType;
+
+    }
 }
