@@ -12,6 +12,7 @@ namespace Model
    {
       private string Id;
       private string Name;
+      private RoomType Type;
       private int Floor;
 
       public System.Collections.ArrayList equipment;
@@ -59,12 +60,6 @@ namespace Model
          if (equipment != null)
             equipment.Clear();
       }
-   
-      private string Id;
-      private string Name;
-      private int Floor;
-
-      public RoomType roomType;
 
     }
 }

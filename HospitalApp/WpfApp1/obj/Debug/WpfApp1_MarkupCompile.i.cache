@@ -4,17 +4,29 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
+=======
+D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
+>>>>>>> d49fe61a413dcc8f1f9aae0d68f2c288680544ee
 WpfApp1
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
 6-1434108932
 
 50-589010203
 16-947607366
+=======
+D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
+6-930186682
+
+442116765845
+16382914631
+>>>>>>> d49fe61a413dcc8f1f9aae0d68f2c288680544ee
 View\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Rooms\RoomsDelete.xaml;View\Rooms\RoomsEdit.xaml;View\Rooms\RoomsRead.xaml;View\Rooms\RoomsWindow.xaml;
 
-False
+True
 

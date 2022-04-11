@@ -108,6 +108,10 @@
     <Compile Include="Service\PatientExaminationAppointmentService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
+    <Compile Include="View\PatientAppointment\AppointmentWindow.xaml.cs" />
+    <Compile Include="View\PatientAppointment\CancelAppointment.xaml.cs" />
+    <Compile Include="View\PatientAppointment\DelayAppointment.xaml.cs" />
+    <Compile Include="View\PatientAppointment\MakeAppointement.xaml.cs" />
     <Compile Include="View\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\GeneratedInternalTypeHelper.g.cs
 
 FD:\sims\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\CreateRoom.xaml;;
@@ -6,4 +7,14 @@ FD:\sims\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsDelete.xaml;;
 FD:\sims\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsEdit.xaml;;
 FD:\sims\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsRead.xaml;;
 FD:\sims\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsWindow.xaml;;
+=======
+﻿
+
+FC:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\CreateRoom.xaml;;
+FC:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\MainWindow.xaml;;
+FC:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsDelete.xaml;;
+FC:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsEdit.xaml;;
+FC:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsRead.xaml;;
+FC:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\View\Rooms\RoomsWindow.xaml;;
+>>>>>>> d49fe61a413dcc8f1f9aae0d68f2c288680544ee
 
