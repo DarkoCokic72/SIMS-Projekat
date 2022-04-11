@@ -79,6 +79,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
+    <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\PatientExaminationAppointment.cs" />
+    <Compile Include="Model\Physician.cs" />
+    <Compile Include="Repo\PatientExaminationAppointmentRepository.cs" />
+    <Compile Include="Service\PatientExaminationAppointmentService.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
     <Compile Include="View\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
