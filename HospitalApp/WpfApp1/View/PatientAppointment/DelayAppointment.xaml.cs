@@ -21,7 +21,7 @@ namespace WpfApp1.View.PateintAppointment
     {
         public DelayAppointment()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

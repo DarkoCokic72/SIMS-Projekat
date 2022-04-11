@@ -21,7 +21,7 @@ namespace WpfApp1.View.PateintAppointment
     {
         public AppointmentWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

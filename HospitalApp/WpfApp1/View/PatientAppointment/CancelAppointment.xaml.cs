@@ -21,7 +21,7 @@ namespace WpfApp1.View.PateintAppointment
     {
         public CancelAppointment()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void ComboBoxAdv_SelectionChanged(object sender, SelectionChangedEventArgs e)
