@@ -89,6 +89,7 @@
     <Compile Include="FileHandler\OperationFileHandler.cs" />
     <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\PatientFileHandler.cs" />
+    <Compile Include="Model\Secretary.cs" />
     <Compile Include="FileHandler\SecretaryFileHandler.cs" />
     <Compile Include="Model\ExaminationAppointment.cs" />
     <Compile Include="Model\GuestAccount.cs" />
