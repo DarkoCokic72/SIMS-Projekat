@@ -4,29 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
-=======
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
->>>>>>> 4722d418c164f51b730ef48effcf2f6b689e9470
+C:\Users\HP LAPTOP\Desktop\faks\3. godina\Specifikacija i modeliranje softvera\Projekat\projekat 1\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
+C:\Users\HP LAPTOP\Desktop\faks\3. godina\Specifikacija i modeliranje softvera\Projekat\projekat 1\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
 6-1434108932
 
 29-996408825
-16-947607366
-=======
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
-6-1434108932
-
-28-154049458
-161412575571
->>>>>>> 4722d418c164f51b730ef48effcf2f6b689e9470
+1697124213
 View\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Rooms\RoomsDelete.xaml;View\Rooms\RoomsEdit.xaml;View\Rooms\RoomsRead.xaml;View\Rooms\RoomsWindow.xaml;
 
-False
+True
 
