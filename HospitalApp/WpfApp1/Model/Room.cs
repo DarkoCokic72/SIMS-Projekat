@@ -12,8 +12,8 @@ namespace Model
    {
       public string Id { get; set; }
       public string Name { get; set; }
-      public RoomType Type { get; set; }
       public int Floor { get; set; }
+      public RoomType Type { get; set; }
 
       public System.Collections.ArrayList equipment;
       
