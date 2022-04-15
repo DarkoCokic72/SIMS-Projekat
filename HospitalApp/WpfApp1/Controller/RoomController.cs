@@ -37,6 +37,7 @@ namespace Controller
       public void Remove(string id)
       {
             roomService.Remove(id);
+            roomService.moveEquipmentToWarehouse(id);
       }
 
       public List<Equipment> getEquipment(string roomId)
