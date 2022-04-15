@@ -39,7 +39,13 @@ namespace Service
             roomRepository.Remove(id);
       }
 
+      public List<Equipment> getEquipment(string roomId)
+      {
+            return equipmentRepository.GetByRoomId(roomId);
+      }
+
       public Repo.RoomRepository roomRepository;
+      public Repo.EquipmentRepository equipmentRepository = new EquipmentRepository();
 
       public RoomService(RoomRepository roomRepository)
       {

@@ -20,14 +20,16 @@ namespace WpfApp1.View.Rooms
     /// </summary>
     public partial class RoomsEquipment : Window
     {
-        public System.Collections.ArrayList Equipment { get; set; }
+        public ObservableCollection<Equipment> Equipment { get; set; }
         public RoomsEquipment()
         {
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            Equipment = RoomsWindow.SelectedRoom.GetEquipment();
+
+            List<Equipment> e = RoomsWindow.roomController.getEquipment(RoomsWindow.SelectedRoom.Id);
+            Equipment = new ObservableCollection<Equipment>(e);
             
         }
 
