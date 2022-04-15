@@ -44,6 +44,53 @@ namespace Service
             return equipmentRepository.GetByRoomId(roomId);
       }
 
+      public void moveEquipmentToWarehouse(string roomId)
+      {
+            string warehouseId = null;
+            List<Room> allRooms = roomRepository.GetAll();
+            foreach(Room r in allRooms)
+            {
+                if(r.Type == RoomType.Warehouse)
+                {
+                    warehouseId = r.Id;
+                }
+            }
+            List<Equipment> allEquipment = equipmentRepository.GetAll();
+            bool inWarehouse = false;
+            List<int> toRemove = new List<int>();
+
+            for (int i=0; i<allEquipment.Count; i++)
+            {
+                if(allEquipment[i].Room == roomId)
+                {
+
+                    for(int j=0; j<allEquipment.Count; j++)
+                    {
+                        if (allEquipment[i].Id == allEquipment[j].Id && allEquipment[j].Room == warehouseId)
+                        {
+                            allEquipment[j].Quantity += allEquipment[i].Quantity;
+                            inWarehouse = true;
+                        }
+                    }
+
+                    if(!inWarehouse)
+                    {
+                        allEquipment[i].Room = warehouseId;
+                    }
+
+                    inWarehouse = false;
+                }
+
+            }
+
+            for(int i=0; i < toRemove.Count; i++)
+            {
+                allEquipment.RemoveAt(toRemove[i]);
+            }
+
+            equipmentRepository.Set(allEquipment);
+      }
+
       public Repo.RoomRepository roomRepository;
       public Repo.EquipmentRepository equipmentRepository = new EquipmentRepository();
 

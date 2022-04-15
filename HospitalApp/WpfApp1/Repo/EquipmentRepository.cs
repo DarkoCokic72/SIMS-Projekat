@@ -31,6 +31,11 @@ namespace Repo
 
             return equipment;
       }
+
+      public void Set(List<Equipment> equipment)
+      {
+            equipmentFileHandler.Save(equipment);
+      }
       
       public FileHandler.EquipmentFileHandler equipmentFileHandler = new FileHandler.EquipmentFileHandler();
    
