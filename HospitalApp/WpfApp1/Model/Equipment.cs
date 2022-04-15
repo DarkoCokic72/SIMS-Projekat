@@ -10,39 +10,17 @@ namespace Model
 {
     public class Equipment
     {
-        private string id;
-        private string name;
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
 
-        public Room room;
-
-        /// <summary>
-        /// Property for Room
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
-        public Room Room
+        public Equipment(string id, string name, int quantity)
         {
-            get
-            {
-                return room;
-            }
-            set
-            {
-                if (this.room == null || !this.room.Equals(value))
-                {
-                    if (this.room != null)
-                    {
-                        Room oldRoom = this.room;
-                        this.room = null;
-                        oldRoom.RemoveEquipment(this);
-                    }
-                    if (value != null)
-                    {
-                        this.room = value;
-                        this.room.AddEquipment(this);
-                    }
-                }
-            }
+            Id = id;
+            Name = name;
+            Quantity = quantity;
         }
+        
 
     }
 }

@@ -85,21 +85,11 @@ C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\WpfApp1.pdb
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\CreateRoom.g.cs
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\MainWindow.g.cs
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsDelete.g.cs
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsEdit.g.cs
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsRead.g.cs
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsWindow.g.cs
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\App.g.cs
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\CreateRoom.baml
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\MainWindow.baml
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsDelete.baml
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsEdit.baml
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsRead.baml
-C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsWindow.baml
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.g.resources
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
@@ -125,3 +115,15 @@ D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\D
 D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
 D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.exe
 D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.pdb
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\ManagerHomePage.g.cs
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\CreateRoom.g.cs
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsDelete.g.cs
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsEdit.g.cs
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsEquipment.g.cs
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsWindow.g.cs
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\ManagerHomePage.baml
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\CreateRoom.baml
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsDelete.baml
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsEdit.baml
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsEquipment.baml
+C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Rooms\RoomsWindow.baml

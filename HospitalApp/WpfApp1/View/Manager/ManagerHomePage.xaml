@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfApp1.View.Manager.ManagerHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View.Manager"
+        mc:Ignorable="d"
+        Title="ZdravoHospital" Height="768" Width="1024" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Margin="21,15,423.8,290.6" Height="64" Width="64" Background="White" BorderThickness="0">
+            <Image Source="/WpfApp1;component/Images/home.png"/>
+        </Button>
+        <Menu  FontSize="40" Margin="34,161,47.8,105.6" Width="400">
+            <MenuItem Header="            Rooms" Height="102" Width="400">
+                <MenuItem Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="400"/>
+                <Separator BorderThickness="1" BorderBrush="Black"/>
+                <MenuItem Header="Scheduling&#x0a;renovation"  Height="106" Width="400"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

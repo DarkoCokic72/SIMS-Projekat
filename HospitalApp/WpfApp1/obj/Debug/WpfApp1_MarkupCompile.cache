@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\smvul\Desktop\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
-6-1434108932
+7-1233446589
 
-54-1343813209
+55-1953857654
 161412575571
-View\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Rooms\RoomsDelete.xaml;View\Rooms\RoomsEdit.xaml;View\Rooms\RoomsRead.xaml;View\Rooms\RoomsWindow.xaml;
+View\Manager\ManagerHomePage.xaml;View\Manager\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Manager\Rooms\RoomsDelete.xaml;View\Manager\Rooms\RoomsEdit.xaml;View\Manager\Rooms\RoomsEquipment.xaml;View\Manager\Rooms\RoomsWindow.xaml;
 
 False
 

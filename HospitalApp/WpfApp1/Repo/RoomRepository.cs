@@ -58,32 +58,17 @@ namespace Repo
       public void Update(Room room)
       {
             List<Room> listOfRooms = GetAll();
-
-            if(WpfApp1.RoomsWindow.roomsWindowInstance.getSelectedRoom().Id != room.Id) //id is changed
-            {
-                for (int i = 0; i < listOfRooms.Count; i++)
-                {
-
-                    if (listOfRooms[i].Id.Equals(room.Id))
-                    {
-
-                        WpfApp1.RoomsEdit.editedRoom = false;
-                        return;
-
-                    }
-                }
-            }
+   
 
             for (int i = 0; i < listOfRooms.Count; i++)
             {
                 
-                if (listOfRooms[i].Id.Equals(WpfApp1.RoomsWindow.roomsWindowInstance.getSelectedRoom().Id))
+                if (listOfRooms[i].Id == room.Id)
                 {
 
                     listOfRooms[i] = room;
                     roomFileHandler.Save(listOfRooms);
                     WpfApp1.RoomsEdit.editedRoom = true;
-                    return;
 
                 }
             }

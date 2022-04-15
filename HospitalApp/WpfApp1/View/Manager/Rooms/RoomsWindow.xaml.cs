@@ -18,6 +18,8 @@ using FileHandler;
 using Model;
 using Repo;
 using Service;
+using WpfApp1.View.Manager;
+using WpfApp1.View.Rooms;
 
 namespace WpfApp1
 {
@@ -26,7 +28,8 @@ namespace WpfApp1
     {
         public static RoomsWindow roomsWindowInstance;
         public static RoomController roomController;
-        public ObservableCollection<Room> Rooms { get; set; } 
+        public ObservableCollection<Room> Rooms { get; set; }
+        public static Room SelectedRoom { get; set; }
 
         public RoomsWindow()
         {
@@ -71,28 +74,36 @@ namespace WpfApp1
 
         }
 
+        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
             Room room = getSelectedRoom();
-            if(!btn.Content.Equals("Create") && room == null)
+            if(!btn.Content.Equals("Add") && room == null)
             {
                 MessageBox.Show("You need to select a row!", "Error");
                 return;
             }
 
 
-            if (btn.Content.Equals("Create"))
+            if (btn.Content.Equals("Add"))
             {
                
                 CreateRoom createRoom = new CreateRoom();
                 createRoom.Show();
             }
-            else if (btn.Content.Equals("Read"))
+            else if (btn.Content.Equals("Details"))
             {
 
-                RoomsRead roomsRead = new RoomsRead();
-                roomsRead.Show();
+                RoomsEquipment roomsEquipment = new RoomsEquipment();
+                roomsEquipment.Show();
 
             }
             else if (btn.Content.Equals("Edit"))
@@ -123,6 +134,10 @@ namespace WpfApp1
             roomsWindowInstance = null;
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
