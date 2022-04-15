@@ -1,0 +1,1 @@
+[{"Id":"E1","Name":"Bed","Quantity":15,"Room":"R1"}, {"Id":"E1","Name":"Bed","Quantity":5,"Room":"R2"}, {"Id":"E1","Name":"Bed","Quantity":5,"Room":"R3"}, {"Id":"E1","Name":"Bed","Quantity":5,"Room":"R4"}, {"Id":"E2","Name":"Brufen","Quantity":50,"Room":"R2"}]

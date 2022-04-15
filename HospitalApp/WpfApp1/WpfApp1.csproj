@@ -84,6 +84,7 @@
     <Compile Include="Controller\OperationControler.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
+    <Compile Include="FileHandler\EquipmentFileHandler.cs" />
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\GuestAccountFileHandler.cs" />
     <Compile Include="FileHandler\OperationFileHandler.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Service\OperationService.cs" />
     <Compile Include="Service\PatientExaminationAppointmentService.cs" />
     <Compile Include="Service\PatientService.cs" />
+    <Compile Include="Repo\EquipmentRepository.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
     <Compile Include="View\Manager\ManagerHomePage.xaml.cs">
       <DependentUpon>ManagerHomePage.xaml</DependentUpon>

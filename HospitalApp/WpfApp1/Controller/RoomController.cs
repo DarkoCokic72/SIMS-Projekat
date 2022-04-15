@@ -39,8 +39,13 @@ namespace Controller
             roomService.Remove(id);
       }
 
-       public Service.RoomService roomService;
+      public List<Equipment> getEquipment(string roomId)
+        {
+            return roomService.getEquipment(roomId);
+        }
 
+       public Service.RoomService roomService;
+       
        public RoomController(RoomService roomService)
        {
             this.roomService = roomService;
