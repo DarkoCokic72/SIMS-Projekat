@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.Manager.Equipment" xmlns:val="clr-namespace:WpfApp1.Validation"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.Manager.Equipment.EquipmentRelocation"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="EquipmentRelocation" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
@@ -12,7 +13,7 @@
         <ComboBox FontSize="30" x:Name="Room" Margin="421,332,218.6,332.4" Width="Auto" RenderTransformOrigin="0.507,1.648" SelectionChanged="Room_SelectionChanged"/>
         <Button  x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="572,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Save"/>
         <Label FontSize="40" Content="To room*:" Margin="27,332,596.6,332.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <DatePicker x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="421,422,0,0" VerticalAlignment="Top" Height="76" Width="378" SelectedDateChanged="Date_SelectedDateChanged"/>
+        <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="421,422,0,0" VerticalAlignment="Top" Height="76" Width="378" SelectedDateChanged="Date_SelectedDateChanged"/>
         <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="378" Margin="421,513,0,0" TextChanged="TextChanged">
             <Validation.ErrorTemplate>
                 <ControlTemplate>

@@ -89,6 +89,7 @@ namespace WpfApp1.View.Manager.Equipment
             MainWindow.Thread.Abort();
             equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), (string)Room.SelectedItem, RoomsEquipment.SelectedEquipment));
             MainWindow.startRelocationThread();
+            RoomsEquipment.GetWindow().Close();
             Close();
         }
 
