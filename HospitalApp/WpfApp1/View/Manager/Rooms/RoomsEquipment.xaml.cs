@@ -22,7 +22,7 @@ namespace WpfApp1.View.Rooms
     /// </summary>
     public partial class RoomsEquipment : Window
     {
-        public ObservableCollection<Equipment> Equipment { get; set; }
+        public static ObservableCollection<Equipment> Equipment { get; set; }
         public static Equipment SelectedEquipment { get; set; }
         public RoomsEquipment()
         {
@@ -50,8 +50,7 @@ namespace WpfApp1.View.Rooms
             }
             EquipmentRelocation equipmentRelocationWindow = new EquipmentRelocation();
             equipmentRelocationWindow.Show();
-
-
         }
+
     }
 }

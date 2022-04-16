@@ -25,11 +25,63 @@ namespace Service
       {
          equipmentRepository.UpdateAll(equipment);
       }
-      
-      public void Relocate()
-      {
-         throw new NotImplementedException(); //ovde thread
-      }
+
+        public void Relocate()
+        {
+            while (true)
+            {
+                System.DateTime currentDate = DateTime.Now;
+                List<Equipment> allEquipment = equipmentRepository.GetAll();
+                foreach (Relocation r in relocationRepository.GetAll())
+                {
+                    if (r.Date.ToString("yyyy-MM-dd").Equals(currentDate.ToString("yyyy-MM-dd")))
+                    {
+                        //first take equipment from room
+                        for (int i = 0; i < allEquipment.Count; i++)
+                        {
+                            if (allEquipment[i].Room == r.Equipment.Room && allEquipment[i].Id == r.Equipment.Id)
+                            {
+
+                                allEquipment[i].Quantity -= r.QuantityToRelocate;
+                                if (allEquipment[i].Quantity == 0)
+                                {
+                                    allEquipment.RemoveAt(i);
+
+                                }
+
+                            }
+
+                        }
+
+                        //now we put equipment in new room
+                        bool equipmentInRoomExists = false;
+                        for (int i = 0; i < allEquipment.Count; i++)
+                        {
+                            if (allEquipment[i].Room == r.ToRoom && allEquipment[i].Id == r.Equipment.Id) //equipment with that id alredy exist in room in which we want to relocate equipment
+                            {
+
+                                allEquipment[i].Quantity += r.QuantityToRelocate;
+                                equipmentInRoomExists = true;
+
+                            }
+
+                        }
+
+                        if (!equipmentInRoomExists)
+                        {
+                            allEquipment.Add(new Equipment(r.Equipment.Id, r.Equipment.Name, r.QuantityToRelocate, r.ToRoom));
+                        }
+
+
+                        relocationRepository.Delete(r);
+                        equipmentRepository.UpdateAll(allEquipment);
+                    }
+
+                }
+
+                
+            }
+        }
       
       public void CreateRelocationRequest(Relocation relocation)
       {

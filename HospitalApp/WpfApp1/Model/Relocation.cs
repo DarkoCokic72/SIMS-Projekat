@@ -7,16 +7,19 @@ using System;
 
 namespace Model
 {
-   public class Relocation
-   {
+    public class Relocation
+    {
+     
+      public System.Guid Id { get; set; }
       public System.DateTime Date { get; set; }
       public int QuantityToRelocate { get; set; }
       public string ToRoom { get; set; }
-
       public Equipment Equipment { get; set; }
 
+      
       public Relocation(System.DateTime date, int quantityToRelocate, string toRoom, Equipment equipment)
       {
+            Id = Guid.NewGuid();
             Date = date;
             QuantityToRelocate = quantityToRelocate;
             ToRoom = toRoom;

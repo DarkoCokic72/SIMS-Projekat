@@ -51,7 +51,9 @@ namespace WpfApp1.View.Manager.Equipment
         {
 
             EquipmentController equipmentController = new EquipmentController();
-            equipmentController.CreateRelocationRequest(new Relocation(Date.DisplayDate, int.Parse(Quantity.Text), (string)Room.SelectedItem, RoomsEquipment.SelectedEquipment));
+            MainWindow.Thread.Abort();
+            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), (string)Room.SelectedItem, RoomsEquipment.SelectedEquipment));
+            MainWindow.startRelocationThread();
             Close();
         }
     }

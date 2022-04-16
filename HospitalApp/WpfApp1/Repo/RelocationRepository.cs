@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using WpfApp1;
 
 namespace Repo
 {
@@ -17,7 +18,8 @@ namespace Repo
       }
       
       public void Create(Relocation relocation)
-      { 
+      {
+            
             List<Relocation> relocationList = relocationFileHandler.Read();
             if(relocationList == null)
             {
@@ -25,12 +27,22 @@ namespace Repo
             }
             relocationList.Add(relocation);
             relocationFileHandler.Save(relocationList);
+            
       }
       
       public void Delete(Relocation relocation)
       {
             List<Relocation> relocationList = relocationFileHandler.Read();
-            relocationList.Remove(relocation);
+            for(int i=0; i < relocationList.Count; i++)
+            {
+                if(relocationList[i].Id == relocation.Id)
+                {
+
+                    relocationList.RemoveAt(i);
+
+                }
+            }
+           
             relocationFileHandler.Save(relocationList);
       }
       
