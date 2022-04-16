@@ -69,10 +69,6 @@ namespace WpfApp1
             return (Room)dgRooms.SelectedItem; ;
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
@@ -102,7 +98,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Details"))
             {
 
-                RoomsEquipment roomsEquipment = new RoomsEquipment();
+                RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow();
                 roomsEquipment.Show();
 
             }

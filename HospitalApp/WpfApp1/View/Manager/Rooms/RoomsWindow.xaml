@@ -26,7 +26,7 @@
 
 
         </Grid.ColumnDefinitions>
-        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgRooms" ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" AutoGenerateColumns="False" Margin="18,109.8,18.6,47.4" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="5" Grid.RowSpan="5" Grid.Row="1">
+        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgRooms" ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" AutoGenerateColumns="False" Margin="18,109.8,18.6,47.4" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="5" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="120"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />

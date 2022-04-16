@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using WpfApp1.View.Rooms;
 
 namespace Service
 {
@@ -75,6 +76,7 @@ namespace Service
 
                         relocationRepository.Delete(r);
                         equipmentRepository.UpdateAll(allEquipment);
+
                     }
 
                 }
@@ -86,6 +88,21 @@ namespace Service
       public void CreateRelocationRequest(Relocation relocation)
       {
             relocationRepository.Create(relocation);
+      }
+
+      public int MaxQuantityToRelocate(Equipment equipment)
+      {
+            int retVal = equipment.Quantity;
+
+            foreach(Relocation r in relocationRepository.GetAll())
+            {
+                if(equipment.Id == r.Equipment.Id && equipment.Room == r.Equipment.Room)
+                {
+                    retVal -= r.QuantityToRelocate;
+                }
+            }
+
+            return retVal; 
       }
       
       public Repo.RelocationRepository relocationRepository = new Repo.RelocationRepository();

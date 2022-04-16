@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace WpfApp1.View.Rooms
     /// </summary>
     public partial class RoomsEquipment : Window
     {
+        public static RoomsEquipment roomsEquipmentWindowInstance;
         public static ObservableCollection<Equipment> Equipment { get; set; }
         public static Equipment SelectedEquipment { get; set; }
         public RoomsEquipment()
@@ -39,6 +41,7 @@ namespace WpfApp1.View.Rooms
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
             Close();
+            roomsEquipmentWindowInstance = null;
         }
 
         private void Button_Click_Relocation(object sender, RoutedEventArgs e)
@@ -50,6 +53,28 @@ namespace WpfApp1.View.Rooms
             }
             EquipmentRelocation equipmentRelocationWindow = new EquipmentRelocation();
             equipmentRelocationWindow.Show();
+        }
+
+        public static RoomsEquipment GetWindow()
+        {
+            if (roomsEquipmentWindowInstance == null)
+            {
+                roomsEquipmentWindowInstance = new RoomsEquipment();
+
+            }
+
+            return roomsEquipmentWindowInstance;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            roomsEquipmentWindowInstance = null;
+        }
+
+        public void refreshContentOfGrid()
+        {
+            dg.ItemsSource = null;
+            dg.ItemsSource = RoomsWindow.roomController.getEquipment(RoomsWindow.SelectedRoom.Id);
         }
 
     }

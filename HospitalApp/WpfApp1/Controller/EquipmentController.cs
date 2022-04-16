@@ -19,6 +19,11 @@ namespace Controller
       {
             equipmentService.CreateRelocationRequest(relocation);
       }
+
+      public int MaxQuantityToRelocate(Equipment equipment)
+      {
+            return equipmentService.MaxQuantityToRelocate(equipment);
+      }
       
       public Service.EquipmentService equipmentService = new Service.EquipmentService();
    

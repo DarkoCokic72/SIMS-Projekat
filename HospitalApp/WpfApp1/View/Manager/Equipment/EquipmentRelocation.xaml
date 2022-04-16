@@ -1,20 +1,50 @@
-﻿<Window x:Class="WpfApp1.View.Manager.Equipment.EquipmentRelocation"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1.View.Manager.Equipment"
+        xmlns:local="clr-namespace:WpfApp1.View.Manager.Equipment" xmlns:val="clr-namespace:WpfApp1.Validation"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.Manager.Equipment.EquipmentRelocation"
         mc:Ignorable="d"
-        Title="EquipmentRelocation" Height="648" Width="784" ResizeMode="NoResize">
-    <Grid RenderTransformOrigin="0.507,0.582">
-        <Button  FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="179,513,0,10.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Cancel"/>
-        <ComboBox FontSize="30" x:Name="Room" Margin="241,79,158.6,469.4" Width="Auto" Text="{Binding TypeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="70"/>
-        <Button  FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="432,513,0,10.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Save"/>
-        <Label FontSize="40" Content="To room*:" Margin="10,88,555.6,469.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <DatePicker Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="241,203,0,0" VerticalAlignment="Top" Height="70" Width="378"/>
-        <TextBox Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" Margin="241,321,0,0"/>
-        <Label FontSize="40" Content="Date*:" Margin="10,203,555.6,345.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <Label FontSize="40" Content="Quantity*:" Margin="10,321,555.6,227.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        Title="EquipmentRelocation" Height="768" Width="1024" ResizeMode="NoResize">
+    <Grid>
+        <Button  FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="265,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Cancel"/>
+        <ComboBox FontSize="30" x:Name="Room" Margin="421,332,218.6,332.4" Width="Auto" RenderTransformOrigin="0.507,1.648" SelectionChanged="Room_SelectionChanged"/>
+        <Button  x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="572,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Save"/>
+        <Label FontSize="40" Content="To room*:" Margin="27,332,596.6,332.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <DatePicker x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="421,422,0,0" VerticalAlignment="Top" Height="76" Width="378" SelectedDateChanged="Date_SelectedDateChanged"/>
+        <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="378" Margin="421,513,0,0" TextChanged="TextChanged">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
+                        <AdornedElementPlaceholder x:Name="textBox" Grid.Row="0" Grid.Column="0"/>
+                        <TextBlock FontSize="20" Grid.Row="0" Grid.Column="1" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+            <Binding Path="QuantityTest" UpdateSourceTrigger="PropertyChanged">
+                <Binding.ValidationRules>
+                    <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
+                    <val:MinMaxQuantityValidationRule ValidationStep="ConvertedProposedValue"/>
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+        <Label FontSize="40" Content="Date*:" Margin="27,422,601.6,245.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="Quantity to relocate*:" Margin="27,513,601.6,150.4" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <Label FontSize="40" Margin="103,158,644.6,506.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <TextBox Name="FromRoom" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="421,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" RenderTransformOrigin="0.425,7.07"/>
+        <Label FontSize="40" Content="From room:" Margin="14,139,647.6,525.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="Equipment:" Margin="14,65,644.6,599.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="EquipmentName" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="421,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" RenderTransformOrigin="0.425,7.07"/>
+        <Label FontSize="40" Content="Max quantity:" Margin="14,213,596.6,451.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="MaxQuantity" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="421,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" RenderTransformOrigin="0.425,7.07"/>
     </Grid>
 </Window>
