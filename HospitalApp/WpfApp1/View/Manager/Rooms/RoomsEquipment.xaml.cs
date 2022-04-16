@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using WpfApp1.View.Manager.Equipment;
+
 namespace WpfApp1.View.Rooms
 {
     /// <summary>
@@ -21,6 +23,7 @@ namespace WpfApp1.View.Rooms
     public partial class RoomsEquipment : Window
     {
         public ObservableCollection<Equipment> Equipment { get; set; }
+        public static Equipment SelectedEquipment { get; set; }
         public RoomsEquipment()
         {
             InitializeComponent();
@@ -40,6 +43,14 @@ namespace WpfApp1.View.Rooms
 
         private void Button_Click_Relocation(object sender, RoutedEventArgs e)
         {
+
+            if(SelectedEquipment == null)
+            {
+                return;
+            }
+            EquipmentRelocation equipmentRelocationWindow = new EquipmentRelocation();
+            equipmentRelocationWindow.Show();
+
 
         }
     }

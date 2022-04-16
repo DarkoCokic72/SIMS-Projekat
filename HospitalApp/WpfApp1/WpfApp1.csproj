@@ -79,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\ExaminationAppointmentControler.cs" />
     <Compile Include="Controller\GuestAccountController.cs" />
     <Compile Include="Controller\OperationControler.cs" />
@@ -90,6 +91,8 @@
     <Compile Include="FileHandler\OperationFileHandler.cs" />
     <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\PatientFileHandler.cs" />
+    <Compile Include="FileHandler\RelocationFileHandler.cs" />
+    <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="FileHandler\SecretaryFileHandler.cs" />
     <Compile Include="Model\ExaminationAppointment.cs" />
@@ -104,6 +107,8 @@
     <Compile Include="Repo\OperationRepository.cs" />
     <Compile Include="Repo\PatientExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\PatientRepository.cs" />
+    <Compile Include="Repo\RelocationRepository.cs" />
+    <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />
     <Compile Include="Service\GuestAccountService.cs" />
     <Compile Include="Service\OperationService.cs" />
@@ -111,6 +116,9 @@
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Repo\EquipmentRepository.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
+    <Compile Include="View\Manager\Equipment\EquipmentRelocation.xaml.cs">
+      <DependentUpon>EquipmentRelocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\ManagerHomePage.xaml.cs">
       <DependentUpon>ManagerHomePage.xaml</DependentUpon>
     </Compile>
@@ -135,6 +143,10 @@
       <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\RoomService.cs" />
+    <Page Include="View\Manager\Equipment\EquipmentRelocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Manager\ManagerHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

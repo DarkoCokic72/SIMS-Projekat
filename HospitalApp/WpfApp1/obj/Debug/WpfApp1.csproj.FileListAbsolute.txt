@@ -161,3 +161,5 @@ C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.P
 C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
 C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Equipment\EquipmentRelocation.g.cs
+C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Manager\Equipment\EquipmentRelocation.baml
