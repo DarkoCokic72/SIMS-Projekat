@@ -41,7 +41,7 @@ namespace Service
 
       public List<Equipment> getEquipment(string roomId)
       {
-            return equipmentRepository.GetByRoomId(roomId);
+            return equipmentService.GetByRoomId(roomId);
       }
 
       public void moveEquipmentToWarehouse(string roomId)
@@ -55,7 +55,7 @@ namespace Service
                     warehouseId = r.Id;
                 }
             }
-            List<Equipment> allEquipment = equipmentRepository.GetAll();
+            List<Equipment> allEquipment = equipmentService.GetAll();
             bool inWarehouse = false;
             List<int> toRemove = new List<int>();
 
@@ -88,11 +88,11 @@ namespace Service
                 allEquipment.RemoveAt(toRemove[i]);
             }
 
-            equipmentRepository.Set(allEquipment);
+            equipmentService.UpdateAll(allEquipment);
       }
 
       public Repo.RoomRepository roomRepository;
-      public Repo.EquipmentRepository equipmentRepository = new EquipmentRepository();
+      public EquipmentService equipmentService = new EquipmentService();
 
       public RoomService(RoomRepository roomRepository)
       {

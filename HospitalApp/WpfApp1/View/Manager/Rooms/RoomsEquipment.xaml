@@ -18,7 +18,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid FontSize="40" ItemsSource="{Binding Path=Equipment}" HorizontalAlignment="Center" Height="388" Margin="22,0,26.6,10" VerticalAlignment="Bottom" Width="729" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" Grid.RowSpan="4" Grid.Row="1">
+        <DataGrid FontSize="40" ItemsSource="{Binding Path=Equipment}" SelectedItem="{Binding SelectedEquipment, Mode=TwoWay}" HorizontalAlignment="Center" Height="388" Margin="22,0,26.6,10" VerticalAlignment="Bottom" Width="729" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" Grid.RowSpan="4" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />

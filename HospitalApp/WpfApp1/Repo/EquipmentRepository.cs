@@ -32,7 +32,7 @@ namespace Repo
             return equipment;
       }
 
-      public void Set(List<Equipment> equipment)
+      public void UpdateAll(List<Equipment> equipment)
       {
             equipmentFileHandler.Save(equipment);
       }
