@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.View.Manager.Equipment;
 
 namespace WpfApp1.View.Manager
 {
@@ -32,6 +33,13 @@ namespace WpfApp1.View.Manager
             roomsWindow.Show();
             Close();
 
+        }
+
+        private void Button_Click_Equipment(object sender, RoutedEventArgs e)
+        {
+            AllEquipment allEquipmentWindow = new AllEquipment();
+            allEquipmentWindow.Show();
+            Close();
         }
     }
 }

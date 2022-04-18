@@ -4,12 +4,17 @@
 // Purpose: Definition of Class EquipmentController
 
 using System;
+using System.Collections.Generic;
 using Model;
 
 namespace Controller
 {
    public class EquipmentController
    {
+      public List<Equipment> GetAll()
+      {
+            return equipmentService.GetAll();
+      }
       public void Relocate()
       {
             equipmentService.Relocate();   

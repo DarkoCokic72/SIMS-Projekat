@@ -25,6 +25,13 @@
                 <MenuItem Header="Scheduling&#x0a;renovation"  Height="106" Width="400"/>
             </MenuItem>
         </Menu>
+        <Menu  FontSize="40" Margin="55.2,161,53.6,105.6" Width="400" Grid.Column="1">
+            <MenuItem Header="         Equipment" Height="102" Width="400">
+                <MenuItem Header="List of equipment"  Height="82" Click="Button_Click_Equipment" Width="400"/>
+                <Separator BorderThickness="1" BorderBrush="Black"/>
+                <MenuItem Header="Download report"  Height="106" Width="400"/>
+            </MenuItem>
+        </Menu>
 
     </Grid>
 </Window>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
-81749194064
+9-1717954860
 
-64-407602790
+65-638258304
 161641793027
-View\Manager\Equipment\EquipmentRelocation.xaml;View\Manager\ManagerHomePage.xaml;View\Manager\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Manager\Rooms\RoomsDelete.xaml;View\Manager\Rooms\RoomsEdit.xaml;View\Manager\Rooms\RoomsEquipment.xaml;View\Manager\Rooms\RoomsWindow.xaml;
+View\Manager\Equipment\AllEquipment.xaml;View\Manager\Equipment\EquipmentRelocation.xaml;View\Manager\ManagerHomePage.xaml;View\Manager\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Manager\Rooms\RoomsDelete.xaml;View\Manager\Rooms\RoomsEdit.xaml;View\Manager\Rooms\RoomsEquipment.xaml;View\Manager\Rooms\RoomsWindow.xaml;
 
 False
 

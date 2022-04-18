@@ -117,6 +117,9 @@
     <Compile Include="Repo\EquipmentRepository.cs" />
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
+    <Compile Include="View\Manager\Equipment\AllEquipment.xaml.cs">
+      <DependentUpon>AllEquipment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\Equipment\EquipmentRelocation.xaml.cs">
       <DependentUpon>EquipmentRelocation.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\RoomService.cs" />
+    <Page Include="View\Manager\Equipment\AllEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Manager\Equipment\EquipmentRelocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
