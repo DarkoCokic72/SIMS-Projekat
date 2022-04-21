@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-C:\Users\smvul\Desktop\ana\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\App.xaml
 9-1717954860
 
-65-638258304
-161641793027
+66-1480617671
+16-947607366
 View\Manager\Equipment\AllEquipment.xaml;View\Manager\Equipment\EquipmentRelocation.xaml;View\Manager\ManagerHomePage.xaml;View\Manager\Rooms\CreateRoom.xaml;MainWindow.xaml;View\Manager\Rooms\RoomsDelete.xaml;View\Manager\Rooms\RoomsEdit.xaml;View\Manager\Rooms\RoomsEquipment.xaml;View\Manager\Rooms\RoomsWindow.xaml;
 
-False
+True
 
