@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
        
-       Title="Zdravo hospital" Height="450" Width="816.253">
+       Title="Zdravo hospital" Height="581" Width="898.253">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -17,7 +17,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button  FontSize="40" Content="Rooms" Margin="65,51,65,51" Width="Auto" Click="Button_Click" Height="Auto"/>
-        <Button  FontSize="40" Content="Patient&#xD;&#xA;Appointment" Margin="65,51,65,51" Width="Auto" Click="Button_Click" Height="Auto" Grid.Row="1"/>
+        <Button  FontSize="40" Content="Patient&#xD;&#xA;Appointment" Margin="67,51,63,51" Width="Auto" Click="Button_Click" Height="Auto" Grid.Column="1"/>
+        <Button  FontSize="40" Content="Patients" Margin="65,47,65,55" Width="Auto" Click="Button_Click" Height="Auto" Grid.Row="1"/>
 
     </Grid>
 </Window>

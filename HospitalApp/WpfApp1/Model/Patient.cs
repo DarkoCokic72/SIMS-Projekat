@@ -10,10 +10,9 @@ namespace Model
 {
    public class Patient : UserAccount
    {
-      private string middleName;
-      private DateTime dateOfBirth;
-      private string bloodGroup;
-      
+      public DateTime dateOfBirth { get; set; }
+      public BloodGroup bloodGroup { get; set; }
+
       public System.Collections.Generic.List<PatientExaminationAppointment> patientExaminationAppointment;
       
       /// <summary>
@@ -75,6 +74,18 @@ namespace Model
          if (patientExaminationAppointment != null)
             patientExaminationAppointment.Clear();
       }
-   
-   }
+
+      public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
+        {
+            this.email = email;
+            this.password = password;
+            this.name = name;
+            this.surname = surname;
+            this.phoneNumber = phoneNumber;
+            this.uniquePersonalNumber = uniquePersonalNumber;
+            this.dateOfBirth = dateOfBirth;
+            this.bloodGroup = bloodGroup;
+        }
+
+    }
 }

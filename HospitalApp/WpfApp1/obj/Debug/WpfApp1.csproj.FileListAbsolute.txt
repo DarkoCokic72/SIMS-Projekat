@@ -125,3 +125,39 @@ D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\D
 D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
 D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.exe
 D:\FAKS\TRECA GODINA\DRUGI SEMESTAR\SIMS\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\WpfApp1.exe.config
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\WpfApp1.exe
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\WpfApp1.pdb
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Newtonsoft.Json.dll
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Syncfusion.Licensing.dll
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Syncfusion.Shared.WPF.dll
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Newtonsoft.Json.xml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\bin\Debug\Syncfusion.Shared.WPF.xml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.AssemblyReference.cache
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\CreateRoom.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\MainWindow.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsDelete.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsEdit.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsRead.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsWindow.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\App.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\CreateRoom.baml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\MainWindow.baml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsDelete.baml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsEdit.baml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsRead.baml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Rooms\RoomsWindow.baml
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.g.resources
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.exe
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Patients\CreatePatient.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Patients\PatientsDelete.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Patients\PatientsEdit.g.cs
+D:\sims\SIMS-Projekat\HospitalApp\WpfApp1\obj\Debug\View\Patients\PatientsWindow.g.cs

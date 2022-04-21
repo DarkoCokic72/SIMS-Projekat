@@ -10,18 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
 
-        public MainWindow()
+    public partial class PatientsDelete : Window
+    {
+        public PatientsDelete()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -29,19 +26,22 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             Button btn = (Button)sender;
-            if (btn.Content.Equals("Rooms"))
+            if (btn.Content.Equals("No"))
             {
-                RoomsWindow roomsWindow = RoomsWindow.GetRoomsWindow();
-                roomsWindow.Show();
-            } else if(btn.Content.Equals("Patients"))
+                Close();
+            }
+            else if (btn.Content.Equals("Yes"))
             {
-                PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
-                patientsWindow.Show();
+                Patient patient = PatientsWindow.patientsWindowInstance.getSelectedPatient();
+                PatientsWindow.patientController.Remove(patient.uniquePersonalNumber);
+
+                PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
+                Close();
+
             }
 
         }
-
-
     }
 }
