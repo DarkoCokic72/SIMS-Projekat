@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Controller;
+using Model;
 using Service;
 using WpfApp1.View.Manager;
 
@@ -23,25 +25,28 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static Thread Thread { get; set; }
+
+        private static EquipmentController equipmentController = new EquipmentController();
+        public static Thread thread = new Thread(() =>
+        {
+            while (true)
+            {
+                equipmentController.Relocate();   
+            }
+        });
+
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
-            startRelocationThread();    
-        }
 
-        public static void startRelocationThread()
-        {
-            EquipmentService equipmentService = new EquipmentService();
-            Thread = new Thread(equipmentService.Relocate);
-            Thread.Start();
+            thread.Start();
+             
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            Thread.Abort();
+            thread.Abort();
             
         }
 

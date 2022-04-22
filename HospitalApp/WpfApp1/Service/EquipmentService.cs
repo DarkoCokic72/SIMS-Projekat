@@ -31,38 +31,45 @@ namespace Service
         {
             while (true)
             {
+                bool equipmentInRoomExists = false;
                 System.DateTime currentDate = DateTime.Now;
                 List<Equipment> allEquipment = equipmentRepository.GetAll();
                 foreach (Relocation r in relocationRepository.GetAll())
                 {
                     if (r.Date.ToString("yyyy-MM-dd").Equals(currentDate.ToString("yyyy-MM-dd")))
                     {
+                        
                         //first take equipment from room
                         for (int i = 0; i < allEquipment.Count; i++)
                         {
-                            if (allEquipment[i].Room == r.Equipment.Room && allEquipment[i].Id == r.Equipment.Id)
+                            if ((allEquipment[i].Room == r.Equipment.Room) && (allEquipment[i].Id == r.Equipment.Id))
                             {
-
+                               
                                 allEquipment[i].Quantity -= r.QuantityToRelocate;
                                 if (allEquipment[i].Quantity == 0)
                                 {
                                     allEquipment.RemoveAt(i);
-
                                 }
+
+                                break;
 
                             }
 
                         }
 
+                       
+
                         //now we put equipment in new room
-                        bool equipmentInRoomExists = false;
                         for (int i = 0; i < allEquipment.Count; i++)
                         {
-                            if (allEquipment[i].Room == r.ToRoom && allEquipment[i].Id == r.Equipment.Id) //equipment with that id alredy exist in room in which we want to relocate equipment
+                            Console.WriteLine("Fajl" + allEquipment[i].Room);
+                            Console.WriteLine("u sobu:" + r.ToRoom);
+                            if ((allEquipment[i].Room == r.ToRoom) && (allEquipment[i].Id == r.Equipment.Id)) //equipment with that id alredy exist in room in which we want to relocate equipment
                             {
-
+                                
                                 allEquipment[i].Quantity += r.QuantityToRelocate;
                                 equipmentInRoomExists = true;
+                                break;
 
                             }
 
@@ -74,9 +81,11 @@ namespace Service
                         }
 
 
-                        relocationRepository.Delete(r);
+                        equipmentInRoomExists = false;
                         equipmentRepository.UpdateAll(allEquipment);
-
+                        relocationRepository.Delete(r);
+                        break;
+                        
                     }
 
                 }

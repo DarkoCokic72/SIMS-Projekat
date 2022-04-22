@@ -34,9 +34,8 @@ namespace WpfApp1
             }
             else if(btn.Content.Equals("Yes"))
             {
-                Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
-                RoomsWindow.roomController.Remove(room.Id);
-
+                Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom(); 
+                RoomsWindow.roomController.Remove(room.Id);          
                 RoomsWindow.roomsWindowInstance.refreshContentOfGrid();
                 Close();
                
