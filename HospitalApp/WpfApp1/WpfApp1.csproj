@@ -93,6 +93,7 @@
     <Compile Include="FileHandler\PatientFileHandler.cs" />
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="Model\Relocation.cs" />
+    <Compile Include="Model\BloodGroup.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="FileHandler\SecretaryFileHandler.cs" />
     <Compile Include="Model\ExaminationAppointment.cs" />
@@ -133,6 +134,18 @@
     <Compile Include="View\Manager\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Patients\CreatePatient.xaml.cs">
+      <DependentUpon>CreatePatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patients\PatientsDelete.xaml.cs">
+      <DependentUpon>PatientsDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patients\PatientsEdit.xaml.cs">
+      <DependentUpon>PatientsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patients\PatientsWindow.xaml.cs">
+      <DependentUpon>PatientsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repo\RoomRepository.cs" />
     <Compile Include="View\Manager\Rooms\RoomsDelete.xaml.cs">
       <DependentUpon>RoomsDelete.xaml</DependentUpon>
@@ -160,6 +173,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patients\CreatePatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patients\PatientsDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patients\PatientsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patients\PatientsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Service;
 
 namespace Controller
 {
@@ -14,28 +15,35 @@ namespace Controller
    {
       public List<Patient> GetAll()
       {
-         throw new NotImplementedException();
-      }
+            return patientService.GetAll();
+        }
       
       public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
       {
-         throw new NotImplementedException();
-      }
+            return patientService.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
       
-      public void Addd(Patient patient)
+      public void Add(Patient patient)
       {
-         throw new NotImplementedException();
-      }
+            patientService.Add(patient);
+        }
       
       public void Update(Patient patient)
       {
-         throw new NotImplementedException();
-      }
+            patientService.Update(patient);
+        }
       
-      public void Delete(string id)
+      public void Remove(string id)
       {
-         throw new NotImplementedException();
-      }
-   
-   }
+            patientService.Remove(id);
+        }
+
+      public Service.PatientService patientService;
+
+      public PatientController(PatientService patientService)
+        {
+            this.patientService = patientService;
+        }
+
+    }
 }

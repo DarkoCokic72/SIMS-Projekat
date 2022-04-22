@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Repo;
 
 namespace Service
 {
@@ -14,28 +15,37 @@ namespace Service
    {
       public List<Patient> GetAll()
       {
-         throw new NotImplementedException();
-      }
+            return patientRepository.GetAll();
+        }
       
       public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
       {
-         throw new NotImplementedException();
-      }
+            return patientRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
       
-      public void Addd(Patient patient)
+      public void Add(Patient patient)
       {
-         throw new NotImplementedException();
-      }
+            patientRepository.Add(patient);
+        }
       
       public void Update(Patient patient)
       {
-         throw new NotImplementedException();
-      }
+            patientRepository.Update(patient);
+        }
       
-      public void Delete(string id)
+      public void Remove(string id)
       {
-         throw new NotImplementedException();
-      }
-   
-   }
+            patientRepository.Remove(id);
+        }
+
+      public Repo.PatientRepository patientRepository;
+
+      public PatientService(PatientRepository PatientRepository)
+        {
+
+            this.patientRepository = patientRepository;
+
+        }
+
+    }
 }

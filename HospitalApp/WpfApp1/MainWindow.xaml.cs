@@ -50,9 +50,19 @@ namespace WpfApp1
             Button btn = (Button)sender;
             if (btn.Content.Equals("Manager"))
             {
+
                 ManagerHomePage managerHomePage = new ManagerHomePage();
                 managerHomePage.Show();
+             
+            } else if(btn.Content.Equals("Patients"))
+            {
+                PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
+                patientsWindow.Show();
+
             }
+
         }
+
+
     }
 }

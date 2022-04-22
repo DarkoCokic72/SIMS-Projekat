@@ -4,25 +4,31 @@
  * Purpose: Definition of the Class FileHandler.PatientFileHandler
  ***********************************************************************/
 
-using System;
 using System.Collections.Generic;
 using Model;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace FileHandler
 {
    public class PatientFileHandler
    {
-      private string path;
       
-      public List<Patient> read()
+      public List<Patient> Read()
       {
-         throw new NotImplementedException();
-      }
+            string patientsSerialized = System.IO.File.ReadAllText(path);
+            List<Patient> patients = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Patient>>(patientsSerialized);
+            return patients;
+        }
       
-      public void write(ref List<Patient> patients)
+      public void Save(List<Patient> patients)
       {
-         throw new NotImplementedException();
-      }
-   
-   }
+            string patientsSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(patients);
+            System.IO.File.WriteAllText(path, patientsSerialized);
+        }
+
+        private string path = @"..\..\Data\Patients.txt";
+
+    }
 }
