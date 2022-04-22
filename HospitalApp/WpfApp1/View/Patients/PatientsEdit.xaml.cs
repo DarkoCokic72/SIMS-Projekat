@@ -153,7 +153,7 @@ namespace WpfApp1
             BloodGroupBinding = patient.bloodGroup;
             EmailBinding = patient.email;
             PhoneNumBinding = patient.phoneNumber;
-            DateOfBirthBinding = patient.dateOfBirth;
+            //DateOfBirthBinding = patient.dateOfBirth;
             PasswordBinding = patient.password;
 
             Validation.MinMaxValidationRule.ValidationHasError = false;
@@ -174,7 +174,7 @@ namespace WpfApp1
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            if (UPNBinding == patient.uniquePersonalNumber && NameBinding == patient.name && SurnameBinding == patient.surname && BloodGroupBinding == patient.bloodGroup && EmailBinding == patient.email && PhoneNumBinding == patient.phoneNumber && DateOfBirthBinding == patient.dateOfBirth && PasswordBinding == patient.password)
+           /* if (UPNBinding == patient.uniquePersonalNumber && NameBinding == patient.name && SurnameBinding == patient.surname && BloodGroupBinding == patient.bloodGroup && EmailBinding == patient.email && PhoneNumBinding == patient.phoneNumber && DateOfBirthBinding == patient.dateOfBirth && PasswordBinding == patient.password)
             {
                 SaveBtn.IsEnabled = false;
             }
@@ -189,7 +189,7 @@ namespace WpfApp1
             else
             {
                 SaveBtn.IsEnabled = true;
-            }
+            }*/
         }
 
 
@@ -205,7 +205,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                PatientsWindow.patientController.Update(new Patient(NameBinding, SurnameBinding, EmailBinding, UPNBinding, BloodGroupBinding, PhoneNumBinding, DateOfBirthBinding, PasswordBinding));
+                //PatientsWindow.patientController.Update(new Patient(NameBinding, SurnameBinding, EmailBinding, UPNBinding,(BloodGroup)BloodGroupBinding, PhoneNumBinding, DateOfBirthBinding, PasswordBinding));
 
                 if (editedPatient == true)
                 {

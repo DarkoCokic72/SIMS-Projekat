@@ -154,7 +154,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
+                //PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
                 
                 if (addedPatient == true)
                 {
