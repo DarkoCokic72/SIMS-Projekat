@@ -31,6 +31,7 @@ namespace WpfApp1.View.Manager.Rooms
         private List<System.DateTime> dates;
         private string roomId;
         private string description;
+        private RoomController roomController = new RoomController();
         public BasicRenovation(string _roomId,string _description)
         {
             InitializeComponent();
@@ -39,15 +40,11 @@ namespace WpfApp1.View.Manager.Rooms
             roomId = _roomId;
             description = _description;
 
-            ExaminationAppointmentFileHandler examinationAppointmentFileHandler = new ExaminationAppointmentFileHandler();
-            ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository(examinationAppointmentFileHandler);
-            ExaminationAppointmentService examinationAppointmentService = new ExaminationAppointmentService(examinationAppointmentRepository);
-            ExaminationAppointmentControler examinationAppointmentController = new ExaminationAppointmentControler(examinationAppointmentService);
+            List<System.DateTime> busyDates = roomController.getBusyDates(roomId);
 
-            List<ExaminationAppointment> appointments = examinationAppointmentController.GetAll();
-
-            foreach(ExaminationAppointment e in appointments) {
-                Calendar.BlackoutDates.Add(new CalendarDateRange(e.DateOfAppointment, e.DateOfAppointment));
+            foreach (DateTime d in busyDates)
+            {
+                Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
             }
 
             SelectedDates = new List<System.DateTime>();
@@ -62,7 +59,6 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             dates = new List<System.DateTime>((IEnumerable<DateTime>)List.ItemsSource);
-            RoomController roomController = new RoomController();
             roomController.SchedulingRenovation(new Model.Renovation(roomId, description, dates[0], dates[dates.Count - 1]));
             Close();
         }

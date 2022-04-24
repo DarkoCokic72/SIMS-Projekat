@@ -51,6 +51,11 @@ namespace Controller
             roomService.SchedulingRenovation(renovation);
         }
 
+        public List<System.DateTime> getBusyDates(string roomId)
+        {
+            return roomService.getBusyDates(roomId);
+        }
+
         public Service.RoomService roomService = new RoomService();
        
     }

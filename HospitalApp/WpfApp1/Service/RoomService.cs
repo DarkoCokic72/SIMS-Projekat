@@ -102,10 +102,28 @@ namespace Service
             renovationRepository.Create(renovation);
       }
 
+      public List<System.DateTime> getBusyDates(string roomId)
+      {
+            List<System.DateTime> dates = new List<DateTime>();
+            List<ExaminationAppointment> allAppointments = examinationAppointmentRepository.GetAll();
+
+            foreach (ExaminationAppointment e in allAppointments)
+            {
+                if (e.Room == roomId)
+                {
+                    dates.Add(e.DateOfAppointment);
+                }
+
+            }
+
+            return dates;
+
+      }
+
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();
       public RenovationRepository renovationRepository = new RenovationRepository();
+      public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository(new WpfApp1.FileHandler.ExaminationAppointmentFileHandler());
 
-
-   }
+    }
 }
