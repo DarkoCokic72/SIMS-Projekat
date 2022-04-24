@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Model;
 using Repo;
 using WpfApp1.Model;
@@ -115,6 +116,25 @@ namespace Service
                 }
 
             }
+
+            List<Renovation> allRenovations = renovationRepository.GetAll();
+
+            foreach(Renovation r in allRenovations) 
+            {
+                if(r.Room == roomId) 
+                {
+                    
+                    dates.Add(r.StartDate);
+                    for(int i=1; i < r.Duration; i++)
+                    {
+                        dates.Add(r.StartDate.AddDays(i));
+                    }
+                   
+
+                }
+            }
+
+            dates.Distinct();
 
             return dates;
 

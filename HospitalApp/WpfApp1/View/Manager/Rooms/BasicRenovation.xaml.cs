@@ -101,8 +101,8 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
-            DateTime endDate = startDate.AddDays(int.Parse(Duration.Text) - 1);
-            roomController.SchedulingRenovation(new Model.Renovation(roomId, description, startDate, endDate));
+            
+            roomController.SchedulingRenovation(new Model.Renovation(roomId, description, startDate, int.Parse(Duration.Text)));
             Close();
         }
 

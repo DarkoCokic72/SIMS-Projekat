@@ -12,15 +12,15 @@ namespace WpfApp1.Model
         public string Room { get; set; }
         public string Description { get; set; }
         public System.DateTime StartDate { get; set; }
-        public System.DateTime EndDate { get; set; }
+        public int Duration { get; set; }
 
-        public Renovation(string room, string description, System.DateTime startDate, System.DateTime endDate)
+        public Renovation(string room, string description, System.DateTime startDate, int duration)
         {
             Id = System.Guid.NewGuid();
             this.Room = room;
             this.Description = description;
             this.StartDate = startDate;
-            this.EndDate = endDate;
+            this.Duration = duration;
         }
 
     }

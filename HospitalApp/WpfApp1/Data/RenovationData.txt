@@ -1,1 +1,1 @@
-[{"Id":"ad224084-8404-4afc-a4dd-298898a01aa6","Room":"R3","Description":"w","StartDate":"2022-04-26T00:00:00","EndDate":"2022-04-27T00:00:00"}]
+[{"Id":"156d530d-39a8-4d5d-b48c-fde7c70a1a80","Room":"R2","Description":"1","StartDate":"2022-04-25T00:00:00","Duration":2}]
