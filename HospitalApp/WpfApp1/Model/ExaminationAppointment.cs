@@ -4,15 +4,18 @@ namespace Model
 {
     public class ExaminationAppointment
     {
-        private Physician Physician { get; set; }
-        private Patient Patient { get; set; }
-        private DateTime DateOfAppointment { get; set; }
+        public string Physician { get; set; }
+        public string Patient { get; set; }
+        public string Room { get; set; }
+        public DateTime DateOfAppointment { get; set; }
         public string Id { get; set; }
+        
 
-        public ExaminationAppointment(Physician physician, Patient patient, DateTime date, string id) 
+        public ExaminationAppointment(string physician, string patient, string room, DateTime date, string id) 
         {
             this.Physician = physician;
             this.Patient = patient;
+            this.Room = room;
             this.DateOfAppointment = date;
             this.Id = id;
         }

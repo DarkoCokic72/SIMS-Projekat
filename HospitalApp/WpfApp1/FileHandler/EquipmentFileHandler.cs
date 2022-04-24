@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Model;
+using WpfApp1.Model;
 
 namespace FileHandler
 {

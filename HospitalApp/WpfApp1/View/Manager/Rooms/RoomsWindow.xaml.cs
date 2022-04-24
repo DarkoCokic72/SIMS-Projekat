@@ -38,10 +38,7 @@ namespace WpfApp1
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             
-            RoomFileHandler fileHandler = new RoomFileHandler();
-            RoomRepository repository = new RoomRepository(fileHandler);
-            RoomService service = new RoomService(repository);
-            roomController = new RoomController(service);
+            roomController = new RoomController();
 
             Rooms = new ObservableCollection<Room>(roomController.GetAll());      
         }

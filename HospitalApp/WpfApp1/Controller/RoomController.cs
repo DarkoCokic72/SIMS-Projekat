@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Model;
 using Service;
+using WpfApp1.Model;
 
 namespace Controller
 {
@@ -45,12 +46,12 @@ namespace Controller
             return roomService.getEquipment(roomId);
         }
 
-       public Service.RoomService roomService;
-       
-       public RoomController(RoomService roomService)
-       {
-            this.roomService = roomService;
-       }
+        public void SchedulingRenovation(Renovation renovation)
+        {
+            roomService.SchedulingRenovation(renovation);
+        }
 
+        public Service.RoomService roomService = new RoomService();
+       
     }
 }

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Model;
 using Repo;
+using WpfApp1.Model;
 
 namespace Service
 {
@@ -96,15 +97,15 @@ namespace Service
             equipmentService.UpdateAll(allEquipment);
       }
 
-      public Repo.RoomRepository roomRepository;
-      public EquipmentService equipmentService = new EquipmentService();
-
-      public RoomService(RoomRepository roomRepository)
+      public void SchedulingRenovation(Renovation renovation)
       {
-
-            this.roomRepository = roomRepository;
-
+            renovationRepository.Create(renovation);
       }
+
+      public Repo.RoomRepository roomRepository = new RoomRepository();
+      public EquipmentService equipmentService = new EquipmentService();
+      public RenovationRepository renovationRepository = new RenovationRepository();
+
 
    }
 }

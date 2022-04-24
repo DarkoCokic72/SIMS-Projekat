@@ -3,13 +3,12 @@
 // Created: Friday, April 15, 2022 7:52:54 PM
 // Purpose: Definition of Class EquipmentRepository
 
-using System;
 using System.Collections.Generic;
-using Model;
+using WpfApp1.Model;
 
 namespace Repo
 {
-   public class EquipmentRepository
+    public class EquipmentRepository
    {
       public List<Equipment> GetAll()
       {

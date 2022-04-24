@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Relocation
 
 using System;
+using WpfApp1.Model;
 
 namespace Model
 {

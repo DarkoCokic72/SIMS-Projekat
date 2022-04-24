@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using WpfApp1.Model;
 using WpfApp1.View.Rooms;
 
 namespace Service

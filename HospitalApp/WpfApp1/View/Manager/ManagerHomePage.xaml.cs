@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.View.Manager.Equipment;
+using WpfApp1.View.Manager.Rooms;
 
 namespace WpfApp1.View.Manager
 {
@@ -40,6 +41,12 @@ namespace WpfApp1.View.Manager
             AllEquipment allEquipmentWindow = new AllEquipment();
             allEquipmentWindow.Show();
             Close();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            BasicRenovation1 basicRenovationWindow = new BasicRenovation1();
+            basicRenovationWindow.Show();
         }
     }
 }

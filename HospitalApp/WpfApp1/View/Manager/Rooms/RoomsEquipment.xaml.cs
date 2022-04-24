@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using WpfApp1.Model;
 using WpfApp1.View.Manager.Equipment;
 
 namespace WpfApp1.View.Rooms

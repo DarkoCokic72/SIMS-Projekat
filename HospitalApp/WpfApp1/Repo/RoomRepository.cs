@@ -91,13 +91,7 @@ namespace Repo
             roomFileHandler.Save(listOfRooms);
       }
 
-       public FileHandler.RoomFileHandler roomFileHandler;
-
-       public RoomRepository(RoomFileHandler fileHandler)
-       {
-            roomFileHandler = fileHandler;
-       }
-
+       public FileHandler.RoomFileHandler roomFileHandler = new RoomFileHandler();
 
     }
 }
