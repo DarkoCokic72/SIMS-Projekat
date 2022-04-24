@@ -37,7 +37,7 @@ namespace WpfApp1.View.Manager.Rooms
 
             Room.ItemsSource = roomsId;
 
-
+            NextBtn.IsEnabled = false;
         }
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
@@ -49,6 +49,31 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Description_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Description.Text) && !string.IsNullOrEmpty((string)Room.SelectedItem)) 
+            {
+                NextBtn.IsEnabled = true;    
+            }
+            else
+            {
+                NextBtn.IsEnabled = false;
+            }
+        }
+
+        private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Description.Text) && !string.IsNullOrEmpty((string)Room.SelectedItem))
+            {
+                NextBtn.IsEnabled = true;
+            }
+            else
+            {
+                NextBtn.IsEnabled = false;
+            }
+
         }
     }
 }

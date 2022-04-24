@@ -51,6 +51,7 @@ namespace WpfApp1.View.Manager.Rooms
             }
 
             SelectedDates = new List<System.DateTime>();
+            ScheduleBtn.IsEnabled = false;
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
@@ -66,5 +67,9 @@ namespace WpfApp1.View.Manager.Rooms
             Close();
         }
 
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ScheduleBtn.IsEnabled = true;
+        }
     }
 }

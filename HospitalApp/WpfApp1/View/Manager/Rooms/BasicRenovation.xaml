@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="Scheduling Renovation" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <Viewbox Margin="0,116,-0.4,106.4">
-            <Calendar Name="Calendar" SelectionMode="SingleRange" Height="168" Width="289" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
+        <Viewbox Margin="280,92,-0.4,111.4">
+            <Calendar Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleRange" Height="166" Width="215" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
                 <Calendar.CalendarDayButtonStyle >
                     <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
                         <Style.Triggers>
@@ -24,11 +24,12 @@
         </Viewbox>
         <ListBox Visibility="Hidden" Name="List" ItemsSource="{Binding ElementName=Calendar, Path=SelectedDates}" MinHeight="150" Margin="64,301,848.6,287.4" />
         <Button FontSize="40" Content="Back" Margin="206,632,565.6,21.4" Width="Auto" Click="Button_Click_Back"/>
-        <Button FontSize="40" Content="Schedule" Margin="565,632,206.6,21.4" Width="Auto" Click="Button_Click_Schedule"/>
+        <Button Name="ScheduleBtn" FontSize="40" Content="Schedule" Margin="565,632,206.6,21.4" Width="Auto" Click="Button_Click_Schedule"/>
         <Button Margin="21,15,932.6,659.4" Height="64" Width="64" Background="White" BorderThickness="0"/>
         <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0">
             <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
         </Button>
+        <Label FontSize="40" Content="Select days&#xD;&#xA;for&#xD;&#xA;renovation*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,272,0,0" Height="198"/>
 
     </Grid>
 </Window>
