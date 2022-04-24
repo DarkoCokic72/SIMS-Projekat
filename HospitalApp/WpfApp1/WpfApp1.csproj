@@ -121,6 +121,7 @@
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Repo\EquipmentRepository.cs" />
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
+    <Compile Include="Validation\RenovationValidation.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
     <Compile Include="View\Manager\Equipment\AllEquipment.xaml.cs">
       <DependentUpon>AllEquipment.xaml</DependentUpon>

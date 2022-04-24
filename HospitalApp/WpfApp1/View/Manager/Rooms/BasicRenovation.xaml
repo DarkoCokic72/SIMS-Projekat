@@ -4,12 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:local="clr-namespace:WpfApp1.View.Manager.Rooms"
+        xmlns:val="clr-namespace:WpfApp1.Validation" 
+        xmlns:local="clr-namespace:WpfApp1" d:DataContext="{d:DesignInstance Type=local:RoomsEdit}"
         mc:Ignorable="d"
-        Title="Scheduling Renovation" Height="768" Width="1024" ResizeMode="NoResize">
+         Title="Edit room" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <Viewbox Margin="280,92,-0.4,111.4">
-            <Calendar Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleRange" Height="166" Width="215" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Viewbox Margin="291,112,76.6,187.4">
+            <Calendar Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="181" Width="208" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
                 <Calendar.CalendarDayButtonStyle >
                     <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
                         <Style.Triggers>
@@ -22,14 +27,38 @@
                 </Calendar.CalendarDayButtonStyle>
             </Calendar>
         </Viewbox>
-        <ListBox Visibility="Hidden" Name="List" ItemsSource="{Binding ElementName=Calendar, Path=SelectedDates}" MinHeight="150" Margin="64,301,848.6,287.4" />
+        <Label FontSize="40" Content="Duration in days*:" Margin="35,527,630.6,143.4" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <TextBox FontSize="40" Name="Duration" Margin="402,508,182.6,143.4" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged">
+            <TextBox.Text>
+                <Binding Path="DurationBinding" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource">
+                    <Binding.ValidationRules>
+                        <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
+                        <val:MaxDurationValidationRule ValidationStep="ConvertedProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label FontSize="40" Content="Select start day*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,301,0,0" Height="75" Width="323"/>
         <Button FontSize="40" Content="Back" Margin="206,632,565.6,21.4" Width="Auto" Click="Button_Click_Back"/>
         <Button Name="ScheduleBtn" FontSize="40" Content="Schedule" Margin="565,632,206.6,21.4" Width="Auto" Click="Button_Click_Schedule"/>
-        <Button Margin="21,15,932.6,659.4" Height="64" Width="64" Background="White" BorderThickness="0"/>
         <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0">
             <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
         </Button>
-        <Label FontSize="40" Content="Select days&#xD;&#xA;for&#xD;&#xA;renovation*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,272,0,0" Height="198"/>
-
     </Grid>
 </Window>

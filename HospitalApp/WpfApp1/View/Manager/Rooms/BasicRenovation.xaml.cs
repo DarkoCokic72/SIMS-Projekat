@@ -25,31 +25,74 @@ namespace WpfApp1.View.Manager.Rooms
     /// <summary>
     /// Interaction logic for BasicRenovation.xaml
     /// </summary>
-    public partial class BasicRenovation : Window
+    public partial class BasicRenovation : Window, INotifyPropertyChanged
     {
-        public static List<System.DateTime> SelectedDates { get; set; }
-        private List<System.DateTime> dates;
+        private RoomController roomController = new RoomController();
         private string roomId;
         private string description;
-        private RoomController roomController = new RoomController();
-        public BasicRenovation(string _roomId,string _description)
+        public static List<System.DateTime> busyDates;
+        public static DateTime startDate;
+
+        private int durationBinding;
+        public int DurationBinding
         {
+            get
+            {
+                return durationBinding;
+            }
+            set
+            {
+                durationBinding = value;
+                OnPropertyChanged("DurationBinding");
+            }
+        }
+
+
+        public BasicRenovation(string _roomId, string _description)
+        {
+
             InitializeComponent();
+            this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.DataContext = this.
+
             roomId = _roomId;
             description = _description;
 
-            List<System.DateTime> busyDates = roomController.getBusyDates(roomId);
+            busyDates = roomController.getBusyDates(roomId);
 
             foreach (DateTime d in busyDates)
             {
                 Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
             }
 
-            SelectedDates = new List<System.DateTime>();
             ScheduleBtn.IsEnabled = false;
+            Validation.StringToIntegerValidationRule.ValidationHasError = false;
+            Validation.MaxDurationValidationRule.ValidationHasError = false;
+
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
+            {
+                ScheduleBtn.IsEnabled = true;
+            }
+            else
+            {
+                ScheduleBtn.IsEnabled = false;
+            }
+
+        }
+
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
@@ -58,14 +101,25 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
-            dates = new List<System.DateTime>((IEnumerable<DateTime>)List.ItemsSource);
-            roomController.SchedulingRenovation(new Model.Renovation(roomId, description, dates[0], dates[dates.Count - 1]));
+            DateTime endDate = startDate.AddDays(int.Parse(Duration.Text) - 1);
+            roomController.SchedulingRenovation(new Model.Renovation(roomId, description, startDate, endDate));
             Close();
         }
 
+
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            ScheduleBtn.IsEnabled = true;
+            startDate = (DateTime)Calendar.SelectedDate;
+            if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
+            {
+                ScheduleBtn.IsEnabled = true;
+            }
+            else
+            {
+               ScheduleBtn.IsEnabled = false;
+            }
         }
+
     }
+
 }
