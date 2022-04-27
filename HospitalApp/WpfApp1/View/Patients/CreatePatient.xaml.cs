@@ -12,7 +12,7 @@ namespace WpfApp1
     public partial class CreatePatient : Window
     {
 
-        public static Boolean addedPatient = false;
+        public static bool addedPatient = false;
         public CreatePatient()
         {
             InitializeComponent();
@@ -20,9 +20,9 @@ namespace WpfApp1
             ComboBox.ItemsSource = Enum.GetValues(typeof(BloodGroup)).Cast<BloodGroup>();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            Validation.MinMaxValidationRule.ValidationHasError = false;
-            Validation.StringToIntegerValidationRule.ValidationHasError = false;
-            Validation.IdValidationRule.ValidationHasError = false;
+           
+            Validation.UPNValidation.ValidationError = false;
+            DateOfBirthBinding = DateTime.Now;
         }
 
 
@@ -110,8 +110,8 @@ namespace WpfApp1
             }
         }
 
-        private DatePicker dateOfBirthBinding;
-        public DatePicker DateOfBirthBinding
+        private DateTime dateOfBirthBinding;
+        public DateTime DateOfBirthBinding
         {
             get
             {
@@ -154,8 +154,8 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                //PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
-                
+                PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
+                addedPatient = true;
                 if (addedPatient == true)
                 {
                     PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
@@ -181,9 +181,8 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
-            if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) &&
-                !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
+            if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(SurnameBinding) && !string.IsNullOrEmpty(EmailBinding) && !string.IsNullOrEmpty(PhoneNumBinding) && !string.IsNullOrEmpty(PasswordBinding) &&
+                !Validation.UPNValidation.ValidationError)
             {
                 e.CanExecute = true;
             }

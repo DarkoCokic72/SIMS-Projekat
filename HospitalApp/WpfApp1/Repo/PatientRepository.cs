@@ -37,20 +37,11 @@ namespace Repo
       
       public void Add(Patient patient)
       {
-            if (GetByUniquePersonalNumber(patient.uniquePersonalNumber) == null)
-            {
-
-                List<Patient> patientList = GetAll();
-                patientList.Add(patient);
-                patientFileHandler.Save(patientList);
-                WpfApp1.CreatePatient.addedPatient = true;
-            }
-            else
-            {
-
-                WpfApp1.CreatePatient.addedPatient = false;
-
-            }
+            List<Patient> patientList = GetAll();
+            patientList.Add(patient);
+            patientFileHandler.Save(patientList);
+            WpfApp1.CreatePatient.addedPatient = true;
+            
         }
       
       public void Update(Patient patient)

@@ -106,8 +106,8 @@ namespace WpfApp1
             }
         }
 
-        private DatePicker dateOfBirthBinding;
-        public DatePicker DateOfBirthBinding
+        private DateTime dateOfBirthBinding;
+        public DateTime DateOfBirthBinding
         {
             get
             {
@@ -153,12 +153,10 @@ namespace WpfApp1
             BloodGroupBinding = patient.bloodGroup;
             EmailBinding = patient.email;
             PhoneNumBinding = patient.phoneNumber;
-            //DateOfBirthBinding = patient.dateOfBirth;
+            DateOfBirthBinding = patient.dateOfBirth;
             PasswordBinding = patient.password;
 
-            Validation.MinMaxValidationRule.ValidationHasError = false;
-            Validation.StringToIntegerValidationRule.ValidationHasError = false;
-            Validation.IdValidationRule.ValidationHasError = false;
+            Validation.UPNValidation.ValidationError = false;
 
         }
 
@@ -205,7 +203,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                //PatientsWindow.patientController.Update(new Patient(NameBinding, SurnameBinding, EmailBinding, UPNBinding,(BloodGroup)BloodGroupBinding, PhoneNumBinding, DateOfBirthBinding, PasswordBinding));
+                PatientsWindow.patientController.Update(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
 
                 if (editedPatient == true)
                 {

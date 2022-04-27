@@ -40,11 +40,9 @@ namespace Service
 
       public Repo.PatientRepository patientRepository;
 
-      public PatientService(PatientRepository PatientRepository)
+      public PatientService(PatientRepository patientRepository)
         {
-
             this.patientRepository = patientRepository;
-
         }
 
     }

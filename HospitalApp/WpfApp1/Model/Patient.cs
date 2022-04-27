@@ -82,7 +82,7 @@ namespace Model
             this.name = name;
             this.surname = surname;
             this.phoneNumber = phoneNumber;
-            this.uniquePersonalNumber = uniquePersonalNumber;
+            this.uniquePersonalNumber = uniqueuniquePersonalNumber;
             this.dateOfBirth = dateOfBirth;
             this.bloodGroup = bloodGroup;
         }
