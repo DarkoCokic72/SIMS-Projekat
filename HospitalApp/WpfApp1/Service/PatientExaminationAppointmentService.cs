@@ -10,37 +10,37 @@ using System.Collections.Generic;
 
 namespace Service
 {
-   public class PatientExaminationAppointmentService
-   {
-        public PatientExaminationAppointmentRepository PatientAppointmentRepository;
+    public class PatientExaminationAppointmentService
+    {
+        public PatientExaminationAppointmentRepository patientAppointmentRepository;
         public PatientExaminationAppointmentService(PatientExaminationAppointmentRepository PatientAppointmentRepository)
         {
-            this.PatientAppointmentRepository = PatientAppointmentRepository;
+            this.patientAppointmentRepository = PatientAppointmentRepository;
         }
-      public List<PatientExaminationAppointment> GetAll()
-      {
-          return  PatientAppointmentRepository.GetAll();
-      }
-      public PatientExaminationAppointment GetById(string id)
-      {
-          return PatientAppointmentRepository.GetById(id);
-      }
+        public List<PatientExaminationAppointment> GetAll()
+        {
+            return patientAppointmentRepository.GetAll();
+        }
+        public PatientExaminationAppointment GetById(string id)
+        {
+            return patientAppointmentRepository.GetById(id);
+        }
         public void Addd(PatientExaminationAppointment appointments)
-      {
-            PatientAppointmentRepository.Addd(appointments);
-      }
-      
-      public void Delete(string id)
-      {
-            PatientAppointmentRepository.Delete(id);    
-      }
-      
-      public void Update(PatientExaminationAppointment appointments)
-      {
-            PatientAppointmentRepository.Update(appointments);
-      }
-      
+        {
+            patientAppointmentRepository.Addd(appointments);
+        }
 
-   
-   }
+        public void Delete(string id)
+        {
+            patientAppointmentRepository.Delete(id);
+        }
+
+        public void Update(PatientExaminationAppointment appointments)
+        {
+            patientAppointmentRepository.Update(appointments);
+        }
+
+
+
+    }
 }
