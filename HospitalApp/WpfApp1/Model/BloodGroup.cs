@@ -9,14 +9,14 @@ namespace Model
 {
     public enum BloodGroup
     {
-        aplus,
-        aminus,
-        blus,
-        bminus,
-        zeroplus,
-        zerominus,
-        abplus,
-        abminus
+        aPLUS,
+        aMINUS,
+        bPLUS,
+        bMINUS,
+        zeroPLUS,
+        zeroMINUS,
+        abPLUS,
+        abMINUS
 
     }
 }

@@ -48,5 +48,10 @@ namespace WpfApp1.View.Manager
             BasicRenovation1 basicRenovationWindow = new BasicRenovation1();
             basicRenovationWindow.Show();
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

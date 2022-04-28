@@ -17,6 +17,7 @@ using Controller;
 using Model;
 using Service;
 using WpfApp1.View.Manager;
+using WpfApp1.View.Secretary;
 
 namespace WpfApp1
 {
@@ -59,10 +60,10 @@ namespace WpfApp1
                 ManagerHomePage managerHomePage = new ManagerHomePage();
                 managerHomePage.Show();
              
-            } else if(btn.Content.Equals("Patients"))
+            } else if(btn.Content.Equals("Secretary"))
             {
-                PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
-                patientsWindow.Show();
+                SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
+                secretaryHomePage.Show();
 
             }
 

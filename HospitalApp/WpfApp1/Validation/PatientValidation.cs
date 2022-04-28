@@ -27,7 +27,7 @@ namespace WpfApp1.Validation
             if (!Regex.IsMatch(s, @"[0-9]+"))
             {
                 ValidationError = true;
-                return new ValidationResult(false, "Wrong format\nof id");
+                return new ValidationResult(false, "Wrong format\nof UPN");
             }
             else
             {

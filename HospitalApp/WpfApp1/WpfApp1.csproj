@@ -146,16 +146,16 @@
     <Compile Include="View\Manager\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Patients\CreatePatient.xaml.cs">
+    <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Patients\PatientsDelete.xaml.cs">
+    <Compile Include="View\Secretary\Patients\PatientsDelete.xaml.cs">
       <DependentUpon>PatientsDelete.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Patients\PatientsEdit.xaml.cs">
+    <Compile Include="View\Secretary\Patients\PatientsEdit.xaml.cs">
       <DependentUpon>PatientsEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Patients\PatientsWindow.xaml.cs">
+    <Compile Include="View\Secretary\Patients\PatientsWindow.xaml.cs">
       <DependentUpon>PatientsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repo\RoomRepository.cs" />
@@ -172,6 +172,9 @@
       <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\RoomService.cs" />
+    <Compile Include="View\Secretary\SecretaryHomePage.xaml.cs">
+      <DependentUpon>SecretaryHomePage.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Manager\Equipment\AllEquipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,19 +199,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Patients\CreatePatient.xaml">
+    <Page Include="View\Secretary\Patients\CreatePatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Patients\PatientsDelete.xaml">
+    <Page Include="View\Secretary\Patients\PatientsDelete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Patients\PatientsEdit.xaml">
+    <Page Include="View\Secretary\Patients\PatientsEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Patients\PatientsWindow.xaml">
+    <Page Include="View\Secretary\Patients\PatientsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\RoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\SecretaryHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
