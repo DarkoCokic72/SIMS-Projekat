@@ -21,6 +21,7 @@ namespace WpfApp1.View.Manager
     /// </summary>
     public partial class ManagerHomePage : Window
     {
+   
         public ManagerHomePage()
         {
             InitializeComponent();
@@ -49,9 +50,20 @@ namespace WpfApp1.View.Manager
             basicRenovationWindow.Show();
         }
 
+
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

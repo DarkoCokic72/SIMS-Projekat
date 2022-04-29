@@ -12,7 +12,7 @@
         <Button  FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="265,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Cancel"/>
         <ComboBox FontSize="30" x:Name="Room" Margin="421,332,218.6,332.4" Width="Auto" RenderTransformOrigin="0.507,1.648" SelectionChanged="Room_SelectionChanged"/>
         <Button  x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="572,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Save"/>
-        <Label FontSize="40" Content="To room*:" Margin="27,332,596.6,332.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="To room*:" Margin="14,332,609.6,332.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
         <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="421,422,0,0" VerticalAlignment="Top" Height="76" Width="378" SelectedDateChanged="Date_SelectedDateChanged"/>
         <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="378" Margin="421,513,0,0" TextChanged="TextChanged">
             <Validation.ErrorTemplate>
@@ -38,8 +38,8 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <Label FontSize="40" Content="Date*:" Margin="27,422,601.6,245.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <Label FontSize="40" Content="Quantity to relocate*:" Margin="27,513,601.6,150.4" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <Label FontSize="40" Content="Date*:" Margin="14,422,614.6,245.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="Quantity to relocate*:" Margin="14,513,614.6,150.4" Width="Auto" Height="Auto" Grid.Column="0"/>
         <Label FontSize="40" Margin="103,158,644.6,506.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
         <TextBox Name="FromRoom" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="421,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" RenderTransformOrigin="0.425,7.07"/>
         <Label FontSize="40" Content="From room:" Margin="14,139,647.6,525.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>

@@ -15,23 +15,38 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Margin="21,15,423.8,290.6" Height="64" Width="64" Background="White" BorderThickness="0">
-            <Image Source="/WpfApp1;component/Images/home.png"/>
+        <Menu  FontSize="60" Margin="47,161,29.8,84.6">
+            <MenuItem FontSize="60" Header="     ROOMS" Height="124" Width="432">
+                <MenuItem.Icon>
+                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
+                </MenuItem.Icon>
+                <MenuItem FontSize="40" Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="432"/>
+                <Separator BorderThickness="1" BorderBrush="Black"/>
+                <MenuItem FontSize="40" Header="Scheduling&#x0a;renovation"  Height="106" Width="432" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Menu  FontSize="60" Margin="35.2,161,51.6,84.6" Grid.Column="1">
+            <MenuItem FontSize="60" Header="  EQUIPMENT" Height="125" Width="432">
+                <MenuItem.Icon>
+                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="0,-17,-48,-21"/>
+                </MenuItem.Icon>
+                <MenuItem FontSize="40" Header="List of equipment"  Height="82" Click="Button_Click_Equipment" Margin="0,0,21.4,0"/>
+                <Separator BorderThickness="1" BorderBrush="Black"/>
+                <MenuItem FontSize="40" Header="Download report"  Height="106" Margin="0,0,-27.6,0"/>
+            </MenuItem>
+        </Menu>
+        <Menu FontSize="60" Margin="47,17.4,29.8,227.4" Grid.Row="1" >
+            <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Click_2"/>
+        </Menu>
+        <Menu FontSize="60" Grid.Row="1" Margin="35.2,17.4,51.6,227.4" Grid.Column="1" >
+            <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422" Click="MenuItem_Click_2"/>
+        </Menu>
+        <Button Margin="21,15,393.8,264.6" Background="Transparent" BorderThickness="0">
+            <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
         </Button>
-        <Menu  FontSize="40" Margin="34,161,47.8,105.6" Width="400">
-            <MenuItem Header="            Rooms" Height="102" Width="400">
-                <MenuItem Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="400"/>
-                <Separator BorderThickness="1" BorderBrush="Black"/>
-                <MenuItem Header="Scheduling&#x0a;renovation"  Height="106" Width="400" Click="MenuItem_Click"/>
-            </MenuItem>
-        </Menu>
-        <Menu  FontSize="40" Margin="55.2,161,53.6,105.6" Width="400" Grid.Column="1">
-            <MenuItem Header="         Equipment" Height="102" Width="400">
-                <MenuItem Header="List of equipment"  Height="82" Click="Button_Click_Equipment" Width="400"/>
-                <Separator BorderThickness="1" BorderBrush="Black"/>
-                <MenuItem Header="Download report"  Height="106" Width="400"/>
-            </MenuItem>
-        </Menu>
-
+        <Separator Background="Black" HorizontalAlignment="Left" Height="70" Margin="0,69,-0.4,0" VerticalAlignment="Top" Width="1018" Grid.ColumnSpan="2"/>
+        <Button Margin="405.2,10,9.6,269.6" Background="Transparent" BorderThickness="0" Grid.Column="1" Click="Button_LogOut">
+            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+        </Button>
     </Grid>
 </Window>

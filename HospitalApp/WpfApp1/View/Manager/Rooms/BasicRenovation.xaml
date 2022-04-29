@@ -60,5 +60,6 @@
         <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0">
             <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
         </Button>
+        <Separator Background="Black" HorizontalAlignment="Left" Height="70" Margin="0,69,-0.4,0" VerticalAlignment="Top" Width="1018"/>
     </Grid>
 </Window>
