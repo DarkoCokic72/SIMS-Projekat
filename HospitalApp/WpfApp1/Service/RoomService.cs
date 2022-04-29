@@ -59,7 +59,6 @@ namespace Service
             }
             List<Equipment> allEquipment = equipmentService.GetAll();
             bool inWarehouse = false;
-            List<int> toRemove = new List<int>();
 
             for (int i = 0; i < allEquipment.Count; i++)
             {
@@ -73,7 +72,7 @@ namespace Service
                             if (allEquipment[i].Id == allEquipment[j].Id)
                             {
                                 allEquipment[j].Quantity += allEquipment[i].Quantity;
-                                toRemove.Add(i);
+                                allEquipment.RemoveAt(i);
                                 inWarehouse = true;
                                 break;
                             }
@@ -83,16 +82,13 @@ namespace Service
                     if(!inWarehouse)
                     {
                         allEquipment[i].Room.Id = warehouseId;
+                        allEquipment[i].Room.Name = "Warehouse";
+                        allEquipment[i].Room.Type = RoomType.Warehouse;
                     }
 
                     inWarehouse = false;
                 }
 
-            }
-
-            for(int i=0; i < toRemove.Count; i++)
-            {
-                allEquipment.RemoveAt(toRemove[i]);
             }
 
             equipmentService.UpdateAll(allEquipment);
