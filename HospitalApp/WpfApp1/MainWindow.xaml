@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button  FontSize="40" Content="Manager" Margin="65,51,65,51" Width="Auto" Click="Button_Click" Height="Auto"/>
-        <Button  FontSize="40" Content="Patient&#xD;&#xA;Appointment" Margin="65,51,65,51" Width="Auto" Click="Button_Click" Height="Auto" Grid.Row="1"/>
+        <Button  FontSize="40" Content="P.Appointments" Margin="65,51,65,51" Width="Auto" Click="Button_Click" Height="Auto" Grid.Row="1"/>
         <Button  FontSize="40" Content="Secretary" Margin="63.6,51,66,51.2" Width="Auto" Click="Button_Click" Height="Auto" Grid.Row="1" Grid.Column="1"/>
 
     </Grid>

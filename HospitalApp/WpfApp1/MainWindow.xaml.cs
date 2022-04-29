@@ -18,6 +18,7 @@ using Model;
 using Service;
 using WpfApp1.View.Manager;
 using WpfApp1.View.Secretary;
+using WpfApp1.View.PatientAppointments;
 
 namespace WpfApp1
 {
@@ -65,6 +66,11 @@ namespace WpfApp1
                 SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
                 secretaryHomePage.Show();
 
+            }
+            else if (btn.Content.Equals("P.Appointments"))
+            {
+                Appointments appointments = Appointments.GetAppointments();
+                appointments.Show();
             }
 
         }
