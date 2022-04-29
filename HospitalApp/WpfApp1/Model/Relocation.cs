@@ -14,16 +14,16 @@ namespace Model
       public System.Guid Id { get; set; }
       public System.DateTime Date { get; set; }
       public int QuantityToRelocate { get; set; }
-      public string ToRoom { get; set; }
+      public Room Room { get; set; }
       public Equipment Equipment { get; set; }
 
       
-      public Relocation(System.DateTime date, int quantityToRelocate, string toRoom, Equipment equipment)
+      public Relocation(System.DateTime date, int quantityToRelocate, Room room, Equipment equipment)
       {
             Id = Guid.NewGuid();
             Date = date;
             QuantityToRelocate = quantityToRelocate;
-            ToRoom = toRoom;
+            Room = room;
             Equipment = equipment;
       }
    

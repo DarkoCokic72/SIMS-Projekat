@@ -54,7 +54,7 @@ namespace WpfApp1.View.Manager.Equipment
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
 
-            FromRoom.Text = RoomsEquipment.SelectedEquipment.Room;
+            FromRoom.Text = RoomsEquipment.SelectedEquipment.Room.Id;
             EquipmentName.Text = RoomsEquipment.SelectedEquipment.Name;
 
             EquipmentController equipmentController = new EquipmentController();
@@ -86,7 +86,8 @@ namespace WpfApp1.View.Manager.Equipment
         {
             
             EquipmentController equipmentController = new EquipmentController();
-            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), (string)Room.SelectedItem, RoomsEquipment.SelectedEquipment));
+            RoomController roomController = new RoomController();
+            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), roomController.GetById((string)Room.SelectedItem), RoomsEquipment.SelectedEquipment));
             RoomsEquipment.GetWindow().Close();
             Close();
         }

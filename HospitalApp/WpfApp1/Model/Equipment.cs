@@ -1,4 +1,5 @@
 ﻿using System;
+using Model;
 
 namespace WpfApp1.Model
 {
@@ -9,9 +10,9 @@ namespace WpfApp1.Model
             public string Name { get; set; }
             public int Quantity { get; set; }
 
-            public string Room { get; set; }
+            public Room Room { get; set; }
 
-            public Equipment(string id, string name, int quantity, string room)
+            public Equipment(string id, string name, int quantity, Room room)
             {
                 Id = id;
                 Name = name;

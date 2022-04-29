@@ -102,7 +102,7 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             
-            roomController.SchedulingRenovation(new Model.Renovation(roomId, description, startDate, int.Parse(Duration.Text)));
+            roomController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
             Close();
         }
 

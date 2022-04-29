@@ -63,12 +63,12 @@ namespace Service
 
             for (int i = 0; i < allEquipment.Count; i++)
             {
-                if(allEquipment[i].Room == roomId)
+                if(allEquipment[i].Room.Id == roomId)
                 {
 
                     for(int j = 0; j < allEquipment.Count; j++)
                     {
-                        if (allEquipment[j].Room == warehouseId)
+                        if (allEquipment[j].Room.Id == warehouseId)
                         {
                             if (allEquipment[i].Id == allEquipment[j].Id)
                             {
@@ -82,7 +82,7 @@ namespace Service
 
                     if(!inWarehouse)
                     {
-                        allEquipment[i].Room = warehouseId;
+                        allEquipment[i].Room.Id = warehouseId;
                     }
 
                     inWarehouse = false;
@@ -121,7 +121,7 @@ namespace Service
 
             foreach(Renovation r in allRenovations) 
             {
-                if(r.Room == roomId) 
+                if(r.Room.Id == roomId) 
                 {
                     
                     dates.Add(r.StartDate);
@@ -130,7 +130,6 @@ namespace Service
                         dates.Add(r.StartDate.AddDays(i));
                     }
                    
-
                 }
             }
 
