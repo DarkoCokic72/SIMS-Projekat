@@ -96,6 +96,8 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
+            BasicRenovation1 basicRenovation1 = new BasicRenovation1(roomId, description);
+            basicRenovation1.Show();
             Close();
         }
 
@@ -120,6 +122,17 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
+        }
     }
 
 }

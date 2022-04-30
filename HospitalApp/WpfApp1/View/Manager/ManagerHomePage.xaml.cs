@@ -44,10 +44,11 @@ namespace WpfApp1.View.Manager
             Close();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_SchedulingRenovation(object sender, RoutedEventArgs e)
         {
-            BasicRenovation1 basicRenovationWindow = new BasicRenovation1();
+            BasicRenovation1 basicRenovationWindow = new BasicRenovation1(null, null);
             basicRenovationWindow.Show();
+            Close();
         }
 
 

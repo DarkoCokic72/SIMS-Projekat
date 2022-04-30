@@ -95,7 +95,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Details"))
             {
 
-                RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow();
+                RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow(SelectedRoom.Id);
                 roomsEquipment.Show();
 
             }

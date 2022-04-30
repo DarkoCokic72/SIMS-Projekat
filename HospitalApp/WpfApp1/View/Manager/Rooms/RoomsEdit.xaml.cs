@@ -85,9 +85,13 @@ namespace WpfApp1
 
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.Manual;
+            double width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            Top = 0.192 * height;
+            Left = 0.25 * width;
 
-            
+
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
             IdBinding = room.Id;
