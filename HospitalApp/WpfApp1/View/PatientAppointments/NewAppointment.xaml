@@ -27,7 +27,7 @@
                 <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </DatePicker.Text>
         </DatePicker>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="244,320,0,0" VerticalAlignment="Top" FontSize="20" Width="80" Name="Add" Click="Button_Click"  >
+        <Button Content="Add" HorizontalAlignment="Left" Margin="244,375,0,0" VerticalAlignment="Top" FontSize="20" Width="80" Name="Add" Command="Save" Click="Button_Click"  >
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute"/>
             </Button.CommandBindings>
@@ -41,6 +41,12 @@
                 <Binding Path="DoctorBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </ComboBox.Text>
         </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="204,328,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Room" SelectionChanged="Room_SelectionChanged"  >
+            <ComboBox.Text>
+                <Binding Path="RoomBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </ComboBox.Text>
+        </ComboBox>
+        <Label Content="Room" HorizontalAlignment="Left" Margin="120,324,0,0" VerticalAlignment="Top" FontSize="18"/>
 
     </Grid>
 </Window>

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Controller;
 namespace WpfApp1.View.PatientAppointments
 {
     /// <summary>
@@ -26,7 +27,17 @@ namespace WpfApp1.View.PatientAppointments
             InitializeComponent();
             DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-           
+            RoomController roomController = new RoomController();
+            List<Room> rooms = roomController.GetAll();
+            List<string> roomsId = new List<string>();
+
+            foreach (Room r in rooms)
+            {
+                roomsId.Add(r.Id);
+            }
+
+            Room.ItemsSource = roomsId;
+            Add.IsEnabled = false;
 
         }
 
@@ -84,6 +95,20 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
+        private Room roomBinding;
+        public Room RoomBinding
+        {
+            get
+            {
+                return roomBinding;
+            }
+            set
+            {
+                roomBinding = value;
+                OnPropertyChanged("RoomBinding");
+
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string v)
         {
@@ -98,7 +123,7 @@ namespace WpfApp1.View.PatientAppointments
             Button Add = (Button)sender;
             if (Add.Content.Equals("Add"))
             {
-                Appointments.patientAppointmentController.Addd(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, TimeBinding));
+                Appointments.patientAppointmentController.Addd(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, TimeBinding,RoomBinding));
 
                 if (addedAppointment == true)
                 {
@@ -115,11 +140,7 @@ namespace WpfApp1.View.PatientAppointments
 
         }
 
-        private void Doctor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+ 
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(IdBinding))
@@ -136,6 +157,15 @@ namespace WpfApp1.View.PatientAppointments
         {
             Physician selectedPerson = Doctor.SelectedItem as Physician;
             MessageBox.Show(selectedPerson.name + selectedPerson.surname, "Doctor is selected");
+        }
+
+        private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem))
+            {
+                Add.IsEnabled = true;
+            }
+    
         }
     }
 }

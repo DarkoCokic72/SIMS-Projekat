@@ -86,9 +86,7 @@ namespace Repo
                     patientAppointmentFileHandler.Write(list);
                     EditAppointment.editedAppointement = true;
                 }
-                else
-                    EditAppointment.editedAppointement = false;
-
+               
 
             }
 

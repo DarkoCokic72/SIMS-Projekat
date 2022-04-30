@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Controller;
 
 namespace WpfApp1.View.PatientAppointments
 {
@@ -32,9 +33,20 @@ namespace WpfApp1.View.PatientAppointments
             DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
+            RoomController roomController = new RoomController();
+            List<Room> rooms = roomController.GetAll();
+            List<string> roomsId = new List<string>();
+
+            foreach (Room r in rooms)
+            {
+                roomsId.Add(r.Id);
+            }
+
+            Room.ItemsSource = roomsId;
 
 
 
+            Add.IsEnabled = false;
 
         }
 
@@ -96,6 +108,20 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
+        private Room roomBinding;
+        public Room RoomBinding
+        {
+            get
+            {
+                return roomBinding;
+            }
+            set
+            {
+                roomBinding = value;
+                OnPropertyChanged("RoomBinding");
+
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string v)
@@ -111,7 +137,7 @@ namespace WpfApp1.View.PatientAppointments
             Button Add = (Button)sender;
             if (Add.Content.Equals("Edit"))
             {
-                Appointments.patientAppointmentController.Update(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, TimeBinding));
+                Appointments.patientAppointmentController.Update(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, TimeBinding,RoomBinding));
 
                 if (editedAppointement == true)
                 {
@@ -149,6 +175,14 @@ namespace WpfApp1.View.PatientAppointments
         {
             Physician selectedPerson = Doctor.SelectedItem as Physician;
             MessageBox.Show(selectedPerson.name + selectedPerson.surname, "Doctor is selected");
+        }
+
+        private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem))
+            {
+                Add.IsEnabled = true;
+            }
         }
     }
 }

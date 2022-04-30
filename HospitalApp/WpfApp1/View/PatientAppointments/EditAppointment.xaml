@@ -32,7 +32,7 @@
                 <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </DatePicker.Text>
         </DatePicker>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="244,320,0,0" VerticalAlignment="Top" FontSize="20" Width="80" Name="Add" Click="Button_Click"  >
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="244,374,0,0" VerticalAlignment="Top" FontSize="20" Width="80" Name="Add" Click="Button_Click" Command="Save" >
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute"/>
             </Button.CommandBindings>
@@ -41,6 +41,12 @@
         <TextBox HorizontalAlignment="Left" Margin="204,268,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="Time" Text="{Binding TimeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
         </TextBox>
+        <ComboBox HorizontalAlignment="Left" Margin="204,328,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Room" SelectionChanged="Room_SelectionChanged" >
+            <ComboBox.Text>
+                <Binding Path="RoomBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </ComboBox.Text>
+        </ComboBox>
+        <Label Content="Room" HorizontalAlignment="Left" Margin="120,324,0,0" VerticalAlignment="Top" FontSize="18"/>
 
 
     </Grid>
