@@ -9,16 +9,24 @@ namespace Model
 {
     public class PatientExaminationAppointment
     {
-        private Physician physician { get; set; }
-        private DateTime dateOfAppointment { get; set; }
         public string id { get; set; }
+        public DateTime dateOfAppointment { get; set; }
+     
+        public DateTime timeOfAppointment { get; set; }
+
+        public Room room { get; set; }
+        public Physician physician { get; set; }
 
 
-        public PatientExaminationAppointment()
+
+
+        public PatientExaminationAppointment(string id, Physician  physician, DateTime date, DateTime time,Room room)
         {
-            this.physician=physician;
-            this.dateOfAppointment=dateOfAppointment;
-            this.id=id;
+            this.physician = physician;
+            this.dateOfAppointment = date;
+            this.id = id;
+            this.timeOfAppointment = time;
+            this.room = room;
         }
     }
 }

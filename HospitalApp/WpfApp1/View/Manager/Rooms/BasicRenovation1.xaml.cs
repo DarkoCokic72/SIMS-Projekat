@@ -22,7 +22,7 @@ namespace WpfApp1.View.Manager.Rooms
     public partial class BasicRenovation1 : Window
     {
 
-        public BasicRenovation1()
+        public BasicRenovation1(string roomId, string description)
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -36,18 +36,28 @@ namespace WpfApp1.View.Manager.Rooms
             }
 
             Room.ItemsSource = roomsId;
-
             NextBtn.IsEnabled = false;
+
+            if (!string.IsNullOrEmpty(roomId) && !string.IsNullOrEmpty(description)) 
+            {
+                Room.SelectedItem = roomId;
+                Description.Text = description;
+                NextBtn.IsEnabled = true;
+
+            }
         }
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
             BasicRenovation basicRenovationWindow = new BasicRenovation((string)Room.SelectedItem, Description.Text);
             basicRenovationWindow.Show();
+            Close();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
             Close();
         }
 
@@ -75,5 +85,18 @@ namespace WpfApp1.View.Manager.Rooms
             }
 
         }
+
+        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
+        }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 }

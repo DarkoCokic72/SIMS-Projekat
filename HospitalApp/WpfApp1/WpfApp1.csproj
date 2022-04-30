@@ -148,12 +148,17 @@
     <Compile Include="View\Manager\Rooms\BasicRenovation1.xaml.cs">
       <DependentUpon>BasicRenovation1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PatientAppointment\AppointmentWindow.xaml.cs" />
-    <Compile Include="View\PatientAppointment\CancelAppointment.xaml.cs" />
-    <Compile Include="View\PatientAppointment\DelayAppointment.xaml.cs" />
-    <Compile Include="View\PatientAppointment\MakeAppointement.xaml.cs" />
     <Compile Include="View\Manager\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAppointments\Appointments.xaml.cs">
+      <DependentUpon>Appointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAppointments\EditAppointment.xaml.cs">
+      <DependentUpon>EditAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientAppointments\NewAppointment.xaml.cs">
+      <DependentUpon>NewAppointment.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
@@ -209,6 +214,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientAppointments\Appointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientAppointments\EditAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientAppointments\NewAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,6 +326,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

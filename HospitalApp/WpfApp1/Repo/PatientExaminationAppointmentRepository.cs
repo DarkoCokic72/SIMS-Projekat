@@ -7,11 +7,13 @@ using FileHandler;
 using Model;
 using System;
 using System.Collections.Generic;
+using WpfApp1.View.PatientAppointments;
+
 
 namespace Repo
 {
-   public class PatientExaminationAppointmentRepository
-   {
+    public class PatientExaminationAppointmentRepository
+    {
         public PatientExaminationAppointmentFileHandler patientAppointmentFileHandler;
         public PatientExaminationAppointmentRepository(PatientExaminationAppointmentFileHandler patientAppointmentFileHandler)
         {
@@ -21,33 +23,45 @@ namespace Repo
         {
             return patientAppointmentFileHandler.Read();
         }
-        public PatientExaminationAppointment GetById(string id)
+        public PatientExaminationAppointment a;
+        public PatientExaminationAppointment GetById(string Id)
         {
+
             List<PatientExaminationAppointment> list = GetAll();
-           for(int i = 0; i < list.Count; i++)
+            foreach (PatientExaminationAppointment a in list)
             {
-                PatientExaminationAppointment appointment = list[i];
-                if(appointment.id == id)
+
+                if (a.id == Id)
                 {
-                    return appointment;
+                    return a;
                 }
             }
             return null;
         }
 
-        public void Addd(PatientExaminationAppointment appointments)
+        public void Addd(PatientExaminationAppointment appointment)
         {
-            List<PatientExaminationAppointment> list = GetAll();
-            list.Add(appointments);
-            patientAppointmentFileHandler.Write(list);
+            if (GetById(appointment.id) == null)
+            {
+                List<PatientExaminationAppointment> list = GetAll();
+                list.Add(appointment);
+                patientAppointmentFileHandler.Write(list);
+                NewAppointment.addedAppointment = true;
+            }
+            else
+            {
+
+                NewAppointment.addedAppointment = false;
+
+            }
         }
-      
-      public void Delete(string id)
-      {
+
+        public void Delete(string id)
+        {
             List<PatientExaminationAppointment> list = GetAll();
             for (int i = 0; i < list.Count; i++)
             {
-               
+
                 if (list[i].id == id)
                 {
                     list.Remove(list[i]);
@@ -55,18 +69,31 @@ namespace Repo
             }
 
             patientAppointmentFileHandler.Write(list);
-      }
-   
-      
-      public void Update(PatientExaminationAppointment appointments)
-      {
-        List<PatientExaminationAppointment> list = GetAll();
+        }
+
+
+        public void Update(PatientExaminationAppointment appointments)
+        {
+            List<PatientExaminationAppointment> list = GetAll();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+
+                if (list[i].id == appointments.id)
+                {
+
+                    list[i] = appointments;
+                    patientAppointmentFileHandler.Write(list);
+                    EditAppointment.editedAppointement = true;
+                }
+               
+
+            }
+
+
+        }
 
 
 
-      }
-
-
-
+    }
 }
-   }

@@ -96,13 +96,15 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
+            BasicRenovation1 basicRenovation1 = new BasicRenovation1(roomId, description);
+            basicRenovation1.Show();
             Close();
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             
-            roomController.SchedulingRenovation(new Model.Renovation(roomId, description, startDate, int.Parse(Duration.Text)));
+            roomController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
             Close();
         }
 
@@ -120,6 +122,17 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
+        }
     }
 
 }

@@ -54,7 +54,7 @@ namespace WpfApp1.View.Manager.Equipment
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
 
-            FromRoom.Text = RoomsEquipment.SelectedEquipment.Room;
+            FromRoom.Text = RoomsEquipment.SelectedEquipment.Room.Id;
             EquipmentName.Text = RoomsEquipment.SelectedEquipment.Name;
 
             EquipmentController equipmentController = new EquipmentController();
@@ -79,6 +79,10 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
+            RoomsWindow roomsWindow = RoomsWindow.GetRoomsWindow();
+            roomsWindow.Show();
+            RoomsEquipment roomsEquipment = new RoomsEquipment(RoomsEquipment.SelectedEquipment.Room.Id);
+            roomsEquipment.Show();
             Close();
         }
 
@@ -86,8 +90,10 @@ namespace WpfApp1.View.Manager.Equipment
         {
             
             EquipmentController equipmentController = new EquipmentController();
-            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), (string)Room.SelectedItem, RoomsEquipment.SelectedEquipment));
-            RoomsEquipment.GetWindow().Close();
+            RoomController roomController = new RoomController();
+            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), roomController.GetById((string)Room.SelectedItem), RoomsEquipment.SelectedEquipment));
+            RoomsWindow roomsWindow = RoomsWindow.GetRoomsWindow();
+            roomsWindow.Show();
             Close();
         }
 
@@ -127,6 +133,18 @@ namespace WpfApp1.View.Manager.Equipment
             {
                 Save.IsEnabled = false;
             }
+        }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
         }
     }
 }

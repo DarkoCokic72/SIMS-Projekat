@@ -23,7 +23,7 @@ namespace Repo
 
             foreach(Equipment e in allEquipment)
             {
-                if(e.Room == roomId)
+                if(e.Room.Id == roomId)
                 {
                     equipment.Add(e);
                 }

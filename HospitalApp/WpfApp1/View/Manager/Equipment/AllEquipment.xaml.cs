@@ -50,5 +50,10 @@ namespace WpfApp1.View.Manager.Equipment
             Close();
 
         }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

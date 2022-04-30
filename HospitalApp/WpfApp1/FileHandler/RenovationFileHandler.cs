@@ -15,8 +15,8 @@ namespace FileHandler
 
       public List<Renovation> Read()
       {
-            string relocationSerialized = System.IO.File.ReadAllText(path);
-            List<Renovation> renovations = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Renovation>>(relocationSerialized);
+            string renovationSerialized = System.IO.File.ReadAllText(path);
+            List<Renovation> renovations = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Renovation>>(renovationSerialized);
             return renovations;
         }
       

@@ -43,7 +43,7 @@ namespace Service
                         //first take equipment from room
                         for (int i = 0; i < allEquipment.Count; i++)
                         {
-                            if ((allEquipment[i].Room == r.Equipment.Room) && (allEquipment[i].Id == r.Equipment.Id))
+                            if ((allEquipment[i].Room.Id == r.Equipment.Room.Id) && (allEquipment[i].Id == r.Equipment.Id))
                             {
                                
                                 allEquipment[i].Quantity -= r.QuantityToRelocate;
@@ -63,9 +63,8 @@ namespace Service
                         //now we put equipment in new room
                         for (int i = 0; i < allEquipment.Count; i++)
                         {
-                            Console.WriteLine("Fajl" + allEquipment[i].Room);
-                            Console.WriteLine("u sobu:" + r.ToRoom);
-                            if ((allEquipment[i].Room == r.ToRoom) && (allEquipment[i].Id == r.Equipment.Id)) //equipment with that id alredy exist in room in which we want to relocate equipment
+                       
+                            if ((allEquipment[i].Room.Id == r.Room.Id) && (allEquipment[i].Id == r.Equipment.Id)) //equipment with that id alredy exist in room in which we want to relocate equipment
                             {
                                 
                                 allEquipment[i].Quantity += r.QuantityToRelocate;
@@ -78,7 +77,7 @@ namespace Service
 
                         if (!equipmentInRoomExists)
                         {
-                            allEquipment.Add(new Equipment(r.Equipment.Id, r.Equipment.Name, r.QuantityToRelocate, r.ToRoom));
+                            allEquipment.Add(new Equipment(r.Equipment.Id, r.Equipment.Name, r.QuantityToRelocate, r.Room));
                         }
 
 

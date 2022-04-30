@@ -59,21 +59,20 @@ namespace Service
             }
             List<Equipment> allEquipment = equipmentService.GetAll();
             bool inWarehouse = false;
-            List<int> toRemove = new List<int>();
 
             for (int i = 0; i < allEquipment.Count; i++)
             {
-                if(allEquipment[i].Room == roomId)
+                if(allEquipment[i].Room.Id == roomId)
                 {
 
                     for(int j = 0; j < allEquipment.Count; j++)
                     {
-                        if (allEquipment[j].Room == warehouseId)
+                        if (allEquipment[j].Room.Id == warehouseId)
                         {
                             if (allEquipment[i].Id == allEquipment[j].Id)
                             {
                                 allEquipment[j].Quantity += allEquipment[i].Quantity;
-                                toRemove.Add(i);
+                                allEquipment.RemoveAt(i);
                                 inWarehouse = true;
                                 break;
                             }
@@ -82,17 +81,14 @@ namespace Service
 
                     if(!inWarehouse)
                     {
-                        allEquipment[i].Room = warehouseId;
+                        allEquipment[i].Room.Id = warehouseId;
+                        allEquipment[i].Room.Name = "Warehouse";
+                        allEquipment[i].Room.Type = RoomType.Warehouse;
                     }
 
                     inWarehouse = false;
                 }
 
-            }
-
-            for(int i=0; i < toRemove.Count; i++)
-            {
-                allEquipment.RemoveAt(toRemove[i]);
             }
 
             equipmentService.UpdateAll(allEquipment);
@@ -121,7 +117,7 @@ namespace Service
 
             foreach(Renovation r in allRenovations) 
             {
-                if(r.Room == roomId) 
+                if(r.Room.Id == roomId) 
                 {
                     
                     dates.Add(r.StartDate);
@@ -130,7 +126,6 @@ namespace Service
                         dates.Add(r.StartDate.AddDays(i));
                     }
                    
-
                 }
             }
 

@@ -57,8 +57,12 @@
         <Label FontSize="40" Content="Select start day*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,301,0,0" Height="75" Width="323"/>
         <Button FontSize="40" Content="Back" Margin="206,632,565.6,21.4" Width="Auto" Click="Button_Click_Back"/>
         <Button Name="ScheduleBtn" FontSize="40" Content="Schedule" Margin="565,632,206.6,21.4" Width="Auto" Click="Button_Click_Schedule"/>
-        <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0">
+        <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0" Click="Button_HomePage">
             <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+        </Button>
+        <Separator Background="Black" HorizontalAlignment="Left" Height="70" Margin="0,69,-0.4,0" VerticalAlignment="Top" Width="1018"/>
+        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
         </Button>
     </Grid>
 </Window>

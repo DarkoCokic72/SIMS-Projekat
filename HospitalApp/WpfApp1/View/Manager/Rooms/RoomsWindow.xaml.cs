@@ -95,7 +95,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Details"))
             {
 
-                RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow();
+                RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow(SelectedRoom.Id);
                 roomsEquipment.Show();
 
             }
@@ -127,9 +127,9 @@ namespace WpfApp1
             roomsWindowInstance = null;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }

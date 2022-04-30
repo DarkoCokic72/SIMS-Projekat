@@ -9,13 +9,17 @@
     <Grid>
         <Button Name="CancelBtn" FontSize="40" Margin="203,602,565.6,45.4" Width="Auto" Click="Button_Click_Cancel" Content="Cancel"/>
         <Button Name="NextBtn" FontSize="40" Content="Next" Click="Button_Click_Next" Margin="548,602,220.6,45.4"/>
-        <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0">
+        <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0" Click="Button_Click_HomePage">
             <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
         </Button>
         <ComboBox FontSize="60"  x:Name="Room" HorizontalAlignment="Left" Margin="454,143,0,0" VerticalAlignment="Top" Width="445" Height="102" SelectionChanged="Room_SelectionChanged"/>
         <Label FontSize="60" Content="Room*:" HorizontalAlignment="Left" Margin="87,143,0,0" VerticalAlignment="Top" Height="102" Width="362"/>
         <Label FontSize="60" Content="Description*:" HorizontalAlignment="Left" Margin="90,380,0,0" VerticalAlignment="Top" Height="102" Width="362"/>
         <TextBox x:Name="Description" FontSize="40"  HorizontalAlignment="Left" Height="193" Margin="454,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442" TextChanged="Description_TextChanged"/>
+        <Separator Background="Black" HorizontalAlignment="Left" Height="70" Margin="0,69,-0.4,0" VerticalAlignment="Top" Width="1018"/>
+        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+        </Button>
 
 
     </Grid>

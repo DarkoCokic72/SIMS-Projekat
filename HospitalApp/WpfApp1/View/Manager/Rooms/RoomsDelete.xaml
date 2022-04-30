@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Delete room" Height="517" Width="757" ResizeMode="NoResize">
+        Title="Delete room" Height="450" Width="757" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,9 +23,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button FontSize="40" Content="No" Margin="32,38.2,30.6,44.2" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Height="80" Grid.Row="4" Grid.RowSpan="2"/>
-        <Button FontSize="40" Content="Yes" Margin="29.4,39,34,44.2" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="4" Height="80" Grid.RowSpan="2" Grid.Column="1"/>
-        <Label FontSize="60" Content="Are you sure?"  Height="102" Width="384" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="53.4,61.2,62.6,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button FontSize="40" Content="No" Margin="34,36.2,28.6,23.8" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Height="80" Grid.Row="4" Grid.RowSpan="2"/>
+        <Button FontSize="40" Content="Yes" Margin="27.4,36.2,36,23.8" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="4" Height="80" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label FontSize="60" Content="Are you sure?"  Height="102" Width="384" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Margin="53.4,0.2,62.6,37.8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>
 </Window>

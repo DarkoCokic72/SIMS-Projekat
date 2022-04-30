@@ -5,6 +5,7 @@
  ***********************************************************************/
 
 using System;
+using Newtonsoft.Json.Linq;
 
 namespace Model
 {
@@ -22,6 +23,10 @@ namespace Model
             this.Type = roomType;
             this.Floor = floor;
      }
-   
-   }
+
+        public static explicit operator JToken(Room v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
