@@ -16,6 +16,7 @@ namespace Model
         public string surname { get; set; }
         public string phoneNumber { get; set; }
         public string uniquePersonalNumber { get; set; }
+        public string userType { get; set; }
 
         public Address address;
 

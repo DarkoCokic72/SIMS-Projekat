@@ -75,7 +75,7 @@ namespace Model
             patientExaminationAppointment.Clear();
       }
 
-      public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
+        public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
         {
             this.email = email;
             this.password = password;
@@ -83,6 +83,7 @@ namespace Model
             this.surname = surname;
             this.phoneNumber = phoneNumber;
             this.uniquePersonalNumber = uniqueuniquePersonalNumber;
+           // this.address = address;
             this.dateOfBirth = dateOfBirth;
             this.bloodGroup = bloodGroup;
         }
