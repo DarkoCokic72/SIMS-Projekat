@@ -53,11 +53,9 @@ namespace Service
             examinationAppointmentRepository.Delete(id);
         }
 
-        public Repo.ExaminationAppointmentRepository examinationAppointmentRepository;
+        public Repo.ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository();
 
-        public ExaminationAppointmentService(ExaminationAppointmentRepository repo) {
-            this.examinationAppointmentRepository = repo;
-        }
+        
 
     }
 }

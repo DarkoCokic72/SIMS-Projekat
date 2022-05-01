@@ -143,7 +143,7 @@ namespace Service
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();
       public RenovationRepository renovationRepository = new RenovationRepository();
-      public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository(new WpfApp1.FileHandler.ExaminationAppointmentFileHandler());
+      public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository();
 
     }
 }
