@@ -18,11 +18,10 @@ using Model;
 using FileHandler;
 using Repo;
 using Service;
-using WpfApp1.View.Physician;
 using WpfApp1.Controller;
 using WpfApp1.View.Physiciann.ExaminationAppointments;
 
-namespace WpfApp1.View.Physician.ExaminationAppointments
+namespace WpfApp1.View.Physiciann.ExaminationAppointments
 {
     /// <summary>
     /// Interaction logic for ExaminationAppointmentWindow.xaml

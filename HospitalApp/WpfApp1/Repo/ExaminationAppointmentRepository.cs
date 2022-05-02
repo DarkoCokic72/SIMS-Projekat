@@ -39,10 +39,10 @@ namespace Repo
                 List<ExaminationAppointment> listOfExaminations = GetAll();
                 listOfExaminations.Add(appointment);
                 examinationAppointmentFileHandler.Write(listOfExaminations);
-                WpfApp1.View.Physician.ExaminationAppointments.CreateAppointmentWindow.appointmentAdded = true;
+                WpfApp1.View.Physiciann.ExaminationAppointments.CreateAppointmentWindow.appointmentAdded = true;
             } else
             {
-                WpfApp1.View.Physician.ExaminationAppointments.CreateAppointmentWindow.appointmentAdded = false;
+                WpfApp1.View.Physiciann.ExaminationAppointments.CreateAppointmentWindow.appointmentAdded = false;
             }
         }
 

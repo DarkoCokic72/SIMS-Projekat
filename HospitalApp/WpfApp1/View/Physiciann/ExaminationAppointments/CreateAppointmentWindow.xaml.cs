@@ -19,7 +19,7 @@ using FileHandler;
 using Controller;
 using WpfApp1.Model;
 
-namespace WpfApp1.View.Physician.ExaminationAppointments
+namespace WpfApp1.View.Physiciann.ExaminationAppointments
 {
     /// <summary>
     /// Interaction logic for CreateAppointmentWindow.xaml
@@ -128,7 +128,7 @@ namespace WpfApp1.View.Physician.ExaminationAppointments
                 Close();
             } else if (btn.Content.Equals("Add"))
             {
-                ExaminationAppointmentWindow.appointmentControler.Add(new ExaminationAppointment(PhisicianBinding, PatientBinding, RoomBinding, IdBinding));
+                ExaminationAppointmentWindow.appointmentControler.Add(new ExaminationAppointment(PhisicianBinding, PatientBinding, RoomBinding, DateBinding, IdBinding));
 
                 if(appointmentAdded == true)
                 {
@@ -150,6 +150,11 @@ namespace WpfApp1.View.Physician.ExaminationAppointments
             {
                 e.CanExecute = false;
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
     }

@@ -110,7 +110,7 @@ namespace Service
 
             foreach (ExaminationAppointment e in allAppointments)
             {
-                if (e.Room == roomId)
+                if (e.Room.Id == roomId)
                 {
                     dates.Add(e.DateOfAppointment);
                 }

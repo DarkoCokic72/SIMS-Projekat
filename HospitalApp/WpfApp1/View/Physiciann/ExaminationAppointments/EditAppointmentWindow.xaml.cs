@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using WpfApp1.View;
-using WpfApp1.View.Physician.ExaminationAppointments;
+
 
 namespace WpfApp1.View.Physiciann.ExaminationAppointments
 {
@@ -30,7 +30,7 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
             InitializeComponent();
             DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            examinationAppointment = Physician.ExaminationAppointments.ExaminationAppointmentWindow.instace.GetSelectedAppointment();
+            examinationAppointment = ExaminationAppointments.ExaminationAppointmentWindow.instace.GetSelectedAppointment();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -127,7 +127,7 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
                 Close();
             } else if (btn.Content.Equals("Edit"))
             {
-                ExaminationAppointmentWindow.appointmentControler.Update(new ExaminationAppointment(PhisicianBinding, PatientBinding, roomBinding, DateBinding));
+                ExaminationAppointmentWindow.appointmentControler.Update(new ExaminationAppointment(PhisicianBinding, PatientBinding, roomBinding, DateBinding, IdBinding));
 
                 if(appointmentEdited == true)
                 {
@@ -138,6 +138,17 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
                     MessageBox.Show("ID cannot be edited", "Error");
                 }
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Add_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+           
         }
     }
 }
