@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.Rooms"
         mc:Ignorable="d"
-        Title="List of equipment" Height="648" Width="784" ResizeMode="NoResize">
+        Title="List of equipment" Height="630" Width="784" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

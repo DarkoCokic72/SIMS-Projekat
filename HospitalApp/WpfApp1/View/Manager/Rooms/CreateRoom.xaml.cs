@@ -18,7 +18,11 @@ namespace WpfApp1
             InitializeComponent();
             DataContext = this;
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.Manual;
+            double width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            Top = 0.192*height;
+            Left = 0.25*width;
 
             Validation.MinMaxValidationRule.ValidationHasError = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;

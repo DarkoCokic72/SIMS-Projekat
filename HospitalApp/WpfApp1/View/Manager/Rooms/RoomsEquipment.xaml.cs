@@ -27,14 +27,18 @@ namespace WpfApp1.View.Rooms
         public static RoomsEquipment roomsEquipmentWindowInstance;
         public static ObservableCollection<Equipment> Equipment { get; set; }
         public static Equipment SelectedEquipment { get; set; }
-        public RoomsEquipment()
+        public RoomsEquipment(string roomId)
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.Manual;
+            double width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            Top = 0.192 * height;
+            Left = 0.25 * width;
 
 
-            List<Equipment> e = RoomsWindow.roomController.getEquipment(RoomsWindow.SelectedRoom.Id);
+            List<Equipment> e = RoomsWindow.roomController.getEquipment(roomId);
             Equipment = new ObservableCollection<Equipment>(e);
             
         }
@@ -54,13 +58,15 @@ namespace WpfApp1.View.Rooms
             }
             EquipmentRelocation equipmentRelocationWindow = new EquipmentRelocation();
             equipmentRelocationWindow.Show();
+            RoomsWindow.GetRoomsWindow().Close();
+            Close();
         }
 
-        public static RoomsEquipment GetWindow()
+        public static RoomsEquipment GetWindow(string roomId)
         {
             if (roomsEquipmentWindowInstance == null)
             {
-                roomsEquipmentWindowInstance = new RoomsEquipment();
+                roomsEquipmentWindowInstance = new RoomsEquipment(roomId);
 
             }
 
