@@ -3,9 +3,10 @@
 // Created: 10. април 2022. 18:40:51
 // Purpose: Definition of Class PatientExaminationAppointment
 
+using Model;
 using System;
 
-namespace Model
+namespace WpfApp1.Model
 {
     public class PatientExaminationAppointment
     {

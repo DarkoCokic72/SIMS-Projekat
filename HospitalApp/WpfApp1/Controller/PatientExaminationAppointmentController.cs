@@ -7,6 +7,7 @@ using Model;
 using Service;
 using System;
 using System.Collections.Generic;
+using WpfApp1.Model;
 
 namespace Controller
 {

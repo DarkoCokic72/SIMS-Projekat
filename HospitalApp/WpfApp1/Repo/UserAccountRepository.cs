@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfApp1.FileHandler;
 
 namespace WpfApp1.Repo
@@ -27,6 +28,9 @@ namespace WpfApp1.Repo
             ManagerFileHandler managerFileHandler = new ManagerFileHandler();
             ManagerRepository managerRepository = new ManagerRepository(managerFileHandler);
 
+            SecretaryFileHandler secretaryFileHandler = new SecretaryFileHandler();
+            SecretaryRepository secretaryRepository = new SecretaryRepository(secretaryFileHandler);
+
             foreach (UserAccount u in patientRepository.GetAll())
             {
                 if (u.email == email && u.password == password)
@@ -43,7 +47,15 @@ namespace WpfApp1.Repo
                 }
 
             }
+            foreach (UserAccount u in secretaryRepository.GetAll())
+            {
+                if (u.email == email && u.password == password)
+                {
+                    return u;
+                }
 
+            }
+            MessageBox.Show("BAD LOGIN!\nWrong email or password!", "Error");
             return null;
         }
 

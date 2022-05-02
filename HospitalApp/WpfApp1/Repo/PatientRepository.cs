@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using FileHandler;
 using Model;
+using WpfApp1.Model;
 
 namespace Repo
 {
