@@ -31,6 +31,9 @@ namespace WpfApp1.Repo
             SecretaryFileHandler secretaryFileHandler = new SecretaryFileHandler();
             SecretaryRepository secretaryRepository = new SecretaryRepository(secretaryFileHandler);
 
+            PhysicianFileHandler physicianFileHandler = new PhysicianFileHandler();
+            PhysicianRepository physicianRepository = new PhysicianRepository(physicianFileHandler);
+
             foreach (UserAccount u in patientRepository.GetAll())
             {
                 if (u.email == email && u.password == password)
@@ -40,6 +43,14 @@ namespace WpfApp1.Repo
 
             }
             foreach (UserAccount u in managerRepository.GetAll())
+            {
+                if (u.email == email && u.password == password)
+                {
+                    return u;
+                }
+
+            }
+            foreach (UserAccount u in physicianRepository.GetAll())
             {
                 if (u.email == email && u.password == password)
                 {

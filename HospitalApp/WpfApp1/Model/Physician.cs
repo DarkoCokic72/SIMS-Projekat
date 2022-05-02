@@ -10,7 +10,7 @@ using WpfApp1.View.PatientAppointments;
 
 
 
-namespace Model
+namespace WpfApp1.Model
 {
     public class Physician : UserAccount
     {

@@ -1,0 +1,1 @@
+[{"patientExaminationAppointment":null,"address":null,"PatientExaminationAppointment":[],"email":"physician@gmail.com","password":"physician","name":"Darko","surname":"Cokic","phoneNumber":"063335533","uniquePersonalNumber":"1235567890123","Address":null}]
