@@ -36,13 +36,8 @@ namespace Controller
       {
             return patientAppointmentService.GetById(id);
       }
-        public Service.PatientExaminationAppointmentService patientAppointmentService;
+        public Service.PatientExaminationAppointmentService patientAppointmentService=new PatientExaminationAppointmentService();
 
-        public PatientExaminationAppointmentController(PatientExaminationAppointmentService patientAppointmentService)
-        {
-                    
-            this.patientAppointmentService = patientAppointmentService;
-                
-        }
+       
     }
 }

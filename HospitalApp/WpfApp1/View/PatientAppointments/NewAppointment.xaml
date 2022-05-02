@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.PatientAppointments"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.PatientAppointments.NewAppointment"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
 
         Title="NewAppointment" Height="450" Width="800">
@@ -15,38 +16,41 @@
         </Grid.ColumnDefinitions>
         <Label Content="ID" HorizontalAlignment="Left" Margin="120,80,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Doctor" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Date" HorizontalAlignment="Left" Margin="120,200,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Time" HorizontalAlignment="Left" Margin="120,260,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="120,212,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <!--<Label Content="Time" HorizontalAlignment="Left" Margin="120,260,0,0" VerticalAlignment="Top" FontSize="18"/>-->
         <TextBox HorizontalAlignment="Left" Margin="204,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="ID" TextChanged="ID_TextChanged">
             <TextBox.Text>
                 <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </TextBox.Text>
         </TextBox>
-        <DatePicker HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Center" Width="120" Name="Date" >
-            <DatePicker.Text>
-                <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
-            </DatePicker.Text>
-        </DatePicker>
+
         <Button Content="Add" HorizontalAlignment="Left" Margin="244,375,0,0" VerticalAlignment="Top" FontSize="20" Width="80" Name="Add" Command="Save" Click="Button_Click"  >
             <Button.CommandBindings>
-                <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute"/>
+                <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute_1"/>
             </Button.CommandBindings>
 
         </Button>
-        <TextBox HorizontalAlignment="Left" Margin="204,268,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="Time" Text="{Binding TimeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+        <!--<TextBox HorizontalAlignment="Left" Margin="204,268,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="Time" Text="{Binding TimeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
 
-        </TextBox>
+        </TextBox>-->
         <ComboBox HorizontalAlignment="Left" Margin="204,146,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Doctor" SelectionChanged="Doctor_SelectionChanged">
             <ComboBox.Text>
                 <Binding Path="DoctorBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </ComboBox.Text>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="204,328,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Room" SelectionChanged="Room_SelectionChanged"  >
+        <ComboBox HorizontalAlignment="Left" Margin="204,302,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Room" SelectionChanged="Room_SelectionChanged"  >
             <ComboBox.Text>
                 <Binding Path="RoomBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </ComboBox.Text>
         </ComboBox>
-        <Label Content="Room" HorizontalAlignment="Left" Margin="120,324,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Room" HorizontalAlignment="Left" Margin="120,300,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <syncfusion:DateTimeEdit  HorizontalAlignment="Left" Height="55" Margin="204,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" x:Name="Date"   CanEdit="True" Pattern="CustomPattern" CustomPattern="MM/dd/yyyy hh:mm"   MaxDateTime="12/31/9999 00:00" CultureInfo="en-US" DateTimeChanged="Date_DateTimeChanged" >
+            <syncfusion:DateTimeEdit.Text>
+
+                <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" />
+            </syncfusion:DateTimeEdit.Text>
+        </syncfusion:DateTimeEdit>
+
 
     </Grid>
 </Window>
