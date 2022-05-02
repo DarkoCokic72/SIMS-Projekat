@@ -37,5 +37,11 @@ namespace WpfApp1.View.Secretary
             }
 
         }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 }

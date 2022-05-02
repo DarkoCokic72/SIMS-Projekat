@@ -7,6 +7,7 @@ using FileHandler;
 using Model;
 using System;
 using System.Collections.Generic;
+using WpfApp1.Model;
 using WpfApp1.View.PatientAppointments;
 
 

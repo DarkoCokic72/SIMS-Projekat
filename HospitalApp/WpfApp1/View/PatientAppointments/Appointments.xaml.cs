@@ -18,6 +18,7 @@ using Repo;
 using Service;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using WpfApp1.Model;
 
 namespace WpfApp1.View.PatientAppointments
 {

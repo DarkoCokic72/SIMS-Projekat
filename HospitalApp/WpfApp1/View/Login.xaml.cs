@@ -18,6 +18,7 @@ using WpfApp1.FileHandler;
 using WpfApp1.Repo;
 using WpfApp1.Service;
 using WpfApp1.View.Manager;
+using WpfApp1.View.PatientAppointments;
 using WpfApp1.View.Secretary;
 
 namespace WpfApp1.View
@@ -59,6 +60,7 @@ namespace WpfApp1.View
         public Login()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             DataContext = this;
         }
@@ -75,14 +77,13 @@ namespace WpfApp1.View
             if (userAccount != null) 
             {
 
-                if (userAccount.GetType() == typeof(Patient)) 
+                if (userAccount.GetType() == typeof(Model.Secretary)) 
                 {
                     SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
                     secretaryHomePage.ShowDialog();
                     this.Close();
                     return;
                 }
-
                 if (userAccount.GetType() == typeof(Model.Manager))
                 {
                     ManagerHomePage managerHomePage = new ManagerHomePage();
@@ -90,7 +91,13 @@ namespace WpfApp1.View
                     this.Close();
                     return;
                 }
-
+                if (userAccount.GetType() == typeof(Model.Patient))
+                {
+                    Appointments appointments = new Appointments();
+                    appointments.ShowDialog();
+                    this.Close();
+                    return;
+                }
 
                 this.Close();
             }

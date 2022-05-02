@@ -4,9 +4,11 @@
  * Purpose: Definition of the Class Patient
  ***********************************************************************/
 
+using Model;
 using System;
+using WpfApp1.Model;
 
-namespace Model
+namespace WpfApp1.Model
 {
    public class Patient : UserAccount
    {

@@ -3,10 +3,15 @@
  * Author:  smvul
  * Purpose: Definition of the Class FileHandler.SecretaryFileHandler
  ***********************************************************************/
+using Model;
+using System;
 
-namespace FileHandler
+namespace WpfApp1.Model
 {
-    public class Secretary
+    public class Secretary : UserAccount
     {
+        private Address OfficeAddress;
+        private string OfficeNumber;
+
     }
 }

@@ -7,6 +7,7 @@ using Model;
 using Repo;
 using System;
 using System.Collections.Generic;
+using WpfApp1.Model;
 
 namespace Service
 {

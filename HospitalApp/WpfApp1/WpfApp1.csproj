@@ -123,6 +123,7 @@
     <Compile Include="Repo\PatientRepository.cs" />
     <Compile Include="Repo\RelocationRepository.cs" />
     <Compile Include="Repo\RenovationRepository.cs" />
+    <Compile Include="Repo\SecretaryRepository.cs" />
     <Compile Include="Repo\UserAccountRepository.cs" />
     <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />

@@ -41,8 +41,10 @@ namespace WpfApp1
         public MainWindow()
         {
 
+            /* 
             Login login = new Login();
             login.ShowDialog();
+            */
 
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -60,10 +62,18 @@ namespace WpfApp1
             
         }
 
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if (btn.Content.Equals("Manager"))
+            if (btn.Content.Equals("LOGIN"))
+            {
+                Login login = new Login();
+                login.Show();
+
+            }    
+
+        /*
             {
 
                 ManagerHomePage managerHomePage = new ManagerHomePage();
@@ -80,7 +90,8 @@ namespace WpfApp1
                 Appointments appointments = Appointments.GetAppointments();
                 appointments.Show();
             }
-
+               
+            */
         }
 
 

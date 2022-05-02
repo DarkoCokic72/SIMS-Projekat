@@ -18,6 +18,7 @@ using FileHandler;
 using Model;
 using Repo;
 using Service;
+using WpfApp1.Model;
 
 namespace WpfApp1
 {

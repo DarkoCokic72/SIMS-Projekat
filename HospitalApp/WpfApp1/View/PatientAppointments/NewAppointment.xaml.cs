@@ -16,6 +16,7 @@ using Model;
 using Controller;
 using Syncfusion.Windows.Shared;
 using System.Globalization;
+using WpfApp1.Model;
 
 namespace WpfApp1.View.PatientAppointments
 {

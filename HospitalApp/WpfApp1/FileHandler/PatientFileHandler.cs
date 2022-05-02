@@ -9,6 +9,7 @@ using Model;
 using System;
 using System.IO;
 using System.Linq;
+using WpfApp1.Model;
 
 namespace FileHandler
 {
