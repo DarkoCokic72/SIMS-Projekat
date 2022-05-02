@@ -59,9 +59,17 @@ namespace WpfApp1.View.Manager.Equipment
 
             EquipmentController equipmentController = new EquipmentController();
             MaxQuantity.Text = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment).ToString();
+            Room.ItemsSource = FillComboBoxWithRooms();
 
-            List<Room> rooms = RoomsWindow.roomController.GetAll();
+            Save.IsEnabled = false;
+            MinMaxQuantityValidationRule.ValidationHasError = false;
+            StringToIntegerValidationRule.ValidationHasError = false;
+        }
+
+        private List<string> FillComboBoxWithRooms()
+        {
             List<string> roomsId = new List<String>();
+            List<Room> rooms = RoomsWindow.roomController.GetAll();
             foreach (Room r in rooms)
             {
                 if (RoomsWindow.SelectedRoom.Id != r.Id)
@@ -70,11 +78,7 @@ namespace WpfApp1.View.Manager.Equipment
                 }
             }
 
-            Room.ItemsSource = roomsId;
-
-            Save.IsEnabled = false;
-            MinMaxQuantityValidationRule.ValidationHasError = false;
-            StringToIntegerValidationRule.ValidationHasError = false;
+            return roomsId;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)

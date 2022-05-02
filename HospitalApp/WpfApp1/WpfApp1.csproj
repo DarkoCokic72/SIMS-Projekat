@@ -91,15 +91,18 @@
     <Compile Include="Controller\OperationControler.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
+    <Compile Include="Controller\UserAccountController.cs" />
     <Compile Include="FileHandler\EquipmentFileHandler.cs" />
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\GuestAccountFileHandler.cs" />
+    <Compile Include="FileHandler\ManagerFileHandler.cs" />
     <Compile Include="FileHandler\OperationFileHandler.cs" />
     <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\PatientFileHandler.cs" />
     <Compile Include="FileHandler\PhysicianFileHandler.cs" />
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
+    <Compile Include="FileHandler\UserAccountFileHandler.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
@@ -115,11 +118,13 @@
     <Compile Include="Model\SpecialisedPhysician.cs" />
     <Compile Include="Repo\ExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\GuestAccountRepository.cs" />
+    <Compile Include="Repo\ManagerRepository.cs" />
     <Compile Include="Repo\OperationRepository.cs" />
     <Compile Include="Repo\PatientExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\PatientRepository.cs" />
     <Compile Include="Repo\RelocationRepository.cs" />
     <Compile Include="Repo\RenovationRepository.cs" />
+    <Compile Include="Repo\UserAccountRepository.cs" />
     <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />
     <Compile Include="Service\GuestAccountService.cs" />
@@ -127,10 +132,14 @@
     <Compile Include="Service\PatientExaminationAppointmentService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Repo\EquipmentRepository.cs" />
+    <Compile Include="Service\UserAccountService.cs" />
     <Compile Include="Validation\PatientValidation.cs" />
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
     <Compile Include="Validation\RenovationValidation.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\Equipment\AllEquipment.xaml.cs">
       <DependentUpon>AllEquipment.xaml</DependentUpon>
     </Compile>
@@ -200,6 +209,10 @@
     <Compile Include="View\Secretary\SecretaryHomePage.xaml.cs">
       <DependentUpon>SecretaryHomePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Manager\Equipment\AllEquipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

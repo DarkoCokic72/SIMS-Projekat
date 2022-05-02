@@ -34,12 +34,12 @@ namespace Service
             {
                 bool equipmentInRoomExists = false;
                 System.DateTime currentDate = DateTime.Now;
-                List<Equipment> allEquipment = equipmentRepository.GetAll();
+                
                 foreach (Relocation r in relocationRepository.GetAll())
                 {
                     if (r.Date.ToString("yyyy-MM-dd").Equals(currentDate.ToString("yyyy-MM-dd")))
                     {
-                        
+                        List<Equipment> allEquipment = equipmentRepository.GetAll();
                         //first take equipment from room
                         for (int i = 0; i < allEquipment.Count; i++)
                         {

@@ -21,7 +21,7 @@ namespace WpfApp1.Validation
             if (s.Length != 13) 
             {
                 ValidationError = true;
-                return new ValidationResult(false, "UPN must have 13 characters");
+                return new ValidationResult(false, "UPN must have\n13 characters");
             }
 
             if (!Regex.IsMatch(s, @"[0-9]+"))

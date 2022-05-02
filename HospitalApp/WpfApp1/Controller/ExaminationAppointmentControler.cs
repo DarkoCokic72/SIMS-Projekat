@@ -51,7 +51,6 @@ namespace WpfApp1.Controller
             //throw new NotImplementedException();
             return examinationAppointmentService.GetByPhysicianID(physicianID);
         }
-
         public Service.ExaminationAppointmentService examinationAppointmentService = new ExaminationAppointmentService();
 
         
