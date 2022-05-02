@@ -33,8 +33,8 @@ namespace WpfApp1.View.PatientAppointments
         }
 
 
-        private Physician doctorBinding;
-        public Physician DoctorBinding
+        private string doctorBinding;
+        public string DoctorBinding
         {
             get { return doctorBinding; }
             set
@@ -179,7 +179,7 @@ namespace WpfApp1.View.PatientAppointments
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
             IdBinding = patientExaminationAppointment.id;
-            DoctorBinding = patientExaminationAppointment.physician;
+            DoctorBinding = patientExaminationAppointment.physicianName;
             DateBinding = patientExaminationAppointment.datetimeOfAppointment;
             //TimeBinding = patientExaminationAppointment.timeOfAppointment;
             RoomBinding = patientExaminationAppointment.roomId;

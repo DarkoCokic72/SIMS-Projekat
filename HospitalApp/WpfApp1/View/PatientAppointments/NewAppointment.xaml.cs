@@ -16,7 +16,7 @@ using Model;
 using Controller;
 using Syncfusion.Windows.Shared;
 using System.Globalization;
-
+using Repo;
 namespace WpfApp1.View.PatientAppointments
 {
     /// <summary>
@@ -25,39 +25,10 @@ namespace WpfApp1.View.PatientAppointments
     public partial class NewAppointment : Window
     {
         public static Boolean addedAppointment = false;
-        
-        public NewAppointment()
-        {
-            InitializeComponent();
-            DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        private PatientExaminationAppointment patientExaminationAppointment;
+        string busy = "not busy";
 
-            //Date.DateTime = DateTime.Now;
-            Date.MinDateTime = DateTime.Now;
-            
-            //Date.Pattern = DateTimePattern.CustomPattern;
-            
-            //DateBinding = DateTime.Now.ToString("MM/dd/yyyy");
-
-            // DateBinding = Convert.ToDateTime(11 / 23 / 2022);
-            //string s2 = DateBinding.ToString("MM/dd/yyyy");
-            //DateBinding = Convert.ToDateTime(s2);
-            //Date.Text = DateTime.Now.ToString();
-            //Date=DateTime.Now.ToStrin
-            RoomController roomController = new RoomController();
-            List<Room> rooms = roomController.GetAll();
-            List<string> roomsId = new List<string>();
-
-            foreach (Room r in rooms)
-            {
-                roomsId.Add(r.Id);
-            }
-
-            Room.ItemsSource = roomsId;
-            Add.IsEnabled = false;
-
-
-        }
+       
 
         private void ID_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -65,8 +36,8 @@ namespace WpfApp1.View.PatientAppointments
         }
 
 
-        private Physician doctorBinding;
-        public Physician DoctorBinding
+        private string doctorBinding;
+        public string DoctorBinding
         {
             get { return doctorBinding; }
             set
@@ -163,7 +134,7 @@ namespace WpfApp1.View.PatientAppointments
  
         private void CommandBinding_CanExecute_1(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(IdBinding))
+            if (string.IsNullOrEmpty(IdBinding)  )
             {
                 e.CanExecute = false;
             }
@@ -175,13 +146,16 @@ namespace WpfApp1.View.PatientAppointments
 
         private void Doctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Physician selectedPerson = Doctor.SelectedItem as Physician;
-            MessageBox.Show(selectedPerson.name + selectedPerson.surname, "Doctor is selected");
+
+            if (!string.IsNullOrEmpty((string)Doctor.SelectedItem))
+            {
+                Add.IsEnabled = true;
+            }
         }
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)Room.SelectedItem))
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && busy != null)
             {
                 Add.IsEnabled = true;
             }
@@ -192,6 +166,107 @@ namespace WpfApp1.View.PatientAppointments
         {
             var oldValue = e.OldValue;
             var newValue = e.NewValue;
+
+
+        }
+        public NewAppointment()
+        {
+            InitializeComponent();
+            DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            //Date.DateTime = DateTime.Now;
+            Date.MinDateTime = DateTime.Now;
+
+            //Date.Pattern = DateTimePattern.CustomPattern;
+
+            //DateBinding = DateTime.Now.ToString("MM/dd/yyyy");
+
+            // DateBinding = Convert.ToDateTime(11 / 23 / 2022);
+            //string s2 = DateBinding.ToString("MM/dd/yyyy");
+            //DateBinding = Convert.ToDateTime(s2);
+            //Date.Text = DateTime.Now.ToString();
+            //Date=DateTime.Now.ToStrin
+            RoomController roomController = new RoomController();
+            List<Room> rooms = roomController.GetAll();
+            List<string> roomsId = new List<string>();
+
+            foreach (Room r in rooms)
+            {
+                roomsId.Add(r.Id);
+            }
+
+            Room.ItemsSource = roomsId;
+
+            PhysicianController physicianController = new PhysicianController();
+            List<Physician> physcicians = physicianController.GetAll();
+            List<string> physicianName = new List<string>();
+
+            foreach (Physician r in physcicians)
+            {
+                physicianName.Add(r.name + " " + r.surname);
+
+
+            }
+
+            Doctor.ItemsSource = physicianName;
+
+            PatientExaminationAppointmentRepository appointmentsRepo = new PatientExaminationAppointmentRepository();
+            List<PatientExaminationAppointment> appointments = appointmentsRepo.GetAll();
+            // List<DateTime> dates = new List<DateTime>();
+            //patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
+            // = patientExaminationAppointment.datetimeOfAppointment;
+            
+            foreach (PatientExaminationAppointment r in appointments)
+            {
+                //dates.Add(r.datetimeOfAppointment);
+                int results = DateTime.Compare(r.datetimeOfAppointment,DateBinding);
+                if (results == 0)
+                {
+                    MessageBox.Show("That time is busy", "Error");
+                    string busy = null;
+                    break;
+                }
+                int results1 = DateTime.Compare(r.datetimeOfAppointment.AddMinutes(15), DateBinding);
+                if (results1 == 0)
+                {
+                    MessageBox.Show("That time is busy", "Error");
+                    string busy = null;
+
+                }
+                else if (results1 > 0 && results < 0)
+                {
+                    MessageBox.Show("That time is busy", "Error");
+                    string busy = null;
+
+                }
+                int results2 = DateTime.Compare(r.datetimeOfAppointment.AddMinutes(-15), DateBinding);
+                if (results1 == 0)
+                {
+                    MessageBox.Show("That time is busy", "Error");
+                    string busy = null;
+
+                }
+                else if (results2 < 0 && results > 0)
+                {
+                    MessageBox.Show("That time is busy", "Error");
+                    string busy = null;
+
+                }
+                
+            }
+            //for(int i = 0; i < dates.Count; i++)
+            //{
+
+            //    int results=DateTime.Compare()
+
+
+            //}
+
+
+            Add.IsEnabled = false;
+
+
         }
     }
 }

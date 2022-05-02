@@ -14,8 +14,10 @@ namespace Model
 {
     public class Physician : UserAccount
     {
-        private int licenceID;
-        private Address office;
+        public string licenceID { get; set; } //class diagram
+        public Address office { get; set; }
+
+
 
 
        

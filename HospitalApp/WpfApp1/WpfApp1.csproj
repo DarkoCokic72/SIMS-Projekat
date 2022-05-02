@@ -56,6 +56,24 @@
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.x64.150.5282.3\lib\net46\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Utilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.x64.150.5282.3\lib\net46\Microsoft.Data.Tools.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.x64.150.5282.3\lib\net46\Microsoft.SqlServer.Dac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac.Extensions, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.x64.150.5282.3\lib\net46\Microsoft.SqlServer.Dac.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.TransactSql.ScriptDom, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.x64.150.5282.3\lib\net46\Microsoft.SqlServer.TransactSql.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.x64.150.5282.3\lib\net46\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -91,18 +109,16 @@
     <Compile Include="Controller\OperationControler.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
-    <Compile Include="Controller\UserAccountController.cs" />
+    <Compile Include="Controller\PhysicianController.cs" />
     <Compile Include="FileHandler\EquipmentFileHandler.cs" />
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\GuestAccountFileHandler.cs" />
-    <Compile Include="FileHandler\ManagerFileHandler.cs" />
     <Compile Include="FileHandler\OperationFileHandler.cs" />
     <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\PatientFileHandler.cs" />
     <Compile Include="FileHandler\PhysicianFileHandler.cs" />
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
-    <Compile Include="FileHandler\UserAccountFileHandler.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
@@ -118,13 +134,12 @@
     <Compile Include="Model\SpecialisedPhysician.cs" />
     <Compile Include="Repo\ExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\GuestAccountRepository.cs" />
-    <Compile Include="Repo\ManagerRepository.cs" />
     <Compile Include="Repo\OperationRepository.cs" />
     <Compile Include="Repo\PatientExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\PatientRepository.cs" />
+    <Compile Include="Repo\PhysicianRepository.cs" />
     <Compile Include="Repo\RelocationRepository.cs" />
     <Compile Include="Repo\RenovationRepository.cs" />
-    <Compile Include="Repo\UserAccountRepository.cs" />
     <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />
     <Compile Include="Service\GuestAccountService.cs" />
@@ -132,14 +147,11 @@
     <Compile Include="Service\PatientExaminationAppointmentService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Repo\EquipmentRepository.cs" />
-    <Compile Include="Service\UserAccountService.cs" />
+    <Compile Include="Service\PhysicianService.cs" />
     <Compile Include="Validation\PatientValidation.cs" />
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
     <Compile Include="Validation\RenovationValidation.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
-    <Compile Include="View\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Manager\Equipment\AllEquipment.xaml.cs">
       <DependentUpon>AllEquipment.xaml</DependentUpon>
     </Compile>
@@ -166,19 +178,6 @@
     </Compile>
     <Compile Include="View\PatientAppointments\NewAppointment.xaml.cs">
       <DependentUpon>NewAppointment.xaml</DependentUpon>
-
-    <Compile Include="View\Physiciann\ExaminationAppointments\CreateAppointmentWindow.xaml.cs">
-      <DependentUpon>CreateAppointmentWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Physiciann\ExaminationAppointments\DeleteAppointmentWindow.xaml.cs">
-      <DependentUpon>DeleteAppointmentWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Physiciann\ExaminationAppointments\EditAppointmentWindow.xaml.cs">
-      <DependentUpon>EditAppointmentWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml.cs">
-      <DependentUpon>ExaminationAppointmentWindow.xaml</DependentUpon>
-
     </Compile>
     <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
@@ -209,10 +208,6 @@
     <Compile Include="View\Secretary\SecretaryHomePage.xaml.cs">
       <DependentUpon>SecretaryHomePage.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Manager\Equipment\AllEquipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,7 +232,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="View\PatientAppointments\Appointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -247,21 +241,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PatientAppointments\NewAppointment.xaml">
-
-    <Page Include="View\Physiciann\ExaminationAppointments\CreateAppointmentWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Physiciann\ExaminationAppointments\DeleteAppointmentWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Physiciann\ExaminationAppointments\EditAppointmentWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,6 +20,7 @@ using WpfApp1.View;
 using WpfApp1.View.Manager;
 using WpfApp1.View.Secretary;
 using WpfApp1.View.PatientAppointments;
+using Microsoft.SqlServer.Dac.Model;
 
 namespace WpfApp1
 {
@@ -41,8 +42,8 @@ namespace WpfApp1
         public MainWindow()
         {
 
-            Login login = new Login();
-            login.ShowDialog();
+            //Login login = new Login();
+            //login.ShowDialog();
 
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;

@@ -8,7 +8,8 @@ namespace Model
 {
     public class SpecialisedPhysician : Physician
     {
-        private String specialisation;
+        private string specialisation { get; set; }
+
 
     }
 }
