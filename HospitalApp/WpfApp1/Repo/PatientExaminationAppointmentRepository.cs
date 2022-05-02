@@ -14,11 +14,8 @@ namespace Repo
 {
     public class PatientExaminationAppointmentRepository
     {
-        public PatientExaminationAppointmentFileHandler patientAppointmentFileHandler;
-        public PatientExaminationAppointmentRepository(PatientExaminationAppointmentFileHandler patientAppointmentFileHandler)
-        {
-            this.patientAppointmentFileHandler = patientAppointmentFileHandler;
-        }
+        public PatientExaminationAppointmentFileHandler patientAppointmentFileHandler=new PatientExaminationAppointmentFileHandler();
+       
         public List<PatientExaminationAppointment> GetAll()
         {
             return patientAppointmentFileHandler.Read();
@@ -75,20 +72,32 @@ namespace Repo
         public void Update(PatientExaminationAppointment appointments)
         {
             List<PatientExaminationAppointment> list = GetAll();
+            //if (Appointments.AppointmentsInstance.getSelectedAppointments().id != appointments.id)
+            //{
+            //    for (int i = 0; i < list.Count; i++)
+            //    {
+            //        if (list[i].id.Equals(appointments.id))
+            //        {
+            //            EditAppointment.editedAppointment = false;
+            //            return;
+            //        }
+            //    }
+            //}
 
-            for (int i = 0; i < list.Count; i++)
-            {
-
-                if (list[i].id == appointments.id)
+                for (int i = 0; i < list.Count; i++)
                 {
 
-                    list[i] = appointments;
-                    patientAppointmentFileHandler.Write(list);
-                    EditAppointment.editedAppointement = true;
-                }
-               
+                    if (list[i].id.Equals(Appointments.AppointmentsInstance.getSelectedAppointments().id))
+                    {
 
-            }
+                        list[i] = appointments;
+                        patientAppointmentFileHandler.Write(list);
+                        EditAppointment.editedAppointment = true;
+                    }
+
+
+                }
+            
 
 
         }

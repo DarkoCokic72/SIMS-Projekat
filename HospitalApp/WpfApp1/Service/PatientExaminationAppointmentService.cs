@@ -12,11 +12,10 @@ namespace Service
 {
     public class PatientExaminationAppointmentService
     {
-        public PatientExaminationAppointmentRepository patientAppointmentRepository;
-        public PatientExaminationAppointmentService(PatientExaminationAppointmentRepository PatientAppointmentRepository)
-        {
-            this.patientAppointmentRepository = PatientAppointmentRepository;
-        }
+        public PatientExaminationAppointmentRepository patientAppointmentRepository= new PatientExaminationAppointmentRepository(); 
+        public RoomRepository roomRepository = new RoomRepository();
+
+       
         public List<PatientExaminationAppointment> GetAll()
         {
             return patientAppointmentRepository.GetAll();

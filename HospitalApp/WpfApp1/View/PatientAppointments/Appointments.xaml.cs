@@ -35,11 +35,7 @@ namespace WpfApp1.View.PatientAppointments
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            PatientExaminationAppointmentFileHandler fileHandler = new PatientExaminationAppointmentFileHandler();
-            PatientExaminationAppointmentRepository repository = new PatientExaminationAppointmentRepository(fileHandler);
-            PatientExaminationAppointmentService service = new PatientExaminationAppointmentService(repository);
-            patientAppointmentController = new PatientExaminationAppointmentController(service);
+            patientAppointmentController = new PatientExaminationAppointmentController();
             Appointment = new ObservableCollection<PatientExaminationAppointment>(patientAppointmentController.GetAll());
         }
         public static Appointments GetAppointments()
@@ -62,7 +58,7 @@ namespace WpfApp1.View.PatientAppointments
 
         public PatientExaminationAppointment getSelectedAppointments()
         {
-            return (PatientExaminationAppointment)DataGridAppointments.SelectedItem; ;
+            return (PatientExaminationAppointment)DataGridAppointments.SelectedItem;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,6 +69,11 @@ namespace WpfApp1.View.PatientAppointments
         {
             Button New = (Button)sender;
             PatientExaminationAppointment Appointments = getSelectedAppointments();
+            if(!New.Content.Equals("New") && Appointments==null)
+            {
+                MessageBox.Show("You need to select a row!", "Error");
+                return;
+            }
 
             if (New.Content.Equals("New"))
             {

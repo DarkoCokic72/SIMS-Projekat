@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Controller;
+using Syncfusion.Windows.Shared;
+using System.Globalization;
+
 namespace WpfApp1.View.PatientAppointments
 {
     /// <summary>
@@ -22,11 +25,25 @@ namespace WpfApp1.View.PatientAppointments
     public partial class NewAppointment : Window
     {
         public static Boolean addedAppointment = false;
+        
         public NewAppointment()
         {
             InitializeComponent();
             DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            //Date.DateTime = DateTime.Now;
+            Date.MinDateTime = DateTime.Now;
+            
+            //Date.Pattern = DateTimePattern.CustomPattern;
+            
+            //DateBinding = DateTime.Now.ToString("MM/dd/yyyy");
+
+            // DateBinding = Convert.ToDateTime(11 / 23 / 2022);
+            //string s2 = DateBinding.ToString("MM/dd/yyyy");
+            //DateBinding = Convert.ToDateTime(s2);
+            //Date.Text = DateTime.Now.ToString();
+            //Date=DateTime.Now.ToStrin
             RoomController roomController = new RoomController();
             List<Room> rooms = roomController.GetAll();
             List<string> roomsId = new List<string>();
@@ -38,6 +55,7 @@ namespace WpfApp1.View.PatientAppointments
 
             Room.ItemsSource = roomsId;
             Add.IsEnabled = false;
+
 
         }
 
@@ -59,6 +77,7 @@ namespace WpfApp1.View.PatientAppointments
             }
         }
         private DateTime dateBinding;
+        
         public DateTime DateBinding
         {
             get { return dateBinding; }
@@ -69,17 +88,17 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
-        private DateTime timeBinding;
-        public DateTime TimeBinding
-        {
-            get { return timeBinding; }
-            set
-            {
-                timeBinding = value;
-                OnPropertyChanged("TimeBinding");
+        //private DateTime timeBinding;
+        //public DateTime TimeBinding
+        //{
+        //    get { return timeBinding; }
+        //    set
+        //    {
+        //        timeBinding = value;
+        //        OnPropertyChanged("TimeBinding");
 
-            }
-        }
+        //    }
+        //}
 
         private string idBinding;
         public string IdBinding
@@ -95,8 +114,9 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
-        private Room roomBinding;
-        public Room RoomBinding
+        
+        private string roomBinding;
+        public string RoomBinding
         {
             get
             {
@@ -123,7 +143,7 @@ namespace WpfApp1.View.PatientAppointments
             Button Add = (Button)sender;
             if (Add.Content.Equals("Add"))
             {
-                Appointments.patientAppointmentController.Addd(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, TimeBinding,RoomBinding));
+                Appointments.patientAppointmentController.Addd(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, RoomBinding));
 
                 if (addedAppointment == true)
                 {
@@ -141,7 +161,7 @@ namespace WpfApp1.View.PatientAppointments
         }
 
  
-        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void CommandBinding_CanExecute_1(object sender, CanExecuteRoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(IdBinding))
             {
@@ -166,6 +186,12 @@ namespace WpfApp1.View.PatientAppointments
                 Add.IsEnabled = true;
             }
     
+        }
+
+        private void Date_DateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var oldValue = e.OldValue;
+            var newValue = e.NewValue;
         }
     }
 }

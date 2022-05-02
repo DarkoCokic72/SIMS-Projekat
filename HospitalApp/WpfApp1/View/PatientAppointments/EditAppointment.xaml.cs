@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Controller;
+using Syncfusion.Windows.Shared;
 
 namespace WpfApp1.View.PatientAppointments
 {
@@ -21,37 +22,9 @@ namespace WpfApp1.View.PatientAppointments
     /// Interaction logic for EditAppointment.xaml
     /// </summary>
     public partial class EditAppointment : Window
-
     {
-        public static Boolean editedAppointement = false;
+        public static Boolean editedAppointment = false;
         private PatientExaminationAppointment patientExaminationAppointment;
-
-        public EditAppointment()
-        {
-
-            InitializeComponent();
-            DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
-            RoomController roomController = new RoomController();
-            List<Room> rooms = roomController.GetAll();
-            List<string> roomsId = new List<string>();
-
-            foreach (Room r in rooms)
-            {
-                roomsId.Add(r.Id);
-            }
-
-            Room.ItemsSource = roomsId;
-
-
-
-            Add.IsEnabled = false;
-
-        }
-
-
-
 
 
         private void ID_TextChanged(object sender, TextChangedEventArgs e)
@@ -72,6 +45,7 @@ namespace WpfApp1.View.PatientAppointments
             }
         }
         private DateTime dateBinding;
+
         public DateTime DateBinding
         {
             get { return dateBinding; }
@@ -82,17 +56,17 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
-        private DateTime timeBinding;
-        public DateTime TimeBinding
-        {
-            get { return timeBinding; }
-            set
-            {
-                timeBinding = value;
-                OnPropertyChanged("TimeBinding");
+        //private DateTime timeBinding;
+        //public DateTime TimeBinding
+        //{
+        //    get { return timeBinding; }
+        //    set
+        //    {
+        //        timeBinding = value;
+        //        OnPropertyChanged("TimeBinding");
 
-            }
-        }
+        //    }
+        //}
 
         private string idBinding;
         public string IdBinding
@@ -108,8 +82,8 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
-        private Room roomBinding;
-        public Room RoomBinding
+        private string roomBinding;
+        public string RoomBinding
         {
             get
             {
@@ -122,7 +96,6 @@ namespace WpfApp1.View.PatientAppointments
 
             }
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string v)
         {
@@ -134,19 +107,19 @@ namespace WpfApp1.View.PatientAppointments
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button Add = (Button)sender;
-            if (Add.Content.Equals("Edit"))
+            Button Edit = (Button)sender;
+            if (Edit.Content.Equals("Edit"))
             {
-                Appointments.patientAppointmentController.Update(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, TimeBinding,RoomBinding));
+                Appointments.patientAppointmentController.Update(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, RoomBinding));
 
-                if (editedAppointement == true)
+                if (editedAppointment == true)
                 {
                     Appointments.AppointmentsInstance.refreshContentOfGrid();
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Cannot change ID", "Error");
+                    MessageBox.Show("Appointment with that ID already exists!", "Error");
                 }
             }
 
@@ -154,10 +127,6 @@ namespace WpfApp1.View.PatientAppointments
 
         }
 
-        private void Doctor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -179,13 +148,90 @@ namespace WpfApp1.View.PatientAppointments
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)Room.SelectedItem))
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem) &&  s!=null)
             {
-                Add.IsEnabled = true;
+                Edit.IsEnabled = true;
             }
+
+        }
+        DateTimeEdit dateTimeEdit = new DateTimeEdit();
+
+        private void Date_PatternChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var newPattern = e.NewValue;
+            var oldPattern = e.OldValue;
+        }
+
+        private void Date_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private string GetSelectedDate()
+        {
+             string selectedDate=Date.SelectedText;
+            return selectedDate;
+        }
+        string s = "moze";
+        public EditAppointment()
+        {
+            InitializeComponent();
+            DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
+            IdBinding = patientExaminationAppointment.id;
+            DoctorBinding = patientExaminationAppointment.physician;
+            DateBinding = patientExaminationAppointment.datetimeOfAppointment;
+            //TimeBinding = patientExaminationAppointment.timeOfAppointment;
+            RoomBinding = patientExaminationAppointment.roomId;
+            //Date.DateTime = DateBinding;
+            
+            //Date.Pattern = DateTimePattern.CustomPattern;
+            DateTime dl = DateTime.Now.AddDays(1);
+            DateTime db = DateBinding;
+
+            int day4 = DateTime.Compare(DateBinding.AddDays(-4), DateTime.Now);
+            if (day4<0)
+            {
+                Date.MinDateTime = DateTime.Now;
+            }
+            else if (day4==0)
+            {
+                Date.MinDateTime = DateTime.Now;
+            }  
+            else
+            {
+                Date.MinDateTime = DateBinding.AddDays(-4);
+            }
+            Date.MaxDateTime = DateBinding.AddDays(4);
+
+
+
+
+
+            //Date.Text = DateTime.Now.ToString();
+            RoomController roomController = new RoomController();
+            List<Room> rooms = roomController.GetAll();
+            List<string> roomsId = new List<string>();
+
+            foreach (Room r in rooms)
+            {
+                roomsId.Add(r.Id);
+            }
+            
+            Room.ItemsSource = roomsId;
+            Edit.IsEnabled = false;
+            
+            int result = DateTime.Compare(dl, db);
+            if (result == 0)
+            {  s=null;
+                MessageBox.Show("You are late!", "Error");
+            }
+            else if (result >0)
+            {  s = null;
+                MessageBox.Show("You are late!", "Error");
+            }
+            
+
         }
     }
 }
-
-
-
