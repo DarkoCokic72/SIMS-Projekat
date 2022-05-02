@@ -52,7 +52,7 @@ namespace WpfApp1.Controller
             return examinationAppointmentService.GetByPhysicianID(physicianID);
         }
 
-        public Service.ExaminationAppointmentService examinationAppointmentService;
+        public ExaminationAppointmentService examinationAppointmentService;
 
         public ExaminationAppointmentControler(ExaminationAppointmentService service)
         {

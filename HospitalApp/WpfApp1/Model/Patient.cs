@@ -15,10 +15,10 @@ namespace Model
 
       public System.Collections.Generic.List<PatientExaminationAppointment> patientExaminationAppointment;
       
-      /// <summary>
-      /// Property for collection of PatientExaminationAppointment
-      /// </summary>
-      /// <pdGenerated>Default opposite class collection property</pdGenerated>
+      // <summary>
+      // Property for collection of PatientExaminationAppointment
+      // </summary>
+      // <pdGenerated>Default opposite class collection property</pdGenerated>
       public System.Collections.Generic.List<PatientExaminationAppointment> PatientExaminationAppointment
       {
          get
@@ -38,10 +38,10 @@ namespace Model
          }
       }
       
-      /// <summary>
-      /// Add a new PatientExaminationAppointment in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
+      // <summary>
+      // Add a new PatientExaminationAppointment in the collection
+      // </summary>
+      // <pdGenerated>Default Add</pdGenerated>
       public void AddPatientExaminationAppointment(PatientExaminationAppointment newPatientExaminationAppointment)
       {
          if (newPatientExaminationAppointment == null)
@@ -52,10 +52,10 @@ namespace Model
             this.patientExaminationAppointment.Add(newPatientExaminationAppointment);
       }
       
-      /// <summary>
-      /// Remove an existing PatientExaminationAppointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
+      // <summary>
+      // Remove an existing PatientExaminationAppointment from the collection
+      // </summary>
+      // <pdGenerated>Default Remove</pdGenerated>
       public void RemovePatientExaminationAppointment(PatientExaminationAppointment oldPatientExaminationAppointment)
       {
          if (oldPatientExaminationAppointment == null)
@@ -65,17 +65,17 @@ namespace Model
                this.patientExaminationAppointment.Remove(oldPatientExaminationAppointment);
       }
       
-      /// <summary>
-      /// Remove all instances of PatientExaminationAppointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
+      // <summary>
+      // Remove all instances of PatientExaminationAppointment from the collection
+      // </summary>
+      // <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllPatientExaminationAppointment()
       {
          if (patientExaminationAppointment != null)
             patientExaminationAppointment.Clear();
       }
 
-      public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
+        public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
         {
             this.email = email;
             this.password = password;
@@ -83,6 +83,7 @@ namespace Model
             this.surname = surname;
             this.phoneNumber = phoneNumber;
             this.uniquePersonalNumber = uniqueuniquePersonalNumber;
+           // this.address = address;
             this.dateOfBirth = dateOfBirth;
             this.bloodGroup = bloodGroup;
         }
