@@ -106,7 +106,7 @@ namespace Service
             List<ExaminationAppointment> allAppointments = examinationAppointmentRepository.GetAll();
             foreach (ExaminationAppointment e in allAppointments)
             {
-                if (e.Room == roomId)
+                if (e.Room.Id == roomId)
                 {
                     dates.Add(e.DateOfAppointment);
                 }
@@ -147,9 +147,9 @@ namespace Service
 
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();
-      public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository(new WpfApp1.FileHandler.ExaminationAppointmentFileHandler());
+      public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository();
       public PatientExaminationAppointmentRepository patientExaminationAppointmentRepository = new PatientExaminationAppointmentRepository();
       public RenovationRepository renovationRepository = new RenovationRepository();
-
+     
     }
 }
