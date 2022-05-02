@@ -102,8 +102,8 @@ namespace Service
       public List<System.DateTime> getBusyDates(string roomId)
       {
             List<System.DateTime> dates = new List<DateTime>();
-            List<ExaminationAppointment> allAppointments = examinationAppointmentRepository.GetAll();
 
+            List<ExaminationAppointment> allAppointments = examinationAppointmentRepository.GetAll();
             foreach (ExaminationAppointment e in allAppointments)
             {
                 if (e.Room == roomId)
@@ -113,8 +113,18 @@ namespace Service
 
             }
 
-            List<Renovation> allRenovations = renovationRepository.GetAll();
+            List<PatientExaminationAppointment> allPatientsAppointments = patientExaminationAppointmentRepository.GetAll();
+            foreach (PatientExaminationAppointment e in allPatientsAppointments)
+            {
+                if (e.roomId == roomId)
+                {
+                    dates.Add(e.datetimeOfAppointment);
+                }
 
+            }
+
+
+            List<Renovation> allRenovations = renovationRepository.GetAll();
             foreach(Renovation r in allRenovations) 
             {
                 if(r.Room.Id == roomId) 
@@ -137,8 +147,9 @@ namespace Service
 
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();
-      public RenovationRepository renovationRepository = new RenovationRepository();
       public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository(new WpfApp1.FileHandler.ExaminationAppointmentFileHandler());
+      public PatientExaminationAppointmentRepository patientExaminationAppointmentRepository = new PatientExaminationAppointmentRepository();
+      public RenovationRepository renovationRepository = new RenovationRepository();
 
     }
 }
