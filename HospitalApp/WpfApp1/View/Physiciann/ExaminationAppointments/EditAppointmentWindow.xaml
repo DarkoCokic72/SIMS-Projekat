@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApp1.View.Physiciann.ExaminationAppointments.EditAppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View.Physiciann.ExaminationAppointments"
+        mc:Ignorable="d"
+        Title="EditAppointmentWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Id*:" HorizontalAlignment="Left" Margin="41,58,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <Label Content="Physician*:" HorizontalAlignment="Left" Margin="41,106,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <Label Content="Patient*:" HorizontalAlignment="Left" Margin="41,154,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <Label Content="Date of appointment*:" HorizontalAlignment="Left" Margin="41,202,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <Label Content="Room:*" HorizontalAlignment="Left" Margin="41,250,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="347,71,0,0" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" VerticalAlignment="Top" Width="195">
+            <TextBox.Text>
+                <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"></Binding>
+            </TextBox.Text>
+        </TextBox>
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="347,119,0,0" VerticalAlignment="Top" Width="195" Text="{Binding Path=PhysicianBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="PhysicianCombo"/>
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="347,167,0,0" VerticalAlignment="Top" Width="195" Text="{Binding Path=PatientBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name ="PatientCombo"/>
+        <DatePicker HorizontalAlignment="Left" Height="30" Margin="347,215,0,0" VerticalAlignment="Top" Width="195" >
+            <DatePicker.Text>
+                <Binding Path="DateBinding" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"></Binding>
+            </DatePicker.Text>
+        </DatePicker>
+        <ComboBox HorizontalAlignment="Left" Height="31" Margin="347,262,0,0" VerticalAlignment="Top" Width="195" Text="{Binding Path=RoomBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="RoomCombo"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Height="38" Margin="213,328,0,0" VerticalAlignment="Top" Width="114" FontSize="20">
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" CanExecute="Add_CanExecute"></CommandBinding>
+            </Button.CommandBindings>
+        </Button>
+        <Button Content="Cancel" HorizontalAlignment="Left" Height="38" Margin="394,328,0,0" VerticalAlignment="Top" Width="114" FontSize="20" Click="Button_Click"/>
+
+    </Grid>
+</Window>

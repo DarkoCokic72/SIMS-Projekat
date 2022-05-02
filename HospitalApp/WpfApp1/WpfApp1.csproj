@@ -97,6 +97,7 @@
     <Compile Include="FileHandler\OperationFileHandler.cs" />
     <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\PatientFileHandler.cs" />
+    <Compile Include="FileHandler\PhysicianFileHandler.cs" />
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
     <Compile Include="Model\Equipment.cs" />
@@ -156,6 +157,19 @@
     </Compile>
     <Compile Include="View\PatientAppointments\NewAppointment.xaml.cs">
       <DependentUpon>NewAppointment.xaml</DependentUpon>
+
+    <Compile Include="View\Physiciann\ExaminationAppointments\CreateAppointmentWindow.xaml.cs">
+      <DependentUpon>CreateAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Physiciann\ExaminationAppointments\DeleteAppointmentWindow.xaml.cs">
+      <DependentUpon>DeleteAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Physiciann\ExaminationAppointments\EditAppointmentWindow.xaml.cs">
+      <DependentUpon>EditAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml.cs">
+      <DependentUpon>ExaminationAppointmentWindow.xaml</DependentUpon>
+
     </Compile>
     <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
@@ -210,6 +224,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
     <Page Include="View\PatientAppointments\Appointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +234,21 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PatientAppointments\NewAppointment.xaml">
+
+    <Page Include="View\Physiciann\ExaminationAppointments\CreateAppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Physiciann\ExaminationAppointments\DeleteAppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Physiciann\ExaminationAppointments\EditAppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml">
+
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

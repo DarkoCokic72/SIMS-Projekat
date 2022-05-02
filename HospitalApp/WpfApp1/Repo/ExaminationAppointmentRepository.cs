@@ -35,15 +35,31 @@ namespace Repo
         {
             //throw new NotImplementedException();
             if (GetById(appointment.Id) == null) {
+
                 List<ExaminationAppointment> listOfExaminations = GetAll();
                 listOfExaminations.Add(appointment);
                 examinationAppointmentFileHandler.Write(listOfExaminations);
+                WpfApp1.View.Physician.ExaminationAppointments.CreateAppointmentWindow.appointmentAdded = true;
+            } else
+            {
+                WpfApp1.View.Physician.ExaminationAppointments.CreateAppointmentWindow.appointmentAdded = false;
             }
         }
 
         public void Update(ExaminationAppointment Appointment)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            List<ExaminationAppointment> listOfAppointments = GetAll();
+
+            for(int i = 0; i < listOfAppointments.Count; i++)
+            {
+                if (listOfAppointments[i].Id.Equals(Appointment.Id))
+                {
+                    listOfAppointments[i] = Appointment;
+                    examinationAppointmentFileHandler.Write(listOfAppointments);
+                    WpfApp1.View.Physiciann.ExaminationAppointments.EditAppointmentWindow.appointmentEdited = true;
+                }
+            }
         }
 
         public void Delete(string id)
@@ -65,18 +81,16 @@ namespace Repo
         public List<ExaminationAppointment> GetByPatientId(string patientID)
         {
             throw new NotImplementedException();
-        }
+        } 
 
         public List<ExaminationAppointment> GetByPhysicianID(string physicianID)
         {
             throw new NotImplementedException();
         }
 
-        public ExaminationAppointmentFileHandler examinationAppointmentFileHandler;
+        public WpfApp1.FileHandler.ExaminationAppointmentFileHandler examinationAppointmentFileHandler = new WpfApp1.FileHandler.ExaminationAppointmentFileHandler();
 
-        public ExaminationAppointmentRepository(ExaminationAppointmentFileHandler fh) {
-            this.examinationAppointmentFileHandler = fh;
-        }
+        
 
     }
 }
