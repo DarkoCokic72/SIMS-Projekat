@@ -26,7 +26,7 @@ namespace WpfApp1.Validation
                     return new ValidationResult(false, "Minimum duration\nis one day.");
                 }
 
-                DateTime endDate = BasicRenovation.startDate.AddDays(d - 1);
+                DateTime endDate = BasicRenovation.startDate.AddDays(d);
                 DateTime firstBusyDate = DateTime.MaxValue;
                 foreach(DateTime date in BasicRenovation.busyDates) 
                 {
