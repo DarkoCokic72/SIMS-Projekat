@@ -38,7 +38,7 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
 
         public void OnPropertyChanged(string name)
         {
-            if (PropertyChanged == null)
+            if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }

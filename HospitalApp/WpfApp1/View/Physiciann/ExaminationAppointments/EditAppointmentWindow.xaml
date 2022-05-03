@@ -25,7 +25,7 @@
             </DatePicker.Text>
         </DatePicker>
         <ComboBox HorizontalAlignment="Left" Height="31" Margin="347,262,0,0" VerticalAlignment="Top" Width="195" Text="{Binding Path=RoomBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="RoomCombo"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Height="38" Margin="213,328,0,0" VerticalAlignment="Top" Width="114" FontSize="20">
+        <Button Content="Edit" HorizontalAlignment="Left" Height="38" Margin="213,328,0,0" VerticalAlignment="Top" Width="114" FontSize="20" Click="Button_Click">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Add_CanExecute"></CommandBinding>
             </Button.CommandBindings>
