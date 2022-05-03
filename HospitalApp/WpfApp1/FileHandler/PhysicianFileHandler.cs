@@ -5,36 +5,37 @@
 
 using System;
 using Model;
-using WpfApp1.Model;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WpfApp1.Model;
 
-namespace FileHandler
+namespace WpfApp1.FileHandler
 {
-   public class PhysicianFileHandler
-   {
-        private string path = @"..\..\Data\Physicians.txt";
+    public class PhysicianFileHandler
+    {
 
+        public List<Physician> Read()
+        {
 
-      public List<Physician> Read()
-      {
-            //throw new NotImplementedException();
             if (!System.IO.File.Exists(path))
             {
                 return new List<Physician>();
             }
 
-            string physiciansSerialized = System.IO.File.ReadAllText(path);
-            List<Physician> physicians = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Physician>>(physiciansSerialized);
-            return physicians;
-      }
-      
-      public void Write(List<Physician> physicians)
-      {
-            string physiciansSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(physicians);
-            System.IO.File.WriteAllText(path, physiciansSerialized);
-      }
-   
-   }
+            string physicianSerialized = System.IO.File.ReadAllText(path);
+            List<Physician> physician = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Physician>>(physicianSerialized);
+            return physician;
+        }
+
+        public void Save(List<Physician> physician)
+        {
+            string physicianSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(physician);
+            System.IO.File.WriteAllText(path, physicianSerialized);
+        }
+
+        private string path = @"..\..\Data\Physicians.txt";
+    }
 }

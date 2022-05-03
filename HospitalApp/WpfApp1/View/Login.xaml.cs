@@ -19,6 +19,7 @@ using WpfApp1.Repo;
 using WpfApp1.Service;
 using WpfApp1.View.Manager;
 using WpfApp1.View.PatientAppointments;
+using WpfApp1.View.Physiciann.ExaminationAppointments;
 using WpfApp1.View.Secretary;
 
 namespace WpfApp1.View
@@ -95,6 +96,13 @@ namespace WpfApp1.View
                 {
                     Appointments appointments = new Appointments();
                     appointments.ShowDialog();
+                    this.Close();
+                    return;
+                }
+                if (userAccount.GetType() == typeof(Model.Physician))
+                {
+                    ExaminationAppointmentWindow examinationAppointmentWindow = new ExaminationAppointmentWindow();
+                    examinationAppointmentWindow.ShowDialog();
                     this.Close();
                     return;
                 }

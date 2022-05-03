@@ -1,3 +1,4 @@
+
 /***********************************************************************
  * Module:  GetPatientInfo.cs
  * Author:  HP LAPTOP
@@ -6,8 +7,8 @@
 
 using System;
 using System.Collections.Generic;
-using FileHandler;
-using Model;
+using WpfApp1.FileHandler;
+using WpfApp1.Model;
 
 namespace Repo
 {
@@ -38,7 +39,7 @@ namespace Repo
       {
             List<Physician> List = GetAll();
             List.Add(physician);
-            physicianFileHandler.Write(List);
+            physicianFileHandler.Save(List);
             //WpfApp1.CreatePatient.addedPatient = true;
         }
       
@@ -53,7 +54,7 @@ namespace Repo
                 {
 
                     List[i] = physician;
-                    physicianFileHandler.Write(List);
+                    physicianFileHandler.Save(List);
                     //WpfApp1.PatientsEdit.editedPatient = true;
                     return;
 
@@ -75,7 +76,7 @@ namespace Repo
             }
         }
       
-      public FileHandler.PhysicianFileHandler physicianFileHandler=new PhysicianFileHandler();
+      public WpfApp1.FileHandler.PhysicianFileHandler physicianFileHandler=new PhysicianFileHandler();
    
    }
 }

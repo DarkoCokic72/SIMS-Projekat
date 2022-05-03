@@ -12,22 +12,23 @@ namespace WpfApp1.FileHandler
 
         public List<ExaminationAppointment> Read()
         {
-            //throw new NotImplementedException();
+
+            if (!System.IO.File.Exists(path))
+            {
+                return new List<ExaminationAppointment>();
+            }
 
             string appointmentsSerialized = System.IO.File.ReadAllText(path);
             List<ExaminationAppointment> appointments = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ExaminationAppointment>>(appointmentsSerialized);
-            return appointments;
+            return appointments != null ? appointments : new List<ExaminationAppointment>();
         }
 
         public void Write(List<ExaminationAppointment> appointments)
         {
-            //throw new NotImplementedException();
-
             string appointmentsSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(appointments);
             System.IO.File.WriteAllText(path, appointmentsSerialized);
         }
 
         private string path = @"..\..\Data\ExaminationAppointmentsData.txt";
-
     }
 }
