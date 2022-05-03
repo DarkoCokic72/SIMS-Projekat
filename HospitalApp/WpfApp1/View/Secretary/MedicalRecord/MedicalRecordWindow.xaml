@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApp1.MedicalRecordWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Medical records" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid CanUserResizeColumns="True" CanUserResizeRows="True" AutoGenerateColumns="False" Name ="dgMedicalRecords" ItemsSource="{Binding Path=MedicalRecords}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Register number" Binding="{Binding regNum}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Patient" Binding="{Binding patient}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Allergens" Binding="{Binding allergens}"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button FontSize="30" Content="Create" Grid.Row="0"  Height ="Auto" Margin="75,10,63,4" Click="Button_Click" Width="Auto" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button FontSize="30" Content="Edit" Grid.Column="3" Width="Auto" Grid.Row="0" Height ="Auto" Margin="82,10,55,4" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Button FontSize="30"  Grid.ColumnSpan="2" Content="Delete" Grid.Row="0" Height ="Auto" Grid.Column="4" Width="Auto" Margin="90,10,53,4" Click="Button_Click"/>
+    </Grid>
+</Window>

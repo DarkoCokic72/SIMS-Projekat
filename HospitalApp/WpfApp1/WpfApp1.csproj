@@ -88,6 +88,7 @@
     <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\ExaminationAppointmentControler.cs" />
     <Compile Include="Controller\GuestAccountController.cs" />
+    <Compile Include="Controller\MedicalRecordController.cs" />
     <Compile Include="Controller\OperationControler.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\GuestAccountFileHandler.cs" />
     <Compile Include="FileHandler\ManagerFileHandler.cs" />
+    <Compile Include="FileHandler\MedicalRecordFileHandler.cs" />
     <Compile Include="FileHandler\OperationFileHandler.cs" />
     <Compile Include="FileHandler\PatientExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\PatientFileHandler.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
     <Compile Include="FileHandler\UserAccountFileHandler.cs" />
     <Compile Include="Model\Equipment.cs" />
+    <Compile Include="Model\MedicalRecord.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
     <Compile Include="Model\Renovation.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Repo\ManagerRepository.cs" />
     <Compile Include="Repo\OperationRepository.cs" />
     <Compile Include="Repo\PatientExaminationAppointmentRepository.cs" />
+    <Compile Include="Repo\MedicalRecordRepository.cs" />
     <Compile Include="Repo\PatientRepository.cs" />
     <Compile Include="Repo\PhysicianRepository.cs" />
     <Compile Include="Repo\RelocationRepository.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />
     <Compile Include="Service\GuestAccountService.cs" />
+    <Compile Include="Service\MedicalRecordService.cs" />
     <Compile Include="Service\OperationService.cs" />
     <Compile Include="Service\PatientExaminationAppointmentService.cs" />
     <Compile Include="Service\PatientService.cs" />
@@ -180,6 +185,18 @@
     </Compile>
     <Compile Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml.cs">
       <DependentUpon>ExaminationAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml.cs">
+      <DependentUpon>CreateMedicalRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\MedicalRecord\MedicalRecordDelete.xaml.cs">
+      <DependentUpon>MedicalRecordDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\MedicalRecord\MedicalRecordEdit.xaml.cs">
+      <DependentUpon>MedicalRecordEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\MedicalRecord\MedicalRecordWindow.xaml.cs">
+      <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
@@ -263,6 +280,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\MedicalRecord\MedicalRecordDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\MedicalRecord\MedicalRecordEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\MedicalRecord\MedicalRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,7 +27,7 @@ namespace WpfApp1.FileHandler
             System.IO.File.WriteAllText(path, appointmentsSerialized);
         }
 
-        private string path = @"..\..\Data\ExaminationAppointmentsData.txt";
+        private string path = @"..\..\Data\AppointmentsData.txt";
 
     }
 }
