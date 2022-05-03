@@ -72,7 +72,7 @@ namespace WpfApp1
             if (btn.Content.Equals("LOGIN"))
             {
                 Login login = new Login();
-                this.Close();
+                //this.Close();
                 login.Show();
 
             }    
