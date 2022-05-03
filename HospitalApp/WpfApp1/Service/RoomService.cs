@@ -106,7 +106,7 @@ namespace Service
             List<ExaminationAppointment> allAppointments = examinationAppointmentRepository.GetAll();
             foreach (ExaminationAppointment e in allAppointments)
             {
-                if (e.Room.Id == roomId)
+                if (e.Room != null && e.Room.Id == roomId)
                 {
                     dates.Add(e.DateOfAppointment);
                 }
