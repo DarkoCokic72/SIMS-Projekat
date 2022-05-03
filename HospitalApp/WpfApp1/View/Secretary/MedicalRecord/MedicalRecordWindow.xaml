@@ -25,9 +25,9 @@
         </Grid.ColumnDefinitions>
         <DataGrid CanUserResizeColumns="True" CanUserResizeRows="True" AutoGenerateColumns="False" Name ="dgMedicalRecords" ItemsSource="{Binding Path=MedicalRecords}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Register number" Binding="{Binding regNum}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Patient" Binding="{Binding patient}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Allergens" Binding="{Binding allergens}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Register number" Binding="{Binding RegNum}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Patient" Binding="{Binding Patient}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Allergens" Binding="{Binding Allergens}"></DataGridTextColumn>
 
             </DataGrid.Columns>
         </DataGrid>

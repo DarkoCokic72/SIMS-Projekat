@@ -145,7 +145,7 @@ namespace WpfApp1.View.PatientAppointments
             if (Add.Content.Equals("Add"))
             {
                 Appointments.patientAppointmentController.Addd(new PatientExaminationAppointment(IdBinding, DoctorBinding, DateBinding, RoomBinding));
-
+                addedAppointment = true;
                 if (addedAppointment == true)
                 {
                     Appointments.AppointmentsInstance.refreshContentOfGrid();

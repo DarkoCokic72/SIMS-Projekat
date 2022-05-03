@@ -40,6 +40,11 @@ namespace WpfApp1
             Patient.ItemsSource = patientsUPN;
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
 
         private string regNumBinding;
         public string RegNumBinding
@@ -83,10 +88,13 @@ namespace WpfApp1
             }
         }
 
-       
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
         {
-
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -108,25 +116,14 @@ namespace WpfApp1
                 }
                 else
                 {
-                    MessageBox.Show("Error! Choose all!", "Error");
+                    MessageBox.Show("Medical record with that reg num already exists!", "Error");
                 }
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-
-
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(RegNumBinding))
+            if (!string.IsNullOrEmpty(RegNumBinding) && !string.IsNullOrEmpty((string)Patient.SelectedItem))
             {
                 e.CanExecute = true;
             }
