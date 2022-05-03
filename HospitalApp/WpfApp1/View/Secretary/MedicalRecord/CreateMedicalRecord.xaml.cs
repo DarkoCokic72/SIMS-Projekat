@@ -123,7 +123,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(RegNumBinding) && !string.IsNullOrEmpty((string)Patient.SelectedItem))
+            if (!string.IsNullOrEmpty(RegNumBinding))
             {
                 e.CanExecute = true;
             }
