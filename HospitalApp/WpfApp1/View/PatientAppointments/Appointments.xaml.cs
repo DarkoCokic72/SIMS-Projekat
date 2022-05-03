@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Controller;
 using FileHandler;
-using Model;
+using WpfApp1.Model;
 using Repo;
 using Service;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using WpfApp1.Model;
+
 
 namespace WpfApp1.View.PatientAppointments
 {
@@ -70,7 +70,7 @@ namespace WpfApp1.View.PatientAppointments
         {
             Button New = (Button)sender;
             PatientExaminationAppointment Appointments = getSelectedAppointments();
-            if(!New.Content.Equals("New") && Appointments==null)
+            if (!New.Content.Equals("New") && Appointments == null)
             {
                 MessageBox.Show("You need to select a row!", "Error");
                 return;

@@ -16,16 +16,18 @@ namespace WpfApp1.Model
      
        
         public string roomId { get; set; }
-        public Room room { get; set; }
-        public Physician physician { get; set; }
+        public string physicianName { get; set; }
+        
+       //public Room room { get; set; }
+       // public Physician physician { get; set; }
        
 
 
 
 
-        public PatientExaminationAppointment(string id, Physician  physician, DateTime date, string roomId )
+        public PatientExaminationAppointment(string id, string  physicianName, DateTime date, string roomId )
         {
-            this.physician = physician;
+            this.physicianName = physicianName;
             this.datetimeOfAppointment = date;
             this.id = id;
            

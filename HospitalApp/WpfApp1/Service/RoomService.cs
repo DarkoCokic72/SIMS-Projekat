@@ -13,46 +13,46 @@ using WpfApp1.Model;
 
 namespace Service
 {
-   public class RoomService
-   {
+    public class RoomService
+    {
 
-      public List<Room> GetAll()
-      {
-         return roomRepository.GetAll();
-      }
-      
-      public Room GetById(string id)
-      {
-         return roomRepository.GetById(id);
-      }
-      
-      public void Add(Room room)
-      {
+        public List<Room> GetAll()
+        {
+            return roomRepository.GetAll();
+        }
+
+        public Room GetById(string id)
+        {
+            return roomRepository.GetById(id);
+        }
+
+        public void Add(Room room)
+        {
             roomRepository.Add(room);
-      }
-      
-      public void Update(Room room)
-      {
+        }
+
+        public void Update(Room room)
+        {
             roomRepository.Update(room);
-      }
-      
-      public void Remove(string id)
-      {
+        }
+
+        public void Remove(string id)
+        {
             roomRepository.Remove(id);
-      }
+        }
 
-      public List<Equipment> getEquipment(string roomId)
-      {
+        public List<Equipment> getEquipment(string roomId)
+        {
             return equipmentService.GetByRoomId(roomId);
-      }
+        }
 
-      public void moveEquipmentToWarehouse(string roomId)
-      {
+        public void moveEquipmentToWarehouse(string roomId)
+        {
             string warehouseId = null;
             List<Room> allRooms = roomRepository.GetAll();
-            foreach(Room r in allRooms)
+            foreach (Room r in allRooms)
             {
-                if(r.Type == RoomType.Warehouse)
+                if (r.Type == RoomType.Warehouse)
                 {
                     warehouseId = r.Id;
                 }
@@ -62,10 +62,10 @@ namespace Service
 
             for (int i = 0; i < allEquipment.Count; i++)
             {
-                if(allEquipment[i].Room.Id == roomId)
+                if (allEquipment[i].Room.Id == roomId)
                 {
 
-                    for(int j = 0; j < allEquipment.Count; j++)
+                    for (int j = 0; j < allEquipment.Count; j++)
                     {
                         if (allEquipment[j].Room.Id == warehouseId)
                         {
@@ -79,7 +79,7 @@ namespace Service
                         }
                     }
 
-                    if(!inWarehouse)
+                    if (!inWarehouse)
                     {
                         allEquipment[i].Room.Id = warehouseId;
                         allEquipment[i].Room.Name = "Warehouse";
@@ -92,15 +92,15 @@ namespace Service
             }
 
             equipmentService.UpdateAll(allEquipment);
-      }
+        }
 
-      public void SchedulingRenovation(Renovation renovation)
-      {
+        public void SchedulingRenovation(Renovation renovation)
+        {
             renovationRepository.Create(renovation);
-      }
+        }
 
-      public List<System.DateTime> getBusyDates(string roomId)
-      {
+        public List<System.DateTime> getBusyDates(string roomId)
+        {
             List<System.DateTime> dates = new List<DateTime>();
 
             List<ExaminationAppointment> allAppointments = examinationAppointmentRepository.GetAll();
@@ -125,23 +125,24 @@ namespace Service
 
 
             List<Renovation> allRenovations = renovationRepository.GetAll();
-            foreach(Renovation r in allRenovations) 
+            foreach (Renovation r in allRenovations)
             {
-                if(r.Room.Id == roomId) 
+                if (r.Room.Id == roomId)
                 {
-                    
+
                     dates.Add(r.StartDate);
-                    for(int i=1; i < r.Duration; i++)
+                    for (int i = 1; i < r.Duration; i++)
                     {
                         dates.Add(r.StartDate.AddDays(i));
                     }
-                   
+
                 }
             }
 
             dates.Distinct();
 
             return dates;
+
 
       }
 
@@ -151,5 +152,6 @@ namespace Service
       public PatientExaminationAppointmentRepository patientExaminationAppointmentRepository = new PatientExaminationAppointmentRepository();
       public RenovationRepository renovationRepository = new RenovationRepository();
      
+
     }
 }

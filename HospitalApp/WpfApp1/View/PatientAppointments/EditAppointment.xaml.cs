@@ -34,8 +34,8 @@ namespace WpfApp1.View.PatientAppointments
         }
 
 
-        private Physician doctorBinding;
-        public Physician DoctorBinding
+        private string doctorBinding;
+        public string DoctorBinding
         {
             get { return doctorBinding; }
             set
@@ -149,7 +149,7 @@ namespace WpfApp1.View.PatientAppointments
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)Room.SelectedItem) &&  s!=null)
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && s != null)
             {
                 Edit.IsEnabled = true;
             }
@@ -169,36 +169,36 @@ namespace WpfApp1.View.PatientAppointments
         }
         private string GetSelectedDate()
         {
-             string selectedDate=Date.SelectedText;
+            string selectedDate = Date.SelectedText;
             return selectedDate;
         }
         string s = "moze";
         public EditAppointment()
         {
             InitializeComponent();
-            DataContext = this;
+            this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
             IdBinding = patientExaminationAppointment.id;
-            DoctorBinding = patientExaminationAppointment.physician;
+            DoctorBinding = patientExaminationAppointment.physicianName;
             DateBinding = patientExaminationAppointment.datetimeOfAppointment;
             //TimeBinding = patientExaminationAppointment.timeOfAppointment;
             RoomBinding = patientExaminationAppointment.roomId;
             //Date.DateTime = DateBinding;
-            
+
             //Date.Pattern = DateTimePattern.CustomPattern;
             DateTime dl = DateTime.Now.AddDays(1);
             DateTime db = DateBinding;
 
             int day4 = DateTime.Compare(DateBinding.AddDays(-4), DateTime.Now);
-            if (day4<0)
+            if (day4 < 0)
             {
                 Date.MinDateTime = DateTime.Now;
             }
-            else if (day4==0)
+            else if (day4 == 0)
             {
                 Date.MinDateTime = DateTime.Now;
-            }  
+            }
             else
             {
                 Date.MinDateTime = DateBinding.AddDays(-4);
@@ -218,20 +218,22 @@ namespace WpfApp1.View.PatientAppointments
             {
                 roomsId.Add(r.Id);
             }
-            
+
             Room.ItemsSource = roomsId;
             Edit.IsEnabled = false;
-            
+
             int result = DateTime.Compare(dl, db);
             if (result == 0)
-            {  s=null;
+            {
+                s = null;
                 MessageBox.Show("You are late!", "Error");
             }
-            else if (result >0)
-            {  s = null;
+            else if (result > 0)
+            {
+                s = null;
                 MessageBox.Show("You are late!", "Error");
             }
-            
+
 
         }
     }

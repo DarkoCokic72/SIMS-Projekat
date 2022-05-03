@@ -1,1 +1,1 @@
-[{"id":"3","datetimeOfAppointment":"2022-12-05T09:41:00","roomId":"R2","room":null,"physician":null}]
+[{"id":"5","datetimeOfAppointment":"2022-10-05T04:55:00","roomId":"R2","physicianName":"Petar Petrovic"},{"id":"8","datetimeOfAppointment":"2022-05-10T04:55:00","roomId":"R1","physicianName":"Mirko Mirkovic"},{"id":"10","datetimeOfAppointment":"2022-10-05T04:55:00","roomId":"R2","physicianName":"Mirko Mirkovic"}]

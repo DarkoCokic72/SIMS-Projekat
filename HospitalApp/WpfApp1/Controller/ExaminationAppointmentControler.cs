@@ -53,7 +53,9 @@ namespace WpfApp1.Controller
         }
 
 
+
         public ExaminationAppointmentService examinationAppointmentService = new ExaminationAppointmentService();
+
 
 
         

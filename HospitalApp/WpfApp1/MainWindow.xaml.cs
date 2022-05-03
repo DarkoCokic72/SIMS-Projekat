@@ -21,6 +21,7 @@ using WpfApp1.View.Manager;
 using WpfApp1.View.Secretary;
 using WpfApp1.View.PatientAppointments;
 
+
 namespace WpfApp1
 {
     /// <summary>
@@ -41,10 +42,12 @@ namespace WpfApp1
         public MainWindow()
         {
 
+
             /* 
             Login login = new Login();
             login.ShowDialog();
             */
+
 
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
