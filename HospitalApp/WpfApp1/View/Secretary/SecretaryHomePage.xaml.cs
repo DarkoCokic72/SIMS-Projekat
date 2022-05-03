@@ -33,6 +33,11 @@ namespace WpfApp1.View.Secretary
             {
                 PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
                 patientsWindow.Show();
+            }
+            if (btn.Content.Equals("Medical records"))
+            {
+                MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
+                medicalRecordWindow.Show();
 
             }
 
@@ -40,7 +45,10 @@ namespace WpfApp1.View.Secretary
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
         }
 
     }

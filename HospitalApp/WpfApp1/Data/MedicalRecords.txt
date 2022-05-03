@@ -1,0 +1,1 @@
+[{"RegNum":"dadas","Patient":null,"Allergens":"sadasda, dadsa, dsada, dasdas, dasdasd,dsadas,dsadas,dsadas,dsadasda,dasdasda,dsadasda,sadasda"},{"RegNum":"123","Patient":null,"Allergens":"12333"},{"RegNum":"123","Patient":null,"Allergens":"123"},{"RegNum":"123","Patient":null,"Allergens":"123"}]
