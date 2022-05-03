@@ -17,6 +17,8 @@ using Controller;
 using Syncfusion.Windows.Shared;
 using WpfApp1.Model;
 
+
+
 namespace WpfApp1.View.PatientAppointments
 {
     /// <summary>
@@ -115,7 +117,7 @@ namespace WpfApp1.View.PatientAppointments
 
                 if (editedAppointment == true)
                 {
-                    Appointments.AppointmentsInstance.refreshContentOfGrid();
+                    Appointments.AppointmentInstance.refreshContentOfGrid();
                     Close();
                 }
                 else
@@ -178,7 +180,7 @@ namespace WpfApp1.View.PatientAppointments
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
+            patientExaminationAppointment = Appointments.AppointmentInstance.getSelectedAppointments();
             IdBinding = patientExaminationAppointment.id;
             DoctorBinding = patientExaminationAppointment.physicianName;
             DateBinding = patientExaminationAppointment.datetimeOfAppointment;

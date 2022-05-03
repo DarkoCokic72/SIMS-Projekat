@@ -88,7 +88,7 @@ namespace Repo
                 for (int i = 0; i < list.Count; i++)
                 {
 
-                    if (list[i].id.Equals(Appointments.AppointmentsInstance.getSelectedAppointments().id))
+                    if (list[i].id.Equals(Appointments.AppointmentInstance.getSelectedAppointments().id))
                     {
 
                         list[i] = appointments;

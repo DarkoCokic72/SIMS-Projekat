@@ -27,27 +27,27 @@ namespace WpfApp1.View.PatientAppointments
     /// </summary>
     public partial class Appointments : Window
     {
-
+        public static Appointments AppointmentInstance;
         public static PatientExaminationAppointmentController patientAppointmentController;
-        public static Appointments AppointmentsInstance;
+       
         public ObservableCollection<PatientExaminationAppointment> Appointment { get; set; }
         public Appointments()
         {
             InitializeComponent();
-            this.DataContext = this;
+            DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             patientAppointmentController = new PatientExaminationAppointmentController();
             Appointment = new ObservableCollection<PatientExaminationAppointment>(patientAppointmentController.GetAll());
         }
         public static Appointments GetAppointments()
         {
-            if (AppointmentsInstance == null)
+            if (AppointmentInstance == null)
             {
-                AppointmentsInstance = new Appointments();
+                AppointmentInstance = new Appointments();
 
             }
 
-            return AppointmentsInstance;
+            return AppointmentInstance;
         }
 
         public void refreshContentOfGrid()
@@ -85,8 +85,9 @@ namespace WpfApp1.View.PatientAppointments
             Button Delete = (Button)sender;
             if (Delete.Content.Equals("Delete"))
             {
+           
                 patientAppointmentController.Delete(Appointments.id);
-                AppointmentsInstance.refreshContentOfGrid();
+                refreshContentOfGrid();
 
             }
             Button Edit = (Button)sender;
@@ -101,7 +102,7 @@ namespace WpfApp1.View.PatientAppointments
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            AppointmentsInstance = null;
+            AppointmentInstance = null;
         }
     }
 }

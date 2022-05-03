@@ -9,15 +9,10 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Model;
 using Controller;
 using Syncfusion.Windows.Shared;
-using System.Globalization;
 using WpfApp1.Model;
-
 using Repo;
 
 namespace WpfApp1.View.PatientAppointments
@@ -121,7 +116,7 @@ namespace WpfApp1.View.PatientAppointments
 
                 if (addedAppointment == true)
                 {
-                    Appointments.AppointmentsInstance.refreshContentOfGrid();
+                    Appointments.AppointmentInstance.refreshContentOfGrid();
                     Close();
                 }
                 else
@@ -150,15 +145,11 @@ namespace WpfApp1.View.PatientAppointments
         private void Doctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if (!string.IsNullOrEmpty((string)Doctor.SelectedItem))
-            {
-                Add.IsEnabled = true;
-            }
         }
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && busy != null)
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && busy != null && !string.IsNullOrEmpty((string)Doctor.SelectedItem))
             {
                 Add.IsEnabled = true;
             }
@@ -214,50 +205,50 @@ namespace WpfApp1.View.PatientAppointments
 
             Doctor.ItemsSource = physicianName;
 
-            PatientExaminationAppointmentRepository appointmentsRepo = new PatientExaminationAppointmentRepository();
-            List<PatientExaminationAppointment> appointments = appointmentsRepo.GetAll();
-            // List<DateTime> dates = new List<DateTime>();
-            //patientExaminationAppointment = Appointments.AppointmentsInstance.getSelectedAppointments();
-            // = patientExaminationAppointment.datetimeOfAppointment;
+            //PatientExaminationAppointmentController appointmentsCont = new PatientExaminationAppointmentController();
+            //List<PatientExaminationAppointment> appointments = appointmentsCont.GetAll();
+            //// List<DateTime> dates = new List<DateTime>();
+            ////patientExaminationAppointment = Appointments.AppointmentInstance.getSelectedAppointments();
+            //// = patientExaminationAppointment.datetimeOfAppointment;
             
-            foreach (PatientExaminationAppointment r in appointments)
-            {
-                //dates.Add(r.datetimeOfAppointment);
-                int results = DateTime.Compare(r.datetimeOfAppointment,DateBinding);
-                if (results == 0)
-                {
-                    MessageBox.Show("That time is busy", "Error");
-                    string busy = null;
-                    break;
-                }
-                int results1 = DateTime.Compare(r.datetimeOfAppointment.AddMinutes(15), DateBinding);
-                if (results1 == 0)
-                {
-                    MessageBox.Show("That time is busy", "Error");
-                    string busy = null;
+            //foreach (PatientExaminationAppointment r in appointments)
+            //{
+            //    //dates.Add(r.datetimeOfAppointment);
+            //    int results = DateTime.Compare(r.datetimeOfAppointment,DateBinding);
+            //    if (results == 0)
+            //    {
+            //        MessageBox.Show("That time is busy", "Error");
+            //        string busy = null;
+            //        break;
+            //    }
+            //    int results1 = DateTime.Compare(r.datetimeOfAppointment.AddMinutes(15), DateBinding);
+            //    if (results1 == 0)
+            //    {
+            //        MessageBox.Show("That time is busy", "Error");
+            //        string busy = null;
 
-                }
-                else if (results1 > 0 && results < 0)
-                {
-                    MessageBox.Show("That time is busy", "Error");
-                    string busy = null;
+            //    }
+            //    else if (results1 > 0 && results < 0)
+            //    {
+            //        MessageBox.Show("That time is busy", "Error");
+            //        string busy = null;
 
-                }
-                int results2 = DateTime.Compare(r.datetimeOfAppointment.AddMinutes(-15), DateBinding);
-                if (results1 == 0)
-                {
-                    MessageBox.Show("That time is busy", "Error");
-                    string busy = null;
+            //    }
+            //    int results2 = DateTime.Compare(r.datetimeOfAppointment.AddMinutes(-15), DateBinding);
+            //    if (results1 == 0)
+            //    {
+            //        MessageBox.Show("That time is busy", "Error");
+            //        string busy = null;
 
-                }
-                else if (results2 < 0 && results > 0)
-                {
-                    MessageBox.Show("That time is busy", "Error");
-                    string busy = null;
+            //    }
+            //    else if (results2 < 0 && results > 0)
+            //    {
+            //        MessageBox.Show("That time is busy", "Error");
+            //        string busy = null;
 
-                }
+            //    }
                 
-            }
+            //}
             //for(int i = 0; i < dates.Count; i++)
             //{
 
