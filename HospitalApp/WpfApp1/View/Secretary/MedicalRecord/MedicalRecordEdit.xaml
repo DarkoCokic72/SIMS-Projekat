@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp1.MedicalRecordEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        d:DataContext="{d:DesignInstance Type=local:MedicalRecordEdit}"
+        mc:Ignorable="d"
+        Title="Medical record edit" Height="344.73" Width="435.604">
+    <Grid RenderTransformOrigin="0.49,0.502" Margin="0,-19,-8,0" Height="347" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="581*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Register number:*" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontSize="18" Height="34" Width="152"/>
+        <TextBox HorizontalAlignment="Left" Margin="220,27,0,0" IsEnabled="False" TextWrapping="Wrap"  VerticalAlignment="Top" Width="129" FontSize="18" Name="REGNUM" TextChanged="TextBox_TextChanged" Height="34" RenderTransformOrigin="0.532,0.725">
+            <TextBox.Text>
+                <Binding Path="RegNumBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </TextBox.Text>
+        </TextBox>
+
+        <Button Content="Save" HorizontalAlignment="Left" Margin="300,284,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click" Height="31"  >
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
+            </Button.CommandBindings>
+
+        </Button>
+        <ComboBox HorizontalAlignment="Left" IsEnabled="False" Margin="220,84,0,0" VerticalAlignment="Top" Width="174" FontSize="18" Name="Patient" SelectionChanged="Patient_SelectionChanged" RenderTransformOrigin="0.39,0.524" Height="34"  >
+            <ComboBox.Text>
+                <Binding Path="PatientBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </ComboBox.Text>
+        </ComboBox>
+        <Label Content="Patient:*" HorizontalAlignment="Left" Margin="86,84,0,0" VerticalAlignment="Top" FontSize="18" Height="34" Width="76"/>
+        <Label Content="Allergens:*" HorizontalAlignment="Left" Margin="67,144,0,0" VerticalAlignment="Top" FontSize="18" Height="34" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Margin="167,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="227" FontSize="18" x:Name="ALLERGENS" TextChanged="TextBox_TextChanged" Height="88" RenderTransformOrigin="0.532,0.725" Text="{Binding AllergensBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Cancel" FontSize="20" HorizontalAlignment="Left" Margin="179,284,0,0" Click="Button_Click" VerticalAlignment="Top" Width="94" Height="34"/>
+    </Grid>
+</Window>

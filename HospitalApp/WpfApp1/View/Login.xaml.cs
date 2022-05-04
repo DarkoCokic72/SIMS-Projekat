@@ -81,29 +81,29 @@ namespace WpfApp1.View
                 if (userAccount.GetType() == typeof(Model.Secretary)) 
                 {
                     SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
-                    secretaryHomePage.ShowDialog();
                     this.Close();
+                    secretaryHomePage.ShowDialog();
                     return;
                 }
                 if (userAccount.GetType() == typeof(Model.Manager))
                 {
                     ManagerHomePage managerHomePage = new ManagerHomePage();
-                    managerHomePage.ShowDialog();
                     this.Close();
+                    managerHomePage.ShowDialog(); 
                     return;
                 }
                 if (userAccount.GetType() == typeof(Model.Patient))
                 {
                     Appointments appointments = new Appointments();
-                    appointments.ShowDialog();
                     this.Close();
+                    appointments.ShowDialog();
                     return;
                 }
                 if (userAccount.GetType() == typeof(Model.Physician))
                 {
                     ExaminationAppointmentWindow examinationAppointmentWindow = new ExaminationAppointmentWindow();
-                    examinationAppointmentWindow.ShowDialog();
                     this.Close();
+                    examinationAppointmentWindow.ShowDialog();
                     return;
                 }
 
