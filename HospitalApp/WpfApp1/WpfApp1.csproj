@@ -206,6 +206,9 @@
     <Compile Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml.cs">
       <DependentUpon>ExaminationAppointmentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Secretary\Appointments\AppointmentsWindow.xaml.cs">
+      <DependentUpon>AppointmentsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml.cs">
       <DependentUpon>CreateMedicalRecord.xaml</DependentUpon>
     </Compile>
@@ -217,6 +220,15 @@
     </Compile>
     <Compile Include="View\Secretary\MedicalRecord\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\PAppointments\Appointments.xaml.cs">
+      <DependentUpon>Appointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\PAppointments\EditAppointment.xaml.cs">
+      <DependentUpon>EditAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\PAppointments\NewAppointment.xaml.cs">
+      <DependentUpon>NewAppointment.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
@@ -303,6 +315,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Secretary\Appointments\AppointmentsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -318,6 +334,18 @@
     <Page Include="View\Secretary\MedicalRecord\MedicalRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\PAppointments\Appointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\PAppointments\EditAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\PAppointments\NewAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Secretary\Patients\CreatePatient.xaml">
       <SubType>Designer</SubType>
@@ -423,5 +451,6 @@
   <ItemGroup>
     <Resource Include="images\logout.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

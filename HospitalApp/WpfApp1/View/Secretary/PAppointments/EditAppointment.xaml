@@ -1,0 +1,49 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View.Secretary"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.PatientAppointments.EditAppointment"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="EditAppointment" Height="450" Width="472.507">
+    <Grid>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="120,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Doctor" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="120,212,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <!--<Label Content="Time" HorizontalAlignment="Left" Margin="120,260,0,0" VerticalAlignment="Top" FontSize="18"/>-->
+        <TextBox HorizontalAlignment="Left" Margin="204,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="ID" TextChanged="ID_TextChanged">
+            <TextBox.Text>
+                <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </TextBox.Text>
+        </TextBox>
+
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="244,375,0,0" VerticalAlignment="Top" FontSize="20" Width="80" Name="Edit" Command="Save" Click="Button_Click"  >
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute"/>
+            </Button.CommandBindings>
+
+        </Button>
+        <!--<TextBox HorizontalAlignment="Left" Margin="204,268,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="Time" Text="{Binding TimeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >-->
+
+        <!--</TextBox>-->
+        <ComboBox HorizontalAlignment="Left" Margin="204,146,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Doctor" SelectionChanged="Doctor_SelectionChanged">
+            <ComboBox.Text>
+                <Binding Path="DoctorBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </ComboBox.Text>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="204,311,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Room" SelectionChanged="Room_SelectionChanged"  >
+            <ComboBox.Text>
+                <Binding Path="RoomBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </ComboBox.Text>
+        </ComboBox>
+        <Label Content="Room" HorizontalAlignment="Left" Margin="115,311,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <syncfusion:DateTimeEdit  HorizontalAlignment="Left" Height="46" Margin="204,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" x:Name="Date" PatternChanged="Date_PatternChanged" SelectionChanged="Date_SelectionChanged" CultureInfo="en-US" >
+            <syncfusion:DateTimeEdit.Text>
+
+                <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" />
+            </syncfusion:DateTimeEdit.Text>
+        </syncfusion:DateTimeEdit>
+
+    </Grid>
+</Window>
