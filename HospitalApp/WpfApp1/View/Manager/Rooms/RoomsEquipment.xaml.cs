@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using WpfApp1.Model;
+using WpfApp1.View.Manager;
 using WpfApp1.View.Manager.Equipment;
 
 namespace WpfApp1.View.Rooms
@@ -31,12 +32,8 @@ namespace WpfApp1.View.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.Manual;
-            double width = System.Windows.SystemParameters.PrimaryScreenWidth;
-            double height = System.Windows.SystemParameters.PrimaryScreenHeight;
-            Top = 0.192 * height;
-            Left = 0.25 * width;
-
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Room.Text = roomId;
 
             List<Equipment> e = RoomsWindow.roomController.getEquipment(roomId);
             Equipment = new ObservableCollection<Equipment>(e);
@@ -45,6 +42,7 @@ namespace WpfApp1.View.Rooms
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
+            RoomsWindow.GetRoomsWindow().Show();
             Close();
             roomsEquipmentWindowInstance = null;
         }
@@ -84,5 +82,16 @@ namespace WpfApp1.View.Rooms
             dg.ItemsSource = RoomsWindow.roomController.getEquipment(RoomsWindow.SelectedRoom.Id);
         }
 
+        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
+        }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

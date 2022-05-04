@@ -55,5 +55,7 @@ namespace WpfApp1.View.Manager.Equipment
         {
             Close();
         }
+
+       
     }
 }

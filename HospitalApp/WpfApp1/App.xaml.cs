@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
+using Controller;
 
 namespace WpfApp1
 {
@@ -7,5 +9,16 @@ namespace WpfApp1
     /// </summary>
     public partial class App : Application
     {
+        private static EquipmentController equipmentController = new EquipmentController();
+        public static Thread thread = new Thread(() =>
+        {
+            while (true)
+            {
+                equipmentController.Relocate();
+            }
+        });
+        
+       
+
     }
 }

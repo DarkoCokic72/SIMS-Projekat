@@ -6,7 +6,7 @@
         xmlns:val="clr-namespace:WpfApp1.Validation" 
         xmlns:local="clr-namespace:WpfApp1" d:DataContext="{d:DesignInstance Type=local:RoomsEdit}"
         mc:Ignorable="d"
-         Title="Edit room" Height="630" Width="784" ResizeMode="NoResize">
+         Title="Edit room" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -24,11 +24,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label FontSize="40" Content="Id:" Margin="10,74,37.2,56.8" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
-        <Label FontSize="40" Content="Name:" Margin="10,66.2,37.2,61.8" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
-        <Label FontSize="40" Content="Type:" Margin="10,67.6,37.2,61" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2"/>
-        <Label FontSize="40" Content="Floor:" Margin="10,72.2,37.2,55.8" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"/>
-        <TextBox FontSize="40" Name="Id" Height="70" Margin="92.4,74,28,56.8" TextWrapping="Wrap"  Width="Auto" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="0" IsReadOnly="True" Grid.RowSpan="2">
+        <TextBox FontSize="40" Name="Id" Margin="10.6,114,9.6,60" TextWrapping="Wrap"  Width="Auto" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="1" IsReadOnly="True" Grid.RowSpan="2">
             <TextBox.Text>
                 <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -53,8 +49,8 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox Height="70" FontSize="40" Name="Name" Margin="92.4,65.8,28,58.6" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
-        <TextBox FontSize="40" Name="Floor" Height="70" Margin="92.4,72.2,28,54.2" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2">
+        <TextBox FontSize="40" Name="Name" Margin="9.6,81,9.6,94" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2"/>
+        <TextBox FontSize="40" Name="Floor" Margin="9.6,14,9.6,33" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="4">
             <TextBox.Text>
                 <Binding Path="FloorBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -80,9 +76,27 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <Button FontSize="40" Content="Cancel" Margin="26.4,0,41.8,22.4" Width="Auto" Height="80" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="5"/>
-        <Button FontSize="40" Content="Save" Name="SaveBtn" Margin="45.2,0,28,22.4" Width="Auto" Height="80" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="5"/>
-        <ComboBox FontSize="30" Name="ComboBox" Margin="92.4,68.2,28,60.8" Width="Auto" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboBox_SelectionChanged" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"/>
+        <Button Background="SteelBlue" Width="250" FontSize="40" Content="Cancel" Margin="26.4,0,41.8,22.4" Height="90" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="5"/>
+        <Button Background="SteelBlue" FontSize="40" Content="Save" Name="SaveBtn" Margin="45.2,0,28,22.4" Width="250" Height="90" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="5"/>
+        <ComboBox FontSize="30" Name="ComboBox" Margin="9.6,52,9.6,0" Width="Auto" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboBox_SelectionChanged" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="3"/>
+        <Label FontSize="40" Content="Id*:" Margin="122,115,11.2,60" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2"/>
+        <Label FontSize="40" Content="Name*:" Margin="122,81,11.2,0" Width="Auto" Height="81" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label FontSize="40" Content="Type*:" Margin="122,52,11.2,0" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Label FontSize="40" Content="Floor*:" Margin="122,14,11.2,33" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Row="4"/>
+        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-8.8,-20,-10.2,112.6" Background="SteelBlue" Width="1043" Grid.ColumnSpan="6" Grid.RowSpan="2">
+            <Grid>
+                <Button Height="84" Width="84" Margin="10,52,937.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+                </Button>
+                <Button Height="84" Width="84" Margin="918,52,29.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+                </Button>
+                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
+                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Label Content="Edit room" FontSize="24" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="161" Height="37"/>
+        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="115" Margin="-9,0,0,13" Grid.Row="1" VerticalAlignment="Bottom" Width="1033" Grid.ColumnSpan="6"/>
 
     </Grid>
 </Window>

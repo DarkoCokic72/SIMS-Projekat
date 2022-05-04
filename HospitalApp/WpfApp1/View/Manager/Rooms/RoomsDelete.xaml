@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Delete room" Height="450" Width="757" ResizeMode="NoResize">
+        Title="Delete room" WindowStyle="None" Height="400" Width="700" ResizeMode="NoResize" Background="LightBlue">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="65.6"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="65*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -23,9 +23,20 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button FontSize="40" Content="No" Margin="34,36.2,28.6,23.8" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Height="80" Grid.Row="4" Grid.RowSpan="2"/>
-        <Button FontSize="40" Content="Yes" Margin="27.4,36.2,36,23.8" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="4" Height="80" Grid.RowSpan="2" Grid.Column="1"/>
-        <Label FontSize="60" Content="Are you sure?"  Height="102" Width="384" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Margin="53.4,0.2,62.6,37.8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Background="SteelBlue" FontSize="40" Content="No" Margin="34,36.2,28.6,23.8" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Height="80" Grid.Row="4" Grid.RowSpan="2"/>
+        <Button Background="SteelBlue" FontSize="40" Content="Yes" Margin="27.4,36.2,36,23.8" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="4" Height="80" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label FontSize="60" Content="Are you sure?"  Height="105" Width="377" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Margin="40.2,6.2,50,22.8" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.521"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="4.037"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Separator BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="119" Margin="-9,-22,-1,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="702" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Delete room" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="37" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
 
     </Grid>
 </Window>

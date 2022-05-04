@@ -7,14 +7,14 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.Manager.Equipment.EquipmentRelocation"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="EquipmentRelocation" Height="768" Width="1024" ResizeMode="NoResize">
+        Title="EquipmentRelocation" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <Button  FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="265,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Cancel"/>
+        <Button Width="250" Background="SteelBlue" Height="90" FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="245,666,0,12" VerticalAlignment="Center" Click="Button_Click_Cancel"/>
 
-        <Button  x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="572,608,0,35.4" VerticalAlignment="Center" Width="187" Height="95" Click="Button_Click_Save"/>
-        <Label FontSize="40" Content="To room*:" Margin="14,358,596.6,306.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="426,432,0,0" VerticalAlignment="Top" Height="76" Width="373" SelectedDateChanged="Date_SelectedDateChanged"/>
-        <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="373" Margin="426,508,0,0" TextChanged="TextChanged">
+        <Button  Background="SteelBlue" x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="579,666,0,12" VerticalAlignment="Center" Width="249" Height="90" Click="Button_Click_Save"/>
+        <Label FontSize="40" Content="To room*:" Margin="90,381,597,313" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="432,472,0,0" VerticalAlignment="Top" Height="76" Width="373" SelectedDateChanged="Date_SelectedDateChanged"/>
+        <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="373" Margin="432,562,0,0" TextChanged="TextChanged">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -38,21 +38,24 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <Label FontSize="40" Content="Date*:" Margin="14,437,596.6,230.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <Label FontSize="40" Content="Quantity*:" Margin="14,513,596.6,150.4" Width="Auto" Height="Auto" Grid.Column="0"/>
-        <TextBox Name="FromRoom" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="426,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.425,7.07"/>
-        <Label FontSize="40" Content="From room:" Margin="17,213,596.6,451.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <Label FontSize="40" Content="Equipment:" Margin="17,139,596.6,525.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <TextBox x:Name="EquipmentName" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="426,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.425,7.07"/>
-        <Label FontSize="40" Content="Available quantity:" Margin="14,279,591.6,385.4" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <TextBox x:Name="MaxQuantity" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="426,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.425,7.07"/>
-        <Separator Background="Black" HorizontalAlignment="Left" Height="77" Margin="-26,57,-0.4,0" VerticalAlignment="Top" Width="1044"/>
-        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
-            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
-        </Button>
-        <Button Margin="18,10,905.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
-            <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
-        </Button>
-        <ComboBox FontSize="40" Name="Room" SelectionChanged="Room_SelectionChanged" HorizontalAlignment="Left" Margin="426,358,0,0" VerticalAlignment="Top" Width="373" Height="74"/>
+        <Label FontSize="40" Content="Date*:" Margin="90,472,602,220" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="Quantity*:" Margin="90,562,597,131" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <TextBox Name="Info" BorderThickness="0" IsReadOnly="True" FontSize="30" HorizontalAlignment="Left" Height="40" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1014" RenderTransformOrigin="0.425,7.07"/>
+        <Label FontSize="40" Content="Available quantity:" Margin="90,264,597,430" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="MaxQuantity" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="432,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.425,7.07"/>
+        <ComboBox FontSize="40" Name="Room" SelectionChanged="Room_SelectionChanged" HorizontalAlignment="Left" Margin="432,381,0,0" VerticalAlignment="Top" Width="373" Height="74"/>
+        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="141" Margin="-9,123,0,0" VerticalAlignment="Top" Width="1033"/>
+        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
+            <Grid>
+                <Button Height="84" Width="84" Margin="10,52,937.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+                </Button>
+                <Button Height="84" Width="84" Margin="918,52,29.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+                </Button>
+                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
+                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

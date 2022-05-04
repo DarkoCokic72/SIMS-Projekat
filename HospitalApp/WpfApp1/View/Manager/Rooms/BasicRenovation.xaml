@@ -7,14 +7,14 @@
         xmlns:val="clr-namespace:WpfApp1.Validation" 
         xmlns:local="clr-namespace:WpfApp1" d:DataContext="{d:DesignInstance Type=local:RoomsEdit}"
         mc:Ignorable="d"
-         Title="Edit room" Height="768" Width="1024" ResizeMode="NoResize">
+         Title="Edit room" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Viewbox Margin="291,112,76.6,187.4">
-            <Calendar Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="181" Width="208" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
+        <Viewbox Margin="309,178,67,187">
+            <Calendar Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="177" Width="238" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
                 <Calendar.CalendarDayButtonStyle >
                     <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
                         <Style.Triggers>
@@ -27,8 +27,8 @@
                 </Calendar.CalendarDayButtonStyle>
             </Calendar>
         </Viewbox>
-        <Label FontSize="40" Content="Duration in days*:" Margin="35,527,630.6,143.4" Width="Auto" Height="Auto" Grid.Column="0"/>
-        <TextBox FontSize="40" Name="Duration" Margin="402,508,182.6,143.4" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged">
+        <Label FontSize="40" Content="Duration in days*:" Margin="35,562,600,129" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <TextBox FontSize="40" Name="Duration" Margin="431,562,185,129" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged">
             <TextBox.Text>
                 <Binding Path="DurationBinding" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource">
                     <Binding.ValidationRules>
@@ -55,14 +55,22 @@
             </Validation.ErrorTemplate>
         </TextBox>
         <Label FontSize="40" Content="Select start day*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,301,0,0" Height="75" Width="323"/>
-        <Button FontSize="40" Content="Back" Margin="206,632,565.6,21.4" Width="Auto" Click="Button_Click_Back"/>
-        <Button Name="ScheduleBtn" FontSize="40" Content="Schedule" Margin="565,632,206.6,21.4" Width="Auto" Click="Button_Click_Schedule"/>
-        <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0" Click="Button_HomePage">
-            <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
-        </Button>
-        <Separator Background="Black" HorizontalAlignment="Left" Height="70" Margin="0,69,-0.4,0" VerticalAlignment="Top" Width="1018"/>
-        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
-            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
-        </Button>
+        <Button Background="SteelBlue" Height="90" FontSize="40" Content="Back" Margin="206,658,566,10" Width="250" Click="Button_Click_Back"/>
+        <Button Background="SteelBlue" Height="90" Name="ScheduleBtn" FontSize="40" Content="Schedule" Margin="567,663,205,15" Width="250" Click="Button_Click_Schedule"/>
+        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut"/>
+        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
+            <Grid>
+                <Button Height="84" Width="84" Margin="10,52,937.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+                </Button>
+                <Button Height="84" Width="84" Margin="918,52,29.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+                </Button>
+                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
+                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Label Content="Scheduling reconstruction" FontSize="24" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="294" Height="46"/>
+        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="110" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
     </Grid>
 </Window>

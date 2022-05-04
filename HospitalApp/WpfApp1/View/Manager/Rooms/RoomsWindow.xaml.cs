@@ -91,12 +91,14 @@ namespace WpfApp1
                
                 CreateRoom createRoom = new CreateRoom();
                 createRoom.Show();
+                Close();
             }
             else if (btn.Content.Equals("Details"))
             {
-
+                
                 RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow(SelectedRoom.Id);
                 roomsEquipment.Show();
+                Close();
 
             }
             else if (btn.Content.Equals("Edit"))
@@ -108,6 +110,7 @@ namespace WpfApp1
                 }
                 RoomsEdit roomsEdit = new RoomsEdit();
                 roomsEdit.Show();
+                Close();
 
             }
             else if (btn.Content.Equals("Delete"))

@@ -53,10 +53,8 @@ namespace WpfApp1.View.Manager.Equipment
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
-
-            FromRoom.Text = RoomsEquipment.SelectedEquipment.Room.Id;
-            EquipmentName.Text = RoomsEquipment.SelectedEquipment.Name;
-
+            Info.Text = "Relocating " + RoomsEquipment.SelectedEquipment.Name + " from room " + RoomsEquipment.SelectedEquipment.Room.Id;
+           
             EquipmentController equipmentController = new EquipmentController();
             MaxQuantity.Text = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment).ToString();
             Room.ItemsSource = FillComboBoxWithRooms();
@@ -83,8 +81,6 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            RoomsWindow roomsWindow = RoomsWindow.GetRoomsWindow();
-            roomsWindow.Show();
             RoomsEquipment roomsEquipment = new RoomsEquipment(RoomsEquipment.SelectedEquipment.Room.Id);
             roomsEquipment.Show();
             Close();
@@ -150,5 +146,6 @@ namespace WpfApp1.View.Manager.Equipment
             managerHomePage.Show();
             Close();
         }
+
     }
 }

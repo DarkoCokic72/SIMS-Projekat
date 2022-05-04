@@ -5,51 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.Manager"
         mc:Ignorable="d"
-        Title="ZdravoHospital" Height="768" Width="1024" ResizeMode="NoResize">
+        Title="ZdravoHospital" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu FontSize="60" Margin="47,191,29.8,54.6">
+        <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="47,191,30,55" Grid.ColumnSpan="2">
             <MenuItem FontSize="60" Header="     ROOMS" Height="124" Width="432">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
                 </MenuItem.Icon>
-                <MenuItem FontSize="40" Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="432"/>
-                <Separator BorderThickness="1" BorderBrush="Black"/>
-                <MenuItem FontSize="40" Header="Scheduling&#xA;renovation"  Height="106" Width="432" Click="MenuItem_SchedulingRenovation"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="432"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="106" Width="432" Click="MenuItem_SchedulingRenovation"/>
             </MenuItem>
         </Menu>
-        <Menu  FontSize="60" Margin="35.2,198,51.6,47.6" Grid.Column="1">
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="35,198,52,48" Grid.Column="2">
             <MenuItem FontSize="60" Header="  EQUIPMENT" Height="125" Width="432">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="0,-17,-48,-21"/>
                 </MenuItem.Icon>
-                <MenuItem FontSize="40" Header="List of equipment"  Height="72" Click="Button_Click_Equipment" Margin="0,0,23.2,0"/>
-                <Separator BorderThickness="1" BorderBrush="Black"/>
-                <MenuItem FontSize="40" Header="Download report"  Height="106" Margin="0,0,-5.2,0"/>
+                <MenuItem Width="420" BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of equipment"  Height="72" Click="Button_Click_Equipment" Margin="0,0,-3.6,0"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue"  FontSize="40" Header="Download report"  Height="106" Margin="0,0,-5.2,0"/>
             </MenuItem>
         </Menu>
-        <Menu FontSize="60" Margin="47,17.4,29.8,227.4" Grid.Row="1" >
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="47,17,30,227" Grid.Row="1" Grid.ColumnSpan="2" >
             <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Click_2"/>
         </Menu>
-        <Menu FontSize="60" Grid.Row="1" Margin="35.2,17.4,51.6,227.4" Grid.Column="1" >
+        <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="35,17,52,227" Grid.Column="2" >
             <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422" Click="MenuItem_Click_2"/>
         </Menu>
-        <Menu FontSize="60" Margin="296,190.4,301.6,54.4" Grid.Row="1" Grid.ColumnSpan="2">
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="231.856,190,302,54" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1">
             <MenuItem FontSize="60" Header="    DAYS OFF" Height="124" Width="420" Click="MenuItem_Click_2" RenderTransformOrigin="0.738,0.554"/>
         </Menu>
-        <Button Margin="21,15,393.8,264.6" Background="Transparent" BorderThickness="0">
-            <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
-        </Button>
-        <Separator Background="Black" HorizontalAlignment="Left" Height="77" Margin="0,66,-10.4,0" VerticalAlignment="Top" Width="1028" Grid.ColumnSpan="2"/>
-        <Button Margin="405.2,10,9.6,269.6" Background="Transparent" BorderThickness="0" Grid.Column="1" Click="Button_LogOut">
-            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
-        </Button>
+        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,240.6" Background="SteelBlue" Width="1043" Grid.ColumnSpan="3">
+            <Grid>
+                <Button Height="84" Width="84" Margin="10,52,937.2,-1.6" Background="Transparent" BorderThickness="0">
+                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+                </Button>
+                <Button Height="84" Width="84" Margin="918,52,29.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+                </Button>
+                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
+                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

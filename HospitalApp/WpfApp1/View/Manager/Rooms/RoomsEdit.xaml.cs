@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using WpfApp1.View.Manager;
 
 namespace WpfApp1
 {
@@ -85,13 +86,8 @@ namespace WpfApp1
 
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.Manual;
-            double width = System.Windows.SystemParameters.PrimaryScreenWidth;
-            double height = System.Windows.SystemParameters.PrimaryScreenHeight;
-            Top = 0.192 * height;
-            Left = 0.25 * width;
-
-
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+           
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
             IdBinding = room.Id;
@@ -143,6 +139,7 @@ namespace WpfApp1
             Button btn = (Button)sender;
             if(btn.Content.Equals("Cancel"))
             {
+                RoomsWindow.GetRoomsWindow().Show();
                 Close();
             }
             else if(btn.Content.Equals("Save"))
@@ -166,6 +163,7 @@ namespace WpfApp1
                 if (editedRoom == true)
                 {
                     RoomsWindow.roomsWindowInstance.refreshContentOfGrid();
+                    RoomsWindow.GetRoomsWindow().Show();
                     Close();
                 }
                 else
@@ -189,6 +187,19 @@ namespace WpfApp1
             {
                 SaveBtn.IsEnabled = false;
             }
+        }
+
+        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            managerHomePage.Show();
+            Close();
+
+        }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

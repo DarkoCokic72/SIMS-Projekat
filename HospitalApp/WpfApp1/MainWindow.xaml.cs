@@ -30,39 +30,20 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
 
-        private static EquipmentController equipmentController = new EquipmentController();
-        public static Thread thread = new Thread(() =>
-        {
-            while (true)
-            {
-                equipmentController.Relocate();   
-            }
-        });
 
         public MainWindow()
         {
 
-
-            /* 
-            Login login = new Login();
-            login.ShowDialog();
-            */
-
-
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-
-
-
-            thread.Start();
+            App.thread.Start();
              
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            thread.Abort();
-            
+            App.thread.Abort();          
         }
 
         
@@ -77,25 +58,6 @@ namespace WpfApp1
 
             }    
 
-        /*
-            {
-
-                ManagerHomePage managerHomePage = new ManagerHomePage();
-                managerHomePage.Show();
-             
-            } else if(btn.Content.Equals("Secretary"))
-            {
-                SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
-                secretaryHomePage.Show();
-
-            }
-            else if (btn.Content.Equals("P.Appointments"))
-            {
-                Appointments appointments = Appointments.GetAppointments();
-                appointments.Show();
-            }
-               
-            */
         }
 
 

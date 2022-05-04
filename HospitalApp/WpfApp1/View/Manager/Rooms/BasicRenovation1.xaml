@@ -5,21 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.Manager.Rooms"
         mc:Ignorable="d"
-        Title="BasicRenovation1" Height="768" Width="1024" ResizeMode="NoResize">
+        Title="BasicRenovation1" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <Button Name="CancelBtn" FontSize="40" Margin="203,602,565.6,45.4" Width="Auto" Click="Button_Click_Cancel" Content="Cancel"/>
-        <Button Name="NextBtn" FontSize="40" Content="Next" Click="Button_Click_Next" Margin="548,602,220.6,45.4"/>
-        <Button Margin="21,15,902.6,633.4" Background="White" BorderThickness="0" Click="Button_Click_HomePage">
-            <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
-        </Button>
-        <ComboBox FontSize="60"  x:Name="Room" HorizontalAlignment="Left" Margin="454,143,0,0" VerticalAlignment="Top" Width="445" Height="102" SelectionChanged="Room_SelectionChanged"/>
-        <Label FontSize="60" Content="Room*:" HorizontalAlignment="Left" Margin="87,143,0,0" VerticalAlignment="Top" Height="102" Width="362"/>
-        <Label FontSize="60" Content="Description*:" HorizontalAlignment="Left" Margin="90,380,0,0" VerticalAlignment="Top" Height="102" Width="362"/>
-        <TextBox x:Name="Description" FontSize="40"  HorizontalAlignment="Left" Height="193" Margin="454,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442" TextChanged="Description_TextChanged"/>
-        <Separator Background="Black" HorizontalAlignment="Left" Height="70" Margin="0,69,-0.4,0" VerticalAlignment="Top" Width="1018"/>
-        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
-            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
-        </Button>
+        <Button Height="90" Background="SteelBlue" Name="CancelBtn" FontSize="40"  Margin="206,658,566,10" Width="Auto" Click="Button_Click_Cancel" Content="Cancel"/>
+        <Button Height="90" Background="SteelBlue" Name="NextBtn" FontSize="40" Content="Next" Click="Button_Click_Next" Margin="548,663,221,15"/>
+        <ComboBox FontSize="60"  x:Name="Room" HorizontalAlignment="Left" Margin="457,243,0,0" VerticalAlignment="Top" Width="442" Height="102" SelectionChanged="Room_SelectionChanged"/>
+        <Label FontSize="60" Content="Room*:" HorizontalAlignment="Left" Margin="90,243,0,0" VerticalAlignment="Top" Height="102" Width="362"/>
+        <Label FontSize="60" Content="Description*:" HorizontalAlignment="Left" Margin="96,458,0,0" VerticalAlignment="Top" Height="102" Width="362"/>
+        <TextBox x:Name="Description" FontSize="40"  HorizontalAlignment="Left" Height="193" Margin="457,406,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442" TextChanged="Description_TextChanged"/>
+        <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut"/>
+        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
+            <Grid>
+                <Button Height="84" Width="84" Margin="10,52,937.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+                </Button>
+                <Button Height="84" Width="84" Margin="918,52,29.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+                </Button>
+                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
+                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Label Content="Scheduling reconstruction" FontSize="24" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="294" Height="46"/>
+        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="110" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
 
 
     </Grid>

@@ -129,7 +129,8 @@ namespace WpfApp1.View.Manager.Rooms
             Close();
         }
 
-        private void Button_HomePage(object sender, RoutedEventArgs e)
+
+        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
             ManagerHomePage managerHomePage = new ManagerHomePage();
             managerHomePage.Show();
