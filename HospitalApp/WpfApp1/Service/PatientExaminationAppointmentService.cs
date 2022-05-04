@@ -3,7 +3,7 @@
 // Created: 10. април 2022. 19:27:31
 // Purpose: Definition of Class PatientExaminationAppointmentService
 
-using Model;
+using WpfApp1.Model;
 using Repo;
 using System;
 using System.Collections.Generic;

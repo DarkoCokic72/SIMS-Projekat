@@ -38,12 +38,12 @@
             </TextBox.Text>
         </TextBox>
         <Label Content="Room" HorizontalAlignment="Left" Margin="115,311,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <syncfusion:DateTimeEdit  HorizontalAlignment="Left" Height="46" Margin="204,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="Date" PatternChanged="Date_PatternChanged" SelectionChanged="Date_SelectionChanged" CultureInfo="en-US" >
+        <!--<syncfusion:DateTimeEdit  HorizontalAlignment="Left" Height="46" Margin="204,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="Date" PatternChanged="Date_PatternChanged" SelectionChanged="Date_SelectionChanged" CultureInfo="en-US" >
             <syncfusion:DateTimeEdit.Text>
 
                 <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" />
             </syncfusion:DateTimeEdit.Text>
-        </syncfusion:DateTimeEdit>
+        </syncfusion:DateTimeEdit>-->
 
     </Grid>
 </Window>

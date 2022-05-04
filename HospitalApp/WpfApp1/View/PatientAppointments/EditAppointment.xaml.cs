@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Controller;
-using Syncfusion.Windows.Shared;
+//using Syncfusion.Windows.Shared;
 using WpfApp1.Model;
 
 
@@ -152,10 +152,7 @@ namespace WpfApp1.View.PatientAppointments
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && s != null)
-            {
-                Edit.IsEnabled = true;
-            }
+        }
 
         //private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
@@ -165,23 +162,12 @@ namespace WpfApp1.View.PatientAppointments
         //    }
 
         //}
-        DateTimeEdit dateTimeEdit = new DateTimeEdit();
+       
 
-        private void Date_PatternChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var newPattern = e.NewValue;
-            var oldPattern = e.OldValue;
-        }
 
-        private void Date_SelectionChanged(object sender, RoutedEventArgs e)
-        {
 
-        }
-        private string GetSelectedDate()
-        {
-            string selectedDate = Date.SelectedText;
-            return selectedDate;
-        }
+
+ 
         string s = "moze";
         public static List<System.DateTime> availableDate;
 
@@ -197,7 +183,7 @@ namespace WpfApp1.View.PatientAppointments
             //TimeBinding = patientExaminationAppointment.timeOfAppointment;
             RoomBinding = patientExaminationAppointment.roomId;
 
-            Date.DateTime = DateBinding;
+            //Date.DateTime = DateBinding;
             string id = patientExaminationAppointment.id;
 
             //Date.Pattern = DateTimePattern.CustomPattern;
@@ -207,33 +193,33 @@ namespace WpfApp1.View.PatientAppointments
             //        Start = availableDate[0],
             //        End = availableDate[1]
             //};
-            Syncfusion.Windows.Controls.Calendar calendar = Date.DateTimeCalender as Syncfusion.Windows.Controls.Calendar;
-            foreach (DateTime d in availableDate)
-            {
-                calendar.BlackoutDates.Add(new Syncfusion.Windows.Controls.CalendarDateRange()
-                {
-                    Start = d,
-                    End = d
-                }   );
+            //Syncfusion.Windows.Controls.Calendar calendar = Date.DateTimeCalender as Syncfusion.Windows.Controls.Calendar;
+            //foreach (DateTime d in availableDate)
+            //{
+            //    calendar.BlackoutDates.Add(new Syncfusion.Windows.Controls.CalendarDateRange()
+            //    {
+            //        Start = d,
+            //        End = d
+            //    }   );
 
-            }
+            //}
             DateTime dl = DateTime.Now.AddDays(1);
             DateTime db = DateBinding;
 
-            int day4 = DateTime.Compare(DateBinding.AddDays(-4), DateTime.Now);
-            if (day4 < 0)
-            {
-                Date.MinDateTime = DateTime.Now;
-            }
-            else if (day4 == 0)
-            {
-                Date.MinDateTime = DateTime.Now;
-            }
-            else
-            {
-                Date.MinDateTime = DateBinding.AddDays(-4);
-            }
-            Date.MaxDateTime = DateBinding.AddDays(4);
+            //int day4 = DateTime.Compare(DateBinding.AddDays(-4), DateTime.Now);
+            //if (day4 < 0)
+            //{
+            //    Date.MinDateTime = DateTime.Now;
+            //}
+            //else if (day4 == 0)
+            //{
+            //    Date.MinDateTime = DateTime.Now;
+            //}
+            //else
+            //{
+            //    Date.MinDateTime = DateBinding.AddDays(-4);
+            //}
+            //Date.MaxDateTime = DateBinding.AddDays(4);
 
 
 
