@@ -147,15 +147,12 @@ namespace WpfApp1.View.PatientAppointments
         private void Doctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if (!string.IsNullOrEmpty((string)Doctor.SelectedItem))
-            {
-                Add.IsEnabled = true;
-            }
+          
         }
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && busy != null)
+            if (!string.IsNullOrEmpty((string)Room.SelectedItem) && busy != null && !string.IsNullOrEmpty((string)Doctor.SelectedItem)) 
             {
                 Add.IsEnabled = true;
             }
