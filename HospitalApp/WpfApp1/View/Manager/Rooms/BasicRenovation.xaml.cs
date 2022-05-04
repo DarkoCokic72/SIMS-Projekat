@@ -54,7 +54,7 @@ namespace WpfApp1.View.Manager.Rooms
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             roomId = _roomId;
             description = _description;
 

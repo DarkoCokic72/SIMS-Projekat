@@ -54,7 +54,7 @@ namespace WpfApp1.View.Manager.Equipment
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
             Info.Text = "Relocating " + RoomsEquipment.SelectedEquipment.Name + " from room " + RoomsEquipment.SelectedEquipment.Room.Id;
-           
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             EquipmentController equipmentController = new EquipmentController();
             MaxQuantity.Text = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment).ToString();
             Room.ItemsSource = FillComboBoxWithRooms();

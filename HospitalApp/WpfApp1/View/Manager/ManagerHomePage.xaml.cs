@@ -26,6 +26,7 @@ namespace WpfApp1.View.Manager
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
         }
 
         private void Button_Click_Rooms(object sender, RoutedEventArgs e)

@@ -15,6 +15,7 @@ namespace WpfApp1.View.Manager.Equipment
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             EquipmentController equipmentController = new EquipmentController();
 
             List<Model.Equipment> equipmentByRooms = equipmentController.GetAll();

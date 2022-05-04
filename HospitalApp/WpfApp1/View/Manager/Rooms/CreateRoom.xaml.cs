@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Model;
+using WpfApp1.View;
 using WpfApp1.View.Manager;
 
 namespace WpfApp1
@@ -18,6 +19,9 @@ namespace WpfApp1
         {
             InitializeComponent();
             DataContext = this;
+
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Validation.MinMaxValidationRule.ValidationHasError = false;

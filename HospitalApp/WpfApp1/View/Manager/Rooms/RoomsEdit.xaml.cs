@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using WpfApp1.View;
 using WpfApp1.View.Manager;
 
 namespace WpfApp1
@@ -87,7 +88,9 @@ namespace WpfApp1
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-           
+
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
             IdBinding = room.Id;

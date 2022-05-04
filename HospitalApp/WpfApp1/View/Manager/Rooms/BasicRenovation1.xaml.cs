@@ -27,6 +27,7 @@ namespace WpfApp1.View.Manager.Rooms
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             RoomController roomController = new RoomController();
             List<Room> rooms = roomController.GetAll();
             List<string> roomsId = new List<string>();

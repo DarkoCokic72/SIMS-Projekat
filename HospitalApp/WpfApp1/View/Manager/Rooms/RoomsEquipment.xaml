@@ -27,21 +27,32 @@
         </DataGrid>
         <Button Background="SteelBlue" FontSize="60" Content="Back" HorizontalAlignment="Left" Margin="190,28,0,0" VerticalAlignment="Top" Width="250" Height="90" Click="Button_Click_Close" Grid.Row="5" RenderTransformOrigin="-1.557,0.681"/>
         <Button Background="SteelBlue" FontSize="60" Content="Relocate" HorizontalAlignment="Left" Margin="578,28,0,0" VerticalAlignment="Top" Width="250" Height="90" Click="Button_Click_Relocation" Grid.Row="5"/>
-        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,112.6" Background="SteelBlue" Width="1043" Grid.RowSpan="2">
-            <Grid>
-                <Button Height="84" Width="84" Margin="10,52,937.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
-                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
-                </Button>
-                <Button Height="84" Width="84" Margin="918,52,29.2,-1.6" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
-                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
-                </Button>
-                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
-                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
-            </Grid>
-        </GroupBox>
         <Label Content="Equipment in room:" FontSize="24" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="224" Height="53"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="134" Margin="-9,112,0,0" VerticalAlignment="Top" Width="1033" Grid.RowSpan="2"/>
         <TextBox Name="Room" FontSize="24" IsEnabled="False" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Height="37" Margin="234,20,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="126"/>
+        <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,112.6" Background="SteelBlue" Width="1043" Grid.RowSpan="2">
+            <Grid>
+                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                    <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
+                </Button>
+                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                    <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+                </Button>
+                <Button Width="90" Height="90" Margin="836,66,105.2,0" Background="Transparent" BorderThickness="0">
+                    <Image Source="/WpfApp1;component/images/notificationBell.png" Height="64" Width="64"/>
+                </Button>
+                <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
+                <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="561,66,0,-3" VerticalAlignment="Top" Width="270" Height="93" RenderTransformOrigin="0.5,0.5">
+                    <Grid>
+
+                        <Image Source="/WpfApp1;component/images/userr.png" Height="64" Margin="-128,0,65.6,0" RenderTransformOrigin="-0.384,0.4"/>
+                        <TextBox IsEnabled="False" FontSize="38" x:Name="User" BorderThickness="0" Background="Transparent" Margin="-59,0,-122.4,0" RenderTransformOrigin="0.5,0.5" />
+                    </Grid>
+                </Button>
+
+            </Grid>
+        </GroupBox>
 
 
     </Grid>

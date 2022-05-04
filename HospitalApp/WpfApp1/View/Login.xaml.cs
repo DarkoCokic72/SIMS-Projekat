@@ -26,7 +26,7 @@ namespace WpfApp1.View
 {
     public partial class Login : Window
     {
-
+        public static UserAccount userAccount;
         private String passwordBinding;
         public String PasswordBinding
         {
@@ -72,7 +72,7 @@ namespace WpfApp1.View
             UserAccountRepository userAccountRepository = new UserAccountRepository(userAccountFileHandler);
             UserAccountService userAccountService = new UserAccountService(userAccountRepository);
             UserAccountController userAccountController = new UserAccountController(userAccountService);
-            UserAccount userAccount = userAccountController.GetByEmailPassword(EmailBinding, PasswordBinding);
+            userAccount = userAccountController.GetByEmailPassword(EmailBinding, PasswordBinding);
 
 
             if (userAccount != null) 

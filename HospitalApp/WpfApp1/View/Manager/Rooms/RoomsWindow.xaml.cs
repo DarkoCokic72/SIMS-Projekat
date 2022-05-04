@@ -18,6 +18,7 @@ using FileHandler;
 using Model;
 using Repo;
 using Service;
+using WpfApp1.View;
 using WpfApp1.View.Manager;
 using WpfApp1.View.Rooms;
 
@@ -37,9 +38,9 @@ namespace WpfApp1
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
-            roomController = new RoomController();
 
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            roomController = new RoomController();
             Rooms = new ObservableCollection<Room>(roomController.GetAll());      
         }
 
