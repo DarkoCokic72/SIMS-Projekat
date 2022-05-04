@@ -28,6 +28,9 @@ namespace WpfApp1.View.PatientAppointments
     {
         public static Boolean editedAppointment = false;
         private PatientExaminationAppointment patientExaminationAppointment;
+        private PatientExaminationAppointmentController appointmentController = new PatientExaminationAppointmentController();
+
+
 
 
         private void ID_TextChanged(object sender, TextChangedEventArgs e)
@@ -143,11 +146,9 @@ namespace WpfApp1.View.PatientAppointments
             }
         }
 
-        private void Doctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Physician selectedPerson = Doctor.SelectedItem as Physician;
-            MessageBox.Show(selectedPerson.name + selectedPerson.surname, "Doctor is selected");
-        }
+        //private void Doctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -156,7 +157,14 @@ namespace WpfApp1.View.PatientAppointments
                 Edit.IsEnabled = true;
             }
 
-        }
+        //private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty((string)Room.SelectedItem) &&  s!=null && !string.IsNullOrEmpty((string)Doctor.SelectedItem))
+        //    {
+        //        Edit.IsEnabled = true;
+        //    }
+
+        //}
         DateTimeEdit dateTimeEdit = new DateTimeEdit();
 
         private void Date_PatternChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -175,6 +183,8 @@ namespace WpfApp1.View.PatientAppointments
             return selectedDate;
         }
         string s = "moze";
+        public static List<System.DateTime> availableDate;
+
         public EditAppointment()
         {
             InitializeComponent();
@@ -186,9 +196,27 @@ namespace WpfApp1.View.PatientAppointments
             DateBinding = patientExaminationAppointment.datetimeOfAppointment;
             //TimeBinding = patientExaminationAppointment.timeOfAppointment;
             RoomBinding = patientExaminationAppointment.roomId;
-            //Date.DateTime = DateBinding;
+
+            Date.DateTime = DateBinding;
+            string id = patientExaminationAppointment.id;
 
             //Date.Pattern = DateTimePattern.CustomPattern;
+            availableDate = appointmentController.getAvailableDate(id);
+            //    Syncfusion.Windows.Controls.CalendarDateRange blackOutDays = new Syncfusion.Windows.Controls.CalendarDateRange()
+            //    {
+            //        Start = availableDate[0],
+            //        End = availableDate[1]
+            //};
+            Syncfusion.Windows.Controls.Calendar calendar = Date.DateTimeCalender as Syncfusion.Windows.Controls.Calendar;
+            foreach (DateTime d in availableDate)
+            {
+                calendar.BlackoutDates.Add(new Syncfusion.Windows.Controls.CalendarDateRange()
+                {
+                    Start = d,
+                    End = d
+                }   );
+
+            }
             DateTime dl = DateTime.Now.AddDays(1);
             DateTime db = DateBinding;
 
@@ -212,17 +240,8 @@ namespace WpfApp1.View.PatientAppointments
 
 
             //Date.Text = DateTime.Now.ToString();
-            RoomController roomController = new RoomController();
-            List<Room> rooms = roomController.GetAll();
-            List<string> roomsId = new List<string>();
 
-            foreach (Room r in rooms)
-            {
-                roomsId.Add(r.Id);
-            }
 
-            Room.ItemsSource = roomsId;
-            Edit.IsEnabled = false;
 
             int result = DateTime.Compare(dl, db);
             if (result == 0)
@@ -237,6 +256,31 @@ namespace WpfApp1.View.PatientAppointments
             }
 
 
+            RoomController roomController = new RoomController();
+                List<Room> rooms = roomController.GetAll();
+                List<string> roomsId = new List<string>();
+
+                foreach (Room r in rooms)
+                {
+                    roomsId.Add(r.Id);
+                }
+
+                // Room.ItemsSource = roomsId;
+                Edit.IsEnabled = false;
+                PhysicianController physicianController = new PhysicianController();
+                List<Physician> physcicians = physicianController.GetAll();
+                List<string> physicianName = new List<string>();
+
+                foreach (Physician r in physcicians)
+                {
+                    physicianName.Add(r.name + " " + r.surname);
+
+
+                }
+
+                //Doctor.ItemsSource = physicianName;
+
         }
     }
 }
+

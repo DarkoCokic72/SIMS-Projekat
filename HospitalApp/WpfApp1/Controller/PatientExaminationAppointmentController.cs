@@ -37,6 +37,10 @@ namespace Controller
       {
             return patientAppointmentService.GetById(id);
       }
+      public List<System.DateTime> getAvailableDate(string id)
+      {
+            return patientAppointmentService.getAvailableDate(id);
+      }
         public Service.PatientExaminationAppointmentService patientAppointmentService=new PatientExaminationAppointmentService();
 
        
