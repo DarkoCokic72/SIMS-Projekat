@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using WpfApp1.Service;
 
 namespace Controller
 {
@@ -13,13 +14,15 @@ namespace Controller
    {
       public List<Drug> GetAll()
       {
-         throw new NotImplementedException();
+          return drugService.GetAll();  
       }
       
       public void Create(Drug drug)
       {
-         throw new NotImplementedException();
+          drugService.Create(drug);
       }
+
+      public DrugService drugService = new DrugService();
    
    }
 }

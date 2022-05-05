@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.View.Manager.Drugs;
 using WpfApp1.View.Manager.Equipment;
 using WpfApp1.View.Manager.Rooms;
 
@@ -65,6 +66,13 @@ namespace WpfApp1.View.Manager
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
+            Close();
+        }
+
+        private void MenuItem_Drugs(object sender, RoutedEventArgs e)
+        {
+            DrugsWindow drugsWindow = new DrugsWindow();
+            drugsWindow.Show();
             Close();
         }
     }

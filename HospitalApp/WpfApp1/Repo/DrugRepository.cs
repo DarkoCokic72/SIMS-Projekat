@@ -13,15 +13,17 @@ namespace Repo
    {
       public List<Drug> GetAll()
       {
-         throw new NotImplementedException();
+          return drugFileHandler.Read();
       }
       
       public void Create(Drug drug)
       {
-         throw new NotImplementedException();
+            List<Drug> drugs = drugFileHandler.Read();
+            drugs.Add(drug);
+            drugFileHandler.Save(drugs);
       }
       
-      public FileHandler.DrugFileHandler drugFileHandler;
+      public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();
    
    }
 }

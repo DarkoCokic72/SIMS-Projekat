@@ -155,6 +155,7 @@
     <Compile Include="Repo\RenovationRepository.cs" />
     <Compile Include="Repo\SecretaryRepository.cs" />
     <Compile Include="Repo\UserAccountRepository.cs" />
+    <Compile Include="Service\DrugService.cs" />
     <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />
     <Compile Include="Service\GuestAccountService.cs" />
@@ -171,6 +172,12 @@
     <Compile Include="Validation\RoomValidation.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Drugs\DrugsCreate.xaml.cs">
+      <DependentUpon>DrugsCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Drugs\DrugsWindow.xaml.cs">
+      <DependentUpon>DrugsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\Equipment\AllEquipment.xaml.cs">
       <DependentUpon>AllEquipment.xaml</DependentUpon>
@@ -255,6 +262,14 @@
     <Page Include="View\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Manager\Drugs\DrugsCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Drugs\DrugsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Equipment\AllEquipment.xaml">
       <SubType>Designer</SubType>

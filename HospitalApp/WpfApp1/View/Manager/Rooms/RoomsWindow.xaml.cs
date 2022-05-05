@@ -64,7 +64,7 @@ namespace WpfApp1
 
         public Room getSelectedRoom()
         {
-            return (Room)dgRooms.SelectedItem; ;
+            return (Room)dgRooms.SelectedItem; 
         }
 
 
