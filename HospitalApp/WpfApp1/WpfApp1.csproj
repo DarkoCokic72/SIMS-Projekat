@@ -103,6 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\DrugController.cs" />
     <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\ExaminationAppointmentControler.cs" />
     <Compile Include="Controller\GuestAccountController.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
     <Compile Include="Controller\PhysicianController.cs" />
     <Compile Include="Controller\UserAccountController.cs" />
+    <Compile Include="FileHandler\DrugFileHandler.cs" />
     <Compile Include="FileHandler\EquipmentFileHandler.cs" />
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
     <Compile Include="FileHandler\GuestAccountFileHandler.cs" />
@@ -124,7 +126,9 @@
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
     <Compile Include="FileHandler\UserAccountFileHandler.cs" />
+    <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\Equipment.cs" />
+    <Compile Include="Model\EquipmentType.cs" />
     <Compile Include="Model\MedicalRecord.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
@@ -138,6 +142,7 @@
     <Compile Include="Model\PatientExaminationAppointment.cs" />
     <Compile Include="Model\Physician.cs" />
     <Compile Include="Model\SpecialisedPhysician.cs" />
+    <Compile Include="Repo\DrugRepository.cs" />
     <Compile Include="Repo\ExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\GuestAccountRepository.cs" />
     <Compile Include="Repo\ManagerRepository.cs" />

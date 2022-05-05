@@ -18,7 +18,9 @@ namespace WpfApp1.Model
                 Name = name;
                 Quantity = quantity;
                 Room = room;
-            }    
+            }   
+            
+            public Equipment() { }
 
     }
 }

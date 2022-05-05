@@ -79,10 +79,10 @@
         <Button Background="SteelBlue" Width="250" FontSize="40" Content="Cancel" Margin="26.4,0,41.8,22.4" Height="90" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="5"/>
         <Button Background="SteelBlue" FontSize="40" Content="Save" Name="SaveBtn" Margin="45.2,0,28,22.4" Width="250" Height="90" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="5"/>
         <ComboBox FontSize="30" Name="ComboBox" Margin="9.6,52,9.6,0" Width="Auto" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboBox_SelectionChanged" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="3"/>
-        <Label FontSize="40" Content="Id*:" Margin="122,115,11.2,60" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2"/>
-        <Label FontSize="40" Content="Name*:" Margin="122,81,11.2,0" Width="Auto" Height="81" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <Label FontSize="40" Content="Type*:" Margin="122,52,11.2,0" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="Floor*:" Margin="122,14,11.2,33" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Row="4"/>
+        <Label FontSize="40" Content="Id:" Margin="122,115,11.2,60" Width="Auto" Height="Auto" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2"/>
+        <Label FontSize="40" Content="Name:" Margin="122,81,11.2,0" Width="Auto" Height="81" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label FontSize="40" Content="Type:" Margin="122,52,11.2,0" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Label FontSize="40" Content="Floor:" Margin="122,14,11.2,33" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Row="4"/>
         <Label Content="Edit room" FontSize="24" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="161" Height="37"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="115" Margin="-9,0,0,13" Grid.Row="1" VerticalAlignment="Bottom" Width="1033" Grid.ColumnSpan="6"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,112.6" Background="SteelBlue" Width="1043" Grid.ColumnSpan="6" Grid.RowSpan="2">
