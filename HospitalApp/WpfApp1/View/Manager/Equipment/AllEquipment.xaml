@@ -15,7 +15,7 @@
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label FontSize="30" Content="Equipment" HorizontalAlignment="Center" Margin="828,718,37,0" VerticalAlignment="Center" Width="159" Height="50"/>
+        <Label FontSize="32" Content="Equipment" HorizontalAlignment="Center" Margin="816,718,37,0" VerticalAlignment="Center" Width="171" Height="50"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>
                 <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">

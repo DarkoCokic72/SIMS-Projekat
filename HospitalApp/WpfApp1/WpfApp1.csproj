@@ -177,6 +177,9 @@
     <Compile Include="View\Manager\Drugs\DrugsCreate.xaml.cs">
       <DependentUpon>DrugsCreate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\Drugs\DrugsDetails.xaml.cs">
+      <DependentUpon>DrugsDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\Drugs\DrugsWindow.xaml.cs">
       <DependentUpon>DrugsWindow.xaml</DependentUpon>
     </Compile>
@@ -265,6 +268,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Manager\Drugs\DrugsCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Drugs\DrugsDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp1.View.Manager.Drugs.DrugsDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View.Manager.Drugs"
+        mc:Ignorable="d"
+        Title="DrugsDetails" WindowStyle="None" Height="625" Width="700" ResizeMode="NoResize" Background="LightBlue">
+    <Grid>
+        <Button Background="SteelBlue" Height="90" FontSize="40" Content="Close" Margin="226,515,224,19.8" Width="250" Click="Button_Click_Back"/>
+        <Separator BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Left" Height="131" Margin="0,-12,-2,0" VerticalAlignment="Top" Width="702" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Drug details" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="58" Margin="10,0,0,0"/>
+        <Label Content="Ingredients:" FontSize="40" HorizontalAlignment="Left" Margin="37,119,0,0" VerticalAlignment="Top" Width="259"/>
+        <Label Content="Replacement:" FontSize="40" HorizontalAlignment="Left" Margin="37,281,0,0" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.501,0.177"/>
+        <TextBox Name="Ingredients" IsEnabled="False" HorizontalAlignment="Left" FontSize="40" Height="135" Margin="301,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361"/>
+        <TextBox Name="Replacement" IsEnabled="False" HorizontalAlignment="Left" FontSize="40" Height="144" Margin="301,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361"/>
+        <Label Content="Quantity:" FontSize="40" HorizontalAlignment="Left" Margin="37,415,0,0" VerticalAlignment="Top" Width="264"/>
+        <TextBox x:Name="Quantity" IsEnabled="False" HorizontalAlignment="Left" FontSize="40" Height="64" Margin="301,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361"/>
+
+    </Grid>
+</Window>

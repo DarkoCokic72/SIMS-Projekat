@@ -9,15 +9,15 @@
         Title="DrugsCreate"  WindowStyle="None"  Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
 
-        <Label FontSize="40" Content="Name*:" Margin="42,211,693,476" Width="Auto" Height="Auto"/>
-        <Label FontSize="40" Content="Manufacturer*:" Margin="42,297,693,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
-        <Label FontSize="40" Content="Quantity*:" Margin="42,383,693,309"/>
-        <Label FontSize="40" Content="Ingredients*:" Margin="42,454,688,233" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <Label FontSize="40" Content="Name*:" Margin="42,211,683,481" Width="Auto" Height="Auto"/>
+        <Label FontSize="40" Content="Manufacturer*:" Margin="42,297,688,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
+        <Label FontSize="40" Content="Quantity*:" Margin="42,535,688,157"/>
+        <Label FontSize="40" Content="Ingredients*:" Margin="42,373,688,319" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
         <TextBox FontSize="40" x:Name="Name" Height="Auto" Margin="341,211,212,476" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
         <TextBox FontSize="40" x:Name="Manufacturer" Height="Auto" Width="Auto" Margin="341,292,212,395" TextWrapping="Wrap" Text="{Binding NameBinding, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
         <Button Background="SteelBlue" FontSize="40" Content="Cancel" Margin="214,650,560,17" Width="250" Click="Button_Click_Cancel"/>
         <Button Name="SaveBtn" Background="SteelBlue" FontSize="40" Content="Save" Margin="523,650,251,17" Width="250" Click="Button_Click_Save"/>
-        <TextBox FontSize="40" x:Name="Quantity" Margin="341,373,212,314" Width="Auto" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+        <TextBox FontSize="40" x:Name="Quantity" Margin="341,530,212,157" Width="Auto" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -66,9 +66,9 @@
 
             </Grid>
         </GroupBox>
-        <TextBox FontSize="40" x:Name="Ingredients" Height="Auto" Width="Auto" Margin="341,454,212,233" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <TextBox FontSize="40" x:Name="Replacement" Height="Auto" Width="Auto" Margin="341,535,212,152" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <Label FontSize="40" Content="Replacement:" Margin="42,535,688,152" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <TextBox FontSize="40" x:Name="Ingredients" Height="Auto" Width="Auto" Margin="341,373,212,314" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+        <TextBox FontSize="40" x:Name="Replacement" Height="Auto" Width="Auto" Margin="341,449,212,238" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+        <Label FontSize="40" Content="Replacement:" Margin="42,449,688,238" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
 
 
     </Grid>

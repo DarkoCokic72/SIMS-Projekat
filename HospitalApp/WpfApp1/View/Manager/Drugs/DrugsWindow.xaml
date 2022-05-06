@@ -30,14 +30,22 @@
 
             </Grid>
         </GroupBox>
-        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgDrugs" ItemsSource="{Binding Drugs}" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}" AutoGenerateColumns="False" Margin="26,289,26,47" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" SelectionChanged="dgRooms_SelectionChanged">
+        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgDrugs" ItemsSource="{Binding Drugs}" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}" AutoGenerateColumns="False" Margin="26,284,26,52" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" SelectionChanged="dgRooms_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Background="LightBlue" Click="Button_Click_Details">Show details</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
         <Button Background="SteelBlue" FontSize="60" Content="Add" Margin="378,169,436,507" Click="Button_Click_Add" Width="Auto" RenderTransformOrigin="-0.528,0.499"/>
+        <Label FontSize="32" Content="Drugs" HorizontalAlignment="Center" Margin="888,716,26,0" VerticalAlignment="Center" Width="110" Height="52"/>
 
     </Grid>
 </Window>

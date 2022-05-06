@@ -29,7 +29,7 @@ namespace WpfApp1.View.Manager.Drugs
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
+            
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
             DrugController drugsController = new DrugController();
@@ -58,6 +58,12 @@ namespace WpfApp1.View.Manager.Drugs
             DrugsCreate drugsCreate = new DrugsCreate();
             drugsCreate.Show();
             Close();
+        }
+
+        private void Button_Click_Details(object sender, RoutedEventArgs e)
+        {
+            DrugsDetails.getInstance().ShowDialog();
+            
         }
     }
 }
