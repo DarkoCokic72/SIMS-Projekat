@@ -211,6 +211,12 @@
     <Compile Include="View\Manager\Rooms\MergeRooms2.xaml.cs">
       <DependentUpon>MergeRooms2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\Rooms\SplitRoom2.xaml.cs">
+      <DependentUpon>SplitRoom2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Rooms\SplitRooms1.xaml.cs">
+      <DependentUpon>SplitRooms1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PatientAppointments\Appointments.xaml.cs">
       <DependentUpon>Appointments.xaml</DependentUpon>
     </Compile>
@@ -318,6 +324,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\MergeRooms2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Rooms\SplitRoom2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Rooms\SplitRooms1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

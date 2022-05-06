@@ -83,5 +83,12 @@ namespace WpfApp1.View.Manager
             mergeRooms1.Show();
             Close();
         }
+
+        private void MenuItem_SchedulingSplit(object sender, RoutedEventArgs e)
+        {
+            SplitRooms1 splitRooms1 = new SplitRooms1(null, null, null, RoomType.Warehouse, null, null, RoomType.Warehouse);
+            splitRooms1.Show();
+            Close();
+        }
     }
 }

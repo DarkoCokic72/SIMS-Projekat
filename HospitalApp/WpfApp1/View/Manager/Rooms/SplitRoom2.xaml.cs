@@ -18,37 +18,36 @@ using Model;
 namespace WpfApp1.View.Manager.Rooms
 {
     /// <summary>
-    /// Interaction logic for MergeRooms2.xaml
+    /// Interaction logic for SplitRoom2.xaml
     /// </summary>
-    public partial class MergeRooms2 : Window
+    public partial class SplitRoom2 : Window
     {
         private RoomController roomController = new RoomController();
         public static List<System.DateTime> busyDates;
         public static DateTime startDate;
 
         private Room room1;
-        private Room room2;
-        private string newId;
-        private string newName;
-        private RoomType newType;
-        public MergeRooms2(Room _room1, Room _room2, string _newId, string _newName, RoomType _newType)
+        private string newId1;
+        private string newName1;
+        private RoomType newType1;
+        private string newId2;
+        private string newName2;
+        private RoomType newType2;
+        public SplitRoom2(Room _room1, string _newId1, string _newName1, RoomType _newType1, string _newId2, string _newName2, RoomType _newType2)
         {
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             room1 = _room1;
-            room2 = _room2;
-            newId = _newId;
-            newName = _newName;
-            newType = _newType;
+            newId1 = _newId1;
+            newName1 = _newName1;
+            newType1 = _newType1;
+            newId2 = _newId2;
+            newName2 = _newName2;
+            newType2 = _newType2;
 
             busyDates = roomController.getBusyDates(room1.Id);
-            foreach (DateTime d in roomController.getBusyDates(room2.Id))
-            {
-                busyDates.Add(d);
-            }
-
             foreach (DateTime d in busyDates)
             {
                 Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
@@ -98,15 +97,16 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            MergeRooms1 mergeRooms1 = new MergeRooms1(room1, room2, newId, newName, newType);
-            mergeRooms1.Show();
+            SplitRooms1 splitRooms1 = new SplitRooms1(room1, newId1, newName1, newType1, newId2, newName2, newType2);
+            splitRooms1.Show();
             Close();
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
-            Room room3 = new Room(newId, newName, newType, room1.Floor);
-            roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
+            Room room2 = new Room(newId1, newName1, newType1, room1.Floor);
+            Room room3 = new Room(newId2, newName2, newType2, room1.Floor);
+            roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.split, startDate, int.Parse(Duration.Text), room1, room2, room3));
             ManagerHomePage managerHomePage = new ManagerHomePage();
             managerHomePage.Show();
             Close();
@@ -138,3 +138,4 @@ namespace WpfApp1.View.Manager.Rooms
         }
     }
 }
+

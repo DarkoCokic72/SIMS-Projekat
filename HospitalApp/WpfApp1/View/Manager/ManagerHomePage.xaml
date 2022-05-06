@@ -25,7 +25,7 @@
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="106" Width="432">
                     <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Recontruction" Click="MenuItem_SchedulingRenovation"/>
                     <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Merge" Click="MenuItem_SchedulingMerge"/>
-                    <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Split"/>
+                    <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Split" Click="MenuItem_SchedulingSplit"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
