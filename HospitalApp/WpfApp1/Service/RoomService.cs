@@ -146,11 +146,17 @@ namespace Service
 
       }
 
+      public void SchedulingAdvancedRenovation(AdvancedRenovation renovation) 
+      {
+            advancedRenovationRepository.Create(renovation);
+      }
+
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();
       public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository();
       public PatientExaminationAppointmentRepository patientExaminationAppointmentRepository = new PatientExaminationAppointmentRepository();
       public RenovationRepository renovationRepository = new RenovationRepository();
+      public AdvancedRenovationRepository advancedRenovationRepository = new AdvancedRenovationRepository();
      
 
     }

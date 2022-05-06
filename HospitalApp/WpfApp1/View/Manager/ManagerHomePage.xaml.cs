@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
 using WpfApp1.View.Manager.Drugs;
 using WpfApp1.View.Manager.Equipment;
 using WpfApp1.View.Manager.Rooms;
@@ -73,6 +74,13 @@ namespace WpfApp1.View.Manager
         {
             DrugsWindow drugsWindow = new DrugsWindow();
             drugsWindow.Show();
+            Close();
+        }
+
+        private void MenuItem_SchedulingMerge(object sender, RoutedEventArgs e)
+        {
+            MergeRooms1 mergeRooms1 = new MergeRooms1(null, null, null, null, RoomType.Warehouse);
+            mergeRooms1.Show();
             Close();
         }
     }

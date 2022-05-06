@@ -55,5 +55,53 @@ namespace WpfApp1.Validation
             }
         }
     }
+
+     public class MaxDurationRoomsMergeValidationRule : ValidationRule
+    {
+        public static bool ValidationHasError { get; set; }
+        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+        {
+
+
+            ValidationHasError = false;
+
+            if (value is int)
+            {
+                int d = (int)value;
+                if (d <= 0)
+                {
+                    ValidationHasError = true;
+                    return new ValidationResult(false, "Minimum duration\nis one day.");
+                }
+
+                DateTime endDate = MergeRooms2.startDate.AddDays(d);
+                DateTime firstBusyDate = DateTime.MaxValue;
+                foreach (DateTime date in MergeRooms2.busyDates)
+                {
+
+                    if (date > MergeRooms2.startDate)
+                    {
+                        firstBusyDate = date;
+                        break;
+                    }
+
+                }
+
+
+
+                if (endDate >= firstBusyDate)
+                {
+                    ValidationHasError = true;
+                    return new ValidationResult(false, "Busy day is included");
+                }
+                return new ValidationResult(true, null);
+            }
+            else
+            {
+                ValidationHasError = true;
+                return new ValidationResult(false, "Unknown error occured.");
+            }
+        }
+    }
 }
 

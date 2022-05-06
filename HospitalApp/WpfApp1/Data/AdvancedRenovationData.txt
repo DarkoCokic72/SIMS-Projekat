@@ -1,0 +1,1 @@
+[{"Id":"fbbb4891-9f45-428e-8106-0c3af867d41c","RenovationType":0,"StartDate":"2022-05-16T00:00:00","Duration":2,"Room1":{"Id":"R2","Name":"Meeting Room 1","Type":3,"Floor":2},"Room2":{"Id":"R4","Name":"Nursing room","Type":4,"Floor":2},"Room3":{"Id":"R10","Name":"aa","Type":0,"Floor":2}}]

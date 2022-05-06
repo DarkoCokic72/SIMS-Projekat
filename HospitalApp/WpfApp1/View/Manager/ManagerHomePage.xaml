@@ -22,7 +22,11 @@
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
                 </MenuItem.Icon>
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="432"/>
-                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="106" Width="432" Click="MenuItem_SchedulingRenovation"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="106" Width="432">
+                    <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Recontruction" Click="MenuItem_SchedulingRenovation"/>
+                    <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Merge" Click="MenuItem_SchedulingMerge"/>
+                    <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Split"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="35,198,52,48" Grid.Column="2">

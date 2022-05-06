@@ -56,6 +56,11 @@ namespace Controller
             return roomService.getBusyDates(roomId);
         }
 
+        public void SchedulingAdvancedRenovation(AdvancedRenovation renovation) 
+        {
+            roomService.SchedulingAdvancedRenovation(renovation);
+        }
+
         public Service.RoomService roomService = new RoomService();
        
     }

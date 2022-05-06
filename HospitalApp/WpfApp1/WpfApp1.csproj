@@ -113,6 +113,7 @@
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
     <Compile Include="Controller\PhysicianController.cs" />
     <Compile Include="Controller\UserAccountController.cs" />
+    <Compile Include="FileHandler\AdvancedRenovationFileHandler.cs" />
     <Compile Include="FileHandler\DrugFileHandler.cs" />
     <Compile Include="FileHandler\EquipmentFileHandler.cs" />
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
     <Compile Include="FileHandler\UserAccountFileHandler.cs" />
+    <Compile Include="Model\AdvancedRenovation.cs" />
     <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\EquipmentType.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
     <Compile Include="Model\Renovation.cs" />
+    <Compile Include="Model\RenovationType.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="FileHandler\SecretaryFileHandler.cs" />
     <Compile Include="Model\ExaminationAppointment.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="Model\PatientExaminationAppointment.cs" />
     <Compile Include="Model\Physician.cs" />
     <Compile Include="Model\SpecialisedPhysician.cs" />
+    <Compile Include="Repo\AdvancedRenovationRepository.cs" />
     <Compile Include="Repo\DrugRepository.cs" />
     <Compile Include="Repo\ExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\GuestAccountRepository.cs" />
@@ -200,6 +204,12 @@
     </Compile>
     <Compile Include="View\Manager\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Rooms\MergeRooms1.xaml.cs">
+      <DependentUpon>MergeRooms1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Rooms\MergeRooms2.xaml.cs">
+      <DependentUpon>MergeRooms2.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PatientAppointments\Appointments.xaml.cs">
       <DependentUpon>Appointments.xaml</DependentUpon>
@@ -300,6 +310,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Rooms\MergeRooms1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Rooms\MergeRooms2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
