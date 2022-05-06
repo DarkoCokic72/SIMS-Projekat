@@ -166,6 +166,7 @@
     <Compile Include="Repo\EquipmentRepository.cs" />
     <Compile Include="Service\PhysicianService.cs" />
     <Compile Include="Service\UserAccountService.cs" />
+    <Compile Include="Validation\DrugsValidation.cs" />
     <Compile Include="Validation\PatientValidation.cs" />
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
     <Compile Include="Validation\RenovationValidation.cs" />

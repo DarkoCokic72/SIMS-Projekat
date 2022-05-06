@@ -34,10 +34,10 @@
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
-            <Binding Path="FloorBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+            <Binding Path="QuantityBinding" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource">
                 <Binding.ValidationRules>
                     <Validation:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
-                    <Validation:MinMaxValidationRule ValidationStep="ConvertedProposedValue"/>
+                    <Validation:MinMaxDrugsQuantityValidationRule ValidationStep="ConvertedProposedValue"/>
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>

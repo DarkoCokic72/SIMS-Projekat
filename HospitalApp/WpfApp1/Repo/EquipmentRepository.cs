@@ -4,6 +4,7 @@
 // Purpose: Definition of Class EquipmentRepository
 
 using System.Collections.Generic;
+using Model;
 using WpfApp1.Model;
 
 namespace Repo
@@ -12,15 +13,28 @@ namespace Repo
    {
       public List<Equipment> GetAll()
       {
+            List<Equipment> allEquipment = equipmentFileHandler.Read();
+            List<Drug> drugs = drugFileHandler.Read();
+            foreach(Drug d in drugs) 
+            {
+                allEquipment.Add(new Equipment(d.Id, d.Name, d.Quantity, d.Type, d.Room));
+            
+            }
 
-            return equipmentFileHandler.Read();
+            return allEquipment;
       }
       
       public List<Equipment> GetByRoomId(string roomId)
       {
             List<Equipment> allEquipment = equipmentFileHandler.Read();
-            List<Equipment> equipment = new List<Equipment>();
+            List<Drug> drugs = drugFileHandler.Read();
+            foreach (Drug d in drugs)
+            {
+                allEquipment.Add(new Equipment(d.Id, d.Name, d.Quantity, d.Type, d.Room));
 
+            }
+
+            List<Equipment> equipment = new List<Equipment>();
             foreach(Equipment e in allEquipment)
             {
                 if(e.Room.Id == roomId)
@@ -34,10 +48,33 @@ namespace Repo
 
       public void UpdateAll(List<Equipment> equipment)
       {
+            List<Drug> drugs = new List<Drug>();
+            List<Equipment> toDelete = new List<Equipment>();
+            foreach(Equipment e in equipment) 
+            {
+               
+                if(e.Type == EquipmentType.drug) 
+                {
+                    foreach (Drug d in drugFileHandler.Read())
+                    {
+                        drugs.Add(new Drug(e.Id, e.Name, e.Quantity, e.Room, d.Manufacturer, d.Ingredients, d.Replacement));
+                        toDelete.Add(e);
+                    }
+                }
+                            
+            }
+
+            for (int i=0; i < toDelete.Count; i++) 
+            {
+                equipment.Remove(toDelete[i]);
+            }
+
+            drugFileHandler.Save(drugs);
             equipmentFileHandler.Save(equipment);
       }
       
       public FileHandler.EquipmentFileHandler equipmentFileHandler = new FileHandler.EquipmentFileHandler();
+      public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();
    
    }
 }

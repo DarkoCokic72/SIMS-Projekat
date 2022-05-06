@@ -77,7 +77,7 @@ namespace Service
 
                         if (!equipmentInRoomExists)
                         {
-                            allEquipment.Add(new Equipment(r.Equipment.Id, r.Equipment.Name, r.QuantityToRelocate, r.Room));
+                            allEquipment.Add(new Equipment(r.Equipment.Id, r.Equipment.Name, r.QuantityToRelocate, r.Equipment.Type, r.Room));
                         }
 
 

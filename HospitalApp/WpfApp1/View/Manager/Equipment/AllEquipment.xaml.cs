@@ -18,29 +18,7 @@ namespace WpfApp1.View.Manager.Equipment
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             EquipmentController equipmentController = new EquipmentController();
 
-            List<Model.Equipment> equipmentByRooms = equipmentController.GetAll();
-            List<Model.Equipment> allEquipment = new List<Model.Equipment>();
-            bool exists = false;
-
-            foreach (Model.Equipment e1 in equipmentByRooms)
-            {
-                exists = false;
-                foreach(Model.Equipment e2 in allEquipment)
-                {
-                    if(e1.Id == e2.Id)
-                    {
-                        e2.Quantity += e1.Quantity;
-                        exists = true;
-                    }
-                }
-
-                if (!exists)
-                {
-                    allEquipment.Add(e1);
-                }
-            }
-
-             Equipment = new ObservableCollection<Model.Equipment>(allEquipment);
+            Equipment = new ObservableCollection<Model.Equipment>(equipmentController.GetAll());
          
         }
 

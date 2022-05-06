@@ -1,1 +1,1 @@
-[]
+[{"Manufacturer":"bla","Ingredients":"knxkw","Replacement":"","Id":"e2ccc576-470a-4f77-a171-c8b8c30072b9","Name":"Brufen","Quantity":3,"Type":0,"Room":{"Id":"R2","Name":"Meeting Room 1","Type":3,"Floor":2}},{"Manufacturer":"bla","Ingredients":"knxkw","Replacement":"","Id":"e2ccc576-470a-4f77-a171-c8b8c30072b9","Name":"Brufen","Quantity":2,"Type":0,"Room":{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0}}]

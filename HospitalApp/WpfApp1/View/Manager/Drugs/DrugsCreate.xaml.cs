@@ -22,17 +22,17 @@ namespace WpfApp1.View.Manager.Drugs
     /// </summary>
     public partial class DrugsCreate : Window
     {
-        private int floorBinding;
-        public int FloorBinding
+        private int quantityBinding;
+        public int QuantityBinding
         {
             get
             {
-                return floorBinding;
+                return quantityBinding;
             }
             set
             {
-                floorBinding = value;
-                OnPropertyChanged("FloorBinding");
+                quantityBinding = value;
+                OnPropertyChanged("QuantityBinding");
             }
         }
         public DrugsCreate()
@@ -70,7 +70,7 @@ namespace WpfApp1.View.Manager.Drugs
         {
             DrugController drugController = new DrugController();
             RoomController roomController = new RoomController();
-            drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text), roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, Replacement.Text));
+            drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, Replacement.Text));
             DrugsWindow drugsWindow = new DrugsWindow();
             drugsWindow.Show();
             Close();

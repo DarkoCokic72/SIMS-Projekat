@@ -13,7 +13,30 @@ namespace Repo
    {
       public List<Drug> GetAll()
       {
-          return drugFileHandler.Read();
+          bool exists = false;
+          List<Drug> drugs = new List<Drug>();
+          foreach(Drug d in drugFileHandler.Read()) 
+          {
+               foreach(Drug dd in drugs) 
+               {
+                    if(d.Id == dd.Id) 
+                    {
+                        exists = true;
+                        dd.Quantity += d.Quantity;
+                        break;
+                    } 
+                
+               }
+
+                if (!exists) 
+                {
+                    drugs.Add(d);
+                    exists = false;
+                }
+
+          }
+          
+          return drugs;
       }
       
       public void Create(Drug drug)

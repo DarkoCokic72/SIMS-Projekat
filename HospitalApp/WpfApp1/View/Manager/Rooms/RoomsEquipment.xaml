@@ -20,7 +20,6 @@
         </Grid.ColumnDefinitions>
         <DataGrid Name="dg" FontSize="40" ItemsSource="{Binding Path=Equipment}" SelectedItem="{Binding SelectedEquipment, Mode=TwoWay}" HorizontalAlignment="Center" Height="402" Margin="29,0,29,10" VerticalAlignment="Bottom" Width="966" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" Grid.RowSpan="4" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
