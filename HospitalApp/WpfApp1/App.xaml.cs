@@ -10,15 +10,20 @@ namespace WpfApp1
     public partial class App : Application
     {
         private static EquipmentController equipmentController = new EquipmentController();
-        public static Thread thread = new Thread(() =>
+        public static Thread RelocationThread = new Thread(() =>
         {
             while (true)
             {
                 equipmentController.Relocate();
             }
         });
-        
-       
-
+        private static RoomController roomController = new RoomController();
+        public static Thread RenovationThread = new Thread(() =>
+        {
+            while (true)
+            {
+                roomController.Renovate();
+            }
+        });
     }
 }

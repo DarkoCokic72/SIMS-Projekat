@@ -151,6 +151,43 @@ namespace Service
             advancedRenovationRepository.Create(renovation);
       }
 
+      public void Renovate() 
+      {
+
+            foreach (AdvancedRenovation r in advancedRenovationRepository.GetAll())
+            {
+                DateTime endDate = r.StartDate.AddDays(r.Duration - 1);
+                DateTime currentDate = DateTime.Today;
+                if (endDate.ToString("yyyy-MM-dd").Equals(currentDate.ToString("yyyy-MM-dd")))
+                {
+
+                   
+                    if(r.RenovationType == RenovationType.merge) 
+                    {
+                        roomRepository.Remove(r.Room1.Id);
+                        roomRepository.Remove(r.Room2.Id);
+                        roomRepository.Add(r.Room3);
+                        advancedRenovationRepository.Delete(r);
+                        break;
+                    }
+                    if(r.RenovationType == RenovationType.split) 
+                    {
+                        
+                       
+                        roomRepository.Remove(r.Room1.Id);
+                        roomRepository.Add(r.Room2);
+                        roomRepository.Add(r.Room3);
+                        advancedRenovationRepository.Delete(r);
+                        break;
+                    }
+
+                }
+
+            }
+
+
+        }
+
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();
       public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository();

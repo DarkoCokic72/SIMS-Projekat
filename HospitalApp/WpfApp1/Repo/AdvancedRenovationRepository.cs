@@ -23,7 +23,23 @@ namespace Repo
             advancedRenovationFileHandler.Write(renovations);
       }
 
-        public FileHandler.AdvancedRenovationFileHandler advancedRenovationFileHandler = new FileHandler.AdvancedRenovationFileHandler();
+      public void Delete(AdvancedRenovation renovation) 
+      {
+            List<AdvancedRenovation> renovations = advancedRenovationFileHandler.Read();
+            for (int i = 0; i < renovations.Count; i++)
+            {
+                if (renovations[i].Id == renovation.Id)
+                {
+
+                    renovations.RemoveAt(i);
+
+                }
+            }
+
+            advancedRenovationFileHandler.Write(renovations);
+        }
+
+      public FileHandler.AdvancedRenovationFileHandler advancedRenovationFileHandler = new FileHandler.AdvancedRenovationFileHandler();
    
    }
 }

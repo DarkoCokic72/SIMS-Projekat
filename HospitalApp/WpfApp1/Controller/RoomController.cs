@@ -61,6 +61,12 @@ namespace Controller
             roomService.SchedulingAdvancedRenovation(renovation);
         }
 
+        public void Renovate() 
+        {
+            roomService.Renovate();
+            
+        }
+
         public Service.RoomService roomService = new RoomService();
        
     }

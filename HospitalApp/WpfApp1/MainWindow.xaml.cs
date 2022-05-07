@@ -37,13 +37,15 @@ namespace WpfApp1
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            App.thread.Start();
+            App.RelocationThread.Start();
+            App.RenovationThread.Start();
              
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            App.thread.Abort();          
+            App.RelocationThread.Abort();
+            App.RenovationThread.Abort();
         }
 
         
