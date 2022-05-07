@@ -34,8 +34,8 @@
 
             </Grid>
         </GroupBox>
-        <Label Content="Room 1:" FontSize="40" HorizontalAlignment="Left" Margin="40,213,0,0" VerticalAlignment="Top" Height="61" Width="168"/>
-        <Label Content="Room 2:" FontSize="40" HorizontalAlignment="Left" Margin="559,213,0,0" VerticalAlignment="Top" Height="61" Width="164"/>
+        <Label Content="Room 1*:" FontSize="40" HorizontalAlignment="Left" Margin="40,213,0,0" VerticalAlignment="Top" Height="61" Width="168"/>
+        <Label Content="Room 2*:" FontSize="40" HorizontalAlignment="Left" Margin="551,213,0,0" VerticalAlignment="Top" Height="61" Width="172"/>
         <ComboBox FontSize="40" Name="Room1" HorizontalAlignment="Left" Margin="213,213,0,0" VerticalAlignment="Top" Width="269" Height="61" SelectionChanged="ComboBox_SelectionChanged_1"/>
         <ComboBox FontSize="40" Name="Room2" HorizontalAlignment="Left" Margin="728,213,0,0" VerticalAlignment="Top" Width="269" Height="61" SelectionChanged="ComboBox_SelectionChanged_2"/>
         <Separator HorizontalAlignment="Left" Height="127" Margin="-9,230,0,0" VerticalAlignment="Top" Width="1033"/>

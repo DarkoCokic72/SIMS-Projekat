@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 using Controller;
 
 namespace WpfApp1.View.Manager.Equipment
@@ -40,5 +42,12 @@ namespace WpfApp1.View.Manager.Equipment
             dgEquipment.ItemsSource = null;
             dgEquipment.ItemsSource = new ObservableCollection<Model.Equipment>(equipmentController.SearchEquipment(Name.Text, Quantity.Text));
         }
+
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
     }
 }

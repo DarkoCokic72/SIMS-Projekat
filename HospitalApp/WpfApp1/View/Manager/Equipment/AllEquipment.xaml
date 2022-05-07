@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.Manager.Equipment"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.Manager.Equipment.AllEquipment"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:Validation="clr-namespace:WpfApp1.Validation" x:Class="WpfApp1.View.Manager.Equipment.AllEquipment"
         mc:Ignorable="d"
         Title="AllEquipment" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
@@ -42,8 +42,8 @@
         <Label FontSize="40" Content="Name:" HorizontalAlignment="Left" Margin="37,193,0,0" VerticalAlignment="Top" Height="61" Width="146"/>
         <TextBox Name="Name" FontSize="40" HorizontalAlignment="Left" Height="61" Margin="188,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
         <Label FontSize="40" Content="Quantity:" HorizontalAlignment="Left" Margin="426,193,0,0" VerticalAlignment="Top" Height="61" Width="183"/>
-        <TextBox Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="61" Margin="614,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
-        <Button FontSize="40" Height="61" Content="Search" HorizontalAlignment="Left" Margin="849,193,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click_Search" />
+        <TextBox Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="61" Margin="614,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" PreviewTextInput="PreviewTextInput"/>
+        <Button Name="SearchBtn" FontSize="40" Height="61" Content="Search" HorizontalAlignment="Left" Margin="849,193,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click_Search" />
 
     </Grid>
 </Window>

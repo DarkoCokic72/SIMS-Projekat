@@ -105,7 +105,7 @@ namespace Repo
             {
                 foreach (Equipment e in allEquipment)
                 {
-                    if (e.Name == name)
+                    if (e.Name.ToLower() == name.ToLower())
                     {
                         equipment.Add(e);
 
@@ -118,7 +118,7 @@ namespace Repo
                 int quantity2 = int.Parse(quantity);
                 foreach (Equipment e in allEquipment)
                 {
-                    if (e.Name == name && e.Quantity >= quantity2)
+                    if (e.Name.ToLower() == name.ToLower() && e.Quantity >= quantity2)
                     {
                         equipment.Add(e);
 
