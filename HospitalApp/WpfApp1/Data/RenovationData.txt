@@ -1,1 +1,1 @@
-[{"Id":"76e1fa0b-2771-4eb6-92f9-f27801626b5e","Description":"krecenje","StartDate":"2022-05-26T00:00:00","Duration":3,"Room":{"Id":"R3","Name":"Examination room","Type":0,"Floor":3}},{"Id":"6e7688b9-2b46-49d8-891b-13a6f3043092","Description":"krecenje","StartDate":"2022-05-04T00:00:00","Duration":3,"Room":{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0}},{"Id":"d7dfd350-d689-4e1b-a8e5-9d9ab8e973ec","Description":"krecenje","StartDate":"2022-05-29T00:00:00","Duration":2,"Room":{"Id":"R4","Name":"Nursing room","Type":4,"Floor":2}}]
+[]

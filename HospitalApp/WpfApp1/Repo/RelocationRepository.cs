@@ -19,15 +19,9 @@ namespace Repo
       
       public void Create(Relocation relocation)
       {
-            
             List<Relocation> relocationList = relocationFileHandler.Read();
-            if(relocationList == null)
-            {
-                relocationList = new List<Relocation>();
-            }
             relocationList.Add(relocation);
-            relocationFileHandler.Save(relocationList);
-            
+            relocationFileHandler.Save(relocationList);     
       }
       
       public void Delete(Relocation relocation)

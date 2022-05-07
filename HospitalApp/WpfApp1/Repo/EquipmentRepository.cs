@@ -55,11 +55,19 @@ namespace Repo
                
                 if(e.Type == EquipmentType.drug) 
                 {
+                    Drug drug = null;
                     foreach (Drug d in drugFileHandler.Read())
                     {
-                        drugs.Add(new Drug(e.Id, e.Name, e.Quantity, e.Room, d.Manufacturer, d.Ingredients, d.Replacement));
-                        toDelete.Add(e);
+                    
+                        if (d.Id == e.Id)
+                        { 
+                            drug = new Drug(e.Id, e.Name, e.Quantity, e.Type, e.Room, d.Manufacturer, d.Ingredients, d.Replacement);
+                            toDelete.Add(e);
+                            break;
+                        }
                     }
+
+                    drugs.Add(drug);
                 }
                             
             }
@@ -69,6 +77,7 @@ namespace Repo
                 equipment.Remove(toDelete[i]);
             }
 
+     
             drugFileHandler.Save(drugs);
             equipmentFileHandler.Save(equipment);
       }

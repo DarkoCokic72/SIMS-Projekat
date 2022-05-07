@@ -1,1 +1,1 @@
-[]
+[{"Manufacturer":"a","Ingredients":"a","Replacement":"","Id":"f2759182-0a00-4830-86e6-00e9ba0eafa3","Name":"brufen","Quantity":100,"Type":1,"Room":{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0}}]

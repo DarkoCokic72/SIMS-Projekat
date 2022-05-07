@@ -149,7 +149,30 @@ namespace Service
       public void SchedulingAdvancedRenovation(AdvancedRenovation renovation) 
       {
             advancedRenovationRepository.Create(renovation);
-      }
+            if (renovation.RenovationType == RenovationType.merge)
+            {
+                List<Equipment> equipment = equipmentService.GetByRoomId(renovation.Room1.Id);
+                foreach (Equipment e in equipment)
+                {
+                    equipmentService.CreateRelocationRequest(new Relocation(renovation.StartDate, e.Quantity, roomRepository.GetById("R1"), e));
+                }
+                equipment = equipmentService.GetByRoomId(renovation.Room2.Id);
+                foreach (Equipment e in equipment)
+                {
+                    equipmentService.CreateRelocationRequest(new Relocation(renovation.StartDate, e.Quantity, roomRepository.GetById("R1"), e));
+                }
+
+            }
+            if (renovation.RenovationType == RenovationType.split)
+            {
+                List<Equipment> equipment = equipmentService.GetByRoomId(renovation.Room1.Id);
+                foreach (Equipment e in equipment)
+                {
+                    equipmentService.CreateRelocationRequest(new Relocation(renovation.StartDate, e.Quantity, roomRepository.GetById("R1"), e));
+                }
+
+            }
+        }
 
       public void Renovate() 
       {
