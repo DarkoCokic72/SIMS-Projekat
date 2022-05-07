@@ -113,6 +113,11 @@ namespace Service
 
             return retVal; 
       }
+
+      public List<Equipment> SearchEquipment(string name, string quantity) 
+      {
+            return equipmentRepository.SearchEquipment(name, quantity);
+      }
       
       public Repo.RelocationRepository relocationRepository = new Repo.RelocationRepository();
       public Repo.EquipmentRepository equipmentRepository = new Repo.EquipmentRepository();

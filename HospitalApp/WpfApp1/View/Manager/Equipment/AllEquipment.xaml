@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AllEquipment" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <DataGrid FontSize="40" ColumnWidth="*" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgEquipment" ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" Margin="37,198,37,50" IsReadOnly="True" RenderTransformOrigin="0.65,0.495">
+        <DataGrid FontSize="40" ColumnWidth="*" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgEquipment" ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" Margin="37,296,37,50" IsReadOnly="True" RenderTransformOrigin="0.65,0.495">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Room" Binding="{Binding Room.Id}"/>
@@ -39,6 +39,11 @@
 
             </Grid>
         </GroupBox>
+        <Label FontSize="40" Content="Name:" HorizontalAlignment="Left" Margin="37,193,0,0" VerticalAlignment="Top" Height="61" Width="146"/>
+        <TextBox Name="Name" FontSize="40" HorizontalAlignment="Left" Height="61" Margin="188,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+        <Label FontSize="40" Content="Quantity:" HorizontalAlignment="Left" Margin="426,193,0,0" VerticalAlignment="Top" Height="61" Width="183"/>
+        <TextBox Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="61" Margin="614,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+        <Button FontSize="40" Height="61" Content="Search" HorizontalAlignment="Left" Margin="849,193,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click_Search" />
 
     </Grid>
 </Window>

@@ -81,6 +81,58 @@ namespace Repo
             drugFileHandler.Save(drugs);
             equipmentFileHandler.Save(equipment);
       }
+
+      public List<Equipment> SearchEquipment(string name, string quantity) 
+      {
+            List<Equipment> equipment = new List<Equipment>();
+            List<Equipment> allEquipment = GetAll();
+
+            if (string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
+            {
+                int quantity2 = int.Parse(quantity);
+                foreach (Equipment e in allEquipment)
+                {
+                    if (e.Quantity == quantity2)
+                    {
+                        equipment.Add(e);
+
+                    }
+                }
+            }
+
+
+            if (string.IsNullOrEmpty(quantity) && !string.IsNullOrEmpty(name)) 
+            {
+                foreach (Equipment e in allEquipment)
+                {
+                    if (e.Name == name)
+                    {
+                        equipment.Add(e);
+
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
+            {
+                int quantity2 = int.Parse(quantity);
+                foreach (Equipment e in allEquipment)
+                {
+                    if (e.Name == name && e.Quantity >= quantity2)
+                    {
+                        equipment.Add(e);
+
+                    }
+                }
+            }
+
+            if(string.IsNullOrEmpty(name) && string.IsNullOrEmpty(quantity)) 
+            {
+                equipment = allEquipment;  
+            }
+
+            return equipment;  
+      }
       
       public FileHandler.EquipmentFileHandler equipmentFileHandler = new FileHandler.EquipmentFileHandler();
       public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();

@@ -31,6 +31,11 @@ namespace Controller
             return equipmentService.MaxQuantityToRelocate(equipment);
       }
       
+      public List<Equipment> SearchEquipment(string name, string quantity) 
+      {
+            return equipmentService.SearchEquipment(name, quantity);
+      }
+
       public Service.EquipmentService equipmentService = new Service.EquipmentService();
    
    }

@@ -9,6 +9,7 @@ namespace WpfApp1.View.Manager.Equipment
     
     public partial class AllEquipment : Window
     {
+        EquipmentController equipmentController = new EquipmentController();
         public ObservableCollection<Model.Equipment> Equipment { get; set; }
         public AllEquipment()
         {
@@ -16,7 +17,6 @@ namespace WpfApp1.View.Manager.Equipment
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
-            EquipmentController equipmentController = new EquipmentController();
 
             Equipment = new ObservableCollection<Model.Equipment>(equipmentController.GetAll());
          
@@ -35,6 +35,10 @@ namespace WpfApp1.View.Manager.Equipment
             Close();
         }
 
-       
+        private void Button_Click_Search(object sender, RoutedEventArgs e)
+        {
+            dgEquipment.ItemsSource = null;
+            dgEquipment.ItemsSource = new ObservableCollection<Model.Equipment>(equipmentController.SearchEquipment(Name.Text, Quantity.Text));
+        }
     }
 }
