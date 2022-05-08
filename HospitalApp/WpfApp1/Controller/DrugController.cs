@@ -17,9 +17,9 @@ namespace Controller
           return drugService.GetAll();  
       }
       
-      public void Create(Drug drug)
+      public bool Create(Drug drug)
       {
-          drugService.Create(drug);
+          return drugService.Create(drug);
       }
 
       public DrugService drugService = new DrugService();

@@ -15,9 +15,9 @@ namespace WpfApp1.Service
             return drugRepository.GetAll();
         }
 
-        public void Create(Drug drug)
+        public bool Create(Drug drug)
         {
-            drugRepository.Create(drug);
+            return drugRepository.Create(drug);
         }
 
         public DrugRepository drugRepository = new DrugRepository();

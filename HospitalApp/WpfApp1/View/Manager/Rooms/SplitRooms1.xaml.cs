@@ -158,7 +158,19 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
-            if(Id.Text == Id2.Text) 
+            if (roomController.RoomIdExists(Id.Text))
+            {
+                MessageBox.Show("The id entered for the first room already exists!", "Error");
+                return;
+            }
+
+            if (roomController.RoomIdExists(Id2.Text))
+            {
+                MessageBox.Show("The id entered for the second room already exists!", "Error");
+                return;
+            }
+
+            if (Id.Text == Id2.Text) 
             {
                 MessageBox.Show("Both rooms have same id!", "Error");
                 return;

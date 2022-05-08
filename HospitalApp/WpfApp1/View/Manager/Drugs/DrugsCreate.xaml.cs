@@ -70,7 +70,11 @@ namespace WpfApp1.View.Manager.Drugs
         {
             DrugController drugController = new DrugController();
             RoomController roomController = new RoomController();
-            drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, Replacement.Text));
+            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, Replacement.Text)))
+            {
+                MessageBox.Show("Drug with that name already exists", "error");
+                return;
+            }
             DrugsWindow drugsWindow = new DrugsWindow();
             drugsWindow.Show();
             Close();

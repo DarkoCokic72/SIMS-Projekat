@@ -39,11 +39,19 @@ namespace Repo
           return drugs;
       }
       
-      public void Create(Drug drug)
+      public bool Create(Drug drug)
       {
             List<Drug> drugs = drugFileHandler.Read();
+            foreach(Drug d in drugs)
+            {
+                if(d.Name.ToLower() == drug.Name.ToLower())
+                {
+                    return false;
+                }
+            }
             drugs.Add(drug);
             drugFileHandler.Save(drugs);
+            return true;
       }
       
       public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();

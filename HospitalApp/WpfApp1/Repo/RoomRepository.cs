@@ -91,7 +91,22 @@ namespace Repo
             roomFileHandler.Save(listOfRooms);
       }
 
-       public FileHandler.RoomFileHandler roomFileHandler = new RoomFileHandler();
+        public bool RoomIdExists(string roomId)
+        {
+            List<Room> rooms = GetAll();
+            foreach(Room r in rooms)
+            {
+                if(r.Id == roomId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public FileHandler.RoomFileHandler roomFileHandler = new RoomFileHandler();
 
     }
 }

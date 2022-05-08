@@ -104,7 +104,11 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
-            
+            if (roomController.RoomIdExists(Id.Text))
+            {
+                MessageBox.Show("Entered id already exists!", "Error");
+                return;
+            }
             MergeRooms2 mergeRooms2 = new MergeRooms2(roomController.GetById((string)Room1.SelectedItem), roomController.GetById((string)Room2.SelectedItem),
                                                       Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem);
             mergeRooms2.Show();

@@ -34,7 +34,7 @@
 
             </Grid>
         </GroupBox>
-        <Label Content="Room*:" FontSize="40" HorizontalAlignment="Left" Margin="331,213,0,0" VerticalAlignment="Top" Height="61" Width="168"/>
+        <Label Content="Room*:" FontSize="40" HorizontalAlignment="Left" Margin="307,213,0,0" VerticalAlignment="Top" Height="61" Width="168"/>
         <ComboBox FontSize="40" Name="Room1" HorizontalAlignment="Left" Margin="475,213,0,0" VerticalAlignment="Top" Width="298" Height="61" SelectionChanged="ComboBox_SelectionChanged_1"/>
         <Separator HorizontalAlignment="Left" Height="123" Margin="-9,234,0,0" VerticalAlignment="Top" Width="1033"/>
         <Label Content="Data about new rooms" FontSize="32" HorizontalAlignment="Left" Margin="0,284,0,0" VerticalAlignment="Top" Width="384" Height="65"/>

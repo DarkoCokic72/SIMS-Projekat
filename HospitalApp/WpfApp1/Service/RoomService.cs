@@ -208,8 +208,13 @@ namespace Service
 
             }
 
-
         }
+
+        public bool RoomIdExists(string roomId)
+        {
+            return roomRepository.RoomIdExists(roomId);
+        }
+
 
       public Repo.RoomRepository roomRepository = new RoomRepository();
       public EquipmentService equipmentService = new EquipmentService();

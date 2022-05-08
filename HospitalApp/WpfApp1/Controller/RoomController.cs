@@ -67,6 +67,11 @@ namespace Controller
             
         }
 
+        public bool RoomIdExists(string roomId) 
+        {
+            return roomService.RoomIdExists(roomId);
+        }
+
         public Service.RoomService roomService = new RoomService();
        
     }
