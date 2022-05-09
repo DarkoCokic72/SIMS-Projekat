@@ -80,36 +80,56 @@ namespace WpfApp1.View
 
                 if (userAccount.GetType() == typeof(Model.Secretary)) 
                 {
-                    SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
-                    this.Close();
-                    secretaryHomePage.ShowDialog();
-                    return;
+                    SecretaryLogin();
                 }
                 if (userAccount.GetType() == typeof(Model.Manager))
                 {
-                    ManagerHomePage managerHomePage = new ManagerHomePage();
-                    this.Close();
-                    managerHomePage.ShowDialog(); 
-                    return;
+                    ManagerLogin();
                 }
                 if (userAccount.GetType() == typeof(Model.Patient))
                 {
-                    Appointments appointments = new Appointments();
-                    this.Close();
-                    appointments.ShowDialog();
-                    return;
+                    PatientLogin();
                 }
                 if (userAccount.GetType() == typeof(Model.Physician))
                 {
-                    ExaminationAppointmentWindow examinationAppointmentWindow = new ExaminationAppointmentWindow();
-                    this.Close();
-                    examinationAppointmentWindow.ShowDialog();
-                    return;
+                    PhysicianLogin();
                 }
 
                 this.Close();
             }
             
+        }
+
+        private void ManagerLogin()
+        {
+            ManagerHomePage managerHomePage = new ManagerHomePage();
+            this.Close();
+            managerHomePage.ShowDialog();
+            return;
+        }
+
+        private void SecretaryLogin()
+        {
+            SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
+            this.Close();
+            secretaryHomePage.ShowDialog();
+            return;
+        }
+
+        private void PatientLogin()
+        {
+            Appointments appointments = new Appointments();
+            this.Close();
+            appointments.ShowDialog();
+            return;
+        }
+
+        private void PhysicianLogin()
+        {
+            ExaminationAppointmentWindow examinationAppointmentWindow = new ExaminationAppointmentWindow();
+            this.Close();
+            examinationAppointmentWindow.ShowDialog();
+            return;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

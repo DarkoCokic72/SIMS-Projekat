@@ -13,14 +13,14 @@ namespace Repo
     {
         public List<Operation> GetAll()
         {
-            // throw new NotImplementedException();
+            
 
             return operationFileHandler.Read();
         }
 
         public Operation GetById(string id)
         {
-            //throw new NotImplementedException();
+            
             List<Operation> listOfOperations = GetAll();
             foreach (Operation o in listOfOperations) {
                 if (o.Id.Equals(id)) {
@@ -33,7 +33,7 @@ namespace Repo
 
         public void Add(Operation operation)
         {
-            // throw new NotImplementedException();
+            
             if (GetById(operation.Id) == null)
             {
                 List<Operation> listOfOperations = GetAll();
@@ -44,7 +44,7 @@ namespace Repo
 
         public void Update(Operation operation)
         {
-            //throw new NotImplementedException();
+            
 
             List<Operation> listOfOperations = GetAll();
 
@@ -55,7 +55,7 @@ namespace Repo
 
         public void Delete(string id)
         {
-            //throw new NotImplementedException();
+            
             List<Operation> listOfOperations = GetAll();
 
             for (int i = 0; i < listOfOperations.Count; i++) {

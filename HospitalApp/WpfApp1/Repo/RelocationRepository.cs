@@ -27,7 +27,7 @@ namespace Repo
       public void Delete(Relocation relocation)
       {
             List<Relocation> relocationList = relocationFileHandler.Read();
-            for(int i=0; i < relocationList.Count; i++)
+            for(int i = 0; i < relocationList.Count; i++)
             {
                 if(relocationList[i].Id == relocation.Id)
                 {

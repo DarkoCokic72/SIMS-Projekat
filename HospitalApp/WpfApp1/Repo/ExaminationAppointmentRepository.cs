@@ -13,18 +13,18 @@ namespace Repo
     {
         public List<ExaminationAppointment> GetAll()
         {
-            // throw new NotImplementedException();
+            
             return examinationAppointmentFileHandler.Read();
         }
 
         public ExaminationAppointment GetById(string id)
         {
-            //throw new NotImplementedException();
+            
 
             List<ExaminationAppointment> listOfExaminations = GetAll();
-            foreach (ExaminationAppointment e in listOfExaminations) {
-                if (e.Id.Equals(id)) {
-                    return e;
+            foreach (ExaminationAppointment examination in listOfExaminations) {
+                if (examination.Id.Equals(id)) {
+                    return examination;
                 }
             }
 
@@ -59,14 +59,14 @@ namespace Repo
                 {
                     listOfAppointments[i] = Appointment;
                     examinationAppointmentFileHandler.Write(listOfAppointments);
-                    //WpfApp1.View.Physician.ExaminationAppointments.EditAppointmentWindow.appointmentEdited = true;
+                    
                 }
             }
         }
 
         public void Delete(string id)
         {
-            //throw new NotImplementedException();
+            
 
             List<ExaminationAppointment> listOfExaminations = GetAll();
             for(int i = 0; i < listOfExaminations.Count; i++)

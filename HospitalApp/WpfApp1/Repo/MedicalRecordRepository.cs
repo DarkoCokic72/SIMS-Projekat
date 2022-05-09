@@ -22,12 +22,12 @@ namespace Repo
       public MedicalRecord GetByRegNum(string regNum)
       {
             List<MedicalRecord> medicalRecordsList = GetAll();
-            foreach (MedicalRecord r in medicalRecordsList)
+            foreach (MedicalRecord medicalRecord in medicalRecordsList)
             {
-                if (r.RegNum == regNum)
+                if (medicalRecord.RegNum == regNum)
                 {
 
-                    return r;
+                    return medicalRecord;
 
                 }
 

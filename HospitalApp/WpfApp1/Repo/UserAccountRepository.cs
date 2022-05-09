@@ -1,11 +1,7 @@
 ﻿using FileHandler;
 using Model;
 using Repo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using WpfApp1.FileHandler;
 
@@ -34,35 +30,35 @@ namespace WpfApp1.Repo
             PhysicianFileHandler physicianFileHandler = new PhysicianFileHandler();
             PhysicianRepository physicianRepository = new PhysicianRepository();
 
-            foreach (UserAccount u in patientRepository.GetAll())
+            foreach (UserAccount user in patientRepository.GetAll())
             {
-                if (u.email == email && u.password == password)
+                if (user.email == email && user.password == password)
                 {
-                    return u;
+                    return user;
                 }
 
             }
-            foreach (UserAccount u in managerRepository.GetAll())
+            foreach (UserAccount user in managerRepository.GetAll())
             {
-                if (u.email == email && u.password == password)
+                if (user.email == email && user.password == password)
                 {
-                    return u;
+                    return user;
                 }
 
             }
-            foreach (UserAccount u in physicianRepository.GetAll())
+            foreach (UserAccount user in physicianRepository.GetAll())
             {
-                if (u.email == email && u.password == password)
+                if (user.email == email && user.password == password)
                 {
-                    return u;
+                    return user;
                 }
 
             }
-            foreach (UserAccount u in secretaryRepository.GetAll())
+            foreach (UserAccount user in secretaryRepository.GetAll())
             {
-                if (u.email == email && u.password == password)
+                if (user.email == email && user.password == password)
                 {
-                    return u;
+                    return user;
                 }
 
             }
@@ -76,5 +72,6 @@ namespace WpfApp1.Repo
         {
             userAccountFileHandler = fileHandler;
         }
+
     }
 }

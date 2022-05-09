@@ -32,18 +32,14 @@ namespace WpfApp1
             List<Patient> patients = patientController.GetAll();
             List<string> patientsUPN = new List<string>();
 
-            foreach (Patient r in patients)
+            foreach (Patient patient in patients)
             {
-                patientsUPN.Add(r.name + " " + r.surname);
+                patientsUPN.Add(patient.name + " " + patient.surname);
             }
 
             Patient.ItemsSource = patientsUPN;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
 
         private string regNumBinding;
@@ -130,12 +126,6 @@ namespace WpfApp1
 
         }
 
-        private void Patient_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty((string)Patient.SelectedItem))
-            {
-                //Save_CanExecute.IsEnabled = true;
-            }
-        }
+       
     }
 }

@@ -22,12 +22,12 @@ namespace Repo
       public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
       {
             List<Patient> patientsList = GetAll();
-            foreach (Patient r in patientsList)
+            foreach (Patient patient in patientsList)
             {
-                if (r.uniquePersonalNumber == uniquePersonalNumber)
+                if (patient.uniquePersonalNumber == uniquePersonalNumber)
                 {
 
-                    return r;
+                    return patient;
 
                 }
 

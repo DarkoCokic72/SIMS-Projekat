@@ -15,14 +15,14 @@ namespace Repo
       {
           bool exists = false;
           List<Drug> drugs = new List<Drug>();
-          foreach(Drug d in drugFileHandler.Read()) 
+          foreach (Drug drug in drugFileHandler.Read()) 
           {
-               foreach(Drug dd in drugs) 
+               foreach (Drug dd in drugs) 
                {
-                    if(d.Id == dd.Id) 
+                    if (drug.Id == dd.Id) 
                     {
                         exists = true;
-                        dd.Quantity += d.Quantity;
+                        dd.Quantity += drug.Quantity;
                         break;
                     } 
                 
@@ -30,7 +30,7 @@ namespace Repo
 
                 if (!exists) 
                 {
-                    drugs.Add(d);
+                    drugs.Add(drug);
                     exists = false;
                 }
 
@@ -39,17 +39,17 @@ namespace Repo
           return drugs;
       }
       
-      public bool Create(Drug drug)
+      public bool Create(Drug newDrug)
       {
             List<Drug> drugs = drugFileHandler.Read();
-            foreach(Drug d in drugs)
+            foreach(Drug drug in drugs)
             {
-                if(d.Name.ToLower() == drug.Name.ToLower())
+                if(drug.Name.ToLower() == newDrug.Name.ToLower())
                 {
                     return false;
                 }
             }
-            drugs.Add(drug);
+            drugs.Add(newDrug);
             drugFileHandler.Save(drugs);
             return true;
       }
