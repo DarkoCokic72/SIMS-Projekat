@@ -10,37 +10,35 @@ using WpfApp1;
 
 namespace Repo
 {
-   public class RelocationRepository
-   {
-      public List<Relocation> GetAll()
-      {
-         return relocationFileHandler.Read();
-      }
+    public class RelocationRepository
+    {
+        public List<Relocation> GetAll()
+        {
+            return relocationFileHandler.Read();
+        }
       
-      public void Create(Relocation relocation)
-      {
+        public void Create(Relocation relocation)
+        {
             List<Relocation> relocationList = relocationFileHandler.Read();
             relocationList.Add(relocation);
             relocationFileHandler.Save(relocationList);     
-      }
+        }
       
-      public void Delete(Relocation relocation)
-      {
+        public void Delete(Relocation relocation)
+        {
             List<Relocation> relocationList = relocationFileHandler.Read();
             for(int i = 0; i < relocationList.Count; i++)
             {
                 if(relocationList[i].Id == relocation.Id)
                 {
-
                     relocationList.RemoveAt(i);
-
                 }
             }
            
             relocationFileHandler.Save(relocationList);
-      }
+        }
       
-      public FileHandler.RelocationFileHandler relocationFileHandler = new FileHandler.RelocationFileHandler();
+        public FileHandler.RelocationFileHandler relocationFileHandler = new FileHandler.RelocationFileHandler();
    
-   }
+    }
 }

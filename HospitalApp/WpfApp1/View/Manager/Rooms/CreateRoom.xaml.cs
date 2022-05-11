@@ -14,16 +14,15 @@ namespace WpfApp1
     public partial class CreateRoom : Window 
     {
 
-        public static Boolean addedRoom = false;
         public CreateRoom()
         {
             InitializeComponent();
             DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Validation.MinMaxValidationRule.ValidationHasError = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;
             Validation.IdValidationRule.ValidationHasError = false;
@@ -87,51 +86,6 @@ namespace WpfApp1
         }
 
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            if(btn.Content.Equals("Cancel"))
-            {
-                RoomsWindow.GetRoomsWindow().Show();
-                Close();
-            }
-            else if(btn.Content.Equals("Save"))
-            {
-
-
-                if (TypeBinding == RoomType.Warehouse)
-                {
-                    foreach (Room r in RoomsWindow.roomController.GetAll())
-                    {
-                        if (r.Type == RoomType.Warehouse)
-                        {
-                            MessageBox.Show("Warehouse already exists!", "Error");
-                            return;
-                        }
-                    }
-                }
-
-                
-                RoomsWindow.roomController.Add(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding));
-
-                if (addedRoom == true)
-                {
-                    RoomsWindow.roomsWindowInstance.refreshContentOfGrid();
-                    RoomsWindow.GetRoomsWindow().Show();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Room with that Id already exists!", "Error");
-                }
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string name)
         {
@@ -140,8 +94,6 @@ namespace WpfApp1
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-
-  
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -164,6 +116,39 @@ namespace WpfApp1
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
+        {
+            RoomsWindow.GetRoomsWindow().Show();
+            Close();
+        }
+
+        private void Button_Click_Save(object sender, RoutedEventArgs e)
+        {
+            
+            if (TypeBinding == RoomType.Warehouse)
+            {
+                foreach (Room r in RoomsWindow.roomController.GetAll())
+                {
+                    if (r.Type == RoomType.Warehouse)
+                    {
+                        MessageBox.Show("Warehouse already exists!", "Error");
+                        return;
+                    }
+                }
+            }
+
+            if (RoomsWindow.roomController.Add(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding)))
+            {
+                RoomsWindow.GetRoomsWindow().Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Room with that Id already exists!", "Error");
+            }
+            
         }
     }
 }

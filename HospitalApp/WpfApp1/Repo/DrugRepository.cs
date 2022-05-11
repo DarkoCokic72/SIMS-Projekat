@@ -9,52 +9,62 @@ using Model;
 
 namespace Repo
 {
-   public class DrugRepository
-   {
-      public List<Drug> GetAll()
-      {
-          bool exists = false;
-          List<Drug> drugs = new List<Drug>();
-          foreach (Drug drug in drugFileHandler.Read()) 
-          {
-               foreach (Drug dd in drugs) 
-               {
-                    if (drug.Id == dd.Id) 
-                    {
-                        exists = true;
-                        dd.Quantity += drug.Quantity;
-                        break;
-                    } 
-                
-               }
-
-                if (!exists) 
-                {
-                    drugs.Add(drug);
-                    exists = false;
-                }
-
-          }
-          
-          return drugs;
-      }
+    public class DrugRepository
+    {
       
-      public bool Create(Drug newDrug)
-      {
-            List<Drug> drugs = drugFileHandler.Read();
-            foreach(Drug drug in drugs)
+        public bool IsDrugAlreadyInList(List<Drug> drugs, Drug drugToAdd) 
+        {     
+            foreach (Drug drug in drugs) 
             {
-                if(drug.Name.ToLower() == newDrug.Name.ToLower())
+                if (drug.Id == drugToAdd.Id)
                 {
-                    return false;
+                    drug.Quantity += drugToAdd.Quantity;
+                    return true;
                 }
             }
+
+            return false;
+        }
+
+        public List<Drug> GetAll()
+        {
+          
+            List<Drug> drugs = new List<Drug>();
+            foreach (Drug drug in drugFileHandler.Read()) 
+            {
+                if (!IsDrugAlreadyInList(drugs, drug))
+                {
+                    drugs.Add(drug);
+
+                }        
+            }
+            return drugs;
+        }
+      
+        public bool Create(Drug newDrug)
+        {
+            if (DrugExists(newDrug)) return false;
+            List<Drug> drugs = drugFileHandler.Read();
             drugs.Add(newDrug);
             drugFileHandler.Save(drugs);
             return true;
-      }
+        }
       
-      public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();
+        private bool DrugExists(Drug newDrug)
+        {
+            foreach (Drug drug in drugFileHandler.Read())
+            {
+                if (drug.Name.ToLower() == newDrug.Name.ToLower())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();
    
-   }
+    }
 }

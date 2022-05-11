@@ -42,10 +42,10 @@
             <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Drugs"/>
         </Menu>
         <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="35,17,52,227" Grid.Column="2" >
-            <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422" Click="MenuItem_Click_2"/>
+            <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422"/>
         </Menu>
         <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="231.856,190,302,54" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1">
-            <MenuItem FontSize="60" Header="    DAYS OFF" Height="124" Width="420" Click="MenuItem_Click_2" RenderTransformOrigin="0.738,0.554"/>
+            <MenuItem FontSize="60" Header="    DAYS OFF" Height="124" Width="420" RenderTransformOrigin="0.738,0.554"/>
         </Menu>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,240.6" Background="SteelBlue" Width="1043" Grid.ColumnSpan="3">
             <Grid>

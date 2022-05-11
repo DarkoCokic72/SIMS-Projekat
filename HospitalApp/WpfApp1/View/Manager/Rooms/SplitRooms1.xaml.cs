@@ -158,27 +158,42 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
-            if (roomController.RoomIdExists(Id.Text))
-            {
-                MessageBox.Show("The id entered for the first room already exists!", "Error");
-                return;
-            }
-
-            if (roomController.RoomIdExists(Id2.Text))
-            {
-                MessageBox.Show("The id entered for the second room already exists!", "Error");
-                return;
-            }
-
-            if (Id.Text == Id2.Text) 
-            {
-                MessageBox.Show("Both rooms have same id!", "Error");
-                return;
-            }
+            if (!CheckFirstId() || !CheckSecondId() || !CheckBoth()) return;
             SplitRoom2 splitRoom2 = new SplitRoom2(roomController.GetById((string)Room1.SelectedItem), Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem,
                                                     Id2.Text, Name2.Text, (RoomType)ComboBox2.SelectedItem);
             splitRoom2.Show();
             Close();
         }
+
+        private bool CheckFirstId()
+        {
+            if (roomController.RoomIdExists(Id.Text))
+            {
+                MessageBox.Show("The id entered for the first room already exists!", "Error");
+                return false;
+            }
+            return true;
+        }
+
+        private bool CheckSecondId()
+        {
+            if (roomController.RoomIdExists(Id2.Text))
+            {
+                MessageBox.Show("The id entered for the second room already exists!", "Error");
+                return false;
+            }
+            return true;
+        }
+
+        private bool CheckBoth()
+        {
+            if (Id.Text == Id2.Text)
+            {
+                MessageBox.Show("Both rooms have same id!", "Error");
+                return false;
+            }
+            return true;
+        }
+
     }
 }

@@ -82,18 +82,8 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty(Manufacturer.Text) && !string.IsNullOrEmpty(Quantity.Text) && !string.IsNullOrEmpty(Ingredients.Text) &&
-              !Validation.StringToIntegerValidationRule.ValidationHasError)
-            {
-                SaveBtn.IsEnabled = true;
-            }
-            else
-            {
-                SaveBtn.IsEnabled = false;
-            }
-
+            EnableOrDisableSaveBtn();
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string name)
@@ -101,6 +91,19 @@ namespace WpfApp1.View.Manager.Drugs
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public void EnableOrDisableSaveBtn()
+        {
+            if (!string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty(Manufacturer.Text) && !string.IsNullOrEmpty(Quantity.Text) && !string.IsNullOrEmpty(Ingredients.Text) &&
+             !Validation.StringToIntegerValidationRule.ValidationHasError)
+            {
+                SaveBtn.IsEnabled = true;
+            }
+            else
+            {
+                SaveBtn.IsEnabled = false;
             }
         }
     }

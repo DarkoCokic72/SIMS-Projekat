@@ -47,7 +47,7 @@ namespace WpfApp1.View.Manager.Rooms
             newName2 = _newName2;
             newType2 = _newType2;
 
-            busyDates = roomController.getBusyDates(room1.Id);
+            busyDates = roomController.GetBusyDates(room1.Id);
             foreach (DateTime d in busyDates)
             {
                 Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
@@ -93,7 +93,6 @@ namespace WpfApp1.View.Manager.Rooms
             }
 
         }
-
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {

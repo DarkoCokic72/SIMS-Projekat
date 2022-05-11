@@ -15,70 +15,68 @@ namespace Repo
    public class RoomRepository
    {
 
-      public List<Room> GetAll()
-      {
-         // TODO: implement
-         return roomFileHandler.Read();
-      }
+        public List<Room> GetAll()
+        {
+            return roomFileHandler.Read();
+        }
       
-      public Room GetById(string id)
-      {
-         List<Room> listOfRooms = GetAll();
-         foreach (Room r in listOfRooms)
-         { 
-            if(r.Id == id)
+        public Room GetById(string id)
+        {
+            foreach (Room room in GetAll())
+            { 
+                if(room.Id == id)
                 {
-
-                    return r;
-
+                    return room;
                 }   
             
-         }
+            }
+            return null;
+        }
 
-         return null;
-      }
+        public Room GetWarehouse() 
+        {
+            foreach (Room room in GetAll())
+            {
+                if (room.Type == RoomType.Warehouse)
+                {
+                    return room;
+                }
+            }
+
+            return null;
+        }
       
-      public void Add(Room room)
-      {
+        public bool Add(Room room)
+        {
             if (GetById(room.Id) == null) {
 
                 List<Room> listOfRooms = GetAll();
                 listOfRooms.Add(room);
                 roomFileHandler.Save(listOfRooms);
-                WpfApp1.CreateRoom.addedRoom = true;
+                return true;
             }
-            else 
-            {
 
-                WpfApp1.CreateRoom.addedRoom = false;
-
-            }
-      }
+            return false;
+        }
       
-      public void Update(Room room)
-      {
+        public bool Update(Room room)
+        {
             List<Room> listOfRooms = GetAll();
-   
-
             for (int i = 0; i < listOfRooms.Count; i++)
-            {
-                
+            { 
                 if (listOfRooms[i].Id == room.Id)
                 {
-
                     listOfRooms[i] = room;
                     roomFileHandler.Save(listOfRooms);
-                    WpfApp1.RoomsEdit.editedRoom = true;
-
+                    return true;
                 }
             }
-
+            return false;
         }
       
       public void Remove(string id)
       {
             List<Room> listOfRooms = GetAll();
-
             for (int i = 0; i < listOfRooms.Count; i++)
             {
                 if (listOfRooms[i].Id == id)
@@ -93,20 +91,16 @@ namespace Repo
 
         public bool RoomIdExists(string roomId)
         {
-            List<Room> rooms = GetAll();
-            foreach(Room r in rooms)
+            foreach(Room room in GetAll())
             {
-                if(r.Id == roomId)
+                if(room.Id == roomId)
                 {
                     return true;
                 }
             }
-
             return false;
         }
 
-
-        public FileHandler.RoomFileHandler roomFileHandler = new RoomFileHandler();
-
-    }
+        public RoomFileHandler roomFileHandler = new RoomFileHandler();
+   }
 }

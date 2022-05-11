@@ -58,7 +58,7 @@ namespace WpfApp1.View.Manager.Rooms
             roomId = _roomId;
             description = _description;
 
-            busyDates = roomController.getBusyDates(roomId);
+            busyDates = roomController.GetBusyDates(roomId);
 
             foreach (DateTime d in busyDates)
             {

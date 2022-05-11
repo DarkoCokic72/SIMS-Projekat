@@ -32,18 +32,8 @@ namespace WpfApp1.View.Manager.Rooms
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
-            List<string> roomsId = new List<string>();
-            List<Room> rooms = roomController.GetAll();
-            foreach(Room r in rooms) 
-            {
-                if (r.Type != RoomType.Warehouse)
-                {
-                    roomsId.Add(r.Id);
-                }
-            }
-
-            Room1.ItemsSource = roomsId;
-            Room2.ItemsSource = roomsId;
+            Room1.ItemsSource = FillComboBoxWithRoomsId();
+            Room2.ItemsSource = FillComboBoxWithRoomsId();
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             ComboBox.SelectedItem = RoomType.ExaminationRoom;
             NextBtn.IsEnabled = false;
@@ -117,90 +107,49 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            List<string> roomsId = new List<string>();
-            List<Room> rooms = roomController.GetAll();
-            foreach (Room r in rooms)
-            {
-
-                if (r.Type != RoomType.Warehouse)
-                {
-                    roomsId.Add(r.Id);
-                }
-
-            }
+            List<string> roomsId = FillComboBoxWithRoomsId();
             roomsId.Remove(Room1.SelectedItem.ToString());
-            Room room = roomController.GetById(Room1.SelectedItem.ToString());
-            foreach (Room r in rooms)
-            {
-                if (r.Floor != room.Floor)
-                {
-                    roomsId.Remove(r.Id);
-
-                }
-            }
+            Room selectedRoom = roomController.GetById(Room1.SelectedItem.ToString());
+            roomsId = RemoveRoomsNotAtSameFloor(roomsId, selectedRoom);
             Room2.ItemsSource = roomsId;
-
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem) 
-                && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                NextBtn.IsEnabled = true;
-            }
-            else
-            {
-                NextBtn.IsEnabled = false;
-            }
+            EnableOrDisableNextButton();
         }
-
         private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
         {
-            List<string> roomsId = new List<string>();
-            List<Room> rooms = roomController.GetAll();
-            foreach (Room r in rooms)
-            {
-
-                if (r.Type != RoomType.Warehouse)
-                {
-                    roomsId.Add(r.Id);
-                }
-
-            }
+            List<string> roomsId = FillComboBoxWithRoomsId();
             roomsId.Remove(Room2.SelectedItem.ToString());
-            Room room = roomController.GetById(Room2.SelectedItem.ToString());
-            foreach(Room r in rooms) 
-            {
-                if(r.Floor != room.Floor)
-                {
-                    roomsId.Remove(r.Id);
-
-                }  
-            }
+            Room selectedRoom = roomController.GetById(Room2.SelectedItem.ToString());
+            roomsId = RemoveRoomsNotAtSameFloor(roomsId, selectedRoom);
             Room1.ItemsSource = roomsId;
-
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-                && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                NextBtn.IsEnabled = true;
-            }
-            else
-            {
-                NextBtn.IsEnabled = false;
-            }
+            EnableOrDisableNextButton();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-                && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                NextBtn.IsEnabled = true;
-            }
-            else 
-            {
-                NextBtn.IsEnabled = false;
-            }
+            EnableOrDisableNextButton();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EnableOrDisableNextButton();
+        }
+
+        private List<string> FillComboBoxWithRoomsId()
+        {
+            List<string> roomsId = new List<string>();
+            foreach (Room room in roomController.GetAll())
+            {
+
+                if (room.Type != RoomType.Warehouse)
+                {
+                    roomsId.Add(room.Id);
+                }
+            }
+
+            return roomsId;
+        }
+
+        private void EnableOrDisableNextButton()
         {
             if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
                 && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError)
@@ -212,5 +161,19 @@ namespace WpfApp1.View.Manager.Rooms
                 NextBtn.IsEnabled = false;
             }
         }
+
+        private List<string> RemoveRoomsNotAtSameFloor(List<string> allRooms, Room selectedRoom)
+        {
+            foreach (Room room in roomController.GetAll())
+            {
+                if (room.Floor != selectedRoom.Floor)
+                {
+                    allRooms.Remove(room.Id);
+                }
+            }
+
+            return allRooms;
+        }
+
     }
 }

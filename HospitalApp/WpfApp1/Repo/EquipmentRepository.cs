@@ -10,132 +10,140 @@ using WpfApp1.Model;
 namespace Repo
 {
     public class EquipmentRepository
-   {
-      public List<Equipment> GetAll()
-      {
+    {
+        public List<Equipment> GetAll()
+        {
             List<Equipment> allEquipment = equipmentFileHandler.Read();
-            List<Drug> drugs = drugFileHandler.Read();
-            foreach(Drug d in drugs) 
+            foreach(Drug drug in drugFileHandler.Read()) 
             {
-                allEquipment.Add(new Equipment(d.Id, d.Name, d.Quantity, d.Type, d.Room));
-            
+                allEquipment.Add(new Equipment(drug.Id, drug.Name, drug.Quantity, drug.Type, drug.Room));
             }
 
             return allEquipment;
-      }
+        }
       
-      public List<Equipment> GetByRoomId(string roomId)
-      {
-            List<Equipment> allEquipment = equipmentFileHandler.Read();
-            List<Drug> drugs = drugFileHandler.Read();
-            foreach (Drug d in drugs)
+        public List<Equipment> GetByRoomId(string roomId)
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach(Equipment equipment in GetAll())
             {
-                allEquipment.Add(new Equipment(d.Id, d.Name, d.Quantity, d.Type, d.Room));
-
-            }
-
-            List<Equipment> equipment = new List<Equipment>();
-            foreach(Equipment e in allEquipment)
-            {
-                if(e.Room.Id == roomId)
+                if(equipment.Room.Id == roomId)
                 {
-                    equipment.Add(e);
+                    equipmentList.Add(equipment);
                 }
             }
 
-            return equipment;
-      }
+            return equipmentList;
+        }
 
-      public void UpdateAll(List<Equipment> equipment)
-      {
+        private Drug MakeDrugFromEquipment(Equipment equipment) 
+        {  
+            foreach (Drug drug in drugFileHandler.Read())
+            { 
+                if (drug.Id == equipment.Id)
+                {
+                    return new Drug(equipment.Id, equipment.Name, equipment.Quantity, equipment.Type, equipment.Room, drug.Manufacturer, drug.Ingredients, drug.Replacement);    
+                }
+            }
+
+            return null;    
+        }
+
+        private List<Equipment> RemoveDrugsFromEquipmentList(List<Equipment> equipmentList,List<Equipment> toDelete)
+        {
+            for (int i = 0; i < toDelete.Count; i++)
+            {
+                equipmentList.Remove(toDelete[i]);
+            }
+
+            return equipmentList;
+        }
+
+        public void UpdateAll(List<Equipment> equipmentList)
+        {
             List<Drug> drugs = new List<Drug>();
             List<Equipment> toDelete = new List<Equipment>();
-            foreach(Equipment e in equipment) 
+            foreach(Equipment equipment in equipmentList) 
             {
-               
-                if(e.Type == EquipmentType.drug) 
+                if(equipment.Type == EquipmentType.drug) 
                 {
-                    Drug drug = null;
-                    foreach (Drug d in drugFileHandler.Read())
-                    {
-                    
-                        if (d.Id == e.Id)
-                        { 
-                            drug = new Drug(e.Id, e.Name, e.Quantity, e.Type, e.Room, d.Manufacturer, d.Ingredients, d.Replacement);
-                            toDelete.Add(e);
-                            break;
-                        }
-                    }
-
-                    drugs.Add(drug);
-                }
-                            
+                    drugs.Add(MakeDrugFromEquipment(equipment));
+                    toDelete.Add(equipment);
+                }                
             }
 
-            for (int i=0; i < toDelete.Count; i++) 
-            {
-                equipment.Remove(toDelete[i]);
-            }
-
-     
             drugFileHandler.Save(drugs);
-            equipmentFileHandler.Save(equipment);
-      }
+            equipmentFileHandler.Save(RemoveDrugsFromEquipmentList(equipmentList, toDelete));
+        }
 
-      public List<Equipment> SearchEquipment(string name, string quantity) 
-      {
-            List<Equipment> equipment = new List<Equipment>();
-            List<Equipment> allEquipment = GetAll();
+        private List<Equipment> GetByQuantity (int quantity) 
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            {
+                if (equipment.Quantity == quantity)
+                {
+                    equipmentList.Add(equipment);
+
+                }
+            }
+
+            return equipmentList;
+        }
+
+        private List<Equipment> GetByName (string name) 
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            {
+                if (equipment.Name.ToLower() == name.ToLower())
+                {
+                    equipmentList.Add(equipment);
+
+                }
+            }
+
+            return equipmentList;
+        }
+
+        private List<Equipment> GetByNameAndQuantity(string name, int quantity) 
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            {
+                if (equipment.Name.ToLower() == name.ToLower() && equipment.Quantity >= quantity)
+                {
+                    equipmentList.Add(equipment);
+                }
+            }
+
+            return equipmentList;
+        }
+
+        public List<Equipment> SearchEquipment(string name, string quantity)
+        {
+           
 
             if (string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
             {
-                int quantity2 = int.Parse(quantity);
-                foreach (Equipment e in allEquipment)
-                {
-                    if (e.Quantity == quantity2)
-                    {
-                        equipment.Add(e);
-
-                    }
-                }
+                return GetByQuantity(int.Parse(quantity));
             }
-
 
             if (string.IsNullOrEmpty(quantity) && !string.IsNullOrEmpty(name)) 
             {
-                foreach (Equipment e in allEquipment)
-                {
-                    if (e.Name.ToLower() == name.ToLower())
-                    {
-                        equipment.Add(e);
-
-                    }
-                }
+                return GetByName(name);
             }
 
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
             {
-                int quantity2 = int.Parse(quantity);
-                foreach (Equipment e in allEquipment)
-                {
-                    if (e.Name.ToLower() == name.ToLower() && e.Quantity >= quantity2)
-                    {
-                        equipment.Add(e);
-
-                    }
-                }
+                return GetByNameAndQuantity(name, int.Parse(quantity));
             }
-
-            if(string.IsNullOrEmpty(name) && string.IsNullOrEmpty(quantity)) 
-            {
-                equipment = allEquipment;  
-            }
-
-            return equipment;  
-      }
+          
+            return GetAll();         
+        }
       
-      public FileHandler.EquipmentFileHandler equipmentFileHandler = new FileHandler.EquipmentFileHandler();
-      public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();
+        public FileHandler.EquipmentFileHandler equipmentFileHandler = new FileHandler.EquipmentFileHandler();
+        public FileHandler.DrugFileHandler drugFileHandler = new FileHandler.DrugFileHandler();
    
-   }
+    }
 }

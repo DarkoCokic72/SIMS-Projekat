@@ -41,7 +41,8 @@ namespace WpfApp1
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             roomController = new RoomController();
-            Rooms = new ObservableCollection<Room>(roomController.GetAll());      
+            Rooms = new ObservableCollection<Room>(roomController.GetAll());
+
         }
 
         public static RoomsWindow GetRoomsWindow()
@@ -75,57 +76,6 @@ namespace WpfApp1
             Close();
 
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            Room room = getSelectedRoom();
-            if(!btn.Content.Equals("Add") && room == null)
-            {
-                MessageBox.Show("You need to select a row!", "Error");
-                return;
-            }
-
-
-            if (btn.Content.Equals("Add"))
-            {
-               
-                CreateRoom createRoom = new CreateRoom();
-                createRoom.Show();
-                Close();
-            }
-            else if (btn.Content.Equals("Details"))
-            {
-                
-                RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow(SelectedRoom.Id);
-                roomsEquipment.Show();
-                Close();
-
-            }
-            else if (btn.Content.Equals("Edit"))
-            {
-                if (room.Type == RoomType.Warehouse)
-                {
-                    MessageBox.Show("The warehouse cannot be edited!", "Error");
-                    return;
-                }
-                RoomsEdit roomsEdit = new RoomsEdit();
-                roomsEdit.Show();
-                Close();
-
-            }
-            else if (btn.Content.Equals("Delete"))
-            {
-                if (room.Type == RoomType.Warehouse)
-                {
-                    MessageBox.Show("The warehouse cannot be deleted!", "Error");
-                    return;
-                }
-                RoomsDelete roomsDelete = new RoomsDelete();
-                roomsDelete.Show();
-            }
-
-        }
         protected override void OnClosing(CancelEventArgs e)
         {
             roomsWindowInstance = null;
@@ -134,6 +84,57 @@ namespace WpfApp1
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Button_Click_Add(object sender, RoutedEventArgs e)
+        {
+            CreateRoom createRoom = new CreateRoom();
+            createRoom.Show();
+            Close();
+        }
+
+        private void Button_Click_Edit(object sender, RoutedEventArgs e)
+        {
+            if (!CheckIfRoomIsSelected()) return;
+            if (SelectedRoom.Type == RoomType.Warehouse)
+            {
+                MessageBox.Show("The warehouse cannot be edited!", "Error");
+                return;
+            }
+            RoomsEdit roomsEdit = new RoomsEdit();
+            roomsEdit.Show();
+            Close();
+
+        }
+
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            if (!CheckIfRoomIsSelected()) return;
+            if (SelectedRoom.Type == RoomType.Warehouse)
+            {
+                MessageBox.Show("The warehouse cannot be deleted!", "Error");
+                return;
+            }
+            RoomsDelete roomsDelete = new RoomsDelete();
+            roomsDelete.Show();
+        }
+
+        private void Button_Click_Details(object sender, RoutedEventArgs e)
+        {
+            if (!CheckIfRoomIsSelected()) return;
+            RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow(SelectedRoom.Id);
+            roomsEquipment.Show();
+            Close();
+        }
+
+        private bool CheckIfRoomIsSelected()
+        {
+            if (SelectedRoom == null)
+            {
+                MessageBox.Show("You need to select a row!", "Error");
+                return false;
+            }
+            return true;
         }
     }
 }

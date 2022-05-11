@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Repo;
 using WpfApp1.Model;
 using WpfApp1.View.Rooms;
 
@@ -101,17 +102,16 @@ namespace Service
 
       public int MaxQuantityToRelocate(Equipment equipment)
       {
-            int retVal = equipment.Quantity;
-
-            foreach(Relocation r in relocationRepository.GetAll())
+            int quantity = equipment.Quantity;
+            foreach (Relocation relocationRequest in relocationRepository.GetAll())
             {
-                if(equipment.Id == r.Equipment.Id && equipment.Room == r.Equipment.Room)
+                if(equipment.Id == relocationRequest.Equipment.Id && equipment.Room == relocationRequest.Equipment.Room)
                 {
-                    retVal -= r.QuantityToRelocate;
+                    quantity -= relocationRequest.QuantityToRelocate;
                 }
             }
 
-            return retVal; 
+            return quantity; 
       }
 
       public List<Equipment> SearchEquipment(string name, string quantity) 
@@ -119,8 +119,8 @@ namespace Service
             return equipmentRepository.SearchEquipment(name, quantity);
       }
       
-      public Repo.RelocationRepository relocationRepository = new Repo.RelocationRepository();
-      public Repo.EquipmentRepository equipmentRepository = new Repo.EquipmentRepository();
+      public RelocationRepository relocationRepository = new RelocationRepository();
+      public EquipmentRepository equipmentRepository = new EquipmentRepository();
    
    }
 }

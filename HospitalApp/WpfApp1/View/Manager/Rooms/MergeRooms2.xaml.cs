@@ -43,8 +43,8 @@ namespace WpfApp1.View.Manager.Rooms
             newName = _newName;
             newType = _newType;
 
-            busyDates = roomController.getBusyDates(room1.Id);
-            foreach (DateTime d in roomController.getBusyDates(room2.Id))
+            busyDates = roomController.GetBusyDates(room1.Id);
+            foreach (DateTime d in roomController.GetBusyDates(room2.Id))
             {
                 busyDates.Add(d);
             }
@@ -84,15 +84,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
-            {
-                ScheduleBtn.IsEnabled = true;
-            }
-            else
-            {
-                ScheduleBtn.IsEnabled = false;
-            }
-
+            EnableOrDisableScheduleBtn();
         }
 
 
@@ -112,9 +104,8 @@ namespace WpfApp1.View.Manager.Rooms
             Close();
         }
 
-        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        private void EnableOrDisableScheduleBtn()
         {
-            startDate = (DateTime)Calendar.SelectedDate;
             if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
             {
                 ScheduleBtn.IsEnabled = true;
@@ -123,6 +114,12 @@ namespace WpfApp1.View.Manager.Rooms
             {
                 ScheduleBtn.IsEnabled = false;
             }
+        }
+
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            startDate = (DateTime)Calendar.SelectedDate;
+            EnableOrDisableScheduleBtn();
         }
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)

@@ -33,11 +33,8 @@ namespace WpfApp1.View.Manager
 
         private void Button_Click_Rooms(object sender, RoutedEventArgs e)
         {
-
-            RoomsWindow roomsWindow = RoomsWindow.GetRoomsWindow();
-            roomsWindow.Show();
+            RoomsWindow.GetRoomsWindow().Show();
             Close();
-
         }
 
         private void Button_Click_Equipment(object sender, RoutedEventArgs e)
@@ -52,17 +49,6 @@ namespace WpfApp1.View.Manager
             BasicRenovation1 basicRenovationWindow = new BasicRenovation1(null, null);
             basicRenovationWindow.Show();
             Close();
-        }
-
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)

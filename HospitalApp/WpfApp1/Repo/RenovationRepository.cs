@@ -14,6 +14,20 @@ namespace Repo
             return renovationFileHandler.Read();
         }
 
+        public List<Renovation> GetByRoomId(string roomId) 
+        {
+            List<Renovation> renovations = new List<Renovation>(); 
+            foreach (Renovation renovation in GetAll())
+            {
+                if (renovation.Room.Id == roomId)
+                {
+                    renovations.Add(renovation);
+                }
+            }
+
+            return renovations;
+        }
+
         public void Create(Renovation renovation)
         {
 

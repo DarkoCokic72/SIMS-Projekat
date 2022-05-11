@@ -48,11 +48,6 @@ namespace WpfApp1.View.Manager.Drugs
             Close();
         }
 
-        private void dgRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
             DrugsCreate drugsCreate = new DrugsCreate();

@@ -18,10 +18,10 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Background="SteelBlue" FontSize="60" Content="Add" Margin="47,176,767,500" Click="Button_Click" Width="Auto" RenderTransformOrigin="-0.528,0.499"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Details" Margin="788,176,26,500" Click="Button_Click" Width="Auto"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Edit" Width="Auto" Margin="293,176,516,500" Click="Button_Click"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Delete" Width="Auto" Margin="549,176,267,500" Click="Button_Click" RenderTransformOrigin="-0.385,0.632"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Add" Margin="47,176,767,500" Click="Button_Click_Add" Width="Auto" RenderTransformOrigin="-0.528,0.499"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Details" Margin="788,176,26,500" Click="Button_Click_Details" Width="Auto"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Edit" Width="Auto" Margin="293,176,516,500" Click="Button_Click_Edit"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Delete" Width="Auto" Margin="549,176,267,500" Click="Button_Click_Delete" RenderTransformOrigin="-0.385,0.632"/>
         <Label FontSize="30" Content="Rooms" HorizontalAlignment="Center" Margin="868,711,19.4,0.6" VerticalAlignment="Center" Width="123" Height="46" RenderTransformOrigin="2.372,5.988"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

@@ -9,37 +9,35 @@ using Model;
 
 namespace Repo
 {
-   public class AdvancedRenovationRepository
-   {
-      public List<AdvancedRenovation> GetAll()
-      {
+    public class AdvancedRenovationRepository
+    {
+        public List<AdvancedRenovation> GetAll()
+        {
             return advancedRenovationFileHandler.Read();
-      }
+        }
       
-      public void Create(AdvancedRenovation renovation)
-      {
+        public void Create(AdvancedRenovation renovation)
+        {
             List<AdvancedRenovation> renovations = advancedRenovationFileHandler.Read();
             renovations.Add(renovation);
             advancedRenovationFileHandler.Write(renovations);
-      }
+        }
 
-      public void Delete(AdvancedRenovation renovation) 
-      {
+        public void Delete(AdvancedRenovation renovation) 
+        {
             List<AdvancedRenovation> renovations = advancedRenovationFileHandler.Read();
             for (int i = 0; i < renovations.Count; i++)
             {
                 if (renovations[i].Id == renovation.Id)
                 {
-
                     renovations.RemoveAt(i);
-
                 }
             }
 
             advancedRenovationFileHandler.Write(renovations);
         }
 
-      public FileHandler.AdvancedRenovationFileHandler advancedRenovationFileHandler = new FileHandler.AdvancedRenovationFileHandler();
+        public FileHandler.AdvancedRenovationFileHandler advancedRenovationFileHandler = new FileHandler.AdvancedRenovationFileHandler();
    
-   }
+    }
 }

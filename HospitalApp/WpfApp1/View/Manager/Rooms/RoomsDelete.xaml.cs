@@ -24,23 +24,17 @@ namespace WpfApp1
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Yes(object sender, RoutedEventArgs e)
         {
+            Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
+            RoomsWindow.roomController.Remove(room.Id);
+            RoomsWindow.roomsWindowInstance.refreshContentOfGrid();
+            Close();
+        }
 
-            Button btn = (Button)sender;
-            if(btn.Content.Equals("No"))
-            {
-                Close();
-            }
-            else if(btn.Content.Equals("Yes"))
-            {
-                Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom(); 
-                RoomsWindow.roomController.Remove(room.Id);          
-                RoomsWindow.roomsWindowInstance.refreshContentOfGrid();
-                Close();
-               
-            }
-
+        private void Button_Click_No(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

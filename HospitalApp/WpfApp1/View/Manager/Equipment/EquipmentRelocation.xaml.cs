@@ -25,7 +25,6 @@ namespace WpfApp1.View.Manager.Equipment
     public partial class EquipmentRelocation : Window
     {
 
-
         private int quantityTest;
         public int QuantityTest
         {
@@ -67,12 +66,11 @@ namespace WpfApp1.View.Manager.Equipment
         private List<string> FillComboBoxWithRooms()
         {
             List<string> roomsId = new List<String>();
-            List<Room> rooms = RoomsWindow.roomController.GetAll();
-            foreach (Room r in rooms)
+            foreach (Room room in RoomsWindow.roomController.GetAll())
             {
-                if (RoomsWindow.SelectedRoom.Id != r.Id)
+                if (RoomsWindow.SelectedRoom.Id != room.Id)
                 {
-                    roomsId.Add(r.Id);
+                    roomsId.Add(room.Id);
                 }
             }
 
@@ -97,10 +95,9 @@ namespace WpfApp1.View.Manager.Equipment
             Close();
         }
 
-        private void TextChanged(object sender, TextChangedEventArgs e)
+        private void EnableOrDisableSaveBtn()
         {
-
-            if(Date.SelectedDate != null && !string.IsNullOrEmpty((string)Room.SelectedItem) && !string.IsNullOrEmpty(Quantity.Text) && !MinMaxQuantityValidationRule.ValidationHasError && !StringToIntegerValidationRule.ValidationHasError)
+            if (Date.SelectedDate != null && !string.IsNullOrEmpty((string)Room.SelectedItem) && !string.IsNullOrEmpty(Quantity.Text) && !MinMaxQuantityValidationRule.ValidationHasError && !StringToIntegerValidationRule.ValidationHasError)
             {
                 Save.IsEnabled = true;
             }
@@ -109,30 +106,21 @@ namespace WpfApp1.View.Manager.Equipment
                 Save.IsEnabled = false;
             }
 
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EnableOrDisableSaveBtn();
         }
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Date.SelectedDate != null && !string.IsNullOrEmpty((string)Room.SelectedItem) && !string.IsNullOrEmpty(Quantity.Text) && !MinMaxQuantityValidationRule.ValidationHasError && !StringToIntegerValidationRule.ValidationHasError)
-            {
-                Save.IsEnabled = true;
-            }
-            else
-            {
-                Save.IsEnabled = false;
-            }
+            EnableOrDisableSaveBtn();
         }
 
         private void Date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Date.SelectedDate != null && !string.IsNullOrEmpty((string)Room.SelectedItem) && !string.IsNullOrEmpty(Quantity.Text) && !MinMaxQuantityValidationRule.ValidationHasError && !StringToIntegerValidationRule.ValidationHasError)
-            {
-                Save.IsEnabled = true;
-            }
-            else
-            {
-                Save.IsEnabled = false;
-            }
+            EnableOrDisableSaveBtn();
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
