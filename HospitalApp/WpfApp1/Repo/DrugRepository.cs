@@ -12,20 +12,6 @@ namespace Repo
     public class DrugRepository
     {
       
-        public bool IsDrugAlreadyInList(List<Drug> drugs, Drug drugToAdd) 
-        {     
-            foreach (Drug drug in drugs) 
-            {
-                if (drug.Id == drugToAdd.Id)
-                {
-                    drug.Quantity += drugToAdd.Quantity;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public List<Drug> GetAll()
         {
           
@@ -56,6 +42,20 @@ namespace Repo
             {
                 if (drug.Name.ToLower() == newDrug.Name.ToLower())
                 {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool IsDrugAlreadyInList(List<Drug> drugs, Drug drugToAdd)
+        {
+            foreach (Drug drug in drugs)
+            {
+                if (drug.Id == drugToAdd.Id)
+                {
+                    drug.Quantity += drugToAdd.Quantity;
                     return true;
                 }
             }
