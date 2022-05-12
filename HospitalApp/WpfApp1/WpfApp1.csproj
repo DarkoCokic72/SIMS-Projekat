@@ -103,6 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\DrugController.cs" />
     <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\ExaminationAppointmentControler.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Controller\PhysicianController.cs" />
     <Compile Include="Controller\UserAccountController.cs" />
     <Compile Include="FileHandler\AdvancedRenovationFileHandler.cs" />
+    <Compile Include="FileHandler\AppointmentFileHandler.cs" />
     <Compile Include="FileHandler\DrugFileHandler.cs" />
     <Compile Include="FileHandler\EquipmentFileHandler.cs" />
     <Compile Include="FileHandler\ExaminationAppointmentFileHandler.cs" />
@@ -128,9 +130,12 @@
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
     <Compile Include="FileHandler\UserAccountFileHandler.cs" />
     <Compile Include="Model\AdvancedRenovation.cs" />
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\EquipmentType.cs" />
+    <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\MedicalRecord.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
@@ -146,6 +151,7 @@
     <Compile Include="Model\Physician.cs" />
     <Compile Include="Model\SpecialisedPhysician.cs" />
     <Compile Include="Repo\AdvancedRenovationRepository.cs" />
+    <Compile Include="Repo\AppointmentRepository.cs" />
     <Compile Include="Repo\DrugRepository.cs" />
     <Compile Include="Repo\ExaminationAppointmentRepository.cs" />
     <Compile Include="Repo\GuestAccountRepository.cs" />
@@ -159,6 +165,7 @@
     <Compile Include="Repo\RenovationRepository.cs" />
     <Compile Include="Repo\SecretaryRepository.cs" />
     <Compile Include="Repo\UserAccountRepository.cs" />
+    <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\DrugService.cs" />
     <Compile Include="Service\EquipmentService.cs" />
     <Compile Include="Service\ExaminationAppointmentService.cs" />
@@ -237,6 +244,18 @@
     </Compile>
     <Compile Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml.cs">
       <DependentUpon>ExaminationAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\Appointment\CreateAppointment.xaml.cs">
+      <DependentUpon>CreateAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\Appointment\AppointmentDelete.xaml.cs">
+      <DependentUpon>AppointmentDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\Appointment\AppointmentEdit.xaml.cs">
+      <DependentUpon>AppointmentEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\Appointment\AppointmentWindow.xaml.cs">
+      <DependentUpon>AppointmentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml.cs">
       <DependentUpon>CreateMedicalRecord.xaml</DependentUpon>
@@ -374,6 +393,22 @@
     <Page Include="View\Physiciann\ExaminationAppointments\ExaminationAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\Appointment\CreateAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\Appointment\AppointmentDelete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\Appointment\AppointmentEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\Appointment\AppointmentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml">
       <SubType>Designer</SubType>
@@ -517,5 +552,6 @@
   <ItemGroup>
     <Resource Include="images\notificationBell.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

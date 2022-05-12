@@ -27,6 +27,7 @@ namespace WpfApp1
     {
         public static PatientsWindow patientsWindowInstance;
         public static PatientController patientController;
+        public static Patient SelectedPatient { get; set; }
         public ObservableCollection<Patient> Patients { get; set; }
 
         public PatientsWindow()
@@ -64,7 +65,7 @@ namespace WpfApp1
 
         public Patient getSelectedPatient()
         {
-            return (Patient)dgPatients.SelectedItem; ;
+            return (Patient)dgPatients.SelectedItem;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

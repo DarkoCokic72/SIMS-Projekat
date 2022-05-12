@@ -1,1 +1,1 @@
-[{"patientExaminationAppointment":null,"address":null,"PatientExaminationAppointment":[],"email":"123@gmail.com","password":"123","name":"Darko","surname":"Cokic","phoneNumber":"063335533","uniquePersonalNumber":"1235567890123","Address":null}]
+[{"patientExaminationAppointment":null,"address":null,"PatientExaminationAppointment":[],"email":"1234@gmail.com","password":"1234","name":"Marko","surname":"Markovic","phoneNumber":"063135533","uniquePersonalNumber":"1235567897123","type":"specialist","specialization":"hirurg","Address":null}]
