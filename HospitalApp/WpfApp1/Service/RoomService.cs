@@ -55,6 +55,7 @@ namespace Service
         {
             List<DateTime> dates = GetBusyDaysDueToAppointments(roomId); 
             dates.AddRange(GetBusyDaysDueToRenovation(roomId));
+            dates.AddRange(GetBusyDaysDueToAdvancedRenovation(roomId));
             dates.Distinct();
             return dates;
         }
@@ -145,6 +146,21 @@ namespace Service
         {
             List<DateTime> days = new List<DateTime>();
             foreach (Renovation renovation in renovationRepository.GetByRoomId(roomId))
+            {
+                days.Add(renovation.StartDate);
+                for (int i = 1; i < renovation.Duration; i++)
+                {
+                    days.Add(renovation.StartDate.AddDays(i));
+                }
+            }
+            return days;
+        }
+
+
+        private List<DateTime> GetBusyDaysDueToAdvancedRenovation(string roomId)
+        {
+            List<DateTime> days = new List<DateTime>();
+            foreach (AdvancedRenovation renovation in advancedRenovationRepository.GetByRoomId(roomId))
             {
                 days.Add(renovation.StartDate);
                 for (int i = 1; i < renovation.Duration; i++)

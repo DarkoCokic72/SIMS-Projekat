@@ -23,7 +23,7 @@ namespace WpfApp1.View.Manager.Rooms
     public partial class SplitRoom2 : Window
     {
         private RoomController roomController = new RoomController();
-        public static List<System.DateTime> busyDates;
+        public static List<DateTime> busyDates;
         public static DateTime startDate;
 
         private Room room1;
@@ -48,9 +48,9 @@ namespace WpfApp1.View.Manager.Rooms
             newType2 = _newType2;
 
             busyDates = roomController.GetBusyDates(room1.Id);
-            foreach (DateTime d in busyDates)
+            foreach (DateTime day in busyDates)
             {
-                Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
+                Calendar.BlackoutDates.Add(new CalendarDateRange(day, day));
             }
 
             ScheduleBtn.IsEnabled = false;

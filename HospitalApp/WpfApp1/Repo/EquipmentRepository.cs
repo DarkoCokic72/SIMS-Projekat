@@ -83,7 +83,7 @@ namespace Repo
             {
                 if (drug.Id == equipment.Id)
                 {
-                    return new Drug(equipment.Id, equipment.Name, equipment.Quantity, equipment.Type, equipment.Room, drug.Manufacturer, drug.Ingredients, drug.Replacement);
+                    return new Drug(equipment.Id, equipment.Name, equipment.Quantity, equipment.Type, equipment.Room, drug.Manufacturer, drug.Ingredients, drug.DrugB);
                 }
             }
 

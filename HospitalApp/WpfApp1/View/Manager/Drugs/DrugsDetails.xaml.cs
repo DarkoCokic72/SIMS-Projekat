@@ -30,7 +30,10 @@ namespace WpfApp1.View.Manager.Drugs
             Left = 0.25*width;
 
             Ingredients.Text = DrugsWindow.SelectedDrug.Ingredients;
-            Replacement.Text = DrugsWindow.SelectedDrug.Replacement;
+            if (DrugsWindow.SelectedDrug.DrugB != null)
+            {
+                Replacement.Text = DrugsWindow.SelectedDrug.DrugB.Name;
+            }
             Quantity.Text = DrugsWindow.SelectedDrug.Quantity.ToString();
         }
 
