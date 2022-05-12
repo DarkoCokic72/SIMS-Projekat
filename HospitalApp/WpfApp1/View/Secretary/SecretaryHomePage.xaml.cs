@@ -38,7 +38,11 @@ namespace WpfApp1.View.Secretary
             {
                 MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
                 medicalRecordWindow.Show();
-
+            }
+            if (btn.Content.Equals("Guest accounts"))
+            {
+                GuestAccountsWindow guestAccountsWindow = GuestAccountsWindow.GetGuestAccountsWindow();
+                guestAccountsWindow.Show();
             }
 
         }

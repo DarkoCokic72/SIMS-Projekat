@@ -250,6 +250,18 @@
     <Compile Include="View\Secretary\MedicalRecord\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Secretary\GuestAccounts\CreateGuestAccount.xaml.cs">
+      <DependentUpon>CreateGuestAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\GuestAccounts\GuestAccountsDelete.xaml.cs">
+      <DependentUpon>GuestAccountsDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\GuestAccounts\GuestAccountsEdit.xaml.cs">
+      <DependentUpon>GuestAccountsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\GuestAccounts\GuestAccountsWindow.xaml.cs">
+      <DependentUpon>GuestAccountsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Secretary\Patients\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
     </Compile>
@@ -378,6 +390,22 @@
     <Page Include="View\Secretary\MedicalRecord\MedicalRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\GuestAccounts\CreateGuestAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\GuestAccounts\GuestAccountsDelete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\GuestAccounts\GuestAccountsEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\GuestAccounts\GuestAccountsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Secretary\Patients\CreatePatient.xaml">
       <SubType>Designer</SubType>

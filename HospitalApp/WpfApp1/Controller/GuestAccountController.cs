@@ -1,41 +1,44 @@
-/***********************************************************************
- * Module:  GetGuestAccountInfo.cs
- * Author:  HP LAPTOP
- * Purpose: Definition of the Class GetGuestAccountInfo
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using Model;
+using Service;
+using WpfApp1.Model;
 
 namespace Controller
 {
-   public class GuestAccountController
-   {
-      public List<GuestAccount> getAll()
-      {
-         throw new NotImplementedException();
-      }
-      
-      public GuestAccount getByUniqueNumber(ref string uniquePersonalNumber)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void Addd(GuestAccount guest)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void Update(GuestAccount guest)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void Delete(string id)
-      {
-         throw new NotImplementedException();
-      }
-   
-   }
+    public class GuestAccountController
+    {
+        public List<GuestAccount> GetAll()
+        {
+            return guestAccountService.GetAll();
+        }
+
+        public GuestAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
+        {
+            return guestAccountService.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
+
+        public void Add(GuestAccount guestAccount)
+        {
+            guestAccountService.Add(guestAccount);
+        }
+
+        public void Update(GuestAccount guestAccount)
+        {
+            guestAccountService.Update(guestAccount);
+        }
+
+        public void Remove(string id)
+        {
+            guestAccountService.Remove(id);
+        }
+
+        public Service.GuestAccountService guestAccountService;
+
+        public GuestAccountController(GuestAccountService guestAccountService)
+        {
+            this.guestAccountService = guestAccountService;
+        }
+
+    }
 }
