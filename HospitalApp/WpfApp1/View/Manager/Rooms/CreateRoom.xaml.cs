@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -23,6 +24,9 @@ namespace WpfApp1
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            List<int> floors = GetFloors();
+            ComboBox_Floor.ItemsSource = floors;
+            ComboBox_Floor.SelectedItem = floors[0];
             Validation.MinMaxValidationRule.ValidationHasError = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;
             Validation.IdValidationRule.ValidationHasError = false;
@@ -98,7 +102,7 @@ namespace WpfApp1
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             
-            if(!string.IsNullOrEmpty(IdBinding) && !string.IsNullOrEmpty(NameBinding)  && !string.IsNullOrEmpty(Floor.Text) && 
+            if(!string.IsNullOrEmpty(IdBinding) && !string.IsNullOrEmpty(NameBinding)  && 
                 !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
             {
                 e.CanExecute = true;
@@ -149,6 +153,16 @@ namespace WpfApp1
                 MessageBox.Show("Room with that Id already exists!", "Error");
             }
             
+        }
+
+        public static List<int> GetFloors()
+        {
+            List<int> floors = new List<int>();
+            floors.Add(0);
+            floors.Add(1);
+            floors.Add(2);
+            floors.Add(3);
+            return floors;
         }
     }
 }

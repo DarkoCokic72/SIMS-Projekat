@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace WpfApp1.View.Manager.Drugs
     /// </summary>
     public partial class DrugsCreate : Window
     {
+        private DrugController drugController = new DrugController();
         private int quantityBinding;
         public int QuantityBinding
         {
@@ -42,6 +44,7 @@ namespace WpfApp1.View.Manager.Drugs
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            ComboBox_Replacement.ItemsSource = FillComboBoxWithDrugs();
             SaveBtn.IsEnabled = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;
         }
@@ -70,7 +73,7 @@ namespace WpfApp1.View.Manager.Drugs
         {
             DrugController drugController = new DrugController();
             RoomController roomController = new RoomController();
-            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, Replacement.Text)))
+            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, FindDrugByName() )))
             {
                 MessageBox.Show("Drug with that name already exists", "error");
                 return;
@@ -106,5 +109,38 @@ namespace WpfApp1.View.Manager.Drugs
                 SaveBtn.IsEnabled = false;
             }
         }
+
+        private List<string> FillComboBoxWithDrugs()
+        {
+            List<string> drugs = new List<string>();
+            foreach (Drug drug in drugController.GetAll())
+            {
+                drugs.Add(drug.Name);
+            }
+
+            drugs.Distinct();
+            return drugs;
+        }
+
+        private Drug FindDrugByName()
+        {
+            string drugName = (string)ComboBox_Replacement.SelectedItem;
+            foreach (Drug drug in drugController.GetAll())
+            {
+                if (drugName == drug.Name)
+                {
+                    return drug;
+                }
+            }
+
+            return null;
+        }
+
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
     }
 }

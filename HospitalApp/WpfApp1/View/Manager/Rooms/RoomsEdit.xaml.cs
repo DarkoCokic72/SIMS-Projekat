@@ -91,14 +91,13 @@ namespace WpfApp1
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
+            ComboBox_Floor.ItemsSource = CreateRoom.GetFloors();
+            room = RoomsWindow.SelectedRoom;
             IdBinding = room.Id;
             NameBinding= room.Name;
             TypeBinding = room.Type;
             FloorBinding = room.Floor;
 
-            Validation.MinMaxValidationRule.ValidationHasError = false;
-            Validation.StringToIntegerValidationRule.ValidationHasError = false;
             Validation.IdValidationRule.ValidationHasError = false;
 
         }
@@ -119,11 +118,11 @@ namespace WpfApp1
             {
                  SaveBtn.IsEnabled = false;      
             }
-            else if(string.IsNullOrEmpty(IdBinding) || string.IsNullOrEmpty(NameBinding) || string.IsNullOrEmpty(Floor.Text))
+            else if(string.IsNullOrEmpty(IdBinding) || string.IsNullOrEmpty(NameBinding))
             {
                 SaveBtn.IsEnabled = false;
             }
-            else if(Validation.StringToIntegerValidationRule.ValidationHasError || Validation.MinMaxValidationRule.ValidationHasError || Validation.IdValidationRule.ValidationHasError)
+            else if(Validation.IdValidationRule.ValidationHasError)
             {
                 SaveBtn.IsEnabled = false;
             }
@@ -137,7 +136,7 @@ namespace WpfApp1
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if ((RoomType)ComboBox.SelectedItem != room.Type && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
+            if (((RoomType)ComboBox.SelectedItem != room.Type || FloorBinding != room.Floor) && !Validation.IdValidationRule.ValidationHasError)
             {
                 SaveBtn.IsEnabled = true;
             }
@@ -171,9 +170,9 @@ namespace WpfApp1
 
             if (TypeBinding == RoomType.Warehouse)
             {
-                foreach (Room r in RoomsWindow.roomController.GetAll())
+                foreach (Room room in RoomsWindow.roomController.GetAll())
                 {
-                    if (r.Type == RoomType.Warehouse)
+                    if (room.Type == RoomType.Warehouse)
                     {
                         MessageBox.Show("Warehouse already exists!", "Error");
                         return;

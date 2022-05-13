@@ -15,7 +15,21 @@ namespace Repo
         {
             return advancedRenovationFileHandler.Read();
         }
-      
+
+        public List<AdvancedRenovation> GetByRoomId(string roomId)
+        {
+            List<AdvancedRenovation> renovations = new List<AdvancedRenovation>();
+            foreach (AdvancedRenovation renovation in GetAll())
+            {
+                if (renovation.Room1.Id == roomId || renovation.Room2.Id == roomId || renovation.Room3.Id == roomId)
+                {
+                    renovations.Add(renovation);
+                }
+            }
+
+            return renovations;
+        }
+
         public void Create(AdvancedRenovation renovation)
         {
             List<AdvancedRenovation> renovations = advancedRenovationFileHandler.Read();

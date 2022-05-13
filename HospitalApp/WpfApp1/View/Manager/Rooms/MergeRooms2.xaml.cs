@@ -44,14 +44,14 @@ namespace WpfApp1.View.Manager.Rooms
             newType = _newType;
 
             busyDates = roomController.GetBusyDates(room1.Id);
-            foreach (DateTime d in roomController.GetBusyDates(room2.Id))
+            foreach (DateTime day in roomController.GetBusyDates(room2.Id))
             {
-                busyDates.Add(d);
+                busyDates.Add(day);
             }
 
-            foreach (DateTime d in busyDates)
+            foreach (DateTime day in busyDates)
             {
-                Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
+                Calendar.BlackoutDates.Add(new CalendarDateRange(day, day));
             }
 
             ScheduleBtn.IsEnabled = false;
