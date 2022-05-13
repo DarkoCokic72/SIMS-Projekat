@@ -30,66 +30,17 @@ namespace WpfApp1
             Room.ItemsSource = FillComboBoxWithRooms();
             Physician.ItemsSource = FillComboBoxWithPhysicians();
 
-            /*
-            //Patients ComboBox
-            PatientFileHandler patientFileHandler = new PatientFileHandler();
-            PatientRepository patientRepository = new PatientRepository(patientFileHandler);
-            PatientService patientService = new PatientService(patientRepository);
-            PatientController patientController = new PatientController(patientService);
-            List<Patient> patients = patientController.GetAll();
-            List<string> patientsComboBox = new List<string>();
-            
-            foreach (Patient patient in patients)
-            {
-                patientsComboBox.Add(patient.name + " " + patient.surname);
-            }
-            Patient.ItemsSource = patientsComboBox;
-
-            //Physician ComboBox
-            PhysicianFileHandler physicianFileHandler = new PhysicianFileHandler();
-            PhysicianRepository physicianRepository = new PhysicianRepository(physicianFileHandler);
-            PhysicianService physicianService = new PhysicianService(physicianRepository);
-            PhysicianController physicianController = new PhysicianController(physicianService);
-            List<Physician> physicians = physicianController.GetAll();
-            List<string> physiciansComboBox = new List<string>();
-
-            foreach (Physician physician in physicians)
-            {
-                physiciansComboBox.Add(physician.name + " " + physician.surname);
-            }
-            Physician.ItemsSource = physiciansComboBox;
-
-            //Room ComboBox
-            RoomFileHandler roomFileHandler = new RoomFileHandler();
-            RoomRepository roomRepository = new RoomRepository(roomFileHandler);
-            RoomService roomService = new RoomService(roomRepository);
-            RoomController roomController = new RoomController(roomService);
-            List<Room> rooms = roomController.GetAll();
-            List<string> roomsComboBox = new List<string>();
-
-            foreach (Room room in rooms)
-            {
-                roomsComboBox.Add(room.Id + " " + room.Name);
-            }
-            Room.ItemsSource = roomsComboBox;
-
-            */
-
         }
-        private List<string> FillComboBoxWithRooms()
+        private List<Room> FillComboBoxWithRooms()
         {
-            List<string> roomsId = new List<String>();
+            List<Room> roomsId = new List<Room>();
             foreach (Room room in RoomsWindow.roomController.GetAll())
             {
-                if (RoomsWindow.SelectedRoom.Id != room.Id)
-                {
-                    roomsId.Add(room.Id);
-                }
+                roomsId.Add(room);
             }
-
             return roomsId;
         }
-        private List<string> FillComboBoxWithPatients()
+        private List<Patient> FillComboBoxWithPatients()
         {
 
             PatientFileHandler patientFileHandler = new PatientFileHandler();
@@ -97,27 +48,23 @@ namespace WpfApp1
             PatientService patientService = new PatientService(patientRepository);
             PatientController patientController = new PatientController(patientService);
             List<Patient> patients = patientController.GetAll();
-            List<string> patientsUPN = new List<string>();
+            List<Patient> patientsUPN = new List<Patient>();
 
             foreach (Patient patient in patients)
             {
-                patientsUPN.Add(patient.name + " " + patient.surname);
+                patientsUPN.Add(patient);
             }
-
             return patientsUPN;
         }
     
-        private List<string> FillComboBoxWithPhysicians()
+        private List<Physician> FillComboBoxWithPhysicians()
         {
             PhysicianController physicianController = new PhysicianController();
             List <Physician> physicians = physicianController.GetAll();
-            List<string> physiciansId = new List<string>();
+            List<Physician> physiciansId = new List<Physician>();
             foreach (Physician physician in physicians)
-            {
-               //if(RoomsWindow.SelectedRoom.Id != room.Id)
-               // {
-                    physiciansId.Add(physician.licenceID);
-               // }
+            {    
+                    physiciansId.Add(physician);   
             }
             return physiciansId;
         }
@@ -225,7 +172,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                AppointmentWindow.appointmentController.Add(new Appointment(PhysicianBinding, PatientBinding, RoomBinding, DateOfAppointmentBinding, IdBinding, AppointmentTypeBinding));
+                AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding));
                 addedAppointment = true;
                 if (addedAppointment == true)
                 {

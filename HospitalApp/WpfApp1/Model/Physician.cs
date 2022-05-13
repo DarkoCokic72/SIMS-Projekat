@@ -19,6 +19,11 @@ namespace WpfApp1.Model
         public string specialization { get; set; }
         public Address office { get; set; }
 
+        public string FullName
+        {
+            get { return name + " " + surname; }
+        }
+
         public Physician(string licenceID, string type, string specialization)
         {
             this.licenceID = licenceID;
@@ -26,7 +31,14 @@ namespace WpfApp1.Model
             this.specialization = specialization;
         }
 
+        public override bool Equals(object obj)
+        {
+            Physician physician = obj as Physician;
 
+            if (physician == null) { return false; }
+
+            return physician.licenceID == licenceID;
+        }
 
     }
 }

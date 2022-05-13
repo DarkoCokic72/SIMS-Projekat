@@ -28,7 +28,7 @@ namespace WpfApp1
     public partial class RoomsWindow : Window
     {
         public static RoomsWindow roomsWindowInstance;
-        public static RoomController roomController;
+        public static RoomController roomController = new RoomController();
         public ObservableCollection<Room> Rooms { get; set; }
         public static Room SelectedRoom { get; set; }
 
@@ -40,7 +40,6 @@ namespace WpfApp1
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
-            roomController = new RoomController();
             Rooms = new ObservableCollection<Room>(roomController.GetAll());
 
         }
