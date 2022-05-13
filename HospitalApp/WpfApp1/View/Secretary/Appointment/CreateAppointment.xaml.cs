@@ -30,8 +30,9 @@ namespace WpfApp1
             Room.ItemsSource = FillComboBoxWithRooms();
             Physician.ItemsSource = FillComboBoxWithPhysicians();
 
+            /*
             //Patients ComboBox
-            /*PatientFileHandler patientFileHandler = new PatientFileHandler();
+            PatientFileHandler patientFileHandler = new PatientFileHandler();
             PatientRepository patientRepository = new PatientRepository(patientFileHandler);
             PatientService patientService = new PatientService(patientRepository);
             PatientController patientController = new PatientController(patientService);
@@ -90,19 +91,22 @@ namespace WpfApp1
         }
         private List<string> FillComboBoxWithPatients()
         {
-            PatientController patientController = new PatientController();
+
+            PatientFileHandler patientFileHandler = new PatientFileHandler();
+            PatientRepository patientRepository = new PatientRepository(patientFileHandler);
+            PatientService patientService = new PatientService(patientRepository);
+            PatientController patientController = new PatientController(patientService);
             List<Patient> patients = patientController.GetAll();
-            List<string> patientsId = new List<string>();
+            List<string> patientsUPN = new List<string>();
+
             foreach (Patient patient in patients)
             {
-                if (PatientsWindow.SelectedPatient.uniquePersonalNumber != patient.uniquePersonalNumber)
-                {
-                    patientsId.Add(patient.uniquePersonalNumber);
-                }
+                patientsUPN.Add(patient.name + " " + patient.surname);
             }
 
-            return patientsId;
+            return patientsUPN;
         }
+    
         private List<string> FillComboBoxWithPhysicians()
         {
             PhysicianController physicianController = new PhysicianController();

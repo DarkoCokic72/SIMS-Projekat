@@ -46,9 +46,10 @@ namespace Controller
             this.patientService = patientService;
         }
 
-        //DODATO OVO ??
-        public PatientController()
+       /* DODATO OVO ??
+       public PatientController()
         {
         }
+       */
     }
 }
