@@ -135,7 +135,6 @@
     <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\EquipmentType.cs" />
-    <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\MedicalRecord.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
