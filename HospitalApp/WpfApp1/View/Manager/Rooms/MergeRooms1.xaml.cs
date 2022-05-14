@@ -17,12 +17,23 @@ using Model;
 
 namespace WpfApp1.View.Manager.Rooms
 {
-    /// <summary>
-    /// Interaction logic for MergeRooms1.xaml
-    /// </summary>
     public partial class MergeRooms1 : Window
     {
         private RoomController roomController = new RoomController();
+        private string idBinding;
+        public string IdBinding
+        {
+            get
+            {
+                return idBinding;
+            }
+            set
+            {
+                idBinding = value;
+                OnPropertyChanged("IdBinding");
+            }
+        }
+
 
         public MergeRooms1(Room _room1, Room _room2, string _newId, string _newName, RoomType _newType)
         {
@@ -48,30 +59,6 @@ namespace WpfApp1.View.Manager.Rooms
                 ComboBox.SelectedItem = _newType;
             }
         }
-
-        private string idBinding;
-        public string IdBinding
-        {
-            get
-            {
-                return idBinding;
-            }
-            set
-            {
-                idBinding = value;
-                OnPropertyChanged("IdBinding");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
@@ -151,8 +138,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void EnableOrDisableNextButton()
         {
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-                && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError)
+            if (EnableNextBtn())
             {
                 NextBtn.IsEnabled = true;
             }
@@ -160,6 +146,12 @@ namespace WpfApp1.View.Manager.Rooms
             {
                 NextBtn.IsEnabled = false;
             }
+        }
+
+        private bool EnableNextBtn()
+        {
+            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
+                    && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError;
         }
 
         private List<string> RemoveRoomsNotAtSameFloor(List<string> allRooms, Room selectedRoom)
@@ -174,6 +166,16 @@ namespace WpfApp1.View.Manager.Rooms
 
             return allRooms;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
 
     }
 }

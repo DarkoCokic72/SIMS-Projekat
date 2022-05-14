@@ -49,9 +49,9 @@
             </Binding>
         </TextBox>
         <TextBox FontSize="40" x:Name="Name" Height="Auto" Width="Auto" Margin="155,443,519,244" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <ComboBox Width="350" FontSize="40" x:Name="ComboBox" Margin="155,524,519,163" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Button Background="SteelBlue" FontSize="40" Content="Cancel" Margin="214,650,560,17" Width="250" Click="Button_Click_Cancel"/>
-        <Button Name="NextBtn" Background="SteelBlue" FontSize="40" Content="Next" Margin="560,650,214,17" Width="250" Click="Button_Click_Next"/>
+        <ComboBox MaxDropDownHeight="160" Width="350" FontSize="40" x:Name="ComboBox" Margin="155,524,519,163" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Button Height="90" Background="SteelBlue" FontSize="40" Content="Cancel" Margin="214,650,560,17" Width="250" Click="Button_Click_Cancel"/>
+        <Button Height="90" Name="NextBtn" Background="SteelBlue" FontSize="40" Content="Next" Margin="560,650,214,17" Width="250" Click="Button_Click_Next"/>
         <Separator HorizontalAlignment="Left" Height="158" Margin="0,253,-9,0" VerticalAlignment="Top" Width="1033"/>
         <Label Width="Auto" Margin="518,363,355,324" Height="Auto" FontSize="40" Content="Id*:"/>
         <Label Width="Auto" VerticalAlignment="Top" Margin="518,443,355,0" Height="81" FontSize="40" Content="Name*:"/>
@@ -64,7 +64,7 @@
             </Binding>
         </TextBox>
         <TextBox FontSize="40" x:Name="Name2" Height="Auto" Width="350" Margin="655,444,10,243" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <ComboBox FontSize="40" x:Name="ComboBox2" Margin="660,524,14,163" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="160" FontSize="40" x:Name="ComboBox2" Margin="660,524,14,163" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
 
     </Grid>
 </Window>

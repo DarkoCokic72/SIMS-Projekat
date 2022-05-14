@@ -47,12 +47,7 @@ namespace WpfApp1.View.Manager.Rooms
             newName2 = _newName2;
             newType2 = _newType2;
 
-            busyDates = roomController.GetBusyDates(room1.Id);
-            foreach (DateTime day in busyDates)
-            {
-                Calendar.BlackoutDates.Add(new CalendarDateRange(day, day));
-            }
-
+            BlackoutBusyDaysInCalendar();
             ScheduleBtn.IsEnabled = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;
             Validation.MaxDurationValidationRule.ValidationHasError = false;
@@ -83,15 +78,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
-            {
-                ScheduleBtn.IsEnabled = true;
-            }
-            else
-            {
-                ScheduleBtn.IsEnabled = false;
-            }
-
+            EnableOrDisableSaveBtn();
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
@@ -114,14 +101,7 @@ namespace WpfApp1.View.Manager.Rooms
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             startDate = (DateTime)Calendar.SelectedDate;
-            if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
-            {
-                ScheduleBtn.IsEnabled = true;
-            }
-            else
-            {
-                ScheduleBtn.IsEnabled = false;
-            }
+            EnableOrDisableSaveBtn();
         }
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
@@ -134,6 +114,32 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void EnableOrDisableSaveBtn()
+        {
+            if (EnableSaveBtn())
+            {
+                ScheduleBtn.IsEnabled = true;
+            }
+            else
+            {
+                ScheduleBtn.IsEnabled = false;
+            }
+        }
+
+        private bool EnableSaveBtn()
+        {
+            return !string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError;
+        }
+
+        private void BlackoutBusyDaysInCalendar()
+        {
+            busyDates = roomController.GetBusyDates(room1.Id);
+            foreach (DateTime day in busyDates)
+            {
+                Calendar.BlackoutDates.Add(new CalendarDateRange(day, day));
+            }
         }
     }
 }

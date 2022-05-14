@@ -31,33 +31,6 @@ namespace WpfApp1.View.Manager.Rooms
         private string newId;
         private string newName;
         private RoomType newType;
-        public MergeRooms2(Room _room1, Room _room2, string _newId, string _newName, RoomType _newType)
-        {
-            InitializeComponent();
-            this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            room1 = _room1;
-            room2 = _room2;
-            newId = _newId;
-            newName = _newName;
-            newType = _newType;
-
-            busyDates = roomController.GetBusyDates(room1.Id);
-            foreach (DateTime day in roomController.GetBusyDates(room2.Id))
-            {
-                busyDates.Add(day);
-            }
-
-            foreach (DateTime day in busyDates)
-            {
-                Calendar.BlackoutDates.Add(new CalendarDateRange(day, day));
-            }
-
-            ScheduleBtn.IsEnabled = false;
-            Validation.StringToIntegerValidationRule.ValidationHasError = false;
-            Validation.MaxDurationValidationRule.ValidationHasError = false;
-        }
 
         private int durationBinding;
         public int DurationBinding
@@ -73,13 +46,22 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string name)
+        public MergeRooms2(Room _room1, Room _room2, string _newId, string _newName, RoomType _newType)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
+            InitializeComponent();
+            this.DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            room1 = _room1;
+            room2 = _room2;
+            newId = _newId;
+            newName = _newName;
+            newType = _newType;
+
+            BlackoutBusyDaysInCalendar();
+            ScheduleBtn.IsEnabled = false;
+            Validation.StringToIntegerValidationRule.ValidationHasError = false;
+            Validation.MaxDurationValidationRule.ValidationHasError = false;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -104,18 +86,6 @@ namespace WpfApp1.View.Manager.Rooms
             Close();
         }
 
-        private void EnableOrDisableScheduleBtn()
-        {
-            if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
-            {
-                ScheduleBtn.IsEnabled = true;
-            }
-            else
-            {
-                ScheduleBtn.IsEnabled = false;
-            }
-        }
-
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             startDate = (DateTime)Calendar.SelectedDate;
@@ -132,6 +102,43 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void EnableOrDisableScheduleBtn()
+        {
+            if (EnableScheduleBtn())
+            {
+                ScheduleBtn.IsEnabled = true;
+            }
+            else
+            {
+                ScheduleBtn.IsEnabled = false;
+            }
+        }
+
+        private bool EnableScheduleBtn()
+        {
+            return !string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError;
+        }
+
+        private void BlackoutBusyDaysInCalendar()
+        {
+            busyDates = roomController.GetBusyDates(room1.Id);
+            busyDates.AddRange(roomController.GetBusyDates(room2.Id));
+
+            foreach (DateTime day in busyDates)
+            {
+                Calendar.BlackoutDates.Add(new CalendarDateRange(day, day));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

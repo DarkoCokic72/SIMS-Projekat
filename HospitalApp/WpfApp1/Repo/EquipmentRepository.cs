@@ -105,7 +105,7 @@ namespace Repo
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in GetAll())
             {
-                if (equipment.Quantity == quantity)
+                if (equipment.Quantity >= quantity)
                 {
                     equipmentList.Add(equipment);
 

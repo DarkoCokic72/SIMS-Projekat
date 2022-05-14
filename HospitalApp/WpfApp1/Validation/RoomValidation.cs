@@ -75,7 +75,7 @@ namespace WpfApp1.Validation
             if (!Regex.IsMatch(s, @"R[0-9]+"))
             {
                 ValidationHasError = true;
-                return new ValidationResult(false, "Wrong format\nof id");
+                return new ValidationResult(false, "Wrong format");
             }
             else
             {

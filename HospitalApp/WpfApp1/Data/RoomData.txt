@@ -1,1 +1,1 @@
-[{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0},{"Id":"R7","Name":"A","Type":0,"Floor":0},{"Id":"R5","Name":"a","Type":2,"Floor":0}]
+[{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0},{"Id":"R2","Name":"Examination room","Type":0,"Floor":2},{"Id":"R3","Name":"Operating room","Type":1,"Floor":0},{"Id":"R4","Name":"Meeting room","Type":3,"Floor":1},{"Id":"R5","Name":"Rest room","Type":2,"Floor":1},{"Id":"R6","Name":"Nursing Room","Type":0,"Floor":2},{"Id":"R7","Name":"Operating","Type":1,"Floor":2},{"Id":"R8","Name":"Examination","Type":0,"Floor":2}]

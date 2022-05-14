@@ -98,6 +98,7 @@ namespace WpfApp1
             TypeBinding = room.Type;
             FloorBinding = room.Floor;
 
+            SaveBtn.IsEnabled = false;
             Validation.IdValidationRule.ValidationHasError = false;
 
         }
@@ -111,7 +112,7 @@ namespace WpfApp1
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
         {
            
             if (IdBinding == room.Id && NameBinding == room.Name && FloorBinding == room.Floor)
@@ -192,6 +193,8 @@ namespace WpfApp1
             }
 
         }
+
+      
     }
 }
     

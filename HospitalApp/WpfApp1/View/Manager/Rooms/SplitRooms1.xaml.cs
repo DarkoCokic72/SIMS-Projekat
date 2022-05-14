@@ -17,50 +17,9 @@ using Model;
 
 namespace WpfApp1.View.Manager.Rooms
 {
-    /// <summary>
-    /// Interaction logic for SplitRooms1.xaml
-    /// </summary>
     public partial class SplitRooms1 : Window
     {
         private RoomController roomController = new RoomController();
-        public SplitRooms1(Room _room1, string _newId1, string _newName1, RoomType _newType1, string _newId2, string _newName2, RoomType _newType2)
-        {
-            InitializeComponent();
-            this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
-            List<Room> rooms = roomController.GetAll();
-            List<string> roomsId = new List<string>();
-            foreach (Room r in rooms)
-            {
-                if (r.Type != RoomType.Warehouse)
-                {
-                    roomsId.Add(r.Id);
-                }
-            }
-
-            Room1.ItemsSource = roomsId;
-            ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            ComboBox.SelectedItem = RoomType.ExaminationRoom;
-            ComboBox2.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
-            ComboBox2.SelectedItem = RoomType.ExaminationRoom;
-
-            NextBtn.IsEnabled = false;
-
-            if(_room1 != null) 
-            {
-                Room1.SelectedItem = _room1.Id;
-                IdBinding = _newId1;
-                Name.Text = _newName1;
-                ComboBox.SelectedItem = _newType1;
-                Id2Binding = _newId2;
-                Name2.Text = _newName2;
-                ComboBox2.SelectedItem = _newType2;
-            }
-
-        }
-
         private string idBinding;
         public string IdBinding
         {
@@ -89,12 +48,27 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string name)
+        public SplitRooms1(Room _room1, string _newId1, string _newName1, RoomType _newType1, string _newId2, string _newName2, RoomType _newType2)
         {
-            if (PropertyChanged != null)
+            InitializeComponent();
+            this.DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            FillRoomComboBox();
+            FillRoomTypeComboBoxes();
+            NextBtn.IsEnabled = false;
+            
+
+            if(_room1 != null) 
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
+                Room1.SelectedItem = _room1.Id;
+                IdBinding = _newId1;
+                Name.Text = _newName1;
+                ComboBox.SelectedItem = _newType1;
+                Id2Binding = _newId2;
+                Name2.Text = _newName2;
+                ComboBox2.SelectedItem = _newType2;
             }
         }
 
@@ -112,41 +86,17 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-               && !string.IsNullOrEmpty(Id2.Text) && !string.IsNullOrEmpty(Name2.Text) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                NextBtn.IsEnabled = true;
-            }
-            else
-            {
-                NextBtn.IsEnabled = false;
-            }
+            EnableOrDisableNextBtn();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-             && !string.IsNullOrEmpty(Id2.Text) && !string.IsNullOrEmpty(Name2.Text) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                NextBtn.IsEnabled = true;
-            }
-            else
-            {
-                NextBtn.IsEnabled = false;
-            }
+            EnableOrDisableNextBtn();
         }
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-             && !string.IsNullOrEmpty(Id2.Text) && !string.IsNullOrEmpty(Name2.Text) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                NextBtn.IsEnabled = true;
-            }
-            else
-            {
-                NextBtn.IsEnabled = false;
-            }
+            EnableOrDisableNextBtn();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -195,5 +145,53 @@ namespace WpfApp1.View.Manager.Rooms
             return true;
         }
 
+        private void EnableOrDisableNextBtn()
+        {
+            if (EnableNextBtn())
+            {
+                NextBtn.IsEnabled = true;
+            }
+            else
+            {
+                NextBtn.IsEnabled = false;
+            }
+        }
+
+        private bool EnableNextBtn()
+        {
+            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
+            && !string.IsNullOrEmpty(Id2.Text) && !string.IsNullOrEmpty(Name2.Text) && !Validation.IdValidationRule.ValidationHasError;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private void FillRoomComboBox()
+        {
+            List<string> roomsId = new List<string>();
+            foreach (Room room in roomController.GetAll())
+            {
+                if (room.Type != RoomType.Warehouse)
+                {
+                    roomsId.Add(room.Id);
+                }
+            }
+
+            Room1.ItemsSource = roomsId;
+        }
+
+        private void FillRoomTypeComboBoxes()
+        {
+            ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            ComboBox.SelectedItem = RoomType.ExaminationRoom;
+            ComboBox2.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            ComboBox2.SelectedItem = RoomType.ExaminationRoom;
+        }
     }
 }
