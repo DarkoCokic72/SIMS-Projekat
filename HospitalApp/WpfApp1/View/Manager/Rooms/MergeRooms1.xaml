@@ -67,7 +67,7 @@
             </Binding>
         </TextBox>
         <TextBox FontSize="40" x:Name="Name" Height="Auto" Width="Auto" Margin="351,443,202,244" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <ComboBox FontSize="40" x:Name="ComboBox" Margin="351,524,202,163" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="160" FontSize="40" x:Name="ComboBox" Margin="351,524,202,163" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
         <Button Background="SteelBlue" FontSize="40" Content="Cancel" Margin="214,650,560,17" Width="250" Click="Button_Click_Cancel"/>
         <Button Name="NextBtn" Background="SteelBlue" FontSize="40" Content="Next" Margin="523,650,251,17" Width="250" Click="Button_Click_Next"/>
         <Separator HorizontalAlignment="Left" Height="153" Margin="0,258,-9,0" VerticalAlignment="Top" Width="1033"/>

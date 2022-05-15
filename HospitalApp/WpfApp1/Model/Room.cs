@@ -28,5 +28,14 @@ namespace Model
         {
             throw new NotImplementedException();
         }
+
+        public override bool Equals(object obj)
+        {
+            Room room = obj as Room;
+
+            if (room == null) { return false; }
+
+            return room.Id == Id;
+        }
     }
 }

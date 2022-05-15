@@ -24,6 +24,7 @@ namespace WpfApp1.View.Manager.Drugs
     public partial class DrugsCreate : Window
     {
         private DrugController drugController = new DrugController();
+        private RoomController roomController = new RoomController();
         private int quantityBinding;
         public int QuantityBinding
         {
@@ -71,8 +72,6 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            DrugController drugController = new DrugController();
-            RoomController roomController = new RoomController();
             if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, FindDrugByName() )))
             {
                 MessageBox.Show("Drug with that name already exists", "error");

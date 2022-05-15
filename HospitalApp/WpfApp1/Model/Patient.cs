@@ -77,6 +77,11 @@ namespace WpfApp1.Model
             patientExaminationAppointment.Clear();
       }
 
+        public string FullName 
+        {
+            get { return name + " " + surname; }
+        }
+
         public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
         {
             this.email = email;
@@ -88,6 +93,17 @@ namespace WpfApp1.Model
            // this.address = address;
             this.dateOfBirth = dateOfBirth;
             this.bloodGroup = bloodGroup;
+        }
+        public override bool Equals(object obj)
+        {
+            Patient patient = obj as Patient;
+
+            if (patient == null) 
+            {
+                return false;
+            }
+
+            return patient.uniquePersonalNumber == uniquePersonalNumber;
         }
 
     }

@@ -9,12 +9,12 @@
         mc:Ignorable="d"
         Title="EquipmentRelocation" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <Button Width="250" Background="SteelBlue" Height="90" FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="245,666,0,12" VerticalAlignment="Center" Click="Button_Click_Cancel"/>
+        <Button Width="250" Background="SteelBlue" Height="100" FontSize="60" Content="Cancel" HorizontalAlignment="Left" Margin="208,641,0,27" VerticalAlignment="Center" Click="Button_Click_Cancel"/>
 
-        <Button  Background="SteelBlue" x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="579,666,0,12" VerticalAlignment="Center" Width="249" Height="90" Click="Button_Click_Save"/>
-        <Label FontSize="40" Content="To room*:" Margin="90,381,597,313" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="432,472,0,0" VerticalAlignment="Top" Height="76" Width="373" SelectedDateChanged="Date_SelectedDateChanged"/>
-        <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="373" Margin="432,562,0,0" TextChanged="TextChanged">
+        <Button  Background="SteelBlue" x:Name="Save" FontSize="60" Content="Save" HorizontalAlignment="Left" Margin="577,641,0,27" VerticalAlignment="Center" Width="249" Height="100" Click="Button_Click_Save"/>
+        <Label FontSize="40" Content="To room*:" Margin="90,351,597,343" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" x:Name="Date" FontSize="40" HorizontalAlignment="Left" Margin="432,425,0,0" VerticalAlignment="Top" Height="76" Width="373" SelectedDateChanged="Date_SelectedDateChanged"/>
+        <TextBox x:Name="Quantity" FontSize="40" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="373" Margin="432,501,0,0" TextChanged="TextChanged">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -38,12 +38,12 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <Label FontSize="40" Content="Date*:" Margin="90,472,602,220" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <Label FontSize="40" Content="Quantity*:" Margin="90,562,597,131" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <Label FontSize="40" Content="Date*:" Margin="90,430,602,262" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <Label FontSize="40" Content="Quantity*:" Margin="90,506,597,187" Width="Auto" Height="Auto" Grid.Column="0"/>
         <TextBox Name="Info" BorderThickness="0" IsReadOnly="True" FontSize="30" HorizontalAlignment="Left" Height="40" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1014" RenderTransformOrigin="0.425,7.07"/>
-        <Label FontSize="40" Content="Available quantity:" Margin="90,264,597,430" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
-        <TextBox x:Name="MaxQuantity" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="432,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.425,7.07"/>
-        <ComboBox FontSize="40" Name="Room" SelectionChanged="Room_SelectionChanged" HorizontalAlignment="Left" Margin="432,381,0,0" VerticalAlignment="Top" Width="373" Height="74"/>
+        <Label FontSize="40" Content="Available quantity:" Margin="90,242,597,452" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="MaxQuantity" IsReadOnly="True" FontSize="40" HorizontalAlignment="Left" Height="74" Margin="432,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.425,7.07"/>
+        <ComboBox FontSize="40" Name="Room" SelectionChanged="Room_SelectionChanged" HorizontalAlignment="Left" Margin="432,351,0,0" VerticalAlignment="Top" Width="373" Height="74"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="141" Margin="-9,123,0,0" VerticalAlignment="Top" Width="1033"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

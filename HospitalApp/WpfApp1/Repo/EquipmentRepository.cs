@@ -105,7 +105,7 @@ namespace Repo
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in GetAll())
             {
-                if (equipment.Quantity == quantity)
+                if (equipment.Quantity >= quantity)
                 {
                     equipmentList.Add(equipment);
 
@@ -120,7 +120,7 @@ namespace Repo
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in GetAll())
             {
-                if (equipment.Name.ToLower() == name.ToLower())
+                if (equipment.Name.ToLower().StartsWith(name.ToLower()))
                 {
                     equipmentList.Add(equipment);
 
@@ -135,7 +135,7 @@ namespace Repo
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in GetAll())
             {
-                if (equipment.Name.ToLower() == name.ToLower() && equipment.Quantity >= quantity)
+                if (equipment.Name.ToLower().StartsWith(name.ToLower()) && equipment.Quantity >= quantity)
                 {
                     equipmentList.Add(equipment);
                 }

@@ -17,27 +17,28 @@ using FileHandler;
 using Model;
 using Repo;
 using Service;
+using WpfApp1.FileHandler;
 using WpfApp1.Model;
 
 namespace WpfApp1
 {
-    public partial class MedicalRecordEdit : Window, INotifyPropertyChanged
+    public partial class AppointmentEdit : Window, INotifyPropertyChanged
     {
-        public static Boolean editedMedicalRecord = false;
+        public static Boolean editedAppointment = false;
 
-        private MedicalRecord medicalRecord;
+        private Appointment appointment;
 
-        private string regNumBinding;
-        public string RegNumBinding
+        private string idBinding;
+        public string IdBinding
         {
             get
             {
-                return regNumBinding;
+                return idBinding;
             }
             set
             {
-                regNumBinding = value;
-                OnPropertyChanged("RegNumBinding");
+                idBinding = value;
+                OnPropertyChanged("IdBinding");
             }
         }
 
@@ -55,37 +56,95 @@ namespace WpfApp1
             }
         }
 
-        private string allergensBinding;
-        public string AllergensBinding
+        private Physician physicianBinding;
+        public Physician PhysicianBinding
         {
             get
             {
-                return allergensBinding;
+                return physicianBinding;
             }
             set
             {
-                allergensBinding = value;
-                OnPropertyChanged("AllergensBinding");
+                physicianBinding = value;
+                OnPropertyChanged("PhysicianBinding");
             }
         }
 
-        public MedicalRecordEdit()
+        private Room roomBinding;
+        public Room RoomBinding
+        {
+            get
+            {
+                return roomBinding;
+            }
+            set
+            {
+                roomBinding = value;
+                OnPropertyChanged("RoomBinding");
+            }
+        }
+
+        private DateTime dateOfAppointmentBinding;
+        public DateTime DateOfAppointmentBinding
+        {
+            get
+            {
+                return dateOfAppointmentBinding;
+            }
+            set
+            {
+                dateOfAppointmentBinding = value;
+                OnPropertyChanged("DateOfAppointmentBinding");
+            }
+        }
+
+        private AppointmentType appointmentTypeBinding;
+        public AppointmentType AppointmentTypeBinding
+        {
+            get
+            {
+                return appointmentTypeBinding;
+            }
+            set
+            {
+                appointmentTypeBinding = value;
+                OnPropertyChanged("AppointmentTypeBinding");
+            }
+        }
+
+        public AppointmentEdit()
         {
 
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            medicalRecord = MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord();
 
-            Patient.ItemsSource = ComboBoxPatients();
+            appointment = AppointmentWindow.appointmentWindowInstance.getSelectedAppointment();
 
-            RegNumBinding = medicalRecord.RegNum;
-            Patient.SelectedItem = medicalRecord.Patient;
-            AllergensBinding = medicalRecord.Allergens;
+            Type.ItemsSource = Enum.GetValues(typeof(AppointmentType)).Cast<AppointmentType>();
+            Patient.ItemsSource = FillComboBoxWithPatients();
+            Room.ItemsSource = FillComboBoxWithRooms();
+            Physician.ItemsSource = FillComboBoxWithPhysicians();
 
+            Room.SelectedItem = appointment.Room;
+            Patient.SelectedItem = appointment.Patient;
+            Physician.SelectedItem = appointment.Physician;
+            IdBinding = appointment.Id;
+            DateOfAppointment.Value = appointment.DateOfAppointment;
+            Type.SelectedItem = appointment.Type;
         }
-        private List<Patient> ComboBoxPatients()
+
+        private List<Room> FillComboBoxWithRooms()
+        {
+            List<Room> roomsId = new List<Room>();
+            foreach (Room room in RoomsWindow.roomController.GetAll())
+            {
+                roomsId.Add(room);
+            }
+            return roomsId;
+        }
+        private List<Patient> FillComboBoxWithPatients()
         {
 
             PatientFileHandler patientFileHandler = new PatientFileHandler();
@@ -100,6 +159,18 @@ namespace WpfApp1
                 patientsUPN.Add(patient);
             }
             return patientsUPN;
+        }
+
+        private List<Physician> FillComboBoxWithPhysicians()
+        {
+            PhysicianController physicianController = new PhysicianController();
+            List<Physician> physicians = physicianController.GetAll();
+            List<Physician> physiciansId = new List<Physician>();
+            foreach (Physician physician in physicians)
+            {
+                physiciansId.Add(physician);
+            }
+            return physiciansId;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -131,23 +202,7 @@ namespace WpfApp1
                  SaveBtn.IsEnabled = true;
              }*/
         }
-        /*
-        private void Patient_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-            // if ((BloodGroup)ComboBox.SelectedItem != patient.bloodGroup && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
-            {
-                //SaveBtn.IsEnabled = true;
-            }
-            /*
-              else
-            {
-                SaveBtn.IsEnabled = false;
-            }
-            
-
-        }
-        */
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -161,16 +216,16 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                MedicalRecordWindow.medicalRecordController.Update(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding));
-                editedMedicalRecord = true;
-                if (editedMedicalRecord == true)
+                AppointmentWindow.appointmentController.Update(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding));
+
+                if (editedAppointment == true)
                 {
-                    MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
+                    AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Medical record with that register number already exists!", "Error");
+                    MessageBox.Show("Appointment with that register number already exists!", "Error");
                 }
 
 
@@ -178,9 +233,10 @@ namespace WpfApp1
 
         }
 
+
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(RegNumBinding))
+            if (string.IsNullOrEmpty(IdBinding))
             {
                 e.CanExecute = false;
             }
@@ -189,6 +245,5 @@ namespace WpfApp1
                 e.CanExecute = true;
             }
         }
-        
     }
 }

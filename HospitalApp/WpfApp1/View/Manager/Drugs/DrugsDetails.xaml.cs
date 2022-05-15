@@ -19,7 +19,6 @@ namespace WpfApp1.View.Manager.Drugs
     /// </summary>
     public partial class DrugsDetails : Window
     {
-        public static DrugsDetails instance;
         public DrugsDetails()
         {
             InitializeComponent();
@@ -29,6 +28,11 @@ namespace WpfApp1.View.Manager.Drugs
             Top = 0.198*height;
             Left = 0.25*width;
 
+            FillFields();
+        }
+
+        private void FillFields()
+        {
             Ingredients.Text = DrugsWindow.SelectedDrug.Ingredients;
             if (DrugsWindow.SelectedDrug.DrugB != null)
             {
@@ -37,20 +41,8 @@ namespace WpfApp1.View.Manager.Drugs
             Quantity.Text = DrugsWindow.SelectedDrug.Quantity.ToString();
         }
 
-        public static DrugsDetails getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new DrugsDetails();
-            }
-
-            return instance;
-        }
-
-
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            instance = null;
             Close();
         }
     }

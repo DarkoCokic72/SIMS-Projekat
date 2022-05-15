@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApp1.AppointmentDelete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Appointment delete" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button FontSize="40" Content="No" Margin="28,10,60,34" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Height="Auto" Grid.Row="3" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button FontSize="40" Content="Yes" Margin="34,10,54,34" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="3" Height="Auto" Grid.RowSpan="2"/>
+        <Label FontSize="60" Content="Are you sure?"  Height="108" Width="377" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="78,10,73,22" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </Grid>
+</Window>

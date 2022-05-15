@@ -22,6 +22,7 @@ namespace WpfApp1.View.Manager.Drugs
     /// </summary>
     public partial class DrugsWindow : Window
     {
+        private DrugController drugsController = new DrugController();
         public ObservableCollection<Drug> Drugs { get; set; }
         public static Drug SelectedDrug { get; set; }
         public DrugsWindow()
@@ -31,8 +32,6 @@ namespace WpfApp1.View.Manager.Drugs
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
-
-            DrugController drugsController = new DrugController();
             Drugs = new ObservableCollection<Drug>(drugsController.GetAll());
         }
 
@@ -57,8 +56,8 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_Details(object sender, RoutedEventArgs e)
         {
-            DrugsDetails.getInstance().ShowDialog();
-            
+            DrugsDetails drugsDetails = new DrugsDetails();
+            drugsDetails.ShowDialog();
         }
     }
 }
