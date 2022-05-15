@@ -72,7 +72,7 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
 
             ExaminationAppointment appointment = GetSelectedAppointment();
 
-            if(!btn.Content.Equals("Add") && appointment == null)
+            if (!(btn.Content.Equals("Add") || btn.Content.Equals("View Medications")) && appointment == null)
             {
                 MessageBox.Show("You need to select a row first!", "Error");
                 return;
@@ -82,7 +82,7 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
             {
                 CreateAppointmentWindow create = new CreateAppointmentWindow();
                 create.Show();
-            } else if (btn.Content.Equals("Edit")) 
+            } else if (btn.Content.Equals("Edit"))
             {
                 EditAppointmentWindow edit = new EditAppointmentWindow();
                 edit.Show();
@@ -92,8 +92,13 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
                 DeleteAppointmentWindow delete = new DeleteAppointmentWindow();
                 delete.Show();
             }
+            else if (btn.Content.Equals("View Medications"))
+            {
+                Medications.MedicationView medicationView = new Medications.MedicationView();
+                medicationView.Show();
+            }
         }
 
-
+        
     }
 }

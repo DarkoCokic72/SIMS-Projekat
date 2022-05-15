@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp1.View.Physiciann.Medications.MedicationDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View.Physiciann.Medications"
+        mc:Ignorable="d"
+        Title="MedicationDetails" Height="750" Width="430">
+    <Grid>
+        <Label Content="Ingredients" HorizontalAlignment="Left" Height="43" Margin="27,96,0,0" VerticalAlignment="Top" Width="115" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="116" Margin="27,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" Name="Ingredients" IsEnabled="False"/>
+        <Label Content="Replacement:" HorizontalAlignment="Left" Height="40" Margin="27,265,0,0" VerticalAlignment="Top" Width="132" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="27,310,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" Name="Replacement" IsEnabled="False"/>
+        <Label Content="Quantity:" HorizontalAlignment="Left" Margin="27,355,0,0" VerticalAlignment="Top" Width="115" FontSize="20" RenderTransformOrigin="0.474,1.462"/>
+        <TextBox HorizontalAlignment="Left" Height="37" Margin="27,392,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="225" Name="Quantity" IsEnabled="False"/>
+        <Button Content="Approve" HorizontalAlignment="Left" Height="34" Margin="27,535,0,0" VerticalAlignment="Top" Width="86" FontSize="17"/>
+        <Button Content="Disapprove" HorizontalAlignment="Left" Height="34" Margin="137,535,0,0" VerticalAlignment="Top" Width="114" FontSize="17"/>
+        <Button Content="Back" HorizontalAlignment="Left" Height="33" Margin="276,536,0,0" VerticalAlignment="Top" Width="115" FontSize="17" Click="Button_Click_Back"/>
+
+    </Grid>
+</Window>
