@@ -30,13 +30,12 @@ namespace WpfApp1
             PatientService patientService = new PatientService(patientRepository);
             PatientController patientController = new PatientController(patientService);
             List<Patient> patients = patientController.GetAll();
-            List<string> patientsUPN = new List<string>();
+            List<Patient> patientsUPN = new List<Patient>();
 
             foreach (Patient patient in patients)
             {
-                patientsUPN.Add(patient.name + " " + patient.surname);
+                patientsUPN.Add(patient);
             }
-
             Patient.ItemsSource = patientsUPN;
         }
 
@@ -103,7 +102,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                MedicalRecordWindow.medicalRecordController.Add(new MedicalRecord(RegNumBinding, PatientBinding, AllergensBinding));
+                MedicalRecordWindow.medicalRecordController.Add(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding));
                 addedMedicalRecord = true;
                 if (addedMedicalRecord == true)
                 {

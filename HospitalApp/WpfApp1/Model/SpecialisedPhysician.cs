@@ -7,7 +7,7 @@ using WpfApp1.Model;
 
 namespace Model
 {
-    public class SpecialisedPhysician : Physician
+    public class SpecialisedPhysician
     {
         private string specialisation { get; set; }
 

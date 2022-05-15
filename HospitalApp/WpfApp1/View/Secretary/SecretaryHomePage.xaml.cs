@@ -44,6 +44,11 @@ namespace WpfApp1.View.Secretary
                 GuestAccountsWindow guestAccountsWindow = GuestAccountsWindow.GetGuestAccountsWindow();
                 guestAccountsWindow.Show();
             }
+            if (btn.Content.Equals("Appointments"))
+            {
+                AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
+                appointmentWindow.Show();
+            }
 
         }
 

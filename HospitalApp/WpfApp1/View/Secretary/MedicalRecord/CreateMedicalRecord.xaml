@@ -21,7 +21,7 @@
             </Button.CommandBindings>
 
         </Button>
-        <ComboBox HorizontalAlignment="Left" Margin="220,84,0,0" VerticalAlignment="Top" Width="174" FontSize="18" Name="Patient" Text="{Binding Path=PatientBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
+        <ComboBox HorizontalAlignment="Left" Margin="220,84,0,0" VerticalAlignment="Top" Width="174" DisplayMemberPath="FullName" FontSize="18" Name="Patient" Text="{Binding Path=PatientBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
 
         <Label Content="Patient:*" HorizontalAlignment="Left" Margin="86,84,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Allergens:*" HorizontalAlignment="Left" Margin="67,144,0,0" VerticalAlignment="Top" FontSize="18"/>
