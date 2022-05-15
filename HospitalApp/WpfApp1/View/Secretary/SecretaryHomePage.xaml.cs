@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Dac.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace WpfApp1.View.Secretary
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Username.Text = Login.userAccount.name + " " + Login.userAccount.surname;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
