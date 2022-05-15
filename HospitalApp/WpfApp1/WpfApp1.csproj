@@ -270,6 +270,15 @@
     </Compile>
     <Compile Include="View\Secretary\Appointment\AppointmentWindow.xaml.cs">
       <DependentUpon>AppointmentWindow.xaml</DependentUpon>
+	</Compile>
+    <Compile Include="View\Physiciann\Medications\MedicationDetails.xaml.cs">
+      <DependentUpon>MedicationDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Physiciann\Medications\MedicationDisapproval.xaml.cs">
+      <DependentUpon>MedicationDisapproval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Physiciann\Medications\MedicationView.xaml.cs">
+      <DependentUpon>MedicationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml.cs">
       <DependentUpon>CreateMedicalRecord.xaml</DependentUpon>
@@ -423,6 +432,18 @@
     <Page Include="View\Secretary\Appointment\AppointmentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+	</Page>
+    <Page Include="View\Physiciann\Medications\MedicationDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Physiciann\Medications\MedicationDisapproval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Physiciann\Medications\MedicationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml">
       <SubType>Designer</SubType>
