@@ -587,8 +587,5 @@
   <ItemGroup>
     <Resource Include="images\notificationBell.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\login.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
