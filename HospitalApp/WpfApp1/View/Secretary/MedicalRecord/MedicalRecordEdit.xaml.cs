@@ -76,28 +76,30 @@ namespace WpfApp1
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-
             medicalRecord = MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord();
 
+            Patient.ItemsSource = ComboBoxPatients();
+
             RegNumBinding = medicalRecord.RegNum;
-            PatientBinding = medicalRecord.Patient;
+            Patient.SelectedItem = medicalRecord.Patient;
             AllergensBinding = medicalRecord.Allergens;
 
-            // Validation.UPNValidation.ValidationError = false;
+        }
+        private List<Patient> ComboBoxPatients()
+        {
+
             PatientFileHandler patientFileHandler = new PatientFileHandler();
             PatientRepository patientRepository = new PatientRepository(patientFileHandler);
             PatientService patientService = new PatientService(patientRepository);
             PatientController patientController = new PatientController(patientService);
             List<Patient> patients = patientController.GetAll();
-            List<string> patientsUPN = new List<string>();
+            List<Patient> patientsUPN = new List<Patient>();
 
-            foreach (Patient r in patients)
+            foreach (Patient patient in patients)
             {
-                patientsUPN.Add(r.uniquePersonalNumber);
+                patientsUPN.Add(patient);
             }
-
-            Patient.ItemsSource = patientsUPN;
-
+            return patientsUPN;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -129,7 +131,23 @@ namespace WpfApp1
                  SaveBtn.IsEnabled = true;
              }*/
         }
+        /*
+        private void Patient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+            // if ((BloodGroup)ComboBox.SelectedItem != patient.bloodGroup && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
+            {
+                //SaveBtn.IsEnabled = true;
+            }
+            /*
+              else
+            {
+                SaveBtn.IsEnabled = false;
+            }
+            
+
+        }
+        */
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -143,8 +161,8 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
 
-                MedicalRecordWindow.medicalRecordController.Update(new MedicalRecord(RegNumBinding, PatientBinding, AllergensBinding));
-
+                MedicalRecordWindow.medicalRecordController.Update(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding));
+                editedMedicalRecord = true;
                 if (editedMedicalRecord == true)
                 {
                     MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
@@ -160,23 +178,6 @@ namespace WpfApp1
 
         }
 
-         
-          private void Patient_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            // if ((BloodGroup)ComboBox.SelectedItem != patient.bloodGroup && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
-            {
-                //SaveBtn.IsEnabled = true;
-            }
-            /*
-              else
-            {
-                SaveBtn.IsEnabled = false;
-            }
-            */
-
-        }
-
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(RegNumBinding))
@@ -188,5 +189,6 @@ namespace WpfApp1
                 e.CanExecute = true;
             }
         }
+        
     }
 }

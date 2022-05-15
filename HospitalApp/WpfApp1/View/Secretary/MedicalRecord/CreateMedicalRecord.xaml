@@ -15,7 +15,7 @@
         <Label Content="Register number:*" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox Name="RegNum" HorizontalAlignment="Left" Margin="220,27,0,0" Text="{Binding Path=RegNumBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="129" FontSize="18" Height="34" RenderTransformOrigin="0.532,0.725"/>
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="300,284,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click"  >
+        <Button Content="Save" HorizontalAlignment="Left" Margin="300,284,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click" Height="34"  >
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>
