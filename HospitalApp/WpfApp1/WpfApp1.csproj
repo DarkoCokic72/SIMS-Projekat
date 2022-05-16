@@ -331,6 +331,9 @@
       <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\RoomService.cs" />
+    <Compile Include="View\Secretary\PurchaseEquipment\EquipmentPurchaseWindow.xaml.cs">
+      <DependentUpon>EquipmentPurchaseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Secretary\SecretaryHomePage.xaml.cs">
       <DependentUpon>SecretaryHomePage.xaml</DependentUpon>
     </Compile>
@@ -524,6 +527,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\RoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\PurchaseEquipment\EquipmentPurchaseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

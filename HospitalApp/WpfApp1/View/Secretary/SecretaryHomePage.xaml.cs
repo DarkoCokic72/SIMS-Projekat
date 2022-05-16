@@ -31,25 +31,30 @@ namespace WpfApp1.View.Secretary
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if (btn.Content.Equals("Patients"))
+            if (btn.Content.Equals("PATIENTS"))
             {
                 PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
                 patientsWindow.Show();
             }
-            if (btn.Content.Equals("Medical records"))
+            if (btn.Content.Equals("MEDICAL RECORDS"))
             {
                 MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
                 medicalRecordWindow.Show();
             }
-            if (btn.Content.Equals("Guest accounts"))
+            if (btn.Content.Equals("GUEST ACCOUNTS"))
             {
                 GuestAccountsWindow guestAccountsWindow = GuestAccountsWindow.GetGuestAccountsWindow();
                 guestAccountsWindow.Show();
             }
-            if (btn.Content.Equals("Appointments"))
+            if (btn.Content.Equals("APPOINTMENTS"))
             {
                 AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
                 appointmentWindow.Show();
+            }
+            if (btn.Content.Equals("BUY EQUIPMENT"))
+            {
+                EquipmentPurchaseWindow equipmentPurchaseWindow = EquipmentPurchaseWindow.GetEquipmentPurchaseWindow();
+                equipmentPurchaseWindow.Show();
             }
 
         }
