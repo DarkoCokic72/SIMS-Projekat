@@ -115,9 +115,19 @@ namespace WpfApp1.View.Patientt.PatientAppointments
 
 
         }
-        //protected override void OnClosing(CancelEventArgs e)
-        //{
-        //    AppointmentInstance = null;
-        //}
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            AppointmentInstance = null;
+        }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            App.CheckNotification = false;
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
+        }
+
     }
 }

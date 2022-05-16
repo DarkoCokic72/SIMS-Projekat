@@ -15,8 +15,8 @@ namespace WpfApp1.Model
     public class Physician : UserAccount
     {
         public string licenceID { get; set; } //class diagram
-        public string type { get; set; }
-        public string specialization { get; set; }
+        public string type { get; set; }  //specijalista ili ne
+        public PhysicianSpecialization specialization { get; set; } //koja je specijalizacija(opsta praksa,hirurg...)
         public Address office { get; set; }
 
         public string FullName
@@ -24,7 +24,7 @@ namespace WpfApp1.Model
             get { return name + " " + surname; }
         }
 
-        public Physician(string licenceID, string type, string specialization)
+        public Physician(string licenceID, string type, PhysicianSpecialization specialization)
         {
             this.licenceID = licenceID;
             this.type = type;

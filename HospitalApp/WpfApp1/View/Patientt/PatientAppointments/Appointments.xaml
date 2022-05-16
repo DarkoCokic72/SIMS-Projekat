@@ -12,6 +12,8 @@
         <Button Name="Edit" Content="Edit" HorizontalAlignment="Right" Margin="0,80,50,0" VerticalAlignment="Top" RenderTransformOrigin="1.809,0.763" FontSize="18" Width="95" Click="Button_Click" />
         <Button Name="AppointmentSurvey" Content="Appointment Survey" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.809,0.763" FontSize="18" Width="304" Click="Button_Click" />
         <DataGrid IsReadOnly="True" x:Name ="DataGridAppointments" ItemsSource="{Binding Path=Appointment}" AutoGenerateColumns="True" Margin="56,123,56,56"  ColumnWidth="*" RenderTransformOrigin="0.65,0.495"/>
-
+        <Button Width="90" Margin="692,0,10,359" Background="Transparent" BorderThickness="0" Click="Button_LogOut" RenderTransformOrigin="0.532,0.495">
+            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+        </Button>
     </Grid>
 </Window>

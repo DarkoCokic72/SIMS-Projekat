@@ -19,5 +19,8 @@
         <Button Content="Delete" HorizontalAlignment="Left" Margin="199,44,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.016,1.106" Height="41" FontSize="20" Click="Button_Click"/>
         <Button Content="Edit" HorizontalAlignment="Left" Margin="341,44,0,0" VerticalAlignment="Top" Width="105" Height="41" FontSize="20" Click="Button_Click"/>
         <Button Content="View Medications" HorizontalAlignment="Left" Height="41" Margin="489,44,0,0" VerticalAlignment="Top" Width="177" FontSize="20" Click="Button_Click"/>
+        <Button Width="90" Margin="692,0,10,359" Background="Transparent" BorderThickness="0" Click="Button_LogOut" RenderTransformOrigin="0.532,0.495">
+            <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
+        </Button>
     </Grid>
 </Window>
