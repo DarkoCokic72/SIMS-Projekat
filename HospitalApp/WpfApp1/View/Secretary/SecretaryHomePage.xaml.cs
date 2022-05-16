@@ -34,32 +34,32 @@ namespace WpfApp1.View.Secretary
             if (btn.Content.Equals("PATIENTS"))
             {
                 PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
-                patientsWindow.Show();
+                patientsWindow.ShowDialog();
             }
             if (btn.Content.Equals("MEDICAL RECORDS"))
             {
                 MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
-                medicalRecordWindow.Show();
+                medicalRecordWindow.ShowDialog();
             }
             if (btn.Content.Equals("GUEST ACCOUNTS"))
             {
                 GuestAccountsWindow guestAccountsWindow = GuestAccountsWindow.GetGuestAccountsWindow();
-                guestAccountsWindow.Show();
+                guestAccountsWindow.ShowDialog();
             }
             if (btn.Content.Equals("APPOINTMENTS"))
             {
                 AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
-                appointmentWindow.Show();
+                appointmentWindow.ShowDialog();
             }
             if (btn.Content.Equals("BUY EQUIPMENT"))
             {
                 EquipmentPurchaseWindow equipmentPurchaseWindow = EquipmentPurchaseWindow.GetEquipmentPurchaseWindow();
-                equipmentPurchaseWindow.Show();
+                equipmentPurchaseWindow.ShowDialog();
             }
             if (btn.Content.Equals("URGENT APPOINTMENT"))
             {
                 CreateUrgentAppointment createUrgentAppointment = new CreateUrgentAppointment();
-                createUrgentAppointment.Show();
+                createUrgentAppointment.ShowDialog();
             }
 
         }
