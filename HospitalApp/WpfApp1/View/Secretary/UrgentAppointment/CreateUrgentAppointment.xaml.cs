@@ -124,16 +124,9 @@ namespace WpfApp1
                 PhysicianController physicianController = new PhysicianController();
                 List<Physician> physicians = physicianController.GetAll();
 
-                /*
-                PatientFileHandler patientFileHandler = new PatientFileHandler();
-                PatientRepository patientRepository = new PatientRepository(patientFileHandler);
-                PatientService patientService = new PatientService(patientRepository);
-                PatientController patientController = new PatientController(patientService);
-                List<Patient> patients = patientController.GetAll();
-                */
-
                 RoomController roomController = new RoomController();
                 List<Room> rooms = RoomsWindow.roomController.GetAll();
+
                 AppointmentFileHandler handler = new AppointmentFileHandler();
                 AppointmentRepository appointmentRepository = new AppointmentRepository(handler);
                 AppointmentService appointmentService = new AppointmentService(appointmentRepository);
@@ -143,7 +136,6 @@ namespace WpfApp1
                 addedAppointment = true;
                 if (addedAppointment == true)
                 {
-                   // AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                     Close();
                 }
                 else

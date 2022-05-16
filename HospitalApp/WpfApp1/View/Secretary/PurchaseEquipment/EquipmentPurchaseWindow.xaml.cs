@@ -93,25 +93,25 @@ namespace WpfApp1
             {
                 EquipmentRepository repo = new EquipmentRepository();
 
-                List<Equipment> list = equipmentController.GetAll();
+                List<Equipment> equipmentList = equipmentController.GetAll();
 
-                foreach (Equipment equipment in list)
+                foreach (Equipment equipment in equipmentList)
                 {
-                    Equipment eq = Equipment.SelectedItem as Equipment;
+                    Equipment selectedEquipment = Equipment.SelectedItem as Equipment;
 
-                    if (eq == null) 
+                    if (selectedEquipment == null) 
                     {
                         continue;
                     }
                     
-                    if (equipment.Id == eq.Id) 
+                    if (equipment.Id == selectedEquipment.Id) 
                     {
                         equipment.Quantity += quantityBinding;
                         
                     }
                 }
 
-                repo.UpdateAll(list);
+                repo.UpdateAll(equipmentList);
 
                 Close();
             }
