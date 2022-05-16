@@ -146,6 +146,7 @@
     <Compile Include="FileHandler\UserAccountFileHandler.cs" />
     <Compile Include="Model\AdvancedRenovation.cs" />
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\PhysicianSpecialization.cs" />
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\Equipment.cs" />
@@ -332,6 +333,9 @@
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="View\Secretary\SecretaryHomePage.xaml.cs">
       <DependentUpon>SecretaryHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\UrgentAppointment\CreateUrgentAppointment.xaml.cs">
+      <DependentUpon>CreateUrgentAppointment.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -526,6 +530,10 @@
     <Page Include="View\Secretary\SecretaryHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Secretary\UrgentAppointment\CreateUrgentAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
