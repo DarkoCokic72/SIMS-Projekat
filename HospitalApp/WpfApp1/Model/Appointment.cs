@@ -16,6 +16,8 @@ namespace Model
         public string Id { get; set; }
         public AppointmentType Type { get; set; }
 
+        public bool Changed { get; set; }
+
 
         public Appointment(Physician physician, Patient patient, Room room, DateTime date, string id, AppointmentType type)
         {

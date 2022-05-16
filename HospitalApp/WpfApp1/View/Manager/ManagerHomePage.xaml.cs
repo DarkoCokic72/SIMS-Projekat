@@ -53,6 +53,7 @@ namespace WpfApp1.View.Manager
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
+            App.CheckNotification = true;
             Close();
         }
 

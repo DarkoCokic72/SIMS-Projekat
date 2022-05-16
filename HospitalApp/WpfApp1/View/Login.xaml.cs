@@ -94,6 +94,18 @@ namespace WpfApp1.View
                 {
                     PhysicianLogin();
                 }
+                App.CheckNotification = true;
+                if (App.AppointmentEdited.ThreadState != System.Threading.ThreadState.Running) 
+                {
+                    try
+                    {
+                        App.AppointmentEdited.Start();
+                    }
+                    catch (Exception ex) 
+                    {
+                    }
+                }
+                
 
                 this.Close();
             }

@@ -99,6 +99,13 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
             }
         }
 
-        
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            App.CheckNotification = false;
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
+        }
     }
 }

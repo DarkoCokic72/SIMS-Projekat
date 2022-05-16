@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using Repo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,6 +27,7 @@ namespace WpfApp1
     public partial class EquipmentPurchaseWindow : Window
     {
         public static EquipmentPurchaseWindow equipmentPurchaseWindowInstance;
+        public EquipmentController equipmentController = new EquipmentController();
         public static ObservableCollection<Equipment> Equipments { get; set; }
         public EquipmentPurchaseWindow()
         {
@@ -38,8 +40,8 @@ namespace WpfApp1
             Equipment.ItemsSource = GetWareHouseEquipment();
 
         }
-        private string quantityBinding;
-        public string QuantityBinding
+        private int quantityBinding;
+        public int QuantityBinding
         {
             get
             {
@@ -63,7 +65,7 @@ namespace WpfApp1
 
         private List<Equipment> GetWareHouseEquipment()
         {
-            EquipmentController equipmentController = new EquipmentController();
+            
             List<Equipment> equipments = equipmentController.GetAll();
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in equipments)
@@ -71,6 +73,7 @@ namespace WpfApp1
                 {
                     equipmentList.Add(equipment);
                 }
+
             return equipmentList;
         }
 
@@ -83,6 +86,34 @@ namespace WpfApp1
             return equipmentPurchaseWindowInstance;
         }
 
+        private void Button_Click_Save(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn.Content.Equals("Save"))
+            {
+                EquipmentRepository repo = new EquipmentRepository();
+
+                foreach (Equipment equipment in equipmentController.GetAll())
+                {
+                    Equipment eq = Equipment.SelectedItem as Equipment;
+
+                    if (eq == null) 
+                    {
+                        continue;
+                    }
+                    
+                    if (equipment.Id == eq.Id) 
+                    {
+                        equipment.Quantity += quantityBinding;
+                        
+                    }
+                }
+
+                repo.UpdateAll(equipmentController.GetAll());
+
+                Close();
+            }
+        }
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
@@ -91,18 +122,10 @@ namespace WpfApp1
                 Close();
             }
         }
-        private void Button_Click_Save(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            if (btn.Content.Equals("Save"))
-            {
-                
-            }
-        }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(QuantityBinding))
+            if (QuantityBinding > 0)
             {
                 e.CanExecute = true;
             }

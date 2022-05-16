@@ -39,13 +39,13 @@ namespace WpfApp1
 
             App.RelocationThread.Start();
             App.RenovationThread.Start();
-             
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             App.RelocationThread.Abort();
             App.RenovationThread.Abort();
+            App.AppointmentEdited.Abort();
         }
 
         

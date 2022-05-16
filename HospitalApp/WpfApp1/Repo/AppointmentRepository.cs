@@ -39,22 +39,20 @@ namespace Repo
         {
             List<Appointment> appointmentsList = GetAll();
 
-            if (WpfApp1.AppointmentWindow.appointmentWindowInstance.getSelectedAppointment().Id != appointment.Id)
-            {
-                for (int i = 0; i < appointmentsList.Count; i++)
-                {
 
-                    if (appointmentsList[i].Id.Equals(appointment.Id))
-                    {
-                        WpfApp1.AppointmentEdit.editedAppointment = false;
-                        return;
-                    }
-                }
-            }
             for (int i = 0; i < appointmentsList.Count; i++)
             {
 
-                if (appointmentsList[i].Id.Equals(WpfApp1.AppointmentWindow.appointmentWindowInstance.getSelectedAppointment().Id))
+                if (appointmentsList[i].Id.Equals(appointment.Id))
+                {
+                    WpfApp1.AppointmentEdit.editedAppointment = false;
+                }
+            }
+            
+            for (int i = 0; i < appointmentsList.Count; i++)
+            {
+
+                if (appointmentsList[i].Id.Equals(appointment.Id))
                 {
 
                     appointmentsList[i] = appointment;

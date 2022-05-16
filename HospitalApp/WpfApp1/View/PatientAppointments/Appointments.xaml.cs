@@ -104,5 +104,14 @@ namespace WpfApp1.View.PatientAppointments
         {
             AppointmentInstance = null;
         }
+
+        private void Button_LogOut(object sender, RoutedEventArgs e)
+        {
+            App.CheckNotification = false;
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
+        }
     }
 }
