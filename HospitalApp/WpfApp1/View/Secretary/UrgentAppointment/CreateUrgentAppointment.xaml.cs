@@ -27,18 +27,10 @@ namespace WpfApp1
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Type.ItemsSource = Enum.GetValues(typeof(AppointmentType)).Cast<AppointmentType>();
             Specialization.ItemsSource = Enum.GetValues(typeof(PhysicianSpecialization)).Cast<PhysicianSpecialization>();
+            Patient.ItemsSource = ComboBoxPatients();
 
         }
-        private List<Room> FillComboBoxWithRooms()
-        {
-            List<Room> roomsId = new List<Room>();
-            foreach (Room room in RoomsWindow.roomController.GetAll())
-            {
-                roomsId.Add(room);
-            }
-            return roomsId;
-        }
-        private List<Patient> FillComboBoxWithPatients()
+        private List<Patient> ComboBoxPatients()
         {
 
             PatientFileHandler patientFileHandler = new PatientFileHandler();
@@ -53,18 +45,6 @@ namespace WpfApp1
                 patientsUPN.Add(patient);
             }
             return patientsUPN;
-        }
-    
-        private List<Physician> FillComboBoxWithPhysicians()
-        {
-            PhysicianController physicianController = new PhysicianController();
-            List <Physician> physicians = physicianController.GetAll();
-            List<Physician> physiciansId = new List<Physician>();
-            foreach (Physician physician in physicians)
-            {    
-                    physiciansId.Add(physician);   
-            }
-            return physiciansId;
         }
 
         private string idBinding;
@@ -95,48 +75,6 @@ namespace WpfApp1
             }
         }
 
-        private Physician physicianBinding;
-        public Physician PhysicianBinding
-        {
-            get
-            {
-                return physicianBinding;
-            }
-            set
-            {
-                physicianBinding = value;
-                OnPropertyChanged("PhysicianBinding");
-            }
-        }
-
-        private Room roomBinding;
-        public Room RoomBinding
-        {
-            get
-            {
-                return roomBinding;
-            }
-            set
-            {
-                roomBinding = value;
-                OnPropertyChanged("RoomBinding");
-            }
-        }
-
-        private DateTime dateOfAppointmentBinding;
-        public DateTime DateOfAppointmentBinding
-        {
-            get
-            {
-                return dateOfAppointmentBinding;
-            }
-            set
-            {
-                dateOfAppointmentBinding = value;
-                OnPropertyChanged("DateOfAppointmentBinding");
-            }
-        }
-
         private AppointmentType appointmentTypeBinding;
         public AppointmentType AppointmentTypeBinding
         {
@@ -148,6 +86,20 @@ namespace WpfApp1
             {
                 appointmentTypeBinding = value;
                 OnPropertyChanged("AppointmentTypeBinding");
+            }
+        }
+
+        private PhysicianSpecialization specializationBinding;
+        public PhysicianSpecialization SpecializationBinding
+        {
+            get
+            {
+                return specializationBinding;
+            }
+            set
+            {
+                specializationBinding = value;
+                OnPropertyChanged("SpecializationBinding");
             }
         }
 

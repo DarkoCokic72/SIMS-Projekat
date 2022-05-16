@@ -56,6 +56,11 @@ namespace WpfApp1.View.Secretary
                 EquipmentPurchaseWindow equipmentPurchaseWindow = EquipmentPurchaseWindow.GetEquipmentPurchaseWindow();
                 equipmentPurchaseWindow.Show();
             }
+            if (btn.Content.Equals("URGENT APPOINTMENT"))
+            {
+                CreateUrgentAppointment createUrgentAppointment = new CreateUrgentAppointment();
+                createUrgentAppointment.Show();
+            }
 
         }
 
