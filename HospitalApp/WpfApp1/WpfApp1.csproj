@@ -201,11 +201,26 @@
     <Compile Include="View\Manager\Rooms\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Patientt\AppoinmentSurveyAssistants.xaml.cs">
+      <DependentUpon>AppoinmentSurveyAssistants.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\AppointmentSurveyDoctor.xaml.cs">
+      <DependentUpon>AppointmentSurveyDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\AppointmentSurveyOrdination.xaml.cs">
+      <DependentUpon>AppointmentSurveyOrdination.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Patientt\HospitalSurveyKitchen.xaml.cs">
       <DependentUpon>HospitalSurveyKitchen.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Patientt\HospitalSurveyRoom.xaml.cs">
       <DependentUpon>HospitalSurveyRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\AppointmentSurvey.xaml.cs">
+      <DependentUpon>AppointmentSurvey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\AppointmentSurveyWindow.xaml.cs">
+      <DependentUpon>AppointmentSurveyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Patientt\Survey\EnumConverter.cs" />
     <Compile Include="View\Patientt\HospitalSurveyToilet.xaml.cs">
@@ -232,8 +247,11 @@
     <Compile Include="View\Patientt\Survey\QuestionnaireControl.xaml.cs">
       <DependentUpon>QuestionnaireControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Patientt\Survey\SurveyWindow.xaml.cs">
-      <DependentUpon>SurveyWindow.xaml</DependentUpon>
+    <Compile Include="View\Patientt\Survey\QuestionnaireControlAppointment.xaml.cs">
+      <DependentUpon>QuestionnaireControlAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\HospitalSurveyWindow.xaml.cs">
+      <DependentUpon>HospitalSurveyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Physiciann\ExaminationAppointments\CreateAppointmentWindow.xaml.cs">
       <DependentUpon>CreateAppointmentWindow.xaml</DependentUpon>
@@ -316,6 +334,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Patientt\AppoinmentSurveyAssistants.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\AppointmentSurveyDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\AppointmentSurveyOrdination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Patientt\HospitalSurveyKitchen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -348,6 +378,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Patientt\Survey\AppointmentSurvey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\AppointmentSurveyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Patientt\Survey\HospitalSurvey.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -356,7 +394,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Patientt\Survey\SurveyWindow.xaml">
+    <Page Include="View\Patientt\Survey\QuestionnaireControlAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\HospitalSurveyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

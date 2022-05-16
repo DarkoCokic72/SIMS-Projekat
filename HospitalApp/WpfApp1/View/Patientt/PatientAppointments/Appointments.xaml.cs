@@ -18,6 +18,7 @@ using Repo;
 using Service;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using WpfApp1.View.Patientt.Survey;
 
 
 namespace WpfApp1.View.Patientt.PatientAppointments
@@ -95,6 +96,20 @@ namespace WpfApp1.View.Patientt.PatientAppointments
             {
                 EditAppointment editAppointments = new EditAppointment();
                 editAppointments.Show();
+
+            }
+            Button AppointmentQuest = (Button)sender;
+            if (AppointmentQuest.Content.Equals("Appointment Survey"))
+            {
+                if (Appointments.datetimeOfAppointment < DateTime.Now)
+                {
+                    AppointmentSurvey appointmentSurveyWindow = new AppointmentSurvey();
+                    appointmentSurveyWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("You must first go on that appointment", "Error");
+                }
 
             }
 

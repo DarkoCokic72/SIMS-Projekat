@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp1.View.Patientt.AppointmentSurveyDoctor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:WpfApp1.View.Patientt.Survey"
+        xmlns:model="clr-namespace:WpfApp1.Model"
+        mc:Ignorable="d"
+        Title="Doctor Survey" Height="450" Width="800">
+    <Grid>
+        <uc:QuestionnaireControlAppointment>
+
+            <uc:QuestionnaireControlAppointment.AppointmentQuestions>
+
+                <model:QuestionAndAnswers Number="1" Question="Is he/she polite?">
+
+                    <model:QuestionAndAnswers.Answers>
+                        <model:Answer Value="1" Text="1" IsSelected="true" />
+                        <model:Answer Value="2" Text="2" />
+                        <model:Answer Value="3" Text="3" />
+                        <model:Answer Value="4" Text="4" />
+                        <model:Answer Value="5" Text="5" />
+                    </model:QuestionAndAnswers.Answers>
+                </model:QuestionAndAnswers>
+
+                <model:QuestionAndAnswers Number="2" Question="Is he/she solve your problem ?">
+                    <model:QuestionAndAnswers.Answers>
+                        <model:Answer Value="1" Text="1" IsSelected="true"/>
+                        <model:Answer Value="2" Text="2" />
+                        <model:Answer Value="3" Text="3" />
+                        <model:Answer Value="4" Text="4" />
+                        <model:Answer Value="5" Text="5" />
+                    </model:QuestionAndAnswers.Answers>
+                </model:QuestionAndAnswers>
+                <model:QuestionAndAnswers Number="3" Question="Are you come again to him ?">
+                    <model:QuestionAndAnswers.Answers>
+                        <model:Answer Value="1" Text="1"  IsSelected="true"/>
+                        <model:Answer Value="2" Text="2"/>
+                        <model:Answer Value="3" Text="3" />
+                        <model:Answer Value="4" Text="4" />
+                        <model:Answer Value="5" Text="5" />
+                    </model:QuestionAndAnswers.Answers>
+                </model:QuestionAndAnswers>
+
+            </uc:QuestionnaireControlAppointment.AppointmentQuestions>
+        </uc:QuestionnaireControlAppointment>
+        <Button Content="Finish" HorizontalAlignment="Left" Margin="250,167,0,0" VerticalAlignment="Top" Height="50" Width="150" Click="Button_Click"/>
+        </Grid>
+</Window>

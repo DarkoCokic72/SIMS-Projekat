@@ -12,30 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.View.Patientt.Survey;
-
 namespace WpfApp1.View.Patientt
 {
     /// <summary>
-    /// Interaction logic for HospitalSurveyRoom.xaml
+    /// Interaction logic for AppointmentSurveyOrdination.xaml
     /// </summary>
-    public partial class HospitalSurveyRoom : Window
+    public partial class AppointmentSurveyOrdination : Window
     {
-        public static HospitalSurveyRoom HospitalSurveyRoomInstance;
-        public HospitalSurveyRoom()
+        public static AppointmentSurveyOrdination AppointmentSurveyOrdinationInstance;
+        public AppointmentSurveyOrdination()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        public static HospitalSurveyRoom GetHospitalSurveyRoom()
+        public static AppointmentSurveyOrdination GetAppointmentSurveyOrdination()
         {
-            if (HospitalSurveyRoomInstance == null)
+            if (AppointmentSurveyOrdinationInstance == null)
             {
-                HospitalSurveyRoomInstance = new HospitalSurveyRoom();
+                AppointmentSurveyOrdinationInstance = new AppointmentSurveyOrdination();
 
             }
 
-            return HospitalSurveyRoomInstance;
+            return AppointmentSurveyOrdinationInstance;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,10 +42,11 @@ namespace WpfApp1.View.Patientt
             Button btn = (Button)sender;
             if (btn.Content.Equals("Finish"))
             {
-                HospitalSurveyWindow hospitalSurveyWindowWindow = HospitalSurveyWindow.GetHospitalSurveyWindow();
-                hospitalSurveyWindowWindow.Show();
+                AppointmentSurveyWindow appointmentSurveyWindow = AppointmentSurveyWindow.GetAppointmentSurveyWindow();
+                appointmentSurveyWindow.Show();
                 Close();
             }
         }
     }
 }
+

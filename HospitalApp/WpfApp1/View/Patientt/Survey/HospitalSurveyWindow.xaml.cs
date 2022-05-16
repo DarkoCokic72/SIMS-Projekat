@@ -20,26 +20,26 @@ namespace WpfApp1.View.Patientt.Survey
     /// <summary>
     /// Interaction logic for SurveyWindow.xaml
     /// </summary>
-    public partial class SurveyWindow : Window
+    public partial class HospitalSurveyWindow : Window
     {
-        public static SurveyWindow SurveyWindowInstance;
+        public static HospitalSurveyWindow HospitalSurveyWindowInstance;
         public ObservableCollection<Answer> Surveys {get; set; }
         public QuestionnaireControl questionnaireControl { get; set; }
-        public SurveyWindow()
+        public HospitalSurveyWindow()
         {
             InitializeComponent();
             Surveys = new ObservableCollection<Answer>();
         }
 
-        public static SurveyWindow GetSurveyWindow()
+        public static HospitalSurveyWindow GetHospitalSurveyWindow()
         {
-            if (SurveyWindowInstance == null)
+            if (HospitalSurveyWindowInstance == null)
             {
-                SurveyWindowInstance = new SurveyWindow();
+                HospitalSurveyWindowInstance = new HospitalSurveyWindow();
 
             }
 
-            return SurveyWindowInstance;
+            return HospitalSurveyWindowInstance;
         }
 
     }   
