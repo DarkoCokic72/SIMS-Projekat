@@ -18,7 +18,7 @@ using WpfApp1.FileHandler;
 using WpfApp1.Repo;
 using WpfApp1.Service;
 using WpfApp1.View.Manager;
-using WpfApp1.View.PatientAppointments;
+using WpfApp1.View.Patientt;
 using WpfApp1.View.Physiciann.ExaminationAppointments;
 using WpfApp1.View.Secretary;
 
@@ -94,9 +94,9 @@ namespace WpfApp1.View
                 }
                 if (userAccount.GetType() == typeof(Model.Patient))
                 {
-                    Appointments appointments = new Appointments();
+                    PatientHomePage patientHomePage = new PatientHomePage();
                     this.Close();
-                    appointments.ShowDialog();
+                    patientHomePage.ShowDialog();
                     return;
                 }
                 if (userAccount.GetType() == typeof(Model.Physician))

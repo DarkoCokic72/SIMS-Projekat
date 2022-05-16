@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp1.View.Patientt.HospitalSurveyRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc = "clr-namespace:WpfApp1.View.Patientt.Survey"
+        xmlns:model="clr-namespace:WpfApp1.Model"
+        mc:Ignorable="d"
+        Title="Room Survey" Height="450" Width="800">
+    <Grid>
+        <uc:QuestionnaireControl>
+
+            <uc:QuestionnaireControl.Questions>
+
+                <model:QuestionAndAnswers Number="7" Question="Is it clean?">
+
+                    <model:QuestionAndAnswers.Answers>
+                        <model:Answer Value="1" Text="1" IsSelected="true" />
+                        <model:Answer Value="2" Text="2" />
+                        <model:Answer Value="3" Text="3" />
+                        <model:Answer Value="4" Text="4" />
+                        <model:Answer Value="5" Text="5" />
+                    </model:QuestionAndAnswers.Answers>
+                </model:QuestionAndAnswers>
+
+                <model:QuestionAndAnswers Number="8" Question="Is it enough beds ?">
+                    <model:QuestionAndAnswers.Answers>
+                        <model:Answer Value="1" Text="1" IsSelected="true"/>
+                        <model:Answer Value="2" Text="2" />
+                        <model:Answer Value="3" Text="3" />
+                        <model:Answer Value="4" Text="4" />
+                        <model:Answer Value="5" Text="5" />
+                    </model:QuestionAndAnswers.Answers>
+                </model:QuestionAndAnswers>
+                <model:QuestionAndAnswers Number="9" Question="Is it temperature ok?">
+                    <model:QuestionAndAnswers.Answers>
+                        <model:Answer Value="1" Text="1"  IsSelected="true"/>
+                        <model:Answer Value="2" Text="2"/>
+                        <model:Answer Value="3" Text="3" />
+                        <model:Answer Value="4" Text="4" />
+                        <model:Answer Value="5" Text="5" />
+                    </model:QuestionAndAnswers.Answers>
+                </model:QuestionAndAnswers>
+
+            </uc:QuestionnaireControl.Questions>
+        </uc:QuestionnaireControl>
+        <Button Content="Finish" HorizontalAlignment="Left" Margin="250,217,0,0" VerticalAlignment="Top" Height="50" Width="150" Click="Button_Click"/>
+    </Grid>
+
+</Window>

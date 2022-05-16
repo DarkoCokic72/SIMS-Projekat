@@ -2,8 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1.View.PatientAppointments"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.PatientAppointments.EditAppointment"
+        xmlns:local="clr-namespace:WpfApp1.View.Patientt.PatientAppointments"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.View.Patientt.PatientAppointments.EditAppointment"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="EditAppointment" Height="450" Width="800">
@@ -27,7 +27,7 @@
         <!--<TextBox HorizontalAlignment="Left" Margin="204,268,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="18" Name="Time" Text="{Binding TimeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >-->
 
         <!--</TextBox>-->
-        <TextBox HorizontalAlignment="Left" Margin="204,146,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Name="Doctor"  IsReadOnly="True">
+        <TextBox HorizontalAlignment="Left" Margin="204,146,0,0" Name="Doctor"  IsReadOnly="True">
             <TextBox.Text>
                 <Binding Path="DoctorBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
             </TextBox.Text>
@@ -38,12 +38,12 @@
             </TextBox.Text>
         </TextBox>
         <Label Content="Room" HorizontalAlignment="Left" Margin="115,311,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <!--<syncfusion:DateTimeEdit  HorizontalAlignment="Left" Height="46" Margin="204,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="Date" PatternChanged="Date_PatternChanged" SelectionChanged="Date_SelectionChanged" CultureInfo="en-US" >
+        <syncfusion:DateTimeEdit  HorizontalAlignment="Left" Height="46" Margin="204,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="Date"  CultureInfo="en-US" >
             <syncfusion:DateTimeEdit.Text>
 
                 <Binding Path="DateBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" />
             </syncfusion:DateTimeEdit.Text>
-        </syncfusion:DateTimeEdit>-->
-
+        </syncfusion:DateTimeEdit>
+        <!--PatternChanged="Date_PatternChanged" SelectionChanged="Date_SelectionChanged"-->
     </Grid>
 </Window>

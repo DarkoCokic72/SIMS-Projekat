@@ -20,7 +20,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 
-namespace WpfApp1.View.PatientAppointments
+namespace WpfApp1.View.Patientt.PatientAppointments
 {
     /// <summary>
     /// Interaction logic for Appointments.xaml
@@ -100,9 +100,9 @@ namespace WpfApp1.View.PatientAppointments
 
 
         }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            AppointmentInstance = null;
-        }
+        //protected override void OnClosing(CancelEventArgs e)
+        //{
+        //    AppointmentInstance = null;
+        //}
     }
 }
