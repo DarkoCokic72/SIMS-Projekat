@@ -112,22 +112,38 @@ namespace WpfApp1
             }
         }
 
-        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
             if (btn.Content.Equals("Cancel"))
             {
                 Close();
             }
-            /*
             else if (btn.Content.Equals("Save"))
             {
+                PhysicianController physicianController = new PhysicianController();
+                List<Physician> physicians = physicianController.GetAll();
 
-                AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding));
+                /*
+                PatientFileHandler patientFileHandler = new PatientFileHandler();
+                PatientRepository patientRepository = new PatientRepository(patientFileHandler);
+                PatientService patientService = new PatientService(patientRepository);
+                PatientController patientController = new PatientController(patientService);
+                List<Patient> patients = patientController.GetAll();
+                */
+
+                RoomController roomController = new RoomController();
+                List<Room> rooms = RoomsWindow.roomController.GetAll();
+                AppointmentFileHandler handler = new AppointmentFileHandler();
+                AppointmentRepository appointmentRepository = new AppointmentRepository(handler);
+                AppointmentService appointmentService = new AppointmentService(appointmentRepository);
+                AppointmentController appointmentController = new AppointmentController(appointmentService);
+
+                appointmentController.Add(new Appointment(physicians[0], Patient.SelectedItem as Patient, rooms[2], DateTime.Now, IdBinding, AppointmentTypeBinding));
                 addedAppointment = true;
                 if (addedAppointment == true)
                 {
-                    AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
+                   // AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                     Close();
                 }
                 else
@@ -135,9 +151,8 @@ namespace WpfApp1
                     MessageBox.Show("Appointment with that reg num already exists!", "Error");
                 }
             }
-            */
         }
-        
+
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
