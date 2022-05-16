@@ -93,7 +93,9 @@ namespace WpfApp1
             {
                 EquipmentRepository repo = new EquipmentRepository();
 
-                foreach (Equipment equipment in equipmentController.GetAll())
+                List<Equipment> list = equipmentController.GetAll();
+
+                foreach (Equipment equipment in list)
                 {
                     Equipment eq = Equipment.SelectedItem as Equipment;
 
@@ -109,7 +111,7 @@ namespace WpfApp1
                     }
                 }
 
-                repo.UpdateAll(equipmentController.GetAll());
+                repo.UpdateAll(list);
 
                 Close();
             }
