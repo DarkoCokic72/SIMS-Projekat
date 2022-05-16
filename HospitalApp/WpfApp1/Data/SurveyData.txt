@@ -1,0 +1,28 @@
+[
+  {
+    "Title": "Appointments survey",
+    "Question": [
+      "Lekar se prema meni ophodio sa pažnjom.",
+      "Lekar je pokazao interesovanje za moj problem.",
+      "Lekar me nije osuđivao ili učinio da se osećam loše zbog mog problema",
+      "Predlozi i saveti lekara su bili jasni i nedvosmisleni.",
+      "Predlozi i saveti lekara su mi pomogli.",
+      "Lekar je za svaku preporuku."
+    ],
+    "Type": "AppointmentsSurvey",
+    "Id": 1
+  },
+  {
+    "Title": "Hospital survey",
+    "Question": [
+      "Osoblje bolnice je bilo ljubazno i profesionalno.",
+      "Osoblje bolnice mi je ulepšalo i olakšalo boravak u bolnici.",
+      "Bolnica je bila čista i u skladu sa najvišim higijenskim standardima.",
+      "Boravak u bolnici bio je prijatan.",
+      "Medicinsko osoblje je pružilo negu koja mi je bila potrebna.",
+      "Usluge koje pružamo su za svaku preporuku."
+    ],
+    "Type": "HospitalSurvey",
+    "Id": 2
+  }
+]

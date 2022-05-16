@@ -84,6 +84,11 @@
       <HintPath>..\packages\Syncfusion.Shared.WPF.20.1.0.47\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -128,6 +133,7 @@
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PatientExaminationAppointmentController.cs" />
     <Compile Include="Controller\PhysicianController.cs" />
+    <Compile Include="Controller\SurveyController.cs" />
     <Compile Include="Controller\UserAccountController.cs" />
     <Compile Include="FileHandler\AdvancedRenovationFileHandler.cs" />
     <Compile Include="FileHandler\AppointmentFileHandler.cs" />
@@ -143,6 +149,7 @@
     <Compile Include="FileHandler\PhysicianFileHandler.cs" />
     <Compile Include="FileHandler\RelocationFileHandler.cs" />
     <Compile Include="FileHandler\RenovationFileHandler.cs" />
+    <Compile Include="FileHandler\SurveyFileHandler.cs" />
     <Compile Include="FileHandler\UserAccountFileHandler.cs" />
     <Compile Include="Model\AdvancedRenovation.cs" />
     <Compile Include="Model\Appointment.cs" />
@@ -150,7 +157,13 @@
     <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\EquipmentType.cs" />
+    <Compile Include="Model\Answer.cs" />
+    <Compile Include="Model\AnswerCollection.cs" />
+    <Compile Include="Model\SurveyAnswer.cs" />
+    <Compile Include="Model\HospitalSurvey.cs" />
     <Compile Include="Model\MedicalRecord.cs" />
+    <Compile Include="Model\QuestionAndAnswers.cs" />
+    <Compile Include="Model\QuestionCollection.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
     <Compile Include="Model\Renovation.cs" />
@@ -178,6 +191,7 @@
     <Compile Include="Repo\RelocationRepository.cs" />
     <Compile Include="Repo\RenovationRepository.cs" />
     <Compile Include="Repo\SecretaryRepository.cs" />
+    <Compile Include="Repo\SurveyRepository.cs" />
     <Compile Include="Repo\UserAccountRepository.cs" />
     <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\DrugService.cs" />
@@ -190,6 +204,7 @@
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Repo\EquipmentRepository.cs" />
     <Compile Include="Service\PhysicianService.cs" />
+    <Compile Include="Service\SurveySevice.cs" />
     <Compile Include="Service\UserAccountService.cs" />
     <Compile Include="Validation\DrugsValidation.cs" />
     <Compile Include="Validation\PatientValidation.cs" />
@@ -238,14 +253,53 @@
     <Compile Include="View\Manager\Rooms\SplitRooms1.xaml.cs">
       <DependentUpon>SplitRooms1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PatientAppointments\Appointments.xaml.cs">
+    <Compile Include="View\Patientt\AppoinmentSurveyAssistants.xaml.cs">
+      <DependentUpon>AppoinmentSurveyAssistants.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\AppointmentSurveyDoctor.xaml.cs">
+      <DependentUpon>AppointmentSurveyDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\AppointmentSurveyOrdination.xaml.cs">
+      <DependentUpon>AppointmentSurveyOrdination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\HospitalSurveyKitchen.xaml.cs">
+      <DependentUpon>HospitalSurveyKitchen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\HospitalSurveyRoom.xaml.cs">
+      <DependentUpon>HospitalSurveyRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\AppointmentSurvey.xaml.cs">
+      <DependentUpon>AppointmentSurvey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\AppointmentSurveyWindow.xaml.cs">
+      <DependentUpon>AppointmentSurveyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\HospitalSurveyToilet.xaml.cs">
+      <DependentUpon>HospitalSurveyToilet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\PatientAppointments\Appointments.xaml.cs">
       <DependentUpon>Appointments.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PatientAppointments\EditAppointment.xaml.cs">
+    <Compile Include="View\Patientt\PatientAppointments\EditAppointment.xaml.cs">
       <DependentUpon>EditAppointment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PatientAppointments\NewAppointment.xaml.cs">
+    <Compile Include="View\Patientt\PatientAppointments\NewAppointment.xaml.cs">
       <DependentUpon>NewAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\PatientHomePage.xaml.cs">
+      <DependentUpon>PatientHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\HospitalSurvey.xaml.cs">
+      <DependentUpon>HospitalSurvey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\QuestionnaireControl.xaml.cs">
+      <DependentUpon>QuestionnaireControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\QuestionnaireControlAppointment.xaml.cs">
+      <DependentUpon>QuestionnaireControlAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Patientt\Survey\HospitalSurveyWindow.xaml.cs">
+      <DependentUpon>HospitalSurveyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Physiciann\ExaminationAppointments\CreateAppointmentWindow.xaml.cs">
       <DependentUpon>CreateAppointmentWindow.xaml</DependentUpon>
@@ -389,15 +443,67 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PatientAppointments\Appointments.xaml">
+    <Page Include="View\Patientt\AppoinmentSurveyAssistants.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PatientAppointments\EditAppointment.xaml">
+    <Page Include="View\Patientt\AppointmentSurveyDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PatientAppointments\NewAppointment.xaml">
+    <Page Include="View\Patientt\AppointmentSurveyOrdination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\HospitalSurveyKitchen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\HospitalSurveyRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\HospitalSurveyToilet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\PatientAppointments\Appointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Patientt\PatientAppointments\EditAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Patientt\PatientAppointments\NewAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Patientt\PatientHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\AppointmentSurvey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\AppointmentSurveyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\HospitalSurvey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\QuestionnaireControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\QuestionnaireControlAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Patientt\Survey\HospitalSurveyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

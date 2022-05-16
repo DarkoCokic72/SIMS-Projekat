@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp1.View.Patientt.PatientHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View.Patientt"
+        mc:Ignorable="d"
+        Title="PatientHomePage" Height="450" Width="800">
+    <Grid>
+
+        <Button  FontSize="40" Content="Appointments" Margin="10,23,478,331" Width="Auto" Click="Button_Click" Height="Auto"/>
+
+        <Button  FontSize="40" Content="Hospital survey" Margin="10,137,478,217" Width="Auto" Click="Button_Click" Height="Auto"/>
+        <Button Margin="755,0,10,388" Background="Transparent" BorderThickness="0" Click="Button_LogOut" RenderTransformOrigin="0.068,0.464"/>
+        <Image Source="/WpfApp1;component/images/logout.png" RenderTransformOrigin="-1.407,0.543" Margin="732,17,28,365"/>
+    </Grid>
+</Window>

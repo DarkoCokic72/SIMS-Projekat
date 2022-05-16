@@ -19,7 +19,7 @@ using WpfApp1.Model;
 
 
 
-namespace WpfApp1.View.PatientAppointments
+namespace WpfApp1.View.Patientt.PatientAppointments
 {
     /// <summary>
     /// Interaction logic for EditAppointment.xaml
@@ -147,12 +147,12 @@ namespace WpfApp1.View.PatientAppointments
         }
 
         //private void Doctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{ }
+
+
+        //private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
-
-
-        private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
+        //}
 
         //private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
@@ -183,7 +183,7 @@ namespace WpfApp1.View.PatientAppointments
             //TimeBinding = patientExaminationAppointment.timeOfAppointment;
             RoomBinding = patientExaminationAppointment.roomId;
 
-            //Date.DateTime = DateBinding;
+            Date.DateTime = DateBinding;
             string id = patientExaminationAppointment.id;
 
             //Date.Pattern = DateTimePattern.CustomPattern;
@@ -206,26 +206,26 @@ namespace WpfApp1.View.PatientAppointments
             DateTime dl = DateTime.Now.AddDays(1);
             DateTime db = DateBinding;
 
-            //int day4 = DateTime.Compare(DateBinding.AddDays(-4), DateTime.Now);
-            //if (day4 < 0)
-            //{
-            //    Date.MinDateTime = DateTime.Now;
-            //}
-            //else if (day4 == 0)
-            //{
-            //    Date.MinDateTime = DateTime.Now;
-            //}
-            //else
-            //{
-            //    Date.MinDateTime = DateBinding.AddDays(-4);
-            //}
-            //Date.MaxDateTime = DateBinding.AddDays(4);
+            int day4 = DateTime.Compare(DateBinding.AddDays(-4), DateTime.Now);
+            if (day4 < 0)
+            {
+                Date.MinDateTime = DateTime.Now;
+            }
+            else if (day4 == 0)
+            {
+                Date.MinDateTime = DateTime.Now;
+            }
+            else
+            {
+                Date.MinDateTime = DateBinding.AddDays(-4);
+            }
+            Date.MaxDateTime = DateBinding.AddDays(4);
 
 
 
 
 
-            //Date.Text = DateTime.Now.ToString();
+            Date.Text = DateTime.Now.ToString();
 
 
 

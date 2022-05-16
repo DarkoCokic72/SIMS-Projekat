@@ -15,7 +15,7 @@ using Syncfusion.Windows.Shared;
 using WpfApp1.Model;
 using Repo;
 
-namespace WpfApp1.View.PatientAppointments
+namespace WpfApp1.View.Patientt.PatientAppointments
 {
     /// <summary>
     /// Interaction logic for NewAppointment.xaml

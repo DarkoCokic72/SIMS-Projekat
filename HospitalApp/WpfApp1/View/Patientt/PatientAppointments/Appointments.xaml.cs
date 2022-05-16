@@ -18,9 +18,10 @@ using Repo;
 using Service;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using WpfApp1.View.Patientt.Survey;
 
 
-namespace WpfApp1.View.PatientAppointments
+namespace WpfApp1.View.Patientt.PatientAppointments
 {
     /// <summary>
     /// Interaction logic for Appointments.xaml
@@ -97,12 +98,26 @@ namespace WpfApp1.View.PatientAppointments
                 editAppointments.Show();
 
             }
+            Button AppointmentQuest = (Button)sender;
+            if (AppointmentQuest.Content.Equals("Appointment Survey"))
+            {
+                if (Appointments.datetimeOfAppointment < DateTime.Now)
+                {
+                    AppointmentSurvey appointmentSurveyWindow = new AppointmentSurvey();
+                    appointmentSurveyWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("You must first go on that appointment", "Error");
+                }
+
+            }
 
 
         }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            AppointmentInstance = null;
-        }
+        //protected override void OnClosing(CancelEventArgs e)
+        //{
+        //    AppointmentInstance = null;
+        //}
     }
 }
