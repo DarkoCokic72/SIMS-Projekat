@@ -69,5 +69,6 @@ namespace WpfApp1.View.Manager
             this.Content = new SplitRooms1(null, null, null, RoomType.Warehouse, null, null, RoomType.Warehouse);
             
         }
+
     }
 }

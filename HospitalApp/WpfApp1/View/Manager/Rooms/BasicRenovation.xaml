@@ -53,7 +53,7 @@
             </Calendar>
         </Viewbox>
         <Label FontSize="40" Content="Duration in days*:" Margin="62,543,573,153" Width="Auto" Height="Auto" Grid.Column="0"/>
-        <TextBox FontSize="40" x:Name="Duration" Margin="451,543,200,153" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged">
+        <TextBox FontSize="40" x:Name="Duration" Margin="451,543,200,153" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged" PreviewTextInput="PreviewTextInput">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -66,7 +66,7 @@
                         </Grid.ColumnDefinitions>
 
                         <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="28" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>

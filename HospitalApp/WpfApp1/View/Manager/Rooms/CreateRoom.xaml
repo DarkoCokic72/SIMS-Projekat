@@ -33,7 +33,7 @@
                         </Grid.ColumnDefinitions>
 
                         <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock FontSize="40" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>

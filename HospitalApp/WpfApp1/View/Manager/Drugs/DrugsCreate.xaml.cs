@@ -68,7 +68,7 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, FindDrugByName() )))
+            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, FindDrugByName(), true, null)))
             {
                 MessageBox.Show("Drug with that name already exists", "error");
                 return;

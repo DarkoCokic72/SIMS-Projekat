@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -54,7 +55,7 @@ namespace WpfApp1.View.Manager.Equipment
             Info.Text = "Relocating " + RoomsEquipment.SelectedEquipment.Name + " from room " + RoomsEquipment.SelectedEquipment.Room.Id;
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             EquipmentController equipmentController = new EquipmentController();
-            //MaxQuantity.Content = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment).ToString();
+            QuantityTest = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment);
             Room.ItemsSource = FillComboBoxWithRooms();
 
             Save.IsEnabled = false;
@@ -128,6 +129,12 @@ namespace WpfApp1.View.Manager.Equipment
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
             this.Content = new ManagerHomePage();           
+        }
+
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
     }

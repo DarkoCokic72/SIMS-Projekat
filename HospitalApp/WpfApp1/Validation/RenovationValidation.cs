@@ -23,7 +23,7 @@ namespace WpfApp1.Validation
                 if (d <= 0)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Minimum duration\nis one day.");
+                    return new ValidationResult(false, "Min duration\nis 1 day.");
                 }
 
                 DateTime endDate = BasicRenovation.startDate.AddDays(d);
@@ -44,7 +44,7 @@ namespace WpfApp1.Validation
                 if (endDate >= firstBusyDate)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Busy day is included");
+                    return new ValidationResult(false, "Busy day\nis included.");
                 }
                 return new ValidationResult(true, null);
             }
@@ -71,7 +71,7 @@ namespace WpfApp1.Validation
                 if (d <= 0)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Minimum duration\nis one day.");
+                    return new ValidationResult(false, "Min duration\nis 1 day.");
                 }
 
                 DateTime endDate = MergeRooms2.startDate.AddDays(d);
@@ -92,7 +92,7 @@ namespace WpfApp1.Validation
                 if (endDate >= firstBusyDate)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Busy day is included");
+                    return new ValidationResult(false, "Busy day\nis included.");
                 }
                 return new ValidationResult(true, null);
             }
@@ -119,7 +119,7 @@ namespace WpfApp1.Validation
                 if (d <= 0)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Minimum duration\nis one day.");
+                    return new ValidationResult(false, "Min duration\nis 1 day.");
                 }
 
                 DateTime endDate = SplitRoom2.startDate.AddDays(d);
@@ -140,7 +140,7 @@ namespace WpfApp1.Validation
                 if (endDate >= firstBusyDate)
                 {
                     ValidationHasError = true;
-                    return new ValidationResult(false, "Busy day is included");
+                    return new ValidationResult(false, "Busy day\nis included.");
                 }
                 return new ValidationResult(true, null);
             }
