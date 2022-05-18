@@ -48,20 +48,6 @@ namespace WpfApp1
             App.AppointmentEdited.Abort();
         }
 
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            if (btn.Content.Equals("LOGIN"))
-            {
-                Login login = new Login();
-                //this.Close();
-                login.Show();
-
-            }    
-
-        }
-
 
     }
 }

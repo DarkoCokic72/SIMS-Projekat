@@ -1,4 +1,4 @@
-﻿<Window
+﻿<UserControl
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="WpfApp1.RoomsWindow"
         mc:Ignorable="d"
-        Title="ZdravoHospital" WindowStyle="None"  Height="768" Width="1024" ResizeMode="NoResize">
+        Height="768" Width="1024">
     <Grid >
 
         <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgRooms" ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" AutoGenerateColumns="False" Margin="47,289,26,47" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495">
@@ -51,4 +51,4 @@
 
 
 
-</Window>
+</UserControl>

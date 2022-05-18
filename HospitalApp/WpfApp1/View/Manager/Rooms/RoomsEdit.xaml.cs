@@ -19,7 +19,7 @@ using WpfApp1.View.Manager;
 namespace WpfApp1
 {
  
-    public partial class RoomsEdit : Window, INotifyPropertyChanged
+    public partial class RoomsEdit : UserControl, INotifyPropertyChanged
     {
         private Room room;
 
@@ -86,7 +86,6 @@ namespace WpfApp1
 
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
@@ -137,7 +136,7 @@ namespace WpfApp1
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if (((RoomType)ComboBox.SelectedItem != room.Type || FloorBinding != room.Floor) && !Validation.IdValidationRule.ValidationHasError)
+          if (ComboBox.SelectedItem != null && (RoomType)ComboBox.SelectedItem != room.Type && !Validation.IdValidationRule.ValidationHasError)
             {
                 SaveBtn.IsEnabled = true;
             }
@@ -149,21 +148,18 @@ namespace WpfApp1
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
-
+            this.Content = new ManagerHomePage();
+            
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            RoomsWindow.GetRoomsWindow().Show();
-            Close();
+            this.Content = RoomsWindow.GetRoomsWindow();
         }
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
@@ -184,8 +180,7 @@ namespace WpfApp1
         
             if (RoomsWindow.roomController.Update(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding)))
             {
-                RoomsWindow.GetRoomsWindow().Show();
-                Close();
+                this.Content = RoomsWindow.GetRoomsWindow();
             }
             else
             {

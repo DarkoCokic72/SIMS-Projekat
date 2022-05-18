@@ -25,7 +25,7 @@ using WpfApp1.View.Rooms;
 namespace WpfApp1
 {
    
-    public partial class RoomsWindow : Window
+    public partial class RoomsWindow : UserControl
     {
         public static RoomsWindow roomsWindowInstance;
         public static RoomController roomController = new RoomController();
@@ -37,7 +37,6 @@ namespace WpfApp1
 
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             Rooms = new ObservableCollection<Room>(roomController.GetAll());
@@ -62,34 +61,23 @@ namespace WpfApp1
 
         }
 
-        public Room getSelectedRoom()
-        {
-            return (Room)dgRooms.SelectedItem; 
-        }
-
-
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
-
-        }
-        protected override void OnClosing(CancelEventArgs e)
-        {
+            this.Content = new ManagerHomePage();
             roomsWindowInstance = null;
         }
+       
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
+            roomsWindowInstance = null;
         }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            CreateRoom createRoom = new CreateRoom();
-            createRoom.Show();
-            Close();
+            this.Content = new CreateRoom();
+            roomsWindowInstance = null;
         }
 
         private void Button_Click_Edit(object sender, RoutedEventArgs e)
@@ -100,10 +88,8 @@ namespace WpfApp1
                 MessageBox.Show("The warehouse cannot be edited!", "Error");
                 return;
             }
-            RoomsEdit roomsEdit = new RoomsEdit();
-            roomsEdit.Show();
-            Close();
-
+            this.Content = new RoomsEdit();
+            roomsWindowInstance = null;
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
@@ -115,15 +101,14 @@ namespace WpfApp1
                 return;
             }
             RoomsDelete roomsDelete = new RoomsDelete();
-            roomsDelete.Show();
+            roomsDelete.ShowDialog();
         }
 
         private void Button_Click_Details(object sender, RoutedEventArgs e)
         {
             if (!CheckIfRoomIsSelected()) return;
-            RoomsEquipment roomsEquipment = RoomsEquipment.GetWindow(SelectedRoom.Id);
-            roomsEquipment.Show();
-            Close();
+            this.Content = RoomsEquipment.GetWindow(SelectedRoom.Id);
+            roomsWindowInstance = null;
         }
 
         private bool CheckIfRoomIsSelected()

@@ -1,17 +1,21 @@
-﻿<Window x:Class="WpfApp1.View.Login"
+﻿<UserControl x:Class="WpfApp1.View.Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1.View"
+        xmlns:local="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
         mc:Ignorable="d"
-        Title="Login page" Height="450" Width="600" >
+          Height="768" Width="1024">
     <Grid>
-        <Label Content="LOGIN PAGE" HorizontalAlignment="Left" Margin="140,-17,0,0" VerticalAlignment="Top" Width="288" Height="69" FontSize="50"/>
-        <Label Content="   Email:" HorizontalAlignment="Left" Margin="208,78,0,0" VerticalAlignment="Top" Width="141" FontSize="30" Background="#FFF3D0C2" Height="48"/>
-        <TextBox Name="Email" HorizontalAlignment="Left" Height="43" Margin="152,126,0,0" Text="{Binding EmailBinding}" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="25"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="208,174,0,0" VerticalAlignment="Top" Width="141" Background="#FFF3D0C2" FontSize="30"/>
-        <TextBox Name="LoginPassword" HorizontalAlignment="Left" Height="43" Margin="152,224,0,0" Text="{Binding PasswordBinding}" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="30"/>
-        <Button HorizontalAlignment="Left" Margin="179,316,0,0" VerticalAlignment="Top" Width="193" Height="61" RenderTransformOrigin="0.78,0.175" FontSize="40" Click="Button_Click" Content="LOGIN" FontWeight="Bold" AutomationProperties.AcceleratorKey="Enter" Foreground="#FF1923EE"/>
+        <local:Frame Name="LoginWindow" NavigationUIVisibility="Hidden" />
+        <Label Content="LOGIN PAGE" HorizontalAlignment="Left" Margin="354,100,0,0" VerticalAlignment="Top" Width="288" Height="69" FontSize="50"/>
+        <Label Content="   Email:" HorizontalAlignment="Left" Margin="443,230,0,0" VerticalAlignment="Top" Width="141" FontSize="30" Background="#FFF3D0C2" Height="48"/>
+        <TextBox Name="Email" HorizontalAlignment="Left" Height="43" Margin="382,283,0,0" Text="{Binding EmailBinding}" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="25"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="443,326,0,0" VerticalAlignment="Top" Width="141" Background="#FFF3D0C2" FontSize="30"/>
+        <TextBox Name="LoginPassword" HorizontalAlignment="Left" Height="43" Margin="382,381,0,0" Text="{Binding PasswordBinding}" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="30"/>
+        <Button HorizontalAlignment="Left" Margin="421,470,0,0" VerticalAlignment="Top" Width="193" Height="61" RenderTransformOrigin="0.78,0.175" FontSize="40" Click="Button_Click" Content="LOGIN" FontWeight="Bold" AutomationProperties.AcceleratorKey="Enter" Foreground="#FF1923EE"/>
+        <Button Width="90" Height="90" Margin="924,10,10,668" Background="Transparent" BorderThickness="0" Click="Button_Click_1">
+            <Image Source="/WpfApp1;component/images/x.png" Height="64" Width="64"/>
+        </Button>
     </Grid>
-</Window>
+</UserControl>

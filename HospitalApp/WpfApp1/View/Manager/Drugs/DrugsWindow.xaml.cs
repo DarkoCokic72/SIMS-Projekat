@@ -20,7 +20,7 @@ namespace WpfApp1.View.Manager.Drugs
     /// <summary>
     /// Interaction logic for DrugsWindow.xaml
     /// </summary>
-    public partial class DrugsWindow : Window
+    public partial class DrugsWindow : UserControl
     {
         private DrugController drugsController = new DrugController();
         public ObservableCollection<Drug> Drugs { get; set; }
@@ -29,7 +29,7 @@ namespace WpfApp1.View.Manager.Drugs
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            
             
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             Drugs = new ObservableCollection<Drug>(drugsController.GetAll());
@@ -37,21 +37,17 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            DrugsCreate drugsCreate = new DrugsCreate();
-            drugsCreate.Show();
-            Close();
+            this.Content = new DrugsCreate();
         }
 
         private void Button_Click_Details(object sender, RoutedEventArgs e)

@@ -25,7 +25,7 @@ namespace WpfApp1.View.Manager.Rooms
     /// <summary>
     /// Interaction logic for BasicRenovation.xaml
     /// </summary>
-    public partial class BasicRenovation : Window, INotifyPropertyChanged
+    public partial class BasicRenovation : UserControl, INotifyPropertyChanged
     {
         private RoomController roomController = new RoomController();
         private string roomId;
@@ -53,7 +53,6 @@ namespace WpfApp1.View.Manager.Rooms
 
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             roomId = _roomId;
             description = _description;
@@ -96,18 +95,15 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            BasicRenovation1 basicRenovation1 = new BasicRenovation1(roomId, description);
-            basicRenovation1.Show();
-            Close();
+            this.Content = new BasicRenovation1(roomId, description);
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             
             roomController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
+            
         }
 
 
@@ -126,15 +122,13 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
     }
 

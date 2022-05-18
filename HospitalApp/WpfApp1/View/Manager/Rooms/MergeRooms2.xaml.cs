@@ -20,7 +20,7 @@ namespace WpfApp1.View.Manager.Rooms
     /// <summary>
     /// Interaction logic for MergeRooms2.xaml
     /// </summary>
-    public partial class MergeRooms2 : Window
+    public partial class MergeRooms2 : UserControl
     {
         private RoomController roomController = new RoomController();
         public static List<System.DateTime> busyDates;
@@ -50,7 +50,6 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             room1 = _room1;
             room2 = _room2;
@@ -72,18 +71,14 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            MergeRooms1 mergeRooms1 = new MergeRooms1(room1, room2, newId, newName, newType);
-            mergeRooms1.Show();
-            Close();
+            this.Content = new MergeRooms1(room1, room2, newId, newName, newType);
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             Room room3 = new Room(newId, newName, newType, room1.Floor);
             roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
@@ -94,14 +89,12 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void EnableOrDisableScheduleBtn()
