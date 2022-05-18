@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfApp1.View.Manager.Rooms.MergeRooms2"
+﻿<UserControl x:Class="WpfApp1.View.Manager.Rooms.MergeRooms2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,59 +7,14 @@
         xmlns:val="clr-namespace:WpfApp1.Validation" 
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-         Title="Scheduling rooms merge" WindowStyle="None" Height="768" Width="1024" ResizeMode="NoResize">
+        Height="768" Width="1024">
     <Grid>
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Viewbox Margin="312,185,67,187">
-            <Calendar Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="176" Width="238" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
-                <Calendar.CalendarDayButtonStyle >
-                    <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
-                        <Style.Triggers>
-                            <Trigger Property="IsBlackedOut" Value="True">
-                                <Setter Property="Background" Value="Red"/>
-                                <Setter Property="Block.Cursor" Value="No"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Calendar.CalendarDayButtonStyle>
-            </Calendar>
-        </Viewbox>
-        <Label FontSize="40" Content="Duration in days*:" Margin="35,562,600,129" Width="Auto" Height="Auto" Grid.Column="0"/>
-        <TextBox FontSize="40" Name="Duration" Margin="431,562,185,129" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged">
-            <TextBox.Text>
-                <Binding Path="DurationBinding" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource">
-                    <Binding.ValidationRules>
-                        <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
-                        <val:MaxDurationRoomsMergeValidationRule ValidationStep="ConvertedProposedValue"/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-            <Validation.ErrorTemplate>
-                <ControlTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Validation.ErrorTemplate>
-        </TextBox>
-        <Label FontSize="40" Content="Select start day*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,301,0,0" Height="75" Width="323"/>
-        <Button Background="SteelBlue" Height="90" FontSize="40" Content="Back" Margin="206,658,566,10" Width="250" Click="Button_Click_Back"/>
-        <Button Background="SteelBlue" Height="90" Name="ScheduleBtn" FontSize="40" Content="Schedule" Margin="567,663,205,15" Width="250" Click="Button_Click_Schedule"/>
         <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut"/>
         <Label Content="Scheduling rooms merge" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="384" Height="53"/>
-        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="110" Margin="-9,135,0,0" VerticalAlignment="Top" Width="1033"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>
                 <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
@@ -83,5 +38,48 @@
 
             </Grid>
         </GroupBox>
+        <Viewbox Margin="314,201,67,206">
+            <Calendar x:Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="177" Width="238" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
+                <Calendar.CalendarDayButtonStyle >
+                    <Style TargetType="{x:Type CalendarDayButton}" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
+                        <Style.Triggers>
+                            <Trigger Property="IsBlackedOut" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="FrameworkContentElement.Cursor" Value="No"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Calendar.CalendarDayButtonStyle>
+            </Calendar>
+        </Viewbox>
+        <Label FontSize="40" Content="Duration in days*:" Margin="62,543,573,153" Width="Auto" Height="Auto" Grid.Column="0"/>
+        <TextBox FontSize="40" x:Name="Duration" Margin="451,543,200,153" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+            <Binding Path="DurationBinding" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource">
+                <Binding.ValidationRules>
+                    <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
+                    <val:MaxDurationValidationRule ValidationStep="ConvertedProposedValue"/>
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+        <Label FontSize="40" Content="Select start day*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,328,0,0" Height="75" Width="389"/>
+        <Button Background="SteelBlue" Height="100" FontSize="60" Content="Back" Margin="220,631,554,37" Width="250" Click="Button_Click_Back"/>
+        <Button Background="SteelBlue" x:Name="ScheduleBtn" FontSize="60" Content="Schedule" Margin="551,631,223,37" Width="250" Click="Button_Click_Schedule"/>
+        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
     </Grid>
-</Window>
+</UserControl>

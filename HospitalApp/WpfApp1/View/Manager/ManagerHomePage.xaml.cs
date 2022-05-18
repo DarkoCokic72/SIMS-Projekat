@@ -21,61 +21,53 @@ namespace WpfApp1.View.Manager
     /// <summary>
     /// Interaction logic for ManagerHomePage.xaml
     /// </summary>
-    public partial class ManagerHomePage : Window
+    public partial class ManagerHomePage : UserControl
     {
    
         public ManagerHomePage()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
         }
 
         private void Button_Click_Rooms(object sender, RoutedEventArgs e)
         {
-            RoomsWindow.GetRoomsWindow().Show();
-            Close();
+            this.Content = RoomsWindow.GetRoomsWindow();   
         }
 
         private void Button_Click_Equipment(object sender, RoutedEventArgs e)
         {
-            AllEquipment allEquipmentWindow = new AllEquipment();
-            allEquipmentWindow.Show();
-            Close();
+            this.Content = new AllEquipment();   
         }
 
         private void MenuItem_SchedulingRenovation(object sender, RoutedEventArgs e)
         {
-            BasicRenovation1 basicRenovationWindow = new BasicRenovation1(null, null);
-            basicRenovationWindow.Show();
-            Close();
+            this.Content = new BasicRenovation1(null, null);
+           
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             App.CheckNotification = true;
-            Close();
+            this.Content = new Login();
         }
 
         private void MenuItem_Drugs(object sender, RoutedEventArgs e)
         {
-            DrugsWindow drugsWindow = new DrugsWindow();
-            drugsWindow.Show();
-            Close();
+            this.Content = new DrugsWindow();
+            
         }
 
         private void MenuItem_SchedulingMerge(object sender, RoutedEventArgs e)
         {
-            MergeRooms1 mergeRooms1 = new MergeRooms1(null, null, null, null, RoomType.Warehouse);
-            mergeRooms1.Show();
-            Close();
+            this.Content = new MergeRooms1(null, null, null, null, RoomType.Warehouse);
         }
 
         private void MenuItem_SchedulingSplit(object sender, RoutedEventArgs e)
         {
-            SplitRooms1 splitRooms1 = new SplitRooms1(null, null, null, RoomType.Warehouse, null, null, RoomType.Warehouse);
-            splitRooms1.Show();
-            Close();
+            this.Content = new SplitRooms1(null, null, null, RoomType.Warehouse, null, null, RoomType.Warehouse);
+            
         }
     }
 }

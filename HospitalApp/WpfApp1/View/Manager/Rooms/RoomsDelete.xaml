@@ -23,8 +23,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Background="SteelBlue" FontSize="40" Content="No" Margin="34,36.2,28.6,23.8" Width="Auto" Click="Button_Click_No" Grid.ColumnSpan="2" Grid.Column="3" Height="80" Grid.Row="4" Grid.RowSpan="2"/>
-        <Button Background="SteelBlue" FontSize="40" Content="Yes" Margin="27.4,36.2,36,23.8" Width="Auto" Click="Button_Click_Yes" Grid.ColumnSpan="2" Grid.Row="4" Height="80" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button Background="SteelBlue" FontSize="40" Content="No" Margin="33.6,36.6,29,17" Width="Auto" Click="Button_Click_No" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2"/>
+        <Button Background="SteelBlue" FontSize="40" Content="Yes" Margin="27.2,36.6,36.4,17" Width="Auto" Click="Button_Click_Yes" Grid.ColumnSpan="2" Grid.Row="4" Height="80" Grid.RowSpan="2" Grid.Column="1"/>
         <Label FontSize="60" Content="Are you sure?"  Height="105" Width="377" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Margin="40.2,6.2,50,22.8" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -35,8 +35,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Separator BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="119" Margin="-9,-22,-1,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="702" RenderTransformOrigin="0.5,0.5"/>
-        <Label Content="Delete room" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="37" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
+        <Separator BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="145" Margin="-9,-22,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="702" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Delete room" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="57" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
 
     </Grid>
 </Window>

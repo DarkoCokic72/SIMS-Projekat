@@ -26,9 +26,9 @@ namespace WpfApp1
 
         private void Button_Click_Yes(object sender, RoutedEventArgs e)
         {
-            Room room = RoomsWindow.roomsWindowInstance.getSelectedRoom();
+            Room room = RoomsWindow.SelectedRoom;
             RoomsWindow.roomController.Remove(room.Id);
-            RoomsWindow.roomsWindowInstance.refreshContentOfGrid();
+            RoomsWindow.GetRoomsWindow().refreshContentOfGrid();
             Close();
         }
 

@@ -12,14 +12,13 @@ using WpfApp1.View.Manager;
 namespace WpfApp1
 {
 
-    public partial class CreateRoom : Window 
+    public partial class CreateRoom : UserControl
     {
 
         public CreateRoom()
         {
             InitializeComponent();
             DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
@@ -112,20 +111,18 @@ namespace WpfApp1
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
+           
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            RoomsWindow.GetRoomsWindow().Show();
-            Close();
+            this.Content = RoomsWindow.GetRoomsWindow(); 
         }
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
@@ -145,8 +142,8 @@ namespace WpfApp1
 
             if (RoomsWindow.roomController.Add(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding)))
             {
-                RoomsWindow.GetRoomsWindow().Show();
-                Close();
+
+                this.Content = RoomsWindow.GetRoomsWindow();
             }
             else
             {
@@ -163,6 +160,11 @@ namespace WpfApp1
             floors.Add(2);
             floors.Add(3);
             return floors;
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

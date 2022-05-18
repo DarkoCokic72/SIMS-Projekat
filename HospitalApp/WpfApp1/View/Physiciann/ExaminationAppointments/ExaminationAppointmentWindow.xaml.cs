@@ -104,7 +104,7 @@ namespace WpfApp1.View.Physiciann.ExaminationAppointments
             App.CheckNotification = false;
             Login login = new Login();
             this.Close();
-            login.Show();
+           
 
         }
     }

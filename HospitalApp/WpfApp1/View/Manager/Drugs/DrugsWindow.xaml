@@ -1,11 +1,11 @@
-﻿<Window x:Class="WpfApp1.View.Manager.Drugs.DrugsWindow"
+﻿<UserControl x:Class="WpfApp1.View.Manager.Drugs.DrugsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View.Manager.Drugs"
         mc:Ignorable="d"
-        Title="DrugsWindow" WindowStyle="None"  Height="768" Width="1024" ResizeMode="NoResize">
+        Height="768" Width="1024">
     <Grid>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>
@@ -48,4 +48,4 @@
         <Label FontSize="32" Content="Drugs" HorizontalAlignment="Center" Margin="888,716,26,0" VerticalAlignment="Center" Width="110" Height="52"/>
 
     </Grid>
-</Window>
+</UserControl>

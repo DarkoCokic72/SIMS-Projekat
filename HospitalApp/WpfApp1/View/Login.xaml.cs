@@ -24,7 +24,7 @@ using WpfApp1.View.Secretary;
 
 namespace WpfApp1.View
 {
-    public partial class Login : Window
+    public partial class Login : UserControl
     {
         public static UserAccount userAccount;
         private String passwordBinding;
@@ -61,19 +61,20 @@ namespace WpfApp1.View
         public Login()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            DataContext = this;
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            
             UserAccountFileHandler userAccountFileHandler = new UserAccountFileHandler();
             UserAccountRepository userAccountRepository = new UserAccountRepository(userAccountFileHandler);
             UserAccountService userAccountService = new UserAccountService(userAccountRepository);
             UserAccountController userAccountController = new UserAccountController(userAccountService);
-            userAccount = userAccountController.GetByEmailPassword(EmailBinding, PasswordBinding);
-
+            Console.WriteLine(EmailBinding);
+            userAccount = userAccountController.GetByEmailPassword(Email.Text, LoginPassword.Text);
+            
 
             if (userAccount != null) 
             {
@@ -109,7 +110,7 @@ namespace WpfApp1.View
                 }
                 
 
-                this.Close();
+                
             }
             
         }
@@ -117,15 +118,14 @@ namespace WpfApp1.View
         private void ManagerLogin()
         {
             ManagerHomePage managerHomePage = new ManagerHomePage();
-            this.Close();
-            managerHomePage.ShowDialog();
+            this.Content = managerHomePage;
             return;
         }
 
         private void SecretaryLogin()
         {
             SecretaryHomePage secretaryHomePage = new SecretaryHomePage();
-            this.Close();
+            
             secretaryHomePage.ShowDialog();
             return;
         }
@@ -133,7 +133,7 @@ namespace WpfApp1.View
         private void PatientLogin()
         {
             PatientHomePage patientHomePage = new PatientHomePage();
-            this.Close();
+            
             patientHomePage.ShowDialog();
             return;
         }
@@ -141,7 +141,7 @@ namespace WpfApp1.View
         private void PhysicianLogin()
         {
             ExaminationAppointmentWindow examinationAppointmentWindow = new ExaminationAppointmentWindow();
-            this.Close();
+            
             examinationAppointmentWindow.ShowDialog();
             return;
         }
@@ -153,6 +153,12 @@ namespace WpfApp1.View
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var myWindow = Window.GetWindow(this);
+            myWindow.Close();
         }
     }
 }

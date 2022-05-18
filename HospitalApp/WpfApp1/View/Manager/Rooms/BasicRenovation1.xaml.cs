@@ -19,13 +19,12 @@ namespace WpfApp1.View.Manager.Rooms
     /// <summary>
     /// Interaction logic for BasicRenovation1.xaml
     /// </summary>
-    public partial class BasicRenovation1 : Window
+    public partial class BasicRenovation1 : UserControl
     {
 
         public BasicRenovation1(string roomId, string description)
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             RoomController roomController = new RoomController();
@@ -33,13 +32,13 @@ namespace WpfApp1.View.Manager.Rooms
             List<string> roomsId = new List<string>();
 
             foreach (Room r in rooms) {
-                roomsId.Add(r.Id);   
+                roomsId.Add(r.Id);
             }
 
             Room.ItemsSource = roomsId;
             NextBtn.IsEnabled = false;
 
-            if (!string.IsNullOrEmpty(roomId) && !string.IsNullOrEmpty(description)) 
+            if (!string.IsNullOrEmpty(roomId) && !string.IsNullOrEmpty(description))
             {
                 Room.SelectedItem = roomId;
                 Description.Text = description;
@@ -50,23 +49,19 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
-            BasicRenovation basicRenovationWindow = new BasicRenovation((string)Room.SelectedItem, Description.Text);
-            basicRenovationWindow.Show();
-            Close();
+            this.Content = new BasicRenovation((string)Room.SelectedItem, Description.Text);
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Description_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Description.Text) && !string.IsNullOrEmpty((string)Room.SelectedItem)) 
+            if (!string.IsNullOrEmpty(Description.Text) && !string.IsNullOrEmpty((string)Room.SelectedItem))
             {
-                NextBtn.IsEnabled = true;    
+                NextBtn.IsEnabled = true;
             }
             else
             {
@@ -89,15 +84,14 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
+
 
     }
 }

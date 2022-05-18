@@ -5,18 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-       
-       Title="Zdravo hospital" Height="581" Width="898.253">
+         Height="768" Width="1024" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button  FontSize="100" Content="LOGIN" Margin="275,172,300,205" Width="Auto" Click="Button_Click" Height="Auto" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-
+        <Frame Source="View/Login.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

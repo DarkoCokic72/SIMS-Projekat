@@ -17,7 +17,7 @@ using Model;
 
 namespace WpfApp1.View.Manager.Rooms
 {
-    public partial class SplitRooms1 : Window
+    public partial class SplitRooms1 : UserControl
     {
         private RoomController roomController = new RoomController();
         private string idBinding;
@@ -52,7 +52,6 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             FillRoomComboBox();
@@ -74,14 +73,12 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage(); 
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -101,18 +98,16 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
             if (!CheckFirstId() || !CheckSecondId() || !CheckBoth()) return;
-            SplitRoom2 splitRoom2 = new SplitRoom2(roomController.GetById((string)Room1.SelectedItem), Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem,
+            this.Content = new SplitRoom2(roomController.GetById((string)Room1.SelectedItem), Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem,
                                                     Id2.Text, Name2.Text, (RoomType)ComboBox2.SelectedItem);
-            splitRoom2.Show();
-            Close();
+            
+           
         }
 
         private bool CheckFirstId()

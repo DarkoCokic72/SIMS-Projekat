@@ -22,7 +22,7 @@ namespace WpfApp1.View.Manager.Equipment
     /// <summary>
     /// Interaction logic for EquipmentRelocation.xaml
     /// </summary>
-    public partial class EquipmentRelocation : Window
+    public partial class EquipmentRelocation : UserControl
     {
 
         private int quantityTest;
@@ -50,12 +50,11 @@ namespace WpfApp1.View.Manager.Equipment
         public EquipmentRelocation()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
             Info.Text = "Relocating " + RoomsEquipment.SelectedEquipment.Name + " from room " + RoomsEquipment.SelectedEquipment.Room.Id;
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             EquipmentController equipmentController = new EquipmentController();
-            MaxQuantity.Text = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment).ToString();
+            //MaxQuantity.Content = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment).ToString();
             Room.ItemsSource = FillComboBoxWithRooms();
 
             Save.IsEnabled = false;
@@ -79,9 +78,8 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            RoomsEquipment roomsEquipment = new RoomsEquipment(RoomsEquipment.SelectedEquipment.Room.Id);
-            roomsEquipment.Show();
-            Close();
+            this.Content = new RoomsEquipment(RoomsEquipment.SelectedEquipment.Room.Id);
+           
         }
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
@@ -90,9 +88,8 @@ namespace WpfApp1.View.Manager.Equipment
             EquipmentController equipmentController = new EquipmentController();
             RoomController roomController = new RoomController();
             equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), roomController.GetById((string)Room.SelectedItem), RoomsEquipment.SelectedEquipment));
-            RoomsWindow roomsWindow = RoomsWindow.GetRoomsWindow();
-            roomsWindow.Show();
-            Close();
+
+            this.Content = RoomsWindow.GetRoomsWindow();
         }
 
         private void EnableOrDisableSaveBtn()
@@ -125,14 +122,12 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();           
         }
 
     }

@@ -125,7 +125,7 @@ namespace WpfApp1.View.Patientt.PatientAppointments
             App.CheckNotification = false;
             Login login = new Login();
             this.Close();
-            login.Show();
+            
 
         }
 

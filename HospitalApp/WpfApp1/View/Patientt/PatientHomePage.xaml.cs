@@ -47,7 +47,7 @@ namespace WpfApp1.View.Patientt
         {
             Login login = new Login();
             this.Close();
-            login.Show();
+            
 
         }
     }

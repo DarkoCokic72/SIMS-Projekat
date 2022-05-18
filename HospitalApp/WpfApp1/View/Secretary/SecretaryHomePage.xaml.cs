@@ -69,7 +69,6 @@ namespace WpfApp1.View.Secretary
             App.CheckNotification = false;
             Login login = new Login();
             this.Close();
-            login.Show();
 
         }
 

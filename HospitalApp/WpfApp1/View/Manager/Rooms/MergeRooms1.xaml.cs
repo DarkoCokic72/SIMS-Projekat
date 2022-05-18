@@ -17,7 +17,7 @@ using Model;
 
 namespace WpfApp1.View.Manager.Rooms
 {
-    public partial class MergeRooms1 : Window
+    public partial class MergeRooms1 : UserControl
     {
         private RoomController roomController = new RoomController();
         private string idBinding;
@@ -39,7 +39,6 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
 
@@ -62,21 +61,17 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();;
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
         }
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
@@ -86,10 +81,8 @@ namespace WpfApp1.View.Manager.Rooms
                 MessageBox.Show("Entered id already exists!", "Error");
                 return;
             }
-            MergeRooms2 mergeRooms2 = new MergeRooms2(roomController.GetById((string)Room1.SelectedItem), roomController.GetById((string)Room2.SelectedItem),
+            this.Content = new MergeRooms2(roomController.GetById((string)Room1.SelectedItem), roomController.GetById((string)Room2.SelectedItem),
                                                       Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem);
-            mergeRooms2.Show();
-            Close();
         }
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

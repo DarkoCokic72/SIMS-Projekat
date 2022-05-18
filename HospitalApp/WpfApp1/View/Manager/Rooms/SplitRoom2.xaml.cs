@@ -20,7 +20,7 @@ namespace WpfApp1.View.Manager.Rooms
     /// <summary>
     /// Interaction logic for SplitRoom2.xaml
     /// </summary>
-    public partial class SplitRoom2 : Window
+    public partial class SplitRoom2 : UserControl
     {
         private RoomController roomController = new RoomController();
         public static List<DateTime> busyDates;
@@ -37,7 +37,6 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             room1 = _room1;
             newId1 = _newId1;
@@ -83,9 +82,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            SplitRooms1 splitRooms1 = new SplitRooms1(room1, newId1, newName1, newType1, newId2, newName2, newType2);
-            splitRooms1.Show();
-            Close();
+            this.Content = new SplitRooms1(room1, newId1, newName1, newType1, newId2, newName2, newType2);
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
@@ -93,9 +90,8 @@ namespace WpfApp1.View.Manager.Rooms
             Room room2 = new Room(newId1, newName1, newType1, room1.Floor);
             Room room3 = new Room(newId2, newName2, newType2, room1.Floor);
             roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.split, startDate, int.Parse(Duration.Text), room1, room2, room3));
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
+       
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
@@ -106,14 +102,13 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
+         
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
         }
 
         private void EnableOrDisableSaveBtn()

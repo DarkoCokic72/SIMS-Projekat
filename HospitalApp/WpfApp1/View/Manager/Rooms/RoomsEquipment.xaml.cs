@@ -23,7 +23,7 @@ namespace WpfApp1.View.Rooms
     /// <summary>
     /// Interaction logic for RoomsEquipment.xaml
     /// </summary>
-    public partial class RoomsEquipment : Window
+    public partial class RoomsEquipment : UserControl
     {
         public static RoomsEquipment roomsEquipmentWindowInstance;
         public static ObservableCollection<Equipment> Equipment { get; set; }
@@ -32,7 +32,6 @@ namespace WpfApp1.View.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             Room.Text = roomId;
@@ -42,8 +41,7 @@ namespace WpfApp1.View.Rooms
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
-            RoomsWindow.GetRoomsWindow().Show();
-            Close();
+            this.Content = RoomsWindow.GetRoomsWindow();
             roomsEquipmentWindowInstance = null;
         }
 
@@ -54,10 +52,9 @@ namespace WpfApp1.View.Rooms
             {
                 return;
             }
-            EquipmentRelocation equipmentRelocationWindow = new EquipmentRelocation();
-            equipmentRelocationWindow.Show();
-            RoomsWindow.GetRoomsWindow().Close();
-            Close();
+            this.Content = new EquipmentRelocation();
+            roomsEquipmentWindowInstance = null;
+           
         }
 
         public static RoomsEquipment GetWindow(string roomId)
@@ -71,10 +68,7 @@ namespace WpfApp1.View.Rooms
             return roomsEquipmentWindowInstance;
         }
 
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            roomsEquipmentWindowInstance = null;
-        }
+        
 
         public void refreshContentOfGrid()
         {
@@ -84,14 +78,15 @@ namespace WpfApp1.View.Rooms
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            managerHomePage.Show();
-            Close();
+            this.Content = new ManagerHomePage();
+            roomsEquipmentWindowInstance = null;
+
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Content = new Login();
+            roomsEquipmentWindowInstance = null;
         }
     }
 }
