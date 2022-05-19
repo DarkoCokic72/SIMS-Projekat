@@ -23,6 +23,19 @@ namespace WpfApp1.Repo
             return hospitalSurveys;
         }
 
+        public Survey GetByHospitalCategory(string category)
+        {
+            
+            foreach(Survey survey in GetAllForHospital())
+            {
+                if(survey.Category == category)
+                {
+                    return survey;
+                }
+            }
+            return null;
+        }
+
         public SurveysFileHandler surveysFileHandler = new SurveysFileHandler();
     }
 }

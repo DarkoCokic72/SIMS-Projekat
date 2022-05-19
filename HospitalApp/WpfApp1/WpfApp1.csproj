@@ -137,6 +137,7 @@
     <Compile Include="Controller\PhysicianController.cs" />
     <Compile Include="Controller\SurveysController.cs" />
     <Compile Include="Controller\UserAccountController.cs" />
+    <Compile Include="DTO\GradeDTO.cs" />
     <Compile Include="FileHandler\AdvancedRenovationFileHandler.cs" />
     <Compile Include="FileHandler\AppointmentFileHandler.cs" />
     <Compile Include="FileHandler\DrugFileHandler.cs" />
@@ -264,6 +265,9 @@
     </Compile>
     <Compile Include="View\Manager\Rooms\SplitRooms1.xaml.cs">
       <DependentUpon>SplitRooms1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\SurveysWindows\HospitalSurveysAnswers.xaml.cs">
+      <DependentUpon>HospitalSurveysAnswers.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\SurveysWindows\HospitalSurveysCategories.xaml.cs">
       <DependentUpon>HospitalSurveysCategories.xaml</DependentUpon>
@@ -472,6 +476,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\SplitRooms1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SurveysWindows\HospitalSurveysAnswers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -747,6 +755,8 @@
   <ItemGroup>
     <Resource Include="images\attention.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\back.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
