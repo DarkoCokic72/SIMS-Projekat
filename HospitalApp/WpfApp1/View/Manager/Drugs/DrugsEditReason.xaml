@@ -8,7 +8,7 @@
              d:DesignHeight="768" d:DesignWidth="1024">
     <Grid>
         <Label FontSize="40" Content="Reason to edit&#xD;&#xA;the drug:" Margin="42,361,683,276" Width="Auto" Height="Auto"/>
-        <TextBox IsReadOnly="True" FontSize="40" x:Name="Reason" Height="Auto" Margin="341,231,212,169" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822"/>
+        <TextBox Background="LightGray" VerticalScrollBarVisibility="Visible" IsReadOnly="True" FontSize="40" x:Name="Reason" Height="Auto" Margin="341,231,212,169" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822"/>
         <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="214,650,560,17" Width="250" Click="Button_Click_Cancel"/>
         <Button x:Name="SaveBtn" Background="SteelBlue" FontSize="60" Content="Next" Margin="523,650,251,17" Width="250" Click="Button_Click_Next" RenderTransformOrigin="0.501,0.501"/>
         <Label Content="Edit invalid drug" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="261" Height="63"/>
