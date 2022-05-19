@@ -1,0 +1,18 @@
+[
+  {
+    "RefersTo": "Marko Markovic",
+    "Category": "Pregled",
+    "Question": [
+      {"QuestionText": "Odnosenje lekara prema pacijentu", "Answer" : [{"Grade": 6}, {"Grade": 7}]},
+      {"QuestionText": "Strucnost lekara", "Answer" : [{"Grade": 10}, {"Grade": 9}]}
+    ]
+  },
+  {
+    "RefersTo": "Hospital",
+     "Category": "Osoblje",
+    "Question": [
+	{"QuestionText": "Ljubaznost", "Answer" : [{"Grade": 10}, {"Grade": 8}]},
+        {"QuestionText": "Strucnost", "Answer": [{"Grade":8}, {"Grade":9}]}
+    ]
+  }
+]

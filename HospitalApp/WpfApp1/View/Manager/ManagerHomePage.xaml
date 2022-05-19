@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="47,265,30,379" Grid.ColumnSpan="2" Grid.RowSpan="2">
+        <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="37,265,40,379" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <MenuItem FontSize="60" Header="     ROOMS" Height="124" Width="432">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
@@ -29,7 +29,7 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="35,272,52,372" Grid.Column="2" Grid.RowSpan="2">
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="25,272,62,372" Grid.Column="2" Grid.RowSpan="2">
             <MenuItem FontSize="60" Header="  EQUIPMENT" Height="125" Width="432">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="0,-17,-48,-21"/>
@@ -38,11 +38,15 @@
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue"  FontSize="40" Header="Download report"  Height="106" Margin="0,0,-5.2,0"/>
             </MenuItem>
         </Menu>
-        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="50,109,27,151" Grid.Row="1" Grid.ColumnSpan="2" >
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="40,80,37,180" Grid.Row="1" Grid.ColumnSpan="2" >
             <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Drugs"/>
         </Menu>
-        <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="38,109,49,151" Grid.Column="2" >
-            <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422"/>
+        <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="28,80,59,180" Grid.Column="2" >
+            <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422">
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Hospital"  Height="82" Click="Button_Click_Hospital" Width="432"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Doctor"  Height="82" Width="432"/>
+            </MenuItem>
+
         </Menu>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,240.6" Background="SteelBlue" Width="1043" Grid.ColumnSpan="3">
             <Grid>

@@ -15,6 +15,7 @@ using Model;
 using WpfApp1.View.Manager.Drugs;
 using WpfApp1.View.Manager.Equipment;
 using WpfApp1.View.Manager.Rooms;
+using WpfApp1.View.Manager.SurveysWindows;
 
 namespace WpfApp1.View.Manager
 {
@@ -72,5 +73,9 @@ namespace WpfApp1.View.Manager
             
         }
 
+        private void Button_Click_Hospital(object sender, RoutedEventArgs e)
+        {
+            this.Content = new HospitalSurveysCategories();
+        }
     }
 }
