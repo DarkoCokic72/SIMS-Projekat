@@ -13,11 +13,11 @@ namespace Model
     {
         public string Manufacturer { get; set; }
         public string Ingredients { get; set; }
-        public Drug DrugB { get; set; }
+        public string Replacement { get; set; }
         public bool Valid { get; set; }
         public string Reason {get; set; }
 
-      public Drug(string name, int quantity, EquipmentType type, Room room, string manufacturer, string ingredients, Drug drugB, bool valid, string reason)
+      public Drug(string name, int quantity, EquipmentType type, Room room, string manufacturer, string ingredients, string replacement, bool valid, string reason)
       {
             this.Id = System.Guid.NewGuid();
             this.Name = name;
@@ -26,13 +26,13 @@ namespace Model
             this.Room = room;
             this.Manufacturer = manufacturer;
             this.Ingredients = ingredients;
-            this.DrugB = drugB;
+            this.Replacement = replacement;
             this.Valid = valid;
             this.Reason = reason;
       }
 
         [JsonConstructor]
-        public Drug(Guid id, string name, int quantity, EquipmentType type, Room room, string manufacturer, string ingredients, Drug drugB)
+        public Drug(Guid id, string name, int quantity, EquipmentType type, Room room, string manufacturer, string ingredients, string replacement, bool valid, string reason)
         {
             Id = id;
             Name = name;
@@ -41,7 +41,9 @@ namespace Model
             Room = room;
             Manufacturer = manufacturer;
             Ingredients = ingredients;
-            DrugB = drugB;
+            Replacement = replacement;
+            Valid = valid;
+            Reason = reason;
         }
     }
 }

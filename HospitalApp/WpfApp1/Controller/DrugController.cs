@@ -22,6 +22,10 @@ namespace Controller
           return drugService.Create(drug);
       }
 
+      public bool Update(Drug drug, string oldNameOfDrug)
+      {
+            return drugService.Update(drug, oldNameOfDrug);
+      }
       public DrugService drugService = new DrugService();
    
    }

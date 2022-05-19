@@ -68,7 +68,7 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, FindDrugByName(), true, null)))
+            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, (string)ComboBox_Replacement.SelectedItem, true, null)))
             {
                 MessageBox.Show("Drug with that name already exists", "error");
                 return;
@@ -114,20 +114,6 @@ namespace WpfApp1.View.Manager.Drugs
 
             drugs.Distinct();
             return drugs;
-        }
-
-        private Drug FindDrugByName()
-        {
-            string drugName = (string)ComboBox_Replacement.SelectedItem;
-            foreach (Drug drug in drugController.GetAll())
-            {
-                if (drugName == drug.Name)
-                {
-                    return drug;
-                }
-            }
-
-            return null;
         }
 
         private void PreviewTextInput(object sender, TextCompositionEventArgs e)

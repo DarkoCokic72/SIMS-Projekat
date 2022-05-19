@@ -85,7 +85,7 @@ namespace WpfApp1
             if (!CheckIfRoomIsSelected()) return;
             if (SelectedRoom.Type == RoomType.Warehouse)
             {
-                MessageBox.Show("The warehouse cannot be edited!", "Error");
+                MessageBox.Show("The warehouse cannot be edited!");
                 return;
             }
             this.Content = new RoomsEdit();
@@ -97,7 +97,7 @@ namespace WpfApp1
             if (!CheckIfRoomIsSelected()) return;
             if (SelectedRoom.Type == RoomType.Warehouse)
             {
-                MessageBox.Show("The warehouse cannot be deleted!", "Error");
+                MessageBox.Show("The warehouse cannot be deleted!");
                 return;
             }
             RoomsDelete roomsDelete = new RoomsDelete();
@@ -115,7 +115,7 @@ namespace WpfApp1
         {
             if (SelectedRoom == null)
             {
-                MessageBox.Show("You need to select a row!", "Error");
+                MessageBox.Show("You need to select a row!");
                 return false;
             }
             return true;

@@ -90,6 +90,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -220,6 +222,12 @@
     </Compile>
     <Compile Include="View\Manager\Drugs\DrugsDetails.xaml.cs">
       <DependentUpon>DrugsDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Drugs\DrugsEdit.xaml.cs">
+      <DependentUpon>DrugsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\Drugs\DrugsEditReason.xaml.cs">
+      <DependentUpon>DrugsEditReason.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\Drugs\DrugsWindow.xaml.cs">
       <DependentUpon>DrugsWindow.xaml</DependentUpon>
@@ -403,6 +411,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Drugs\DrugsDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Drugs\DrugsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\Drugs\DrugsEditReason.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -711,6 +727,8 @@
   <ItemGroup>
     <Resource Include="images\x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\attention.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

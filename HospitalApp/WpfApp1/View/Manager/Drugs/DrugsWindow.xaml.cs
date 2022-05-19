@@ -30,7 +30,8 @@ namespace WpfApp1.View.Manager.Drugs
             InitializeComponent();
             this.DataContext = this;
             
-            
+                        
+
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
             Drugs = new ObservableCollection<Drug>(drugsController.GetAll());
         }
@@ -54,6 +55,24 @@ namespace WpfApp1.View.Manager.Drugs
         {
             DrugsDetails drugsDetails = new DrugsDetails();
             drugsDetails.ShowDialog();
+        }
+
+        private void Button_Click_Edit(object sender, RoutedEventArgs e)
+        {
+            if(SelectedDrug == null)
+            {
+                MessageBox.Show("Select invalid drug you want to edit.");
+                return;
+            }
+
+            if(SelectedDrug.Valid == true)
+            {
+                MessageBox.Show("You can only edit invalid drug.");
+                return;
+            }
+
+            this.Content = new DrugsEditReason();
+
         }
     }
 }

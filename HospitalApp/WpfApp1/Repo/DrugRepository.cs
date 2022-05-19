@@ -29,18 +29,37 @@ namespace Repo
       
         public bool Create(Drug newDrug)
         {
-            if (DrugExists(newDrug)) return false;
+            if (DrugExists(newDrug, null)) return false;
             List<Drug> drugs = drugFileHandler.Read();
             drugs.Add(newDrug);
             drugFileHandler.Save(drugs);
             return true;
         }
       
-        private bool DrugExists(Drug newDrug)
+        public bool Update(Drug newDrug, string oldNameOfDrug)
+        {
+            if (DrugExists(newDrug, oldNameOfDrug)) return false;
+            List<Drug> drugs = GetAll();
+            for (int i = 0; i < drugs.Count; i++)
+            {
+                if (drugs[i].Id == newDrug.Id)
+                {
+                    drugs[i].Name = newDrug.Name;
+                    drugs[i].Manufacturer = newDrug.Manufacturer;
+                    drugs[i].Ingredients = newDrug.Ingredients;
+                    drugs[i].Replacement = newDrug.Replacement;
+                    drugs[i].Valid = true;
+                    drugs[i].Reason = null;
+                    drugFileHandler.Save(drugs);
+                }
+            }
+            return true;
+        }
+        private bool DrugExists(Drug newDrug, string oldNameOfDrug)
         {
             foreach (Drug drug in drugFileHandler.Read())
             {
-                if (drug.Name.ToLower() == newDrug.Name.ToLower())
+                if (drug.Name.ToLower() == newDrug.Name.ToLower() && drug.Name.ToLower() != oldNameOfDrug.ToLower())
                 {
                     return true;
                 }

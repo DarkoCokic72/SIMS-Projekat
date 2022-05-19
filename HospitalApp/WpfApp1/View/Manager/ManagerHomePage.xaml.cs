@@ -29,6 +29,8 @@ namespace WpfApp1.View.Manager
             InitializeComponent();
             
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            DrugsWindow.SelectedDrug = null;
+            RoomsWindow.SelectedRoom = null;
         }
 
         private void Button_Click_Rooms(object sender, RoutedEventArgs e)

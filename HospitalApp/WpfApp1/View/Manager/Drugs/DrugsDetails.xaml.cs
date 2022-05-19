@@ -34,11 +34,8 @@ namespace WpfApp1.View.Manager.Drugs
         private void FillFields()
         {
             Ingredients.Text = DrugsWindow.SelectedDrug.Ingredients;
-            if (DrugsWindow.SelectedDrug.DrugB != null)
-            {
-                Replacement.Text = DrugsWindow.SelectedDrug.DrugB.Name;
-            }
-            Quantity.Text = DrugsWindow.SelectedDrug.Quantity.ToString();
+            Replacement.Text = DrugsWindow.SelectedDrug.Replacement;
+            
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)

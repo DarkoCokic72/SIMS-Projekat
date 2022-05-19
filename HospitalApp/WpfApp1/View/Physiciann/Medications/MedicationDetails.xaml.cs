@@ -26,10 +26,9 @@ namespace WpfApp1.View.Physiciann.Medications
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             Ingredients.Text = MedicationView.SelectedDrug.Ingredients;
-            if(MedicationView.SelectedDrug.DrugB != null)
-            {
-                Replacement.Text = MedicationView.SelectedDrug.DrugB.Name;
-            }
+          
+            Replacement.Text = MedicationView.SelectedDrug.Replacement;
+            
             Quantity.Text = MedicationView.SelectedDrug.Quantity.ToString();
         }
 
