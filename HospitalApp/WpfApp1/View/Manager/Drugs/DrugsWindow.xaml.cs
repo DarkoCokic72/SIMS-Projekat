@@ -30,10 +30,8 @@ namespace WpfApp1.View.Manager.Drugs
             InitializeComponent();
             this.DataContext = this;
             
-                        
-
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
-            Drugs = new ObservableCollection<Drug>(drugsController.GetAll());
+            ShowFirstInvalidDrugs();
         }
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
@@ -73,6 +71,27 @@ namespace WpfApp1.View.Manager.Drugs
 
             this.Content = new DrugsEditReason();
 
+        }
+
+        private void ShowFirstInvalidDrugs()
+        {
+            List<Drug> allDrugs = drugsController.GetAll();
+            List<Drug> sortedDrugs = new List<Drug>();
+            foreach(Drug drug in allDrugs)
+            {
+                if (!drug.Valid)
+                {
+                    sortedDrugs.Add(drug);
+                }
+            }
+            foreach(Drug drug in allDrugs)
+            {
+                if (drug.Valid)
+                {
+                    sortedDrugs.Add(drug);
+                }
+            }
+            Drugs = new ObservableCollection<Drug>(sortedDrugs);
         }
     }
 }
