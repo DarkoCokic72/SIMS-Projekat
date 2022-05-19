@@ -268,6 +268,9 @@
     <Compile Include="View\Manager\SurveysWindows\HospitalSurveysCategories.xaml.cs">
       <DependentUpon>HospitalSurveysCategories.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\SurveysWindows\HospitalSurveysQuestions.xaml.cs">
+      <DependentUpon>HospitalSurveysQuestions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Patientt\AppoinmentSurveyAssistants.xaml.cs">
       <DependentUpon>AppoinmentSurveyAssistants.xaml</DependentUpon>
     </Compile>
@@ -473,6 +476,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\SurveysWindows\HospitalSurveysCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SurveysWindows\HospitalSurveysQuestions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

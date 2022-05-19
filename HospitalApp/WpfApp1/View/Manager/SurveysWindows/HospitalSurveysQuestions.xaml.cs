@@ -19,21 +19,20 @@ using WpfApp1.Model;
 namespace WpfApp1.View.Manager.SurveysWindows
 {
     /// <summary>
-    /// Interaction logic for HospitalSurveysCategories.xaml
+    /// Interaction logic for HospitalSurveysQuestions.xaml
     /// </summary>
-    public partial class HospitalSurveysCategories : UserControl
+    public partial class HospitalSurveysQuestions : UserControl
     {
-        public ObservableCollection<Survey> Surveys { get; set; }
-        public double AverageGrade { get; set; }
-        public static Survey SelectedSurvey { get; set; }
+        public ObservableCollection<Question> Questions { get; set; }
+        public static Question SelectedQuestion { get; set; }
         public SurveysController surveysController = new SurveysController();
-        public HospitalSurveysCategories()
+        public HospitalSurveysQuestions()
         {
             InitializeComponent();
             this.DataContext = this;
             User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
-            AverageGrade = surveysController.GetAverageGradeOfHospital();
-            Surveys = new ObservableCollection<Survey>(surveysController.GetAllForHospital());
+            Questions = new ObservableCollection<Question>(HospitalSurveysCategories.SelectedSurvey.Question);
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,14 +45,9 @@ namespace WpfApp1.View.Manager.SurveysWindows
             this.Content = new Login();
         }
 
-        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Content = new ManagerHomePage();
-        }
 
-        private void Button_Click_Questions(object sender, RoutedEventArgs e)
-        {
-            this.Content = new HospitalSurveysQuestions();
         }
     }
 }
