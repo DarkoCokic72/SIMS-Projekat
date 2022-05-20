@@ -36,7 +36,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Yes"))
             {
                 GuestAccount guestAccount = GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount();
-                GuestAccountsWindow.guestAccountsController.Remove(guestAccount.uniquePersonalNumber);
+                GuestAccountsWindow.guestAccountsController.Remove(guestAccount.UniquePersonalNumber);
 
                 GuestAccountsWindow.guestAccountsWindowInstance.refreshContentOfGrid();
                 Close();

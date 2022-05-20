@@ -23,7 +23,7 @@ namespace WpfApp1.View.Manager.Drugs
         public DrugsEditReason()
         {
             InitializeComponent();
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             Reason.Text = DrugsWindow.SelectedDrug.Reason;
         }
 

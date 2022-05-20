@@ -50,7 +50,7 @@ namespace Repo
             for (int i = 0; i < List.Count; i++)
             {
 
-                if (List[i].uniquePersonalNumber.Equals(WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().uniquePersonalNumber))
+                if (List[i].UniquePersonalNumber.Equals(WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber))
                 {
 
                     List[i] = physician;

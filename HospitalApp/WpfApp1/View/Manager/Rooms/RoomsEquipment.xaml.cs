@@ -33,7 +33,7 @@ namespace WpfApp1.View.Rooms
             InitializeComponent();
             this.DataContext = this;
 
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             Room.Text = roomId;
             Equipment = new ObservableCollection<Equipment>(RoomsWindow.roomController.getEquipment(roomId));
             

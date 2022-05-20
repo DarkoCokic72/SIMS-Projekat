@@ -266,6 +266,18 @@
     <Compile Include="View\Manager\Rooms\SplitRooms1.xaml.cs">
       <DependentUpon>SplitRooms1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\SurveysWindows\ChooseDoctor.xaml.cs">
+      <DependentUpon>ChooseDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\SurveysWindows\DoctorSurveysAnswers.xaml.cs">
+      <DependentUpon>DoctorSurveysAnswers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\SurveysWindows\DoctorSurveysCategories.xaml.cs">
+      <DependentUpon>DoctorSurveysCategories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\SurveysWindows\DoctorSurveysQuestions.xaml.cs">
+      <DependentUpon>DoctorSurveysQuestions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\SurveysWindows\HospitalSurveysAnswers.xaml.cs">
       <DependentUpon>HospitalSurveysAnswers.xaml</DependentUpon>
     </Compile>
@@ -476,6 +488,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\SplitRooms1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SurveysWindows\ChooseDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SurveysWindows\DoctorSurveysAnswers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SurveysWindows\DoctorSurveysCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SurveysWindows\DoctorSurveysQuestions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

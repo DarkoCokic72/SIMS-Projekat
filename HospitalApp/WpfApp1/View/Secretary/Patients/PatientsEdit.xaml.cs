@@ -148,14 +148,14 @@ namespace WpfApp1
             ComboBox.ItemsSource = Enum.GetValues(typeof(BloodGroup)).Cast<BloodGroup>();
             patient = PatientsWindow.patientsWindowInstance.getSelectedPatient();
 
-            UPNBinding = patient.uniquePersonalNumber;
-            NameBinding = patient.name;
-            SurnameBinding = patient.surname;
+            UPNBinding = patient.UniquePersonalNumber;
+            NameBinding = patient.Name;
+            SurnameBinding = patient.Surname;
             BloodGroupBinding = patient.bloodGroup;
-            EmailBinding = patient.email;
-            PhoneNumBinding = patient.phoneNumber;
+            EmailBinding = patient.Email;
+            PhoneNumBinding = patient.PhoneNumber;
             DateOfBirthBinding = patient.dateOfBirth;
-            PasswordBinding = patient.password;
+            PasswordBinding = patient.Password;
 
             Validation.UPNValidation.ValidationError = false;
 

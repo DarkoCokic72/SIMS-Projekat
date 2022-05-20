@@ -24,14 +24,24 @@ namespace WpfApp1.View.Manager
     /// </summary>
     public partial class ManagerHomePage : UserControl
     {
-   
+        private static ManagerHomePage managerHomePageInstance = null;
         public ManagerHomePage()
         {
             InitializeComponent();
             
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             DrugsWindow.SelectedDrug = null;
             RoomsWindow.SelectedRoom = null;
+        }
+
+        public static ManagerHomePage GetManagerHomePage()
+        {
+            if(managerHomePageInstance == null)
+            {
+                managerHomePageInstance = new ManagerHomePage();
+            }
+
+            return managerHomePageInstance;
         }
 
         private void Button_Click_Rooms(object sender, RoutedEventArgs e)
@@ -76,6 +86,12 @@ namespace WpfApp1.View.Manager
         private void Button_Click_Hospital(object sender, RoutedEventArgs e)
         {
             this.Content = new HospitalSurveysCategories();
+        }
+
+        private void Button_Click_Doctors(object sender, RoutedEventArgs e)
+        {
+            ChooseDoctor chooseDoctor = new ChooseDoctor();
+            chooseDoctor.ShowDialog();
         }
     }
 }

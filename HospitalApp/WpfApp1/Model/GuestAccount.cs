@@ -77,11 +77,11 @@ namespace WpfApp1.Model
 
         public GuestAccount(String email, String password, String name, String surname, String uniqueuniquePersonalNumber)
         {
-            this.email = email;
-            this.password = password;
-            this.name = name;
-            this.surname = surname;
-            this.uniquePersonalNumber = uniqueuniquePersonalNumber;
+            this.Email = email;
+            this.Password = password;
+            this.Name = name;
+            this.Surname = surname;
+            this.UniquePersonalNumber = uniqueuniquePersonalNumber;
         }
 
     }

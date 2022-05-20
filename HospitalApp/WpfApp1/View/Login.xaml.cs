@@ -117,8 +117,7 @@ namespace WpfApp1.View
 
         private void ManagerLogin()
         {
-            ManagerHomePage managerHomePage = new ManagerHomePage();
-            this.Content = managerHomePage;
+            this.Content = ManagerHomePage.GetManagerHomePage();
             return;
         }
 

@@ -79,17 +79,17 @@ namespace WpfApp1.Model
 
         public string FullName 
         {
-            get { return name + " " + surname; }
+            get { return Name + " " + Surname; }
         }
 
         public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
         {
-            this.email = email;
-            this.password = password;
-            this.name = name;
-            this.surname = surname;
-            this.phoneNumber = phoneNumber;
-            this.uniquePersonalNumber = uniqueuniquePersonalNumber;
+            this.Email = email;
+            this.Password = password;
+            this.Name = name;
+            this.Surname = surname;
+            this.PhoneNumber = phoneNumber;
+            this.UniquePersonalNumber = uniqueuniquePersonalNumber;
            // this.address = address;
             this.dateOfBirth = dateOfBirth;
             this.bloodGroup = bloodGroup;
@@ -103,7 +103,7 @@ namespace WpfApp1.Model
                 return false;
             }
 
-            return patient.uniquePersonalNumber == uniquePersonalNumber;
+            return patient.UniquePersonalNumber == UniquePersonalNumber;
         }
 
     }

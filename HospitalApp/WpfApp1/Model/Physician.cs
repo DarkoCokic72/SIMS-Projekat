@@ -21,7 +21,7 @@ namespace WpfApp1.Model
 
         public string FullName
         {
-            get { return name + " " + surname; }
+            get { return Name + " " + Surname; }
         }
 
         public Physician(string licenceID, string type, PhysicianSpecialization specialization)

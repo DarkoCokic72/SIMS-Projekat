@@ -18,7 +18,7 @@ namespace Repo
             List<GuestAccount> guestAccountList = GetAll();
             foreach (GuestAccount r in guestAccountList)
             {
-                if (r.uniquePersonalNumber == uniquePersonalNumber)
+                if (r.UniquePersonalNumber == uniquePersonalNumber)
                 {
                     return r;
                 }
@@ -41,12 +41,12 @@ namespace Repo
         {
             List<GuestAccount> guestAccountList = GetAll();
 
-            if (WpfApp1.GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().uniquePersonalNumber != guestAccount.uniquePersonalNumber)
+            if (WpfApp1.GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().UniquePersonalNumber != guestAccount.UniquePersonalNumber)
             {
                 for (int i = 0; i < guestAccountList.Count; i++)
                 {
 
-                    if (guestAccountList[i].uniquePersonalNumber.Equals(guestAccount.uniquePersonalNumber))
+                    if (guestAccountList[i].UniquePersonalNumber.Equals(guestAccount.UniquePersonalNumber))
                     {
                         WpfApp1.GuestAccountsEdit.editedGuestAccount = false;
                         return;
@@ -57,7 +57,7 @@ namespace Repo
             for (int i = 0; i < guestAccountList.Count; i++)
             {
 
-                if (guestAccountList[i].uniquePersonalNumber.Equals(WpfApp1.GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().uniquePersonalNumber))
+                if (guestAccountList[i].UniquePersonalNumber.Equals(WpfApp1.GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().UniquePersonalNumber))
                 {
 
                     guestAccountList[i] = guestAccount;
@@ -75,7 +75,7 @@ namespace Repo
 
             for (int i = 0; i < guestAccountList.Count; i++)
             {
-                if (guestAccountList[i].uniquePersonalNumber == id)
+                if (guestAccountList[i].UniquePersonalNumber == id)
                 {
                     guestAccountList.Remove(guestAccountList[i]);
                 }

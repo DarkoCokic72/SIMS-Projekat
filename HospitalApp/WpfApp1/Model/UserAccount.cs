@@ -10,12 +10,12 @@ namespace Model
 {
     public class UserAccount
     {
-        public string email { get; set; }
-        public string password { get; set; }
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string phoneNumber { get; set; }
-        public string uniquePersonalNumber { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string PhoneNumber { get; set; }
+        public string UniquePersonalNumber { get; set; }
 
         public Address address;
 

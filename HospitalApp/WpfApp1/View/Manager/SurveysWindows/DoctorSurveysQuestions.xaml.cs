@@ -19,21 +19,22 @@ using WpfApp1.Model;
 namespace WpfApp1.View.Manager.SurveysWindows
 {
     /// <summary>
-    /// Interaction logic for HospitalSurveysCategories.xaml
+    /// Interaction logic for DoctorSurveysQuestions.xaml
     /// </summary>
-    public partial class HospitalSurveysCategories : UserControl
+    public partial class DoctorSurveysQuestions : UserControl
     {
-        public ObservableCollection<Survey> Surveys { get; set; }
+        public ObservableCollection<Question> Questions { get; set; }
+        public static Question SelectedQuestion { get; set; }
         public double AverageGrade { get; set; }
-        public static Survey SelectedSurvey { get; set; }
         public SurveysController surveysController = new SurveysController();
-        public HospitalSurveysCategories()
+        public DoctorSurveysQuestions()
         {
             InitializeComponent();
             this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-            AverageGrade = surveysController.GetAverageGradeOfHospitalOrDoctor("hospital");
-            Surveys = new ObservableCollection<Survey>(surveysController.GetAll("hospital"));
+            Category.Content = "Category: " + DoctorSurveysCategories.SelectedSurvey.Category;
+            AverageGrade = surveysController.GetAverageGradeOfCategory(DoctorSurveysCategories.SelectedSurvey.RefersTo, DoctorSurveysCategories.SelectedSurvey.Category);
+            Questions = new ObservableCollection<Question>(DoctorSurveysCategories.SelectedSurvey.Question);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,19 +42,19 @@ namespace WpfApp1.View.Manager.SurveysWindows
             this.Content = new ManagerHomePage();
         }
 
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
+        {
+            this.Content = new DoctorSurveysCategories();
+        }
+
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             this.Content = new Login();
         }
 
-        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Content = new ManagerHomePage();
-        }
-
-        private void Button_Click_Questions(object sender, RoutedEventArgs e)
-        {
-            this.Content = new HospitalSurveysQuestions();
+            this.Content = new DoctorSurveysAnswers();
         }
     }
 }

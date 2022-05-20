@@ -11,17 +11,17 @@ namespace WpfApp1.Service
 {
     public class SurveysService
     {
-        public List<Survey> GetAllForHospital()
+        public List<Survey> GetAll(string refersTo)
         {
-            return surveysRepository.GetAllForHospital();
+            return surveysRepository.GetAll(refersTo);
         }
 
-        public double GetAverageGradeOfHospital()
+        public double GetAverageGradeOfHospitalOrDoctor(string refersTo)
         {
             double sum = 0;
 
             List<Answerr> allAnswers = new List<Answerr>();
-            foreach (Survey surveys in surveysRepository.GetAllForHospital())
+            foreach (Survey surveys in surveysRepository.GetAll(refersTo))
             {
                 foreach (Question question in surveys.Question)
                 {
@@ -40,12 +40,12 @@ namespace WpfApp1.Service
             return Math.Round(sum/allAnswers.Count, 2);
         }
 
-        public double GetAverageGradeOfHospitalCategory(string category)
+        public double GetAverageGradeOfCategory(string refersTo, string category)
         {
             double sum = 0;
 
             List<Answerr> allAnswers = new List<Answerr>();
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo ,category).Question)
             {
                 foreach (Answerr answer in question.Answer)
                 {
@@ -62,12 +62,12 @@ namespace WpfApp1.Service
             return Math.Round(sum/allAnswers.Count, 2);
         }
 
-        public double GetAverageGradeOfHospitalCategoryQuestion(string category, string questionText)
+        public double GetAverageGradeOfQuestion(string refersTo, string category, string questionText)
         {
             double sum = 0;
             int count = 0;
 
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
             {
                 if (question.QuestionText == questionText)
                 {
@@ -82,11 +82,11 @@ namespace WpfApp1.Service
             return Math.Round(sum/count, 2);
         }
 
-        public List<GradeDTO> GetAllGradesOfHospitalCategoryQuestion(string category, string questionText)
+        public List<GradeDTO> GetAllGradesOfQuestion(string refersTo ,string category, string questionText)
         {
             List<GradeDTO> grades = new List<GradeDTO>();
             int count = 0;
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo , category).Question)
             {
                 if (question.QuestionText == questionText)
                 {
@@ -102,7 +102,7 @@ namespace WpfApp1.Service
             grades.Add(new GradeDTO(6, count));
 
             count = 0;
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
             {
                 if (question.QuestionText == questionText)
                 {
@@ -118,7 +118,7 @@ namespace WpfApp1.Service
             grades.Add(new GradeDTO(7, count));
 
             count = 0;
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
             {
                 if (question.QuestionText == questionText)
                 {
@@ -134,7 +134,7 @@ namespace WpfApp1.Service
             grades.Add(new GradeDTO(8, count));
 
             count = 0;
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
             {
                 if (question.QuestionText == questionText)
                 {
@@ -150,7 +150,7 @@ namespace WpfApp1.Service
             grades.Add(new GradeDTO(9, count));
 
             count = 0;
-            foreach (Question question in surveysRepository.GetByHospitalCategory(category).Question)
+            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
             {
                 if (question.QuestionText == questionText)
                 {

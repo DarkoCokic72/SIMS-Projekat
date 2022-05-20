@@ -19,21 +19,22 @@ using WpfApp1.Model;
 namespace WpfApp1.View.Manager.SurveysWindows
 {
     /// <summary>
-    /// Interaction logic for HospitalSurveysCategories.xaml
+    /// Interaction logic for DoctorSurveysCategories.xaml
     /// </summary>
-    public partial class HospitalSurveysCategories : UserControl
+    public partial class DoctorSurveysCategories : UserControl
     {
         public ObservableCollection<Survey> Surveys { get; set; }
         public double AverageGrade { get; set; }
         public static Survey SelectedSurvey { get; set; }
         public SurveysController surveysController = new SurveysController();
-        public HospitalSurveysCategories()
+        public DoctorSurveysCategories()
         {
             InitializeComponent();
             this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-            AverageGrade = surveysController.GetAverageGradeOfHospitalOrDoctor("hospital");
-            Surveys = new ObservableCollection<Survey>(surveysController.GetAll("hospital"));
+            Category.Content = "Doctor: " + ChooseDoctor.SelectedDoctor.Name + " " + ChooseDoctor.SelectedDoctor.Surname;
+            AverageGrade = surveysController.GetAverageGradeOfHospitalOrDoctor(ChooseDoctor.SelectedDoctor.UniquePersonalNumber);
+            Surveys = new ObservableCollection<Survey>(surveysController.GetAll(ChooseDoctor.SelectedDoctor.UniquePersonalNumber));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,14 +47,16 @@ namespace WpfApp1.View.Manager.SurveysWindows
             this.Content = new Login();
         }
 
-        private void Button_Click_Close(object sender, RoutedEventArgs e)
-        {
-            this.Content = new ManagerHomePage();
-        }
-
         private void Button_Click_Questions(object sender, RoutedEventArgs e)
         {
-            this.Content = new HospitalSurveysQuestions();
+            this.Content = new DoctorSurveysQuestions();
+        }
+
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerHomePage();
+            ChooseDoctor chooseDoctor = new ChooseDoctor();
+            chooseDoctor.ShowDialog();
         }
     }
 }

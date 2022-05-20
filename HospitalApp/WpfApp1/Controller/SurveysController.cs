@@ -11,29 +11,29 @@ namespace WpfApp1.Controller
 {
     public class SurveysController
     {
-        public List<Survey> GetAllForHospital()
+        public List<Survey> GetAll(string refersTo)
         {
-            return surveysService.GetAllForHospital();
+            return surveysService.GetAll(refersTo);
         }
 
-        public double GetAverageGradeOfHospital()
+        public double GetAverageGradeOfHospitalOrDoctor(string refersTo)
         {
-            return surveysService.GetAverageGradeOfHospital();
+            return surveysService.GetAverageGradeOfHospitalOrDoctor(refersTo);
         }
 
-        public double GetAverageGradeOfHospitalCategory(string category)
+        public double GetAverageGradeOfCategory(string refersTo, string category)
         {
-            return surveysService.GetAverageGradeOfHospitalCategory(category);
+            return surveysService.GetAverageGradeOfCategory(refersTo, category);
         }
 
-        public double GetAverageGradeOfHospitalCategoryQuestion(string category, string questionText)
+        public double GetAverageGradeOfQuestion(string refersTo, string category, string questionText)
         {
-            return surveysService.GetAverageGradeOfHospitalCategoryQuestion(category, questionText);
+            return surveysService.GetAverageGradeOfQuestion(refersTo, category, questionText);
         }
 
-        public List<GradeDTO> GetAllGradesOfHospitalCategoryQuestion(string category, string questionText)
+        public List<GradeDTO> GetAllGradesOfQuestion(string refersTo, string category, string questionText)
         {
-            return surveysService.GetAllGradesOfHospitalCategoryQuestion(category, questionText);
+            return surveysService.GetAllGradesOfQuestion(refersTo, category, questionText);
         }
         public SurveysService surveysService = new SurveysService();
     }

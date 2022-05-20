@@ -31,9 +31,9 @@ namespace WpfApp1.View.Manager.SurveysWindows
         {
             InitializeComponent();
             this.DataContext = this;
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             Category.Content = "Category: " +  HospitalSurveysCategories.SelectedSurvey.Category;
-            AverageGrade = surveysController.GetAverageGradeOfHospitalCategory(HospitalSurveysCategories.SelectedSurvey.Category);
+            AverageGrade = surveysController.GetAverageGradeOfCategory("hospital", HospitalSurveysCategories.SelectedSurvey.Category);
             Questions = new ObservableCollection<Question>(HospitalSurveysCategories.SelectedSurvey.Question);
 
         }

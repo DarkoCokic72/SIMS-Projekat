@@ -25,7 +25,7 @@ namespace WpfApp1.View.Secretary
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            Username.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            Username.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

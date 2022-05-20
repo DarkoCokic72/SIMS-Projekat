@@ -19,10 +19,10 @@
         <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="37,265,40,379" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <MenuItem FontSize="60" Header="     ROOMS" Height="124" Width="432">
                 <MenuItem.Icon>
-                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
+                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="49,-26,-90,-27" RenderTransformOrigin="1.5,1.065"/>
                 </MenuItem.Icon>
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="432"/>
-                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="106" Width="432">
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="120" Width="432">
                     <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Recontruction" Click="MenuItem_SchedulingRenovation"/>
                     <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Merge" Click="MenuItem_SchedulingMerge"/>
                     <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" Header="Split" Click="MenuItem_SchedulingSplit"/>
@@ -34,17 +34,20 @@
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="0,-17,-48,-21"/>
                 </MenuItem.Icon>
-                <MenuItem Width="420" BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of equipment"  Height="72" Click="Button_Click_Equipment" Margin="0,0,-3.6,0"/>
-                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue"  FontSize="40" Header="Download report"  Height="106" Margin="0,0,-5.2,0"/>
+                <MenuItem Width="420" BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of equipment"  Height="82" Click="Button_Click_Equipment" Margin="0,0,-3.6,0"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue"  FontSize="40" Header="Download report" Height="82" Margin="0,0,-5.2,0"/>
             </MenuItem>
         </Menu>
         <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="40,80,37,180" Grid.Row="1" Grid.ColumnSpan="2" >
             <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Drugs"/>
         </Menu>
         <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="28,80,59,180" Grid.Column="2" >
-            <MenuItem FontSize="60" Header="     SURVEYS" Height="124" Width="422">
-                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Hospital"  Height="82" Click="Button_Click_Hospital" Width="432"/>
-                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Doctor"  Height="82" Width="432"/>
+            <MenuItem FontSize="60" Header="    SURVEYS" Height="124" Width="422">
+                <MenuItem.Icon>
+                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
+                </MenuItem.Icon>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Hospital"  Height="82" Click="Button_Click_Hospital" Width="420"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Doctors"  Height="82" Width="420" Click="Button_Click_Doctors"/>
             </MenuItem>
 
         </Menu>

@@ -24,7 +24,7 @@ namespace Repo
             List<Patient> patientsList = GetAll();
             foreach (Patient patient in patientsList)
             {
-                if (patient.uniquePersonalNumber == uniquePersonalNumber)
+                if (patient.UniquePersonalNumber == uniquePersonalNumber)
                 {
 
                     return patient;
@@ -49,12 +49,12 @@ namespace Repo
       {
             List<Patient> patientList = GetAll();
 
-            if (WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().uniquePersonalNumber != patient.uniquePersonalNumber)
+            if (WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber != patient.UniquePersonalNumber)
             {
                 for (int i = 0; i < patientList.Count; i++)
                 {
 
-                    if (patientList[i].uniquePersonalNumber.Equals(patient.uniquePersonalNumber))
+                    if (patientList[i].UniquePersonalNumber.Equals(patient.UniquePersonalNumber))
                     {
 
                         WpfApp1.PatientsEdit.editedPatient = false;
@@ -66,7 +66,7 @@ namespace Repo
             for (int i = 0; i < patientList.Count; i++)
             {
 
-                if (patientList[i].uniquePersonalNumber.Equals(WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().uniquePersonalNumber))
+                if (patientList[i].UniquePersonalNumber.Equals(WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber))
                 {
 
                     patientList[i] = patient;
@@ -84,7 +84,7 @@ namespace Repo
 
             for (int i = 0; i < patientList.Count; i++)
             {
-                if (patientList[i].uniquePersonalNumber == id)
+                if (patientList[i].UniquePersonalNumber == id)
                 {
                     patientList.Remove(patientList[i]);
 

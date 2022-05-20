@@ -27,7 +27,7 @@ namespace WpfApp1.View.Manager.Drugs
         public DrugsEdit()
         {
             InitializeComponent();
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             Name.Text = DrugsWindow.SelectedDrug.Name;
             Manufacturer.Text = DrugsWindow.SelectedDrug.Manufacturer;
             Ingredients.Text = DrugsWindow.SelectedDrug.Ingredients;

@@ -38,7 +38,7 @@ namespace WpfApp1
             InitializeComponent();
             this.DataContext = this;
 
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             Rooms = new ObservableCollection<Room>(roomController.GetAll());
 
         }

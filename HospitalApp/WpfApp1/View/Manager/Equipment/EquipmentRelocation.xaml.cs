@@ -53,7 +53,7 @@ namespace WpfApp1.View.Manager.Equipment
             InitializeComponent();
             this.DataContext = this;
             Info.Text = "Relocating " + RoomsEquipment.SelectedEquipment.Name + " from room " + RoomsEquipment.SelectedEquipment.Room.Id;
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             EquipmentController equipmentController = new EquipmentController();
             QuantityTest = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment);
             Room.ItemsSource = FillComboBoxWithRooms();

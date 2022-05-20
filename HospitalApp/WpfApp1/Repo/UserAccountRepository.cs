@@ -32,7 +32,7 @@ namespace WpfApp1.Repo
 
             foreach (UserAccount user in patientRepository.GetAll())
             {
-                if (user.email == email && user.password == password)
+                if (user.Email == email && user.Password == password)
                 {
                     return user;
                 }
@@ -40,7 +40,7 @@ namespace WpfApp1.Repo
             }
             foreach (UserAccount user in managerRepository.GetAll())
             {
-                if (user.email == email && user.password == password)
+                if (user.Email == email && user.Password == password)
                 {
                     return user;
                 }
@@ -48,7 +48,7 @@ namespace WpfApp1.Repo
             }
             foreach (UserAccount user in physicianRepository.GetAll())
             {
-                if (user.email == email && user.password == password)
+                if (user.Email == email && user.Password == password)
                 {
                     return user;
                 }
@@ -56,7 +56,7 @@ namespace WpfApp1.Repo
             }
             foreach (UserAccount user in secretaryRepository.GetAll())
             {
-                if (user.email == email && user.password == password)
+                if (user.Email == email && user.Password == password)
                 {
                     return user;
                 }

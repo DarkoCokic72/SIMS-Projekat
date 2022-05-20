@@ -20,7 +20,7 @@ namespace WpfApp1
             InitializeComponent();
             DataContext = this;
 
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
 
             ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             List<int> floors = GetFloors();

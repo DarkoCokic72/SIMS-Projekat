@@ -26,7 +26,7 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             RoomController roomController = new RoomController();
             List<Room> rooms = roomController.GetAll();
             List<string> roomsId = new List<string>();

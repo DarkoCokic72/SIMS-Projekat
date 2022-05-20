@@ -202,7 +202,7 @@ namespace WpfApp1.View.Patientt.PatientAppointments
 
             foreach (Physician r in physcicians)
             {
-                physicianName.Add(r.name + " " + r.surname);
+                physicianName.Add(r.Name + " " + r.Surname);
 
 
             }

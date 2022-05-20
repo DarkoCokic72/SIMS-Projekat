@@ -1,9 +1,9 @@
 [
   {
-    "RefersTo": "Marko Markovic",
+    "RefersTo": "1235567890123",
     "Category": "Pregled",
     "Question": [
-      {"QuestionText": "Odnosenje lekara prema pacijentu", "Answer" : [{"Grade": 6}, {"Grade": 7}]},
+      {"QuestionText": "Odnos lekara prema pacijentu", "Answer" : [{"Grade": 6}, {"Grade": 7}]},
       {"QuestionText": "Strucnost lekara", "Answer" : [{"Grade": 10}, {"Grade": 9}]}
     ]
   },

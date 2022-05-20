@@ -14,26 +14,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Controller;
-using WpfApp1.Model;
+using WpfApp1.DTO;
 
 namespace WpfApp1.View.Manager.SurveysWindows
 {
     /// <summary>
-    /// Interaction logic for HospitalSurveysCategories.xaml
+    /// Interaction logic for DoctorSurveysAnswers.xaml
     /// </summary>
-    public partial class HospitalSurveysCategories : UserControl
+    public partial class DoctorSurveysAnswers : UserControl
     {
-        public ObservableCollection<Survey> Surveys { get; set; }
         public double AverageGrade { get; set; }
-        public static Survey SelectedSurvey { get; set; }
-        public SurveysController surveysController = new SurveysController();
-        public HospitalSurveysCategories()
+        private SurveysController surveysController = new SurveysController();
+        public ObservableCollection<GradeDTO> Grades { get; set; }
+        public DoctorSurveysAnswers()
         {
             InitializeComponent();
             this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-            AverageGrade = surveysController.GetAverageGradeOfHospitalOrDoctor("hospital");
-            Surveys = new ObservableCollection<Survey>(surveysController.GetAll("hospital"));
+            Category.Content = "Question: " + DoctorSurveysQuestions.SelectedQuestion.QuestionText;
+            AverageGrade = surveysController.GetAverageGradeOfQuestion(DoctorSurveysCategories.SelectedSurvey.RefersTo, DoctorSurveysCategories.SelectedSurvey.Category, DoctorSurveysQuestions.SelectedQuestion.QuestionText);
+            Grades = new ObservableCollection<GradeDTO>(surveysController.GetAllGradesOfQuestion(DoctorSurveysCategories.SelectedSurvey.RefersTo, DoctorSurveysCategories.SelectedSurvey.Category, DoctorSurveysQuestions.SelectedQuestion.QuestionText));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,14 +46,9 @@ namespace WpfApp1.View.Manager.SurveysWindows
             this.Content = new Login();
         }
 
-        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            this.Content = new ManagerHomePage();
-        }
-
-        private void Button_Click_Questions(object sender, RoutedEventArgs e)
-        {
-            this.Content = new HospitalSurveysQuestions();
+            this.Content = new DoctorSurveysQuestions();
         }
     }
 }

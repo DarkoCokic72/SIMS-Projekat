@@ -51,6 +51,7 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
 
             room1 = _room1;
             room2 = _room2;

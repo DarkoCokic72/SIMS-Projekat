@@ -65,7 +65,7 @@ namespace WpfApp1
                         continue;
                     }
 
-                    if (appointment.Patient.uniquePersonalNumber == Login.userAccount.uniquePersonalNumber || appointment.Physician.uniquePersonalNumber == Login.userAccount.uniquePersonalNumber) 
+                    if (appointment.Patient.UniquePersonalNumber == Login.userAccount.UniquePersonalNumber || appointment.Physician.UniquePersonalNumber == Login.userAccount.UniquePersonalNumber) 
                     {
                         MessageBox.Show("Vas pregled je promenjen");
                         appointment.Changed = false;

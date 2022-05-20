@@ -30,7 +30,7 @@ namespace WpfApp1.View.Manager.Drugs
             InitializeComponent();
             this.DataContext = this;
             
-            User.Text = Login.userAccount.name + " " + Login.userAccount.surname;
+            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             ShowFirstInvalidDrugs();
         }
 

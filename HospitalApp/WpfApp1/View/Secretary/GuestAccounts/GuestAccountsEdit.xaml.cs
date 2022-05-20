@@ -104,11 +104,11 @@ namespace WpfApp1
 
             guestAccount = GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount();
 
-            UPNBinding = guestAccount.uniquePersonalNumber;
-            NameBinding = guestAccount.name;
-            SurnameBinding = guestAccount.surname;
-            EmailBinding = guestAccount.email;
-            PasswordBinding = guestAccount.password;
+            UPNBinding = guestAccount.UniquePersonalNumber;
+            NameBinding = guestAccount.Name;
+            SurnameBinding = guestAccount.Surname;
+            EmailBinding = guestAccount.Email;
+            PasswordBinding = guestAccount.Password;
 
             Validation.UPNValidation.ValidationError = false;
 
