@@ -13,15 +13,13 @@ namespace Repo
     {
       
         public List<Drug> GetAll()
-        {
-          
+        {   
             List<Drug> drugs = new List<Drug>();
             foreach (Drug drug in drugFileHandler.Read()) 
             {
                 if (!IsDrugAlreadyInList(drugs, drug))
                 {
                     drugs.Add(drug);
-
                 }        
             }
             return drugs;
@@ -64,7 +62,6 @@ namespace Repo
                     return true;
                 }
             }
-
             return false;
         }
 

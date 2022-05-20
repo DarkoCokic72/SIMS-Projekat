@@ -19,64 +19,37 @@ namespace WpfApp1.Service
         public double GetAverageGradeOfHospitalOrDoctor(string refersTo)
         {
             double sum = 0;
-
-            List<Answerr> allAnswers = new List<Answerr>();
-            foreach (Survey surveys in surveysRepository.GetAll(refersTo))
-            {
-                foreach (Question question in surveys.Question)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        allAnswers.Add(answer);
-                    }
-                }
-            }
-
-            foreach (Answerr answer in allAnswers)
+            int count = 0;
+            foreach (Answerr answer in surveysRepository.GetAllAnswersForHospitalOrDoctor(refersTo))
             {
                 sum += answer.Grade;
+                count++;
             }
 
-            return Math.Round(sum/allAnswers.Count, 2);
+            return Math.Round(sum/count, 2);
         }
 
         public double GetAverageGradeOfCategory(string refersTo, string category)
         {
             double sum = 0;
-
-            List<Answerr> allAnswers = new List<Answerr>();
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo ,category).Question)
-            {
-                foreach (Answerr answer in question.Answer)
-                {
-                    allAnswers.Add(answer);
-                }
-            }
-
-
-            foreach (Answerr answer in allAnswers)
+            int count = 0;
+            foreach (Answerr answer in surveysRepository.GetAllAnswersForCategory(refersTo, category))
             {
                 sum += answer.Grade;
+                count++;
             }
 
-            return Math.Round(sum/allAnswers.Count, 2);
+            return Math.Round(sum/count, 2);
         }
 
         public double GetAverageGradeOfQuestion(string refersTo, string category, string questionText)
         {
             double sum = 0;
             int count = 0;
-
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
+            foreach (Answerr answer in surveysRepository.GetAnswers(refersTo, category, questionText))
             {
-                if (question.QuestionText == questionText)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        sum += answer.Grade;
-                        count++;
-                    }
-                }
+                sum += answer.Grade;
+                count++; 
             }
 
             return Math.Round(sum/count, 2);
@@ -85,87 +58,25 @@ namespace WpfApp1.Service
         public List<GradeDTO> GetAllGradesOfQuestion(string refersTo ,string category, string questionText)
         {
             List<GradeDTO> grades = new List<GradeDTO>();
-            int count = 0;
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo , category).Question)
+            for (int i = 6; i <= 10; i++) 
             {
-                if (question.QuestionText == questionText)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        if (answer.Grade == 6)
-                        {
-                            count++;
-                        }
-                    }
-                }
+                grades.Add(new GradeDTO(i, GetGradeCount(i, refersTo, category, questionText)));
             }
-            grades.Add(new GradeDTO(6, count));
-
-            count = 0;
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
-            {
-                if (question.QuestionText == questionText)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        if (answer.Grade == 7)
-                        {
-                            count++;
-                        }
-                    }
-                }
-            }
-            grades.Add(new GradeDTO(7, count));
-
-            count = 0;
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
-            {
-                if (question.QuestionText == questionText)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        if (answer.Grade == 8)
-                        {
-                            count++;
-                        }
-                    }
-                }
-            }
-            grades.Add(new GradeDTO(8, count));
-
-            count = 0;
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
-            {
-                if (question.QuestionText == questionText)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        if (answer.Grade == 9)
-                        {
-                            count++;
-                        }
-                    }
-                }
-            }
-            grades.Add(new GradeDTO(9, count));
-
-            count = 0;
-            foreach (Question question in surveysRepository.GetQuestionsByCategory(refersTo, category).Question)
-            {
-                if (question.QuestionText == questionText)
-                {
-                    foreach (Answerr answer in question.Answer)
-                    {
-                        if (answer.Grade == 10)
-                        {
-                            count++;
-                        }
-                    }
-                }
-            }
-            grades.Add(new GradeDTO(10, count));
 
             return grades;
+        }
+
+        private int GetGradeCount(int grade, string refersTo, string category, string questionText)
+        {
+            int count = 0;
+            foreach (Answerr answer in surveysRepository.GetAnswers(refersTo, category, questionText))
+            {
+                if (answer.Grade == grade)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         public SurveysRepository surveysRepository = new SurveysRepository();

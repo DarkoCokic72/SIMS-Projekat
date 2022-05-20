@@ -57,15 +57,9 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_Edit(object sender, RoutedEventArgs e)
         {
-            if(SelectedDrug == null)
+            if(SelectedDrug == null || SelectedDrug.Valid == true)
             {
                 MessageBox.Show("Select invalid drug you want to edit.");
-                return;
-            }
-
-            if(SelectedDrug.Valid == true)
-            {
-                MessageBox.Show("You can only edit invalid drug.");
                 return;
             }
 
@@ -75,23 +69,37 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void ShowFirstInvalidDrugs()
         {
-            List<Drug> allDrugs = drugsController.GetAll();
-            List<Drug> sortedDrugs = new List<Drug>();
-            foreach(Drug drug in allDrugs)
+            List<Drug> sortedDrugs = GetInvalidDrugs();
+            sortedDrugs.AddRange(GetValidDrugs());
+            Drugs = new ObservableCollection<Drug>(sortedDrugs);
+        }
+
+        private List<Drug> GetInvalidDrugs()
+        {
+            List<Drug> invalidDrugs = new List<Drug>();
+            foreach (Drug drug in drugsController.GetAll())
             {
                 if (!drug.Valid)
                 {
-                    sortedDrugs.Add(drug);
+                    invalidDrugs.Add(drug);
                 }
             }
-            foreach(Drug drug in allDrugs)
+
+            return invalidDrugs;
+        }
+
+        private List<Drug> GetValidDrugs()
+        {
+            List<Drug> validDrugs = new List<Drug>();
+            foreach (Drug drug in drugsController.GetAll())
             {
                 if (drug.Valid)
                 {
-                    sortedDrugs.Add(drug);
+                    validDrugs.Add(drug);
                 }
             }
-            Drugs = new ObservableCollection<Drug>(sortedDrugs);
+
+            return validDrugs;
         }
     }
 }

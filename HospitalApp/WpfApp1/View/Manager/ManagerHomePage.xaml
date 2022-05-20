@@ -19,7 +19,7 @@
         <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="37,265,40,379" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <MenuItem FontSize="60" Header="     ROOMS" Height="124" Width="432">
                 <MenuItem.Icon>
-                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="49,-26,-90,-27" RenderTransformOrigin="1.5,1.065"/>
+                    <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-90,-27" RenderTransformOrigin="1.5,1.065"/>
                 </MenuItem.Icon>
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="List of rooms"  Height="82" Click="Button_Click_Rooms" Width="432"/>
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Scheduling&#xA;renovation"  Height="120" Width="432">
@@ -29,8 +29,8 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="25,272,62,372" Grid.Column="2" Grid.RowSpan="2">
-            <MenuItem FontSize="60" Header="  EQUIPMENT" Height="125" Width="432">
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="25,265,62,379" Grid.Column="2" Grid.RowSpan="2">
+            <MenuItem FontSize="60" Header="  EQUIPMENT" Height="124" Width="432">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="0,-17,-48,-21"/>
                 </MenuItem.Icon>
@@ -42,7 +42,7 @@
             <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Drugs"/>
         </Menu>
         <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="28,80,59,180" Grid.Column="2" >
-            <MenuItem FontSize="60" Header="    SURVEYS" Height="124" Width="422">
+            <MenuItem FontSize="60" Header="    SURVEYS" Height="124" Width="425">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
                 </MenuItem.Icon>
