@@ -29,12 +29,10 @@ namespace WpfApp1.View.Manager.Rooms
 
         private Room room1;
         private string newId1;
-        private string newName1;
         private RoomType newType1;
         private string newId2;
-        private string newName2;
         private RoomType newType2;
-        public SplitRoom2(Room _room1, string _newId1, string _newName1, RoomType _newType1, string _newId2, string _newName2, RoomType _newType2)
+        public SplitRoom2(Room _room1, string _newId1, RoomType _newType1, string _newId2, RoomType _newType2)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -42,10 +40,8 @@ namespace WpfApp1.View.Manager.Rooms
 
             room1 = _room1;
             newId1 = _newId1;
-            newName1 = _newName1;
             newType1 = _newType1;
             newId2 = _newId2;
-            newName2 = _newName2;
             newType2 = _newType2;
 
             BlackoutBusyDaysInCalendar();
@@ -84,13 +80,13 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            this.Content = new SplitRooms1(room1, newId1, newName1, newType1, newId2, newName2, newType2);
+            this.Content = new SplitRooms1(room1, newId1, newType1, newId2, newType2);
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
-            Room room2 = new Room(newId1, newName1, newType1, room1.Floor);
-            Room room3 = new Room(newId2, newName2, newType2, room1.Floor);
+            Room room2 = new Room(newId1, newType1, room1.Floor);
+            Room room3 = new Room(newId2, newType2, room1.Floor);
             roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.split, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
        

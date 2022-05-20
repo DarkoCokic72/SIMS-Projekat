@@ -9,11 +9,10 @@
         mc:Ignorable="d"
         Height="768" Width="1024">
     <Grid>
-        <Label FontSize="40" Content="Id*:" Margin="102,217,714,470" Width="Auto" Height="Auto" RenderTransformOrigin="0.595,0.659"/>
-        <Label FontSize="40" Content="Name*:" Margin="102,313,714,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
-        <Label FontSize="40" Content="Type*:" Margin="102,404,714,283"/>
-        <Label FontSize="40" Content="Floor*:" Margin="102,501,714,186" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
-        <TextBox FontSize="40" Name="Id" Height="81" Margin="315,217,269,470" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822">
+        <Label FontSize="40" Content="Id*:" Margin="102,243,714,444" Width="Auto" Height="Auto" RenderTransformOrigin="0.595,0.659"/>
+        <Label FontSize="40" Content="Type*:" Margin="102,361,714,326"/>
+        <Label FontSize="40" Content="Floor*:" Margin="102,482,714,205" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <TextBox FontSize="40" Name="Id" Height="81" Margin="315,243,269,444" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822">
             <TextBox.Text>
                 <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -38,15 +37,14 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox FontSize="40" Name="Name" Height="81" Width="Auto" Margin="315,313,269,374" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="Name_TextChanged"/>
         <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="218,623,556,45" Width="250" Click="Button_Click_Cancel"/>
         <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Margin="562,623,212,45" Width="250" Click="Button_Click_Save" Command="Save">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>
         </Button>
-        <ComboBox Height="81" MaxDropDownHeight="250" FontSize="40" Name="ComboBox" Margin="315,404,269,283" Width="Auto" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="180" Margin="315,494,269,179" Width="Auto" Text="{Binding Path=FloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" Name="ComboBox" Margin="315,361,269,326" Width="Auto" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,482,269,205" Width="Auto" Text="{Binding Path=FloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Create room" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="224" Height="49"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

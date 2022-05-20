@@ -30,7 +30,6 @@ namespace WpfApp1.View.Manager.Rooms
         private Room room1;
         private Room room2;
         private string newId;
-        private string newName;
         private RoomType newType;
 
         private int durationBinding;
@@ -47,7 +46,7 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
-        public MergeRooms2(Room _room1, Room _room2, string _newId, string _newName, RoomType _newType)
+        public MergeRooms2(Room _room1, Room _room2, string _newId, RoomType _newType)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -56,7 +55,6 @@ namespace WpfApp1.View.Manager.Rooms
             room1 = _room1;
             room2 = _room2;
             newId = _newId;
-            newName = _newName;
             newType = _newType;
 
             BlackoutBusyDaysInCalendar();
@@ -73,12 +71,12 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            this.Content = new MergeRooms1(room1, room2, newId, newName, newType);
+            this.Content = new MergeRooms1(room1, room2, newId, newType);
         }
 
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
-            Room room3 = new Room(newId, newName, newType, room1.Floor);
+            Room room3 = new Room(newId, newType, room1.Floor);
             roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
         }

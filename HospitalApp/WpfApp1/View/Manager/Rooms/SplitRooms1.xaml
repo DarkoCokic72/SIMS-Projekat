@@ -37,31 +37,27 @@
         <ComboBox FontSize="40" Name="Room1" HorizontalAlignment="Left" Margin="475,213,0,0" VerticalAlignment="Top" Width="298" Height="61" SelectionChanged="ComboBox_SelectionChanged_1"/>
         <Separator HorizontalAlignment="Left" Height="123" Margin="-9,234,0,0" VerticalAlignment="Top" Width="1033"/>
         <Label Content="Data about new rooms" FontSize="32" HorizontalAlignment="Left" Margin="0,284,0,0" VerticalAlignment="Top" Width="384" Height="65"/>
-        <Label Width="Auto" Margin="10,362,846,325" Height="Auto" FontSize="40" Content="Id*:"/>
-        <Label Width="Auto" VerticalAlignment="Top" Margin="10,444,851,0" Height="81" FontSize="40" Content="Name*:"/>
-        <Label Content="Type*:" FontSize="40" Margin="10,530,851,162"/>
-        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="155,362,519,325" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+        <Label Width="Auto" Margin="10,392,869,295" Height="Auto" FontSize="40" Content="Id*:"/>
+        <Label Content="Type*:" FontSize="40" Margin="10,505,869,187"/>
+        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="155,392,519,295" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
             <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                 <Binding.ValidationRules>
                     <Validation:IdValidationRule ValidationStep="RawProposedValue"/>
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <TextBox FontSize="40" x:Name="Name" Height="Auto" Width="Auto" Margin="155,443,519,244" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <ComboBox MaxDropDownHeight="160" Width="350" FontSize="40" x:Name="ComboBox" Margin="155,524,519,163" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="120" Width="350" FontSize="40" x:Name="ComboBox" Margin="155,500,519,187" SelectionChanged="ComboBox_SelectionChanged"/>
         <Separator HorizontalAlignment="Left" Height="158" Margin="0,253,-9,0" VerticalAlignment="Top" Width="1033"/>
-        <Label Width="Auto" Margin="518,363,355,324" Height="Auto" FontSize="40" Content="Id*:"/>
-        <Label Width="Auto" VerticalAlignment="Top" Margin="518,443,355,0" Height="81" FontSize="40" Content="Name*:"/>
-        <Label Content="Type*:" FontSize="40" Margin="518,529,360,163"/>
-        <TextBox FontSize="40" x:Name="Id2" Height="Auto" Margin="660,363,14,324" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+        <Label Width="Auto" Margin="523,392,350,295" Height="Auto" FontSize="40" Content="Id*:"/>
+        <Label Content="Type*:" FontSize="40" Margin="523,505,355,187"/>
+        <TextBox FontSize="40" x:Name="Id2" Height="Auto" Margin="660,392,14,295" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
             <Binding Path="Id2Binding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                 <Binding.ValidationRules>
                     <Validation:IdValidationRule ValidationStep="RawProposedValue"/>
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <TextBox FontSize="40" x:Name="Name2" Height="Auto" Width="350" Margin="655,444,10,243" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <ComboBox MaxDropDownHeight="160" FontSize="40" x:Name="ComboBox2" Margin="660,524,14,163" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox2" Margin="660,505,14,182" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
         <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="216,631,558,36" Width="250" Click="Button_Click_Cancel"/>
         <Button x:Name="NextBtn" Background="SteelBlue" FontSize="60" Content="Next" Margin="551,631,223,36" Width="250" Click="Button_Click_Next"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>

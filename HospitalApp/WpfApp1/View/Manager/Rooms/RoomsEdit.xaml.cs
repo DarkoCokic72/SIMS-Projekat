@@ -21,8 +21,8 @@ namespace WpfApp1
  
     public partial class RoomsEdit : UserControl, INotifyPropertyChanged
     {
-        private Room room;
 
+        private Room room;
         private string idBinding;
         public string IdBinding
         {
@@ -37,49 +37,6 @@ namespace WpfApp1
             }
         }
 
-        private string nameBinding;
-        public string NameBinding
-        {
-            get
-            {
-                return nameBinding;
-            }
-            set
-            {
-                nameBinding = value;
-                OnPropertyChanged("NameBinding");
-            }
-        }
-
-        private int floorBinding;
-        public int FloorBinding
-        {
-            get
-            {
-                return floorBinding;
-            }
-            set
-            {
-                floorBinding = value;
-                OnPropertyChanged("FloorBinding");
-            }
-        }
-
-        private RoomType typeBinding;
-        public RoomType TypeBinding
-        {
-            get
-            {
-                return typeBinding;
-            }
-            set
-            {
-                typeBinding = value;
-                OnPropertyChanged("TypeBinding");
-            }
-        }
-
-
 
         public RoomsEdit()
         {
@@ -89,16 +46,14 @@ namespace WpfApp1
 
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
 
-            ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            ComboBox_Type.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
             ComboBox_Floor.ItemsSource = CreateRoom.GetFloors();
             room = RoomsWindow.SelectedRoom;
-            IdBinding = room.Id;
-            NameBinding= room.Name;
-            TypeBinding = room.Type;
-            FloorBinding = room.Floor;
+            ComboBox_Type.SelectedItem = room.Type;
+            ComboBox_Floor.SelectedItem = room.Floor;
+            IdBinding = RoomsWindow.SelectedRoom.Id;
 
             SaveBtn.IsEnabled = false;
-            Validation.IdValidationRule.ValidationHasError = false;
 
         }
 
@@ -111,32 +66,14 @@ namespace WpfApp1
             }
         }
 
-        private void Name_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-            if (IdBinding == room.Id && NameBinding == room.Name && FloorBinding == room.Floor)
-            {
-                 SaveBtn.IsEnabled = false;      
-            }
-            else if(string.IsNullOrEmpty(IdBinding) || string.IsNullOrEmpty(NameBinding))
-            {
-                SaveBtn.IsEnabled = false;
-            }
-            else if(Validation.IdValidationRule.ValidationHasError)
-            {
-                SaveBtn.IsEnabled = false;
-            }
-            else
-            {
-                SaveBtn.IsEnabled = true;
-            }
-        }
-
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            EnableOrDisableSaveBtn();
+        }
 
-          if (ComboBox.SelectedItem != null && (RoomType)ComboBox.SelectedItem != room.Type && !Validation.IdValidationRule.ValidationHasError)
+        private void EnableOrDisableSaveBtn()
+        {
+            if (ComboBox_Floor.SelectedItem != null && ComboBox_Type.SelectedItem != null && ((int)ComboBox_Floor.SelectedItem != room.Floor || (RoomType)ComboBox_Type.SelectedItem != room.Type))
             {
                 SaveBtn.IsEnabled = true;
             }
@@ -165,7 +102,7 @@ namespace WpfApp1
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
 
-            if (TypeBinding == RoomType.Warehouse)
+            if ((RoomType)ComboBox_Type.SelectedItem == RoomType.Warehouse)
             {
                 foreach (Room room in RoomsWindow.roomController.GetAll())
                 {
@@ -178,7 +115,7 @@ namespace WpfApp1
             }
 
         
-            if (RoomsWindow.roomController.Update(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding)))
+            if (RoomsWindow.roomController.Update(new Room(IdBinding, (RoomType)ComboBox_Type.SelectedItem, (int)ComboBox_Floor.SelectedItem)))
             {
                 this.Content = RoomsWindow.GetRoomsWindow();
             }

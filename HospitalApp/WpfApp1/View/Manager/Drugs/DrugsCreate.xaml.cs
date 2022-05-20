@@ -68,7 +68,7 @@ namespace WpfApp1.View.Manager.Drugs
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            if(!drugController.Create(new Drug(Name.Text, int.Parse(Quantity.Text),EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, (string)ComboBox_Replacement.SelectedItem, true, null)))
+            if(!drugController.Create(new Drug(Name.Text, 100, EquipmentType.drug, roomController.GetById("R1"), Manufacturer.Text, Ingredients.Text, (string)ComboBox_Replacement.SelectedItem, true, null)))
             {
                 MessageBox.Show("Drug with that name already exists", "error");
                 return;
@@ -93,7 +93,7 @@ namespace WpfApp1.View.Manager.Drugs
 
         public void EnableOrDisableSaveBtn()
         {
-            if (!string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty(Manufacturer.Text) && !string.IsNullOrEmpty(Quantity.Text) && !string.IsNullOrEmpty(Ingredients.Text) &&
+            if (!string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty(Manufacturer.Text) && !string.IsNullOrEmpty(Ingredients.Text) &&
              !Validation.StringToIntegerValidationRule.ValidationHasError)
             {
                 SaveBtn.IsEnabled = true;

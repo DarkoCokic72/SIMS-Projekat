@@ -42,7 +42,30 @@
                 <ItemsControl ItemsSource="{Binding Path=Grades}" VerticalAlignment="Center" Height="354" Margin="0,0,-0.2,-0.4">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Rectangle Height="{Binding Count}" VerticalAlignment="Bottom" Fill="LightBlue" Margin="1">
+                            <Rectangle Height="{Binding Count}" VerticalAlignment="Bottom" Margin="1">
+                                <Rectangle.Style>
+                                    <Style TargetType="Rectangle">
+                                        <Setter Property="Fill" Value="LightBlue"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Grade}" Value="6">
+                                                <Setter Property="Fill" Value="LightPink"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Grade}" Value="7">
+                                                <Setter Property="Fill" Value="LightGreen"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Grade}" Value="8">
+                                                <Setter Property="Fill" Value="Violet"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Grade}" Value="9">
+                                                <Setter Property="Fill" Value="LightBlue"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Grade}" Value="10">
+                                                <Setter Property="Fill" Value="LightCoral"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </Rectangle.Style>
                                 <Rectangle.ToolTip>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock FontSize="40" Text="{Binding Count}" />

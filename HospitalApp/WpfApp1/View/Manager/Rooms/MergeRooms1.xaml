@@ -39,10 +39,9 @@
         <ComboBox FontSize="40" Name="Room2" HorizontalAlignment="Left" Margin="728,213,0,0" VerticalAlignment="Top" Width="269" Height="61" SelectionChanged="ComboBox_SelectionChanged_2"/>
         <Separator HorizontalAlignment="Left" Height="127" Margin="-9,230,0,0" VerticalAlignment="Top" Width="1033"/>
         <Label Content="Data about new room" FontSize="32" HorizontalAlignment="Left" Margin="0,284,0,0" VerticalAlignment="Top" Width="384" Height="65"/>
-        <Label Width="Auto" Margin="132,363,673,324" Height="Auto" FontSize="40" Content="Id*:"/>
-        <Label Width="Auto" VerticalAlignment="Top" Margin="132,443,673,0" Height="81" FontSize="40" Content="Name*:"/>
-        <Label Content="Type*:" FontSize="40" Margin="132,529,673,163"/>
-        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="351,362,202,325" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+        <Label Width="Auto" Margin="132,379,673,308" Height="Auto" FontSize="40" Content="Id*:"/>
+        <Label Content="Type*:" FontSize="40" Margin="132,490,673,197"/>
+        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="351,379,202,308" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -65,8 +64,7 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <TextBox FontSize="40" x:Name="Name" Height="Auto" Width="Auto" Margin="351,443,202,244" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <ComboBox MaxDropDownHeight="160" FontSize="40" x:Name="ComboBox" Margin="351,524,202,163" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox" Margin="351,490,202,197" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
         <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="216,631,558,36" Width="250" Click="Button_Click_Cancel"/>
         <Button Name="NextBtn" Background="SteelBlue" FontSize="60" Content="Next" Margin="551,631,223,36" Width="250" Click="Button_Click_Next"/>
         <Separator HorizontalAlignment="Left" Height="153" Margin="0,258,-9,0" VerticalAlignment="Top" Width="1033"/>

@@ -40,7 +40,7 @@
         </GroupBox>
         <TextBox FontSize="40" x:Name="Ingredients" Height="Auto" Width="Auto" Margin="341,418,212,269" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
         <Label FontSize="40" Content="Replacement:" Margin="47,532,683,160" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
-        <ComboBox FontSize="40" x:Name="ComboBox_Replacement" HorizontalAlignment="Left" Margin="341,532,0,0" VerticalAlignment="Top" Width="471" Height="76" SelectionChanged="ComboBox_Replacement_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox_Replacement" HorizontalAlignment="Left" Margin="341,532,0,0" VerticalAlignment="Top" Width="471" Height="76" SelectionChanged="ComboBox_Replacement_SelectionChanged"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
 
     </Grid>

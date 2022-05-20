@@ -48,7 +48,7 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
-        public SplitRooms1(Room _room1, string _newId1, string _newName1, RoomType _newType1, string _newId2, string _newName2, RoomType _newType2)
+        public SplitRooms1(Room _room1, string _newId1, RoomType _newType1, string _newId2, RoomType _newType2)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -63,10 +63,8 @@ namespace WpfApp1.View.Manager.Rooms
             {
                 Room1.SelectedItem = _room1.Id;
                 IdBinding = _newId1;
-                Name.Text = _newName1;
                 ComboBox.SelectedItem = _newType1;
                 Id2Binding = _newId2;
-                Name2.Text = _newName2;
                 ComboBox2.SelectedItem = _newType2;
             }
         }
@@ -104,8 +102,8 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
             if (!CheckFirstId() || !CheckSecondId() || !CheckBoth()) return;
-            this.Content = new SplitRoom2(roomController.GetById((string)Room1.SelectedItem), Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem,
-                                                    Id2.Text, Name2.Text, (RoomType)ComboBox2.SelectedItem);
+            this.Content = new SplitRoom2(roomController.GetById((string)Room1.SelectedItem), Id.Text, (RoomType)ComboBox.SelectedItem,
+                                                    Id2.Text, (RoomType)ComboBox2.SelectedItem);
             
            
         }
@@ -154,8 +152,8 @@ namespace WpfApp1.View.Manager.Rooms
 
         private bool EnableNextBtn()
         {
-            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-            && !string.IsNullOrEmpty(Id2.Text) && !string.IsNullOrEmpty(Name2.Text) && !Validation.IdValidationRule.ValidationHasError;
+            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
+            && !string.IsNullOrEmpty(Id2.Text) && !Validation.IdValidationRule.ValidationHasError;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

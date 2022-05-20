@@ -32,7 +32,7 @@ namespace WpfApp1.View.Manager.SurveysWindows
             double width = System.Windows.SystemParameters.PrimaryScreenWidth;
             double height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Top = 0.198 * height;
-            Left = 0.25 * width;
+            Left = 0.275 * width;
             this.DataContext = this;
             Doctors = new ObservableCollection<Physician>(doctorController.GetAll());
         }

@@ -1,1 +1,1 @@
-[{"Id":"111e8f6c-a856-4f94-b774-fb8232dd296b","Name":"Sto","Quantity":103,"Type":0,"Room":{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0}},{"Id":"121e8f6c-a856-4f94-b774-fb8232dd296b","Name":"TV","Quantity":20,"Type":0,"Room":{"Id":"R1","Name":"Warehouse","Type":5,"Floor":0}}]
+[{"Id":"111e8f6c-a856-4f94-b774-fb8232dd296b","Name":"Sto","Quantity":103,"Type":0,"Room":{"Id":"R1","Type":5,"Floor":0}},{"Id":"121e8f6c-a856-4f94-b774-fb8232dd296b","Name":"TV","Quantity":20,"Type":0,"Room":{"Id":"R1","Type":5,"Floor":0}}]

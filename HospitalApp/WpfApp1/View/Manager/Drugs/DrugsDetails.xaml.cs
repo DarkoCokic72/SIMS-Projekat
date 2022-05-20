@@ -26,7 +26,7 @@ namespace WpfApp1.View.Manager.Drugs
             double width = System.Windows.SystemParameters.PrimaryScreenWidth;
             double height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Top = 0.198*height;
-            Left = 0.25*width;
+            Left = 0.275*width;
 
             FillFields();
         }

@@ -8,15 +8,13 @@
         mc:Ignorable="d"
         Height="768" Width="1024">
     <Grid>
-        <Label FontSize="40" Content="Name:" Margin="102,244,714,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
-        <Label FontSize="40" Content="Type:" Margin="102,369,714,319"/>
-        <Label FontSize="40" Content="Floor:" Margin="102,493,714,194" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <Label FontSize="40" Content="Type:" Margin="102,303,714,385" RenderTransformOrigin="0.489,-0.335"/>
+        <Label FontSize="40" Content="Floor:" Margin="102,445,714,242" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
         <TextBox Background="Transparent" BorderThickness="0" IsReadOnly="True" Text="{Binding IdBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="32" x:Name="Id" Margin="167,148,650,576"/>
-        <TextBox FontSize="40" x:Name="Name" Height="81" Width="Auto" Margin="315,244,269,443" TextWrapping="Wrap" Text="{Binding NameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="Name_TextChanged"/>
         <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="214,632,560,36" Width="250" Click="Button_Click_Cancel"/>
         <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Name="SaveBtn" Margin="566,632,208,36" Width="250" Click="Button_Click_Save"/>
-        <ComboBox Height="81" MaxDropDownHeight="250" FontSize="40" x:Name="ComboBox" Margin="315,368,269,319" Width="Auto" Text="{Binding TypeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboBox_SelectionChanged"/>
-        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="180" Margin="315,489,269,190" Width="Auto" Text="{Binding FloorBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" x:Name="ComboBox_Type" Margin="315,302,269,385" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,445,269,242" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
         <Label Content="Edit room:" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="224" Height="49"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

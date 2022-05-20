@@ -74,12 +74,12 @@ namespace WpfApp1.View.Manager
 
         private void MenuItem_SchedulingMerge(object sender, RoutedEventArgs e)
         {
-            this.Content = new MergeRooms1(null, null, null, null, RoomType.Warehouse);
+            this.Content = new MergeRooms1(null, null, null, RoomType.Warehouse);
         }
 
         private void MenuItem_SchedulingSplit(object sender, RoutedEventArgs e)
         {
-            this.Content = new SplitRooms1(null, null, null, RoomType.Warehouse, null, null, RoomType.Warehouse);
+            this.Content = new SplitRooms1(null, null, RoomType.Warehouse, null, RoomType.Warehouse);
             
         }
 

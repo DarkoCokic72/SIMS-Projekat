@@ -35,7 +35,7 @@ namespace WpfApp1.View.Manager.Rooms
         }
 
 
-        public MergeRooms1(Room _room1, Room _room2, string _newId, string _newName, RoomType _newType)
+        public MergeRooms1(Room _room1, Room _room2, string _newId, RoomType _newType)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -54,7 +54,6 @@ namespace WpfApp1.View.Manager.Rooms
                 Room1.SelectedItem = _room1.Id;
                 Room2.SelectedItem = _room2.Id;
                 IdBinding = _newId;
-                Name.Text = _newName;
                 ComboBox.SelectedItem = _newType;
             }
         }
@@ -82,7 +81,7 @@ namespace WpfApp1.View.Manager.Rooms
                 return;
             }
             this.Content = new MergeRooms2(roomController.GetById((string)Room1.SelectedItem), roomController.GetById((string)Room2.SelectedItem),
-                                                      Id.Text, Name.Text, (RoomType)ComboBox.SelectedItem);
+                                                      Id.Text, (RoomType)ComboBox.SelectedItem);
         }
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -143,7 +142,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private bool EnableNextBtn()
         {
-            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty(Name.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
+            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
                     && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError;
         }
 

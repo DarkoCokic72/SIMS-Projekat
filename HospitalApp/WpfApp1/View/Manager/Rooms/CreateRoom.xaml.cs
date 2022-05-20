@@ -46,20 +46,6 @@ namespace WpfApp1
             }
         }
 
-        private string nameBinding;
-        public string NameBinding
-        {
-            get
-            {
-                return nameBinding;
-            }
-            set
-            {
-                nameBinding = value;
-                OnPropertyChanged("NameBinding");
-            }
-        }
-
         private int floorBinding;
         public int FloorBinding
         {
@@ -101,7 +87,7 @@ namespace WpfApp1
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             
-            if(!string.IsNullOrEmpty(IdBinding) && !string.IsNullOrEmpty(NameBinding)  && 
+            if(!string.IsNullOrEmpty(IdBinding) && 
                 !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MinMaxValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
             {
                 e.CanExecute = true;
@@ -140,7 +126,7 @@ namespace WpfApp1
                 }
             }
 
-            if (RoomsWindow.roomController.Add(new Room(IdBinding, NameBinding, TypeBinding, FloorBinding)))
+            if (RoomsWindow.roomController.Add(new Room(IdBinding, TypeBinding, FloorBinding)))
             {
 
                 this.Content = RoomsWindow.GetRoomsWindow();
