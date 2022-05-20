@@ -47,7 +47,7 @@ namespace WpfApp1.View.Manager.Rooms
             BlackoutBusyDaysInCalendar();
             ScheduleBtn.IsEnabled = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;
-            Validation.MaxDurationValidationRule.ValidationHasError = false;
+            Validation.MaxDurationRoomSplitValidationRule.ValidationHasError = false;
         }
 
         private int durationBinding;
@@ -123,7 +123,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private bool EnableSaveBtn()
         {
-            return !string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError;
+            return !string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationRoomSplitValidationRule.ValidationHasError;
         }
 
         private void BlackoutBusyDaysInCalendar()

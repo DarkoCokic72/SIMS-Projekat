@@ -73,7 +73,7 @@
             <Binding Path="DurationBinding" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource">
                 <Binding.ValidationRules>
                     <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
-                    <val:MaxDurationValidationRule ValidationStep="ConvertedProposedValue"/>
+                    <val:MaxDurationRoomsMergeValidationRule ValidationStep="ConvertedProposedValue"/>
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>

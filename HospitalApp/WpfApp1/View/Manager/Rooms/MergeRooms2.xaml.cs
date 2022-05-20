@@ -60,7 +60,7 @@ namespace WpfApp1.View.Manager.Rooms
             BlackoutBusyDaysInCalendar();
             ScheduleBtn.IsEnabled = false;
             Validation.StringToIntegerValidationRule.ValidationHasError = false;
-            Validation.MaxDurationValidationRule.ValidationHasError = false;
+            Validation.MaxDurationRoomsMergeValidationRule.ValidationHasError = false;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -111,7 +111,7 @@ namespace WpfApp1.View.Manager.Rooms
 
         private bool EnableScheduleBtn()
         {
-            return !string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError;
+            return !string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationRoomsMergeValidationRule.ValidationHasError;
         }
 
         private void BlackoutBusyDaysInCalendar()
