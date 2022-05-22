@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using Controller;
 using WpfApp1.View.Manager.Equipment;
 using WpfApp1.View.Rooms;
+using WpfApp1.ViewModel.Manager.Rooms;
 
 namespace WpfApp1.Validation
 {
@@ -20,7 +21,7 @@ namespace WpfApp1.Validation
         {
             Min = 1;
             EquipmentController equipmentController = new EquipmentController();
-            Max = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment);
+            Max = equipmentController.MaxQuantityToRelocate(RoomsEquipmentViewModel.SelectedEquipment);
    
             ValidationHasError = false;
             

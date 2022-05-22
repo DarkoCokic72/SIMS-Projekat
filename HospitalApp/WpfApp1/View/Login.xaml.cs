@@ -61,7 +61,7 @@ namespace WpfApp1.View
         public Login()
         {
             InitializeComponent();
-           
+            ManagerHomePage.managerHomePageInstance = null;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

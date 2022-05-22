@@ -37,21 +37,17 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="218,623,556,45" Width="250" Click="Button_Click_Cancel"/>
-        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Margin="562,623,212,45" Width="250" Click="Button_Click_Save" Command="Save">
-            <Button.CommandBindings>
-                <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
-            </Button.CommandBindings>
-        </Button>
-        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" Name="ComboBox" Margin="315,361,269,326" Width="Auto" Text="{Binding Path=TypeBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,482,269,205" Width="Auto" Text="{Binding Path=FloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="218,623,556,45" Width="250" Command="{Binding CancelCommand}"/>
+        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Margin="562,623,212,45" Width="250" Command="{Binding SaveCommand}"/>  
+        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" Name="ComboBox" Margin="315,361,269,326" Width="Auto" ItemsSource="{Binding Path=RoomTypeBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTypeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,482,269,205" Width="Auto" ItemsSource="{Binding Path=FloorBinding, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedFloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
         <Label Content="Create room" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="224" Height="49"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>
-                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Command="{Binding HomePageCommand}">
                     <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
                 </Button>
-                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Command="{Binding LogOutCommand}">
                     <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
                 </Button>
                 <Button Width="90" Height="90" Margin="836,66,105.2,0" Background="Transparent" BorderThickness="0">
@@ -63,7 +59,7 @@
                     <Grid>
 
                         <Image Source="/WpfApp1;component/images/userr.png" Height="64" Margin="-128,0,65.6,0" RenderTransformOrigin="-0.384,0.4"/>
-                        <TextBox IsEnabled="False" FontSize="38" x:Name="User" BorderThickness="0" Background="Transparent" Margin="-59,0,-122.4,0" RenderTransformOrigin="0.5,0.5" />
+                        <TextBox Text="{Binding UserBinding, Mode=OneWay}" IsEnabled="False" FontSize="38" x:Name="User" BorderThickness="0" Background="Transparent" Margin="-59,0,-122.4,0" RenderTransformOrigin="0.5,0.5" />
                     </Grid>
                 </Button>
 

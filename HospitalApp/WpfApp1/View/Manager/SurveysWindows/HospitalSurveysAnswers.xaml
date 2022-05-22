@@ -9,7 +9,7 @@
     <Grid>
         <Label FontSize="40" Content="Average question grade:" HorizontalAlignment="Left" Margin="188,213,0,0" VerticalAlignment="Top" Width="447" Height="71"/>
         <Label FontSize="40" Content="{Binding AverageGrade}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="71" Width="163" Margin="640,213,0,0"/>
-        <Label x:Name="Category" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="322" Height="65"/>
+        <Label x:Name="Category" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="1014" Height="65"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
         <Button Width="90" Height="90" Margin="10,194,924,484" Background="Transparent" BorderThickness="0" Click="Button_Click_Back">
             <Image Source="/WpfApp1;component/images/back.png" Height="64" Width="64"/>

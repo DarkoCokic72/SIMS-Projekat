@@ -17,6 +17,8 @@ using Model;
 using WpfApp1.Model;
 using WpfApp1.View.Manager;
 using WpfApp1.View.Manager.Equipment;
+using WpfApp1.ViewModel;
+using WpfApp1.ViewModel.Manager.Rooms;
 
 namespace WpfApp1.View.Rooms
 {
@@ -25,68 +27,10 @@ namespace WpfApp1.View.Rooms
     /// </summary>
     public partial class RoomsEquipment : UserControl
     {
-        public static RoomsEquipment roomsEquipmentWindowInstance;
-        public static ObservableCollection<Equipment> Equipment { get; set; }
-        public static Equipment SelectedEquipment { get; set; }
-        public RoomsEquipment(string roomId)
+        public RoomsEquipment()
         {
             InitializeComponent();
-            this.DataContext = this;
-
-            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-            Room.Text = roomId;
-            Equipment = new ObservableCollection<Equipment>(RoomsWindow.roomController.getEquipment(roomId));
-            
-        }
-
-        private void Button_Click_Close(object sender, RoutedEventArgs e)
-        {
-            this.Content = RoomsWindow.GetRoomsWindow();
-            roomsEquipmentWindowInstance = null;
-        }
-
-        private void Button_Click_Relocation(object sender, RoutedEventArgs e)
-        {
-
-            if(SelectedEquipment == null)
-            {
-                return;
-            }
-            this.Content = new EquipmentRelocation();
-            roomsEquipmentWindowInstance = null;
-           
-        }
-
-        public static RoomsEquipment GetWindow(string roomId)
-        {
-            if (roomsEquipmentWindowInstance == null)
-            {
-                roomsEquipmentWindowInstance = new RoomsEquipment(roomId);
-
-            }
-
-            return roomsEquipmentWindowInstance;
-        }
-
-        
-
-        public void refreshContentOfGrid()
-        {
-            dg.ItemsSource = null;
-            dg.ItemsSource = RoomsWindow.roomController.getEquipment(RoomsWindow.SelectedRoom.Id);
-        }
-
-        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
-        {
-            this.Content = new ManagerHomePage();
-            roomsEquipmentWindowInstance = null;
-
-        }
-
-        private void Button_LogOut(object sender, RoutedEventArgs e)
-        {
-            this.Content = new Login();
-            roomsEquipmentWindowInstance = null;
+            this.DataContext = new RoomsEquipmentViewModel();
         }
     }
 }

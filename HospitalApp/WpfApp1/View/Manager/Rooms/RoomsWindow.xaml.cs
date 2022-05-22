@@ -21,26 +21,20 @@ using Service;
 using WpfApp1.View;
 using WpfApp1.View.Manager;
 using WpfApp1.View.Rooms;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1
 {
-   
+
     public partial class RoomsWindow : UserControl
     {
         public static RoomsWindow roomsWindowInstance;
         public static RoomController roomController = new RoomController();
-        public ObservableCollection<Room> Rooms { get; set; }
-        public static Room SelectedRoom { get; set; }
 
         public RoomsWindow()
         {
-
             InitializeComponent();
-            this.DataContext = this;
-
-            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-            Rooms = new ObservableCollection<Room>(roomController.GetAll());
-
+            this.DataContext = new RoomsWindowViewModel();
         }
 
         public static RoomsWindow GetRoomsWindow()
@@ -48,7 +42,6 @@ namespace WpfApp1
             if (roomsWindowInstance == null)
             {
                 roomsWindowInstance = new RoomsWindow();
-
             }
 
             return roomsWindowInstance;
@@ -58,68 +51,8 @@ namespace WpfApp1
         {
             dgRooms.ItemsSource = null;
             dgRooms.ItemsSource = roomController.GetAll();
-
-        }
-
-        private void Button_Click_HomePage(object sender, RoutedEventArgs e)
-        {
-            this.Content = new ManagerHomePage();
-            roomsWindowInstance = null;
-        }
-       
-
-        private void Button_LogOut(object sender, RoutedEventArgs e)
-        {
-            this.Content = new Login();
-            roomsWindowInstance = null;
-        }
-
-        private void Button_Click_Add(object sender, RoutedEventArgs e)
-        {
-            this.Content = new CreateRoom();
-            roomsWindowInstance = null;
-        }
-
-        private void Button_Click_Edit(object sender, RoutedEventArgs e)
-        {
-            if (!CheckIfRoomIsSelected()) return;
-            if (SelectedRoom.Type == RoomType.Warehouse)
-            {
-                MessageBox.Show("The warehouse cannot be edited!");
-                return;
-            }
-            this.Content = new RoomsEdit();
-            roomsWindowInstance = null;
-        }
-
-        private void Button_Click_Delete(object sender, RoutedEventArgs e)
-        {
-            if (!CheckIfRoomIsSelected()) return;
-            if (SelectedRoom.Type == RoomType.Warehouse)
-            {
-                MessageBox.Show("The warehouse cannot be deleted!");
-                return;
-            }
-            RoomsDelete roomsDelete = new RoomsDelete();
-            roomsDelete.ShowDialog();
-        }
-
-        private void Button_Click_Details(object sender, RoutedEventArgs e)
-        {
-            if (!CheckIfRoomIsSelected()) return;
-            this.Content = RoomsEquipment.GetWindow(SelectedRoom.Id);
-            roomsWindowInstance = null;
-        }
-
-        private bool CheckIfRoomIsSelected()
-        {
-            if (SelectedRoom == null)
-            {
-                MessageBox.Show("You need to select a row!");
-                return false;
-            }
-            return true;
         }
     }
 }
+
 

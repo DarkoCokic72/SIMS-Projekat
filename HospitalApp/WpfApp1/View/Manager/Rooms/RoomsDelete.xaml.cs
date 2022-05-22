@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using WpfApp1.ViewModel;
+using WpfApp1.ViewModel.Manager.Rooms;
 
 namespace WpfApp1
 {
@@ -26,7 +28,7 @@ namespace WpfApp1
 
         private void Button_Click_Yes(object sender, RoutedEventArgs e)
         {
-            Room room = RoomsWindow.SelectedRoom;
+            Room room = RoomsWindowViewModel.SelectedRoom;
             RoomsWindow.roomController.Remove(room.Id);
             RoomsWindow.GetRoomsWindow().refreshContentOfGrid();
             Close();

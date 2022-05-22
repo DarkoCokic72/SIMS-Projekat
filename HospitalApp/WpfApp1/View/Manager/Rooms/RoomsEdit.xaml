@@ -10,18 +10,18 @@
     <Grid>
         <Label FontSize="40" Content="Type:" Margin="102,303,714,385" RenderTransformOrigin="0.489,-0.335"/>
         <Label FontSize="40" Content="Floor:" Margin="102,445,714,242" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
-        <TextBox Background="Transparent" BorderThickness="0" IsReadOnly="True" Text="{Binding IdBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="32" x:Name="Id" Margin="167,148,650,576"/>
-        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="214,632,560,36" Width="250" Click="Button_Click_Cancel"/>
-        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Name="SaveBtn" Margin="566,632,208,36" Width="250" Click="Button_Click_Save"/>
-        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" x:Name="ComboBox_Type" Margin="315,302,269,385" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
-        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,445,269,242" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <TextBox Background="Transparent" BorderThickness="0" IsReadOnly="True" Text="{Binding IdBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" FontSize="32" x:Name="Id" Margin="167,148,650,576"/>
+        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="214,632,560,36" Width="250" Command="{Binding CancelCommand}"/>
+        <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Name="SaveBtn" Margin="566,632,208,36" Width="250" Command="{Binding SaveCommand}"/>
+        <ComboBox ItemsSource="{Binding RoomTypeBinding, Mode=OneWay}" SelectedItem="{Binding SelectedTypeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="81" MaxDropDownHeight="240" FontSize="40" x:Name="ComboBox_Type" Margin="315,302,269,385" Width="Auto"/>
+        <ComboBox ItemsSource="{Binding FloorBinding, Mode=OneWay}" SelectedItem="{Binding SelectedFloorBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,445,269,242" Width="Auto"/>
         <Label Content="Edit room:" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="224" Height="49"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>
-                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Command="{Binding HomePageCommand}">
                     <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
                 </Button>
-                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Command="{Binding LogOutCommand}">
                     <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
                 </Button>
                 <Button Width="90" Height="90" Margin="836,66,105.2,0" Background="Transparent" BorderThickness="0">

@@ -218,6 +218,13 @@
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
     <Compile Include="Validation\RenovationValidation.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
+    <Compile Include="ViewModel\BindableBase.cs" />
+    <Compile Include="ViewModel\Manager\Drugs\DrugsCreateViewModel.cs" />
+    <Compile Include="ViewModel\Manager\Rooms\CreateRoomViewModel.cs" />
+    <Compile Include="ViewModel\Manager\Rooms\RoomsEditViewModel.cs" />
+    <Compile Include="ViewModel\Manager\Rooms\RoomsEquipmentViewModel.cs" />
+    <Compile Include="ViewModel\Manager\Rooms\RoomsWindowViewModel.cs" />
+    <Compile Include="ViewModel\MyICommand.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -786,5 +793,6 @@
   <ItemGroup>
     <Resource Include="images\back.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

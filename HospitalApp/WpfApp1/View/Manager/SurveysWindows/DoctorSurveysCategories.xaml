@@ -42,7 +42,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Name="Category" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="322" Height="65"/>
+        <Label Name="Category" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="1004" Height="65"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
         <Label FontSize="30" Content="Doctor surveys" HorizontalAlignment="Center" Margin="749,716,26,6" VerticalAlignment="Center" Width="249" Height="46" RenderTransformOrigin="2.372,5.988"/>
         <Label FontSize="40" Content="Average doctor grade:" HorizontalAlignment="Left" Margin="188,213,0,0" VerticalAlignment="Top" Width="409" Height="69"/>

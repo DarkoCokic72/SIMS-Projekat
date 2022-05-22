@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Controller;
 using Model;
 using WpfApp1.Validation;
 using WpfApp1.View.Rooms;
+using WpfApp1.ViewModel;
+using WpfApp1.ViewModel.Manager.Rooms;
 
 namespace WpfApp1.View.Manager.Equipment
 {
@@ -50,12 +44,13 @@ namespace WpfApp1.View.Manager.Equipment
         }
         public EquipmentRelocation()
         {
+         
             InitializeComponent();
             this.DataContext = this;
-            Info.Text = "Relocating " + RoomsEquipment.SelectedEquipment.Name + " from room " + RoomsEquipment.SelectedEquipment.Room.Id;
+            Info.Text = "Relocating " + ViewModel.Manager.Rooms.RoomsEquipmentViewModel.SelectedEquipment.Name + " from room " + ViewModel.Manager.Rooms.RoomsEquipmentViewModel.SelectedEquipment.Room.Id;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             EquipmentController equipmentController = new EquipmentController();
-            QuantityTest = equipmentController.MaxQuantityToRelocate(RoomsEquipment.SelectedEquipment);
+            QuantityTest = equipmentController.MaxQuantityToRelocate(ViewModel.Manager.Rooms.RoomsEquipmentViewModel.SelectedEquipment);
             Room.ItemsSource = FillComboBoxWithRooms();
 
             Save.IsEnabled = false;
@@ -68,7 +63,7 @@ namespace WpfApp1.View.Manager.Equipment
             List<string> roomsId = new List<String>();
             foreach (Room room in RoomsWindow.roomController.GetAll())
             {
-                if (RoomsWindow.SelectedRoom.Id != room.Id)
+                if (RoomsWindowViewModel.SelectedRoom.Id != room.Id)
                 {
                     roomsId.Add(room.Id);
                 }
@@ -79,7 +74,7 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Content = new RoomsEquipment(RoomsEquipment.SelectedEquipment.Room.Id);
+            this.Content = new RoomsEquipment();
            
         }
 
@@ -88,7 +83,7 @@ namespace WpfApp1.View.Manager.Equipment
             
             EquipmentController equipmentController = new EquipmentController();
             RoomController roomController = new RoomController();
-            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), roomController.GetById((string)Room.SelectedItem), RoomsEquipment.SelectedEquipment));
+            equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), roomController.GetById((string)Room.SelectedItem), ViewModel.Manager.Rooms.RoomsEquipmentViewModel.SelectedEquipment));
 
             this.Content = RoomsWindow.GetRoomsWindow();
         }

@@ -16,6 +16,7 @@ using WpfApp1.View.Manager.Drugs;
 using WpfApp1.View.Manager.Equipment;
 using WpfApp1.View.Manager.Rooms;
 using WpfApp1.View.Manager.SurveysWindows;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1.View.Manager
 {
@@ -24,14 +25,14 @@ namespace WpfApp1.View.Manager
     /// </summary>
     public partial class ManagerHomePage : UserControl
     {
-        private static ManagerHomePage managerHomePageInstance = null;
+        public static ManagerHomePage managerHomePageInstance = null;
         public ManagerHomePage()
         {
             InitializeComponent();
             
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             DrugsWindow.SelectedDrug = null;
-            RoomsWindow.SelectedRoom = null;
+            RoomsWindowViewModel.SelectedRoom = null;
         }
 
         public static ManagerHomePage GetManagerHomePage()
