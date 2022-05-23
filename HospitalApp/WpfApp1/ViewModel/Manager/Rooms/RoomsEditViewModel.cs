@@ -88,11 +88,9 @@ namespace WpfApp1.ViewModel.Manager.Rooms
             selectedTypeBinding = RoomsWindowViewModel.SelectedRoom.Type;
             idBinding = RoomsWindowViewModel.SelectedRoom.Id;
             LoadFloors();
-            SaveCommand = new MyICommand(OnSave, CanSave);
-            CancelCommand = new MyICommand(OnCancel);
-            HomePageCommand = new MyICommand(OnHomePage);
-            LogOutCommand = new MyICommand(OnLogOut);
+            CreateCommands();
         }
+
 
         private void LoadFloors()
         {
@@ -105,6 +103,14 @@ namespace WpfApp1.ViewModel.Manager.Rooms
             };
 
             selectedFloorBinding = RoomsWindowViewModel.SelectedRoom.Floor;
+        }
+
+        private void CreateCommands()
+        {
+            SaveCommand = new MyICommand(OnSave, CanSave);
+            CancelCommand = new MyICommand(OnCancel);
+            HomePageCommand = new MyICommand(OnHomePage);
+            LogOutCommand = new MyICommand(OnLogOut);
         }
 
         private void OnSave()
@@ -136,7 +142,6 @@ namespace WpfApp1.ViewModel.Manager.Rooms
             }
 
             return false;
-
         }
     }
 }

@@ -26,9 +26,9 @@ namespace Service
             return roomRepository.GetById(id);
         }
 
-        public bool Add(Room room)
+        public void Add(Room room)
         {
-            return roomRepository.Add(room);
+            roomRepository.Add(room);
         }
 
         public bool Update(Room room)
@@ -41,7 +41,7 @@ namespace Service
             roomRepository.Remove(id);
         }
 
-        public List<Equipment> getEquipment(string roomId)
+        public List<Equipment> GetEquipment(string roomId)
         {
             return equipmentService.GetByRoomId(roomId);
         }
@@ -80,15 +80,8 @@ namespace Service
             foreach (AdvancedRenovation advancedRenovationRequest in advancedRenovationRepository.GetAll())
             {
                 if (IsRenovationFinished(advancedRenovationRequest.StartDate.AddDays(advancedRenovationRequest.Duration - 1)))
-                {   
-                    if(advancedRenovationRequest.RenovationType == RenovationType.merge) 
-                    {
-                        MergeRooms(advancedRenovationRequest);
-                    }
-                    else 
-                    { 
-                        SplitRoom(advancedRenovationRequest);
-                    }
+                {
+                    RenovateAccordingToRenovationType(advancedRenovationRequest);
                 }
             }
         }
@@ -102,6 +95,18 @@ namespace Service
         {
             DateTime currentDate = DateTime.Today;
             return endDate.ToString("yyyy-MM-dd").Equals(currentDate.ToString("yyyy-MM-dd"));
+        }
+
+        private void RenovateAccordingToRenovationType(AdvancedRenovation advancedRenovationRequest)
+        {
+            if (advancedRenovationRequest.RenovationType == RenovationType.merge)
+            {
+                MergeRooms(advancedRenovationRequest);
+            }
+            else
+            {
+                SplitRoom(advancedRenovationRequest);
+            }
         }
 
         private void MergeRooms(AdvancedRenovation advancedRenovationRequest)
@@ -148,14 +153,20 @@ namespace Service
             foreach (Renovation renovation in renovationRepository.GetByRoomId(roomId))
             {
                 days.Add(renovation.StartDate);
-                for (int i = 1; i < renovation.Duration; i++)
-                {
-                    days.Add(renovation.StartDate.AddDays(i));
-                }
+                days.AddRange(CalculateBusyDaysForRenovationByDuration(renovation));
             }
             return days;
         }
 
+        private List<DateTime> CalculateBusyDaysForRenovationByDuration(Renovation renovation)
+        {
+            List<DateTime> days = new List<DateTime>();
+            for (int i = 1; i < renovation.Duration; i++)
+            {
+                days.Add(renovation.StartDate.AddDays(i));
+            }
+            return days;
+        }
 
         private List<DateTime> GetBusyDaysDueToAdvancedRenovation(string roomId)
         {
@@ -163,13 +174,21 @@ namespace Service
             foreach (AdvancedRenovation renovation in advancedRenovationRepository.GetByRoomId(roomId))
             {
                 days.Add(renovation.StartDate);
-                for (int i = 1; i < renovation.Duration; i++)
-                {
-                    days.Add(renovation.StartDate.AddDays(i));
-                }
+                days.AddRange(CalculateBusyDaysForAdvancedRenovationByDuration(renovation));
             }
             return days;
         }
+
+        private List<DateTime> CalculateBusyDaysForAdvancedRenovationByDuration(AdvancedRenovation renovation)
+        {
+            List<DateTime> days = new List<DateTime>();
+            for (int i = 1; i < renovation.Duration; i++)
+            {
+                days.Add(renovation.StartDate.AddDays(i));
+            }
+            return days;
+        }
+
 
         private List<DateTime> GetBusyDaysDueToAppointments(string roomId)
         {
@@ -184,7 +203,7 @@ namespace Service
             return days;
         }
 
-        public Repo.RoomRepository roomRepository = new RoomRepository();
+        public RoomRepository roomRepository = new RoomRepository();
         public EquipmentService equipmentService = new EquipmentService();
         public ExaminationAppointmentRepository examinationAppointmentRepository = new ExaminationAppointmentRepository();
         public PatientExaminationAppointmentRepository patientExaminationAppointmentRepository = new PatientExaminationAppointmentRepository();

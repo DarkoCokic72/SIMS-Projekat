@@ -25,10 +25,9 @@ namespace WpfApp1.Repo
 
         public List<Answerr> GetAnswers(string refersTo, string category, string questionText)
         {
-
-            foreach(Question question in GetAllQuestions(refersTo, category))
+            foreach (Question question in GetAllQuestions(refersTo, category))
             {
-                if(question.QuestionText == questionText)
+                if (question.QuestionText == questionText)
                 {
                     return question.Answer;
                 }
@@ -51,12 +50,9 @@ namespace WpfApp1.Repo
         public List<Answerr> GetAllAnswersForHospitalOrDoctor(string refersTo)
         {
             List<Answerr> allAnswers = new List<Answerr>();
-            foreach (Survey surveys in GetAll(refersTo))
-            {
-                foreach (Question question in surveys.Question)
-                {
-                    allAnswers.AddRange(question.Answer);
-                }
+            foreach (Survey survey in GetAll(refersTo))
+            {  
+                allAnswers.AddRange(GetAllAnswersForCategory(refersTo, survey.Category));  
             }
             return allAnswers;
         }

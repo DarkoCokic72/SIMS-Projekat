@@ -27,15 +27,13 @@ namespace WpfApp1.View.Manager.Drugs
             double height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Top = 0.198*height;
             Left = 0.275*width;
-
             FillFields();
         }
 
         private void FillFields()
         {
             Ingredients.Text = DrugsWindow.SelectedDrug.Ingredients;
-            Replacement.Text = DrugsWindow.SelectedDrug.Replacement;
-            
+            Replacement.Text = DrugsWindow.SelectedDrug.Replacement;      
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)

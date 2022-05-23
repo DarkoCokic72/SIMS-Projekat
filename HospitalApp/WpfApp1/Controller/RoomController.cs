@@ -25,9 +25,9 @@ namespace Controller
             return roomService.GetById(id);
         }
       
-        public bool Add(Room room)
+        public void Add(Room room)
         {
-            return roomService.Add(room);
+            roomService.Add(room);
         }
       
         public bool Update(Room room)
@@ -40,9 +40,9 @@ namespace Controller
             roomService.Remove(id);
         }
 
-        public List<Equipment> getEquipment(string roomId)
+        public List<Equipment> GetEquipment(string roomId)
         {
-            return roomService.getEquipment(roomId);
+            return roomService.GetEquipment(roomId);
         }
 
         public void SchedulingRenovation(Renovation renovation)

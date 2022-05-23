@@ -18,9 +18,6 @@ using WpfApp1.DTO;
 
 namespace WpfApp1.View.Manager.SurveysWindows
 {
-    /// <summary>
-    /// Interaction logic for DoctorSurveysAnswers.xaml
-    /// </summary>
     public partial class DoctorSurveysAnswers : UserControl
     {
         public double AverageGrade { get; set; }

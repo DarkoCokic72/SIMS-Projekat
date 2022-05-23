@@ -14,7 +14,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
 {
     public class CreateRoomViewModel : BindableBase
     {
-        public MyICommand SaveCommand { get; set; }
+        public static MyICommand SaveCommand { get; set; }
         public MyICommand CancelCommand { get; set; }
         public MyICommand HomePageCommand { get; set;}
         public MyICommand LogOutCommand { get; set; }
@@ -86,37 +86,27 @@ namespace WpfApp1.ViewModel.Manager.Rooms
             SelectedTypeBinding = RoomType.ExaminationRoom;
             LoadFloors();
             Validation.IdValidationRule.ValidationHasError = false;
+            CreateCommands();
+        }
+
+        private void LoadFloors()
+        {
+            FloorBinding = new ObservableCollection<int>{0, 1, 2, 3};
+            SelectedFloorBinding = FloorBinding[0];
+        }
+
+        private void CreateCommands()
+        {
             SaveCommand = new MyICommand(OnSave, CanSave);
             CancelCommand = new MyICommand(OnCancel);
             HomePageCommand = new MyICommand(OnHomePage);
             LogOutCommand = new MyICommand(OnLogOut);
         }
 
-        private void LoadFloors()
-        {
-            FloorBinding = new ObservableCollection<int>
-            {
-                0,
-                1,
-                2,
-                3
-            };
-
-            SelectedFloorBinding = FloorBinding[0];
-        }
-
         private void OnSave()
         {
-
-            if (RoomsWindow.roomController.Add(new Room(IdBinding, SelectedTypeBinding, SelectedFloorBinding)))
-            {
-                ManagerHomePage.GetManagerHomePage().Content = RoomsWindow.GetRoomsWindow();
-            }
-            else
-            {
-                MessageBox.Show("Room with that Id already exists!", "Error");
-            }
-
+            RoomsWindow.roomController.Add(new Room(IdBinding, SelectedTypeBinding, SelectedFloorBinding));
+            ManagerHomePage.GetManagerHomePage().Content = RoomsWindow.GetRoomsWindow();
         }
 
         private void OnCancel()
@@ -136,12 +126,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
 
         private bool CanSave()
         {
-            if (!string.IsNullOrEmpty(IdBinding) && !Validation.IdValidationRule.ValidationHasError)
-            {
-                return true;
-            }
-
-            return false;
+            return !string.IsNullOrEmpty(IdBinding) && !Validation.IdValidationRule1.ValidationHasError;
         }
     }
 

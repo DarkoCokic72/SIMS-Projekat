@@ -10,7 +10,7 @@
         <Button Background="SteelBlue" Height="100" FontSize="60" Content="Close" Margin="227,498,223,26.8" Width="250" Click="Button_Click_Back"/>
         <Separator BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Left" Height="131" Margin="0,-12,-2,0" VerticalAlignment="Top" Width="702" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Choose doctor" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Top" Width="327" Height="58" Margin="10,0,0,0"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="641" Margin="31,91,0,0" ItemsSource="{Binding Doctors}" SelectedItem="{Binding SelectedDoctor, Mode=TwoWay}" MouseDoubleClick="listBox_MouseDoubleClick">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="641" Margin="31,91,0,0" ItemsSource="{Binding Doctors}" SelectedItem="{Binding SelectedDoctor, Mode=TwoWay}" MouseDoubleClick="ListBox_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

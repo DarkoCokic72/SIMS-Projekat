@@ -49,7 +49,12 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         {
             UserBinding = Login.userAccount.Name + " " + Login.userAccount.Surname;
             IdBinding = RoomsWindowViewModel.SelectedRoom.Id;
-            Equipment = new ObservableCollection<Equipment>(RoomsWindow.roomController.getEquipment(RoomsWindowViewModel.SelectedRoom.Id));
+            Equipment = new ObservableCollection<Equipment>(RoomsWindow.roomController.GetEquipment(RoomsWindowViewModel.SelectedRoom.Id));
+            CreateCommands();
+        }
+
+        private void CreateCommands()
+        {
             LogOutCommand = new MyICommand(OnLogOut);
             HomePageCommand = new MyICommand(OnHomePage);
             BackCommand = new MyICommand(OnBack);

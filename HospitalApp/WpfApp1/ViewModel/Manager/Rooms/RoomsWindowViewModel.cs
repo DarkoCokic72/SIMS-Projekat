@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -46,6 +45,11 @@ namespace WpfApp1.ViewModel
         {
             Rooms = new ObservableCollection<Room>(roomController.GetAll());
             UserBinding = Login.userAccount.Name + " " + Login.userAccount.Surname;
+            CreateCommands();
+        }
+
+        private void CreateCommands()
+        {
             AddCommand = new MyICommand(OnAdd);
             EditCommand = new MyICommand(OnEdit);
             DeleteCommand = new MyICommand(OnDelete);

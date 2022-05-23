@@ -24,7 +24,7 @@ namespace WpfApp1.View.Manager.SurveysWindows
     public partial class HospitalSurveysAnswers : UserControl
     {
         public double AverageGrade { get; set; }
-        private SurveysController surveysController = new SurveysController();
+        private readonly SurveysController surveysController = new SurveysController();
         public ObservableCollection<GradeDTO> Grades { get; set; }
         public HospitalSurveysAnswers()
         {
@@ -33,8 +33,7 @@ namespace WpfApp1.View.Manager.SurveysWindows
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             Category.Content = "Question: " + HospitalSurveysQuestions.SelectedQuestion.QuestionText;
             AverageGrade = surveysController.GetAverageGradeOfQuestion("hospital", HospitalSurveysCategories.SelectedSurvey.Category, HospitalSurveysQuestions.SelectedQuestion.QuestionText);
-            Grades = new ObservableCollection<GradeDTO>(surveysController.GetAllGradesOfQuestion("hospital", HospitalSurveysCategories.SelectedSurvey.Category, HospitalSurveysQuestions.SelectedQuestion.QuestionText));
-            
+            Grades = new ObservableCollection<GradeDTO>(surveysController.GetAllGradesOfQuestion("hospital", HospitalSurveysCategories.SelectedSurvey.Category, HospitalSurveysQuestions.SelectedQuestion.QuestionText));        
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

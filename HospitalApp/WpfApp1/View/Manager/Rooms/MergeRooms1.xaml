@@ -39,9 +39,9 @@
         <ComboBox FontSize="40" Name="Room2" HorizontalAlignment="Left" Margin="728,213,0,0" VerticalAlignment="Top" Width="269" Height="61" SelectionChanged="ComboBox_SelectionChanged_2"/>
         <Separator HorizontalAlignment="Left" Height="127" Margin="-9,230,0,0" VerticalAlignment="Top" Width="1033"/>
         <Label Content="Data about new room" FontSize="32" HorizontalAlignment="Left" Margin="0,284,0,0" VerticalAlignment="Top" Width="384" Height="65"/>
-        <Label Width="Auto" Margin="132,379,673,308" Height="Auto" FontSize="40" Content="Id*:"/>
-        <Label Content="Type*:" FontSize="40" Margin="132,490,673,197"/>
-        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="351,379,202,308" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+        <Label Width="Auto" Margin="100,379,705,308" Height="Auto" FontSize="40" Content="Id*:"/>
+        <Label Content="Type*:" FontSize="40" Margin="100,490,705,197"/>
+        <TextBox FontSize="40" x:Name="Id" Height="Auto" Margin="330,379,223,308" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -54,7 +54,7 @@
                         </Grid.ColumnDefinitions>
 
                         <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
@@ -64,7 +64,7 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <ComboBox MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox" Margin="351,490,202,197" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox" Margin="330,490,223,197" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
         <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="216,631,558,36" Width="250" Click="Button_Click_Cancel"/>
         <Button Name="NextBtn" Background="SteelBlue" FontSize="60" Content="Next" Margin="551,631,223,36" Width="250" Click="Button_Click_Next"/>
         <Separator HorizontalAlignment="Left" Height="153" Margin="0,258,-9,0" VerticalAlignment="Top" Width="1033"/>

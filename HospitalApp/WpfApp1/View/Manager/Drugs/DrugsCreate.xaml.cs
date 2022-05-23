@@ -11,13 +11,11 @@ namespace WpfApp1.View.Manager.Drugs
     /// Interaction logic for DrugsCreate.xaml
     /// </summary>
     public partial class DrugsCreate : UserControl
-    {
-      
+    {   
         public DrugsCreate()
         {
             InitializeComponent();
             this.DataContext = new DrugsCreateViewModel();
         }
-
     }
 }

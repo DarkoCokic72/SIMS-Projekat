@@ -15,9 +15,9 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 {
     public class DrugsCreateViewModel : BindableBase
     {
-        DrugController drugController = new DrugController();
-        RoomController roomController = new RoomController();
-        public MyICommand SaveCommand { get; set; }
+        private readonly DrugController drugController = new DrugController();
+        private readonly RoomController roomController = new RoomController();
+        public static MyICommand SaveCommand { get; set; }
         public MyICommand CancelCommand { get; set; }
         public MyICommand HomePageCommand { get; set; }
         public MyICommand LogOutCommand { get; set; }
@@ -44,8 +44,8 @@ namespace WpfApp1.ViewModel.Manager.Drugs
             set
             {
                 nameBinding = value;
-                OnPropertyChanged("NameBinding");
                 SaveCommand.RaiseCanExecuteChanged();
+                
             }
         }
 
@@ -59,7 +59,6 @@ namespace WpfApp1.ViewModel.Manager.Drugs
             set
             {
                 manufacturerBinding = value;
-                OnPropertyChanged("ManufacturerBinding");
                 SaveCommand.RaiseCanExecuteChanged();
             }
         }
@@ -74,7 +73,6 @@ namespace WpfApp1.ViewModel.Manager.Drugs
             set
             {
                 ingredientsBinding = value;
-                OnPropertyChanged("IngredientsBinding");
                 SaveCommand.RaiseCanExecuteChanged();
             }
         }
@@ -99,10 +97,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
         {
             UserBinding = Login.userAccount.Name + " " + Login.userAccount.Surname;
             ReplacementBinding = new ObservableCollection<string>(FillComboBoxWithDrugs());
-            HomePageCommand = new MyICommand(OnHomePage);
-            LogOutCommand = new MyICommand(OnLogOut);
-            SaveCommand = new MyICommand(OnSave, CanSave);
-            CancelCommand = new MyICommand(OnCancel);
+            CreateCommands();
         }
 
         private List<string> FillComboBoxWithDrugs()
@@ -115,6 +110,14 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
             drugs.Distinct();
             return drugs;
+        }
+
+        private void CreateCommands()
+        {
+            HomePageCommand = new MyICommand(OnHomePage);
+            LogOutCommand = new MyICommand(OnLogOut);
+            SaveCommand = new MyICommand(OnSave, CanSave);
+            CancelCommand = new MyICommand(OnCancel);
         }
 
         private void OnCancel()
@@ -134,26 +137,17 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
         private void OnSave()
         {
-            if (!drugController.Create(new Drug(NameBinding, 100, EquipmentType.drug, roomController.GetById("R1"), ManufacturerBinding, IngredientsBinding, SelectedReplacementBinding, true, null)))
-            {
-                MessageBox.Show("Drug with that name already exists", "error");
-                return;
-            }
+            drugController.Create(new Drug(NameBinding, 100, EquipmentType.drug, roomController.GetById("R1"), ManufacturerBinding, IngredientsBinding, SelectedReplacementBinding, true, null));
             ManagerHomePage.GetManagerHomePage().Content = new DrugsWindow();
         }
 
         private bool CanSave()
         {
-            if (!string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(ManufacturerBinding) && !string.IsNullOrEmpty(IngredientsBinding))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(ManufacturerBinding) && !string.IsNullOrEmpty(IngredientsBinding) && !Validation.DrugNameValidationRule.ValidationHasError
+                   && !Validation.RequiredNameFieldValidationRule.ValidationHasError && !Validation.RequiredManufacturerFieldValidationRule.ValidationHasError && !Validation.RequiredIngredientsFieldValidationRule.ValidationHasError;
+           
         }
 
-}
+    }
 }
 

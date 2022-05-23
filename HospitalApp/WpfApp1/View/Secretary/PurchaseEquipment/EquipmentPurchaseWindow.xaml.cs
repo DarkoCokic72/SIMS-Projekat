@@ -35,7 +35,7 @@ namespace WpfApp1
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            Equipments = new ObservableCollection<Equipment>(RoomsWindow.roomController.getEquipment("R1"));
+            Equipments = new ObservableCollection<Equipment>(RoomsWindow.roomController.GetEquipment("R1"));
 
             Equipment.ItemsSource = GetWareHouseEquipment();
 

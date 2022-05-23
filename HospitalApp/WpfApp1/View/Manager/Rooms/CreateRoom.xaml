@@ -9,14 +9,14 @@
         mc:Ignorable="d"
         Height="768" Width="1024">
     <Grid>
-        <Label FontSize="40" Content="Id*:" Margin="102,243,714,444" Width="Auto" Height="Auto" RenderTransformOrigin="0.595,0.659"/>
-        <Label FontSize="40" Content="Type*:" Margin="102,361,714,326"/>
-        <Label FontSize="40" Content="Floor*:" Margin="102,482,714,205" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
-        <TextBox FontSize="40" Name="Id" Height="81" Margin="315,243,269,444" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822">
+        <Label FontSize="40" Content="Id*:" Margin="78,243,744,444" Width="Auto" Height="Auto" RenderTransformOrigin="0.595,0.659"/>
+        <Label FontSize="40" Content="Type*:" Margin="78,361,744,326"/>
+        <Label FontSize="40" Content="Floor*:" Margin="78,482,739,205" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <TextBox FontSize="40" Name="Id" Height="81" Margin="285,243,269,444" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822">
             <TextBox.Text>
                 <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <val:IdValidationRule ValidationStep="RawProposedValue"/>
+                        <val:IdValidationRule1 ValidationStep="UpdatedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
@@ -39,8 +39,8 @@
         </TextBox>
         <Button Height="100" Background="SteelBlue" FontSize="60" Content="Cancel" Margin="218,623,556,45" Width="250" Command="{Binding CancelCommand}"/>
         <Button Height="100" Background="SteelBlue" FontSize="60" Content="Save" Margin="562,623,212,45" Width="250" Command="{Binding SaveCommand}"/>  
-        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" Name="ComboBox" Margin="315,361,269,326" Width="Auto" ItemsSource="{Binding Path=RoomTypeBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTypeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="315,482,269,205" Width="Auto" ItemsSource="{Binding Path=FloorBinding, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedFloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        <ComboBox Height="81" MaxDropDownHeight="240" FontSize="40" Name="ComboBox" Margin="285,361,269,326" Width="Auto" ItemsSource="{Binding Path=RoomTypeBinding, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTypeBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <ComboBox Height="81" FontSize="40" x:Name="ComboBox_Floor" MaxDropDownHeight="120" Margin="285,482,269,205" Width="Auto" ItemsSource="{Binding Path=FloorBinding, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedFloorBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
         <Label Content="Create room" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="224" Height="49"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

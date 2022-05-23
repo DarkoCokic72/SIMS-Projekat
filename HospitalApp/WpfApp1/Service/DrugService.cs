@@ -15,9 +15,9 @@ namespace WpfApp1.Service
             return drugRepository.GetAll();
         }
 
-        public bool Create(Drug drug)
+        public void Create(Drug drug)
         {
-            return drugRepository.Create(drug);
+            drugRepository.Create(drug);
         }
 
         public bool Update(Drug drug, string oldNameOfDrug)
@@ -25,6 +25,10 @@ namespace WpfApp1.Service
             return drugRepository.Update(drug, oldNameOfDrug);
         }
 
+        public bool DrugExists(string drugName)
+        {
+            return drugRepository.DrugExists(drugName);
+        }
         public DrugRepository drugRepository = new DrugRepository();
     }
 }

@@ -18,9 +18,6 @@ using WpfApp1.Model;
 
 namespace WpfApp1.View.Manager.SurveysWindows
 {
-    /// <summary>
-    /// Interaction logic for HospitalSurveysQuestions.xaml
-    /// </summary>
     public partial class HospitalSurveysQuestions : UserControl
     {
         public ObservableCollection<Question> Questions { get; set; }
@@ -35,7 +32,6 @@ namespace WpfApp1.View.Manager.SurveysWindows
             Category.Content = "Category: " +  HospitalSurveysCategories.SelectedSurvey.Category;
             AverageGrade = surveysController.GetAverageGradeOfCategory("hospital", HospitalSurveysCategories.SelectedSurvey.Category);
             Questions = new ObservableCollection<Question>(HospitalSurveysCategories.SelectedSurvey.Question);
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

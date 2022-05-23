@@ -10,8 +10,7 @@ using Model;
 namespace Repo
 {
     public class DrugRepository
-    {
-      
+    {   
         public List<Drug> GetAll()
         {   
             List<Drug> drugs = new List<Drug>();
@@ -25,18 +24,15 @@ namespace Repo
             return drugs;
         }
       
-        public bool Create(Drug newDrug)
+        public void Create(Drug newDrug)
         {
-            if (DrugExists(newDrug, null)) return false;
             List<Drug> drugs = drugFileHandler.Read();
             drugs.Add(newDrug);
             drugFileHandler.Save(drugs);
-            return true;
         }
       
         public bool Update(Drug newDrug, string oldNameOfDrug)
-        {
-            if (DrugExists(newDrug, oldNameOfDrug)) return false;
+        { 
             List<Drug> drugs = GetAll();
             for (int i = 0; i < drugs.Count; i++)
             {
@@ -53,11 +49,11 @@ namespace Repo
             }
             return true;
         }
-        private bool DrugExists(Drug newDrug, string oldNameOfDrug)
+        public bool DrugExists(string drugName)
         {
             foreach (Drug drug in drugFileHandler.Read())
             {
-                if (drug.Name.ToLower() == newDrug.Name.ToLower() && drug.Name.ToLower() != oldNameOfDrug.ToLower())
+                if (drug.Name.ToLower() == drugName.ToLower())
                 {
                     return true;
                 }

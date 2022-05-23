@@ -18,6 +18,5 @@ namespace WpfApp1.Model
             Category = category;
             Question = new List<Question>();
         }
-
     }
 }

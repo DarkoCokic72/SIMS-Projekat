@@ -17,14 +17,11 @@ using WpfApp1.Model;
 
 namespace WpfApp1.View.Manager.SurveysWindows
 {
-    /// <summary>
-    /// Interaction logic for ChooseDoctor.xaml
-    /// </summary>
     public partial class ChooseDoctor : Window
     {
         public ObservableCollection<Physician> Doctors { get; set; }
         public static Physician SelectedDoctor { get; set; }
-        private PhysicianController doctorController = new PhysicianController();
+        private readonly PhysicianController doctorController = new PhysicianController();
         public ChooseDoctor()
         {
             InitializeComponent();
@@ -42,7 +39,7 @@ namespace WpfApp1.View.Manager.SurveysWindows
             Close();
         }
 
-        private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ManagerHomePage.GetManagerHomePage().Content = new DoctorSurveysCategories();
             Close();

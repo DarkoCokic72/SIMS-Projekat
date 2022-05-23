@@ -12,9 +12,7 @@ namespace WpfApp1.Validation
     { 
         public static bool ValidationHasError { get; set; }
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-
-            
+        { 
             ValidationHasError = false;
 
             if (value is int)
@@ -38,8 +36,6 @@ namespace WpfApp1.Validation
                     }
 
                 }
-
-                
 
                 if (endDate >= firstBusyDate)
                 {
@@ -134,8 +130,6 @@ namespace WpfApp1.Validation
                     }
 
                 }
-
-
 
                 if (endDate >= firstBusyDate)
                 {

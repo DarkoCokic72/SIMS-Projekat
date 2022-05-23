@@ -25,7 +25,6 @@ namespace WpfApp1.Service
                 sum += answer.Grade;
                 count++;
             }
-
             return Math.Round(sum/count, 2);
         }
 
@@ -51,7 +50,6 @@ namespace WpfApp1.Service
                 sum += answer.Grade;
                 count++; 
             }
-
             return Math.Round(sum/count, 2);
         }
 

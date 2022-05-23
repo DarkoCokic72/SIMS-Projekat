@@ -18,9 +18,6 @@ using WpfApp1.Model;
 
 namespace WpfApp1.View.Manager.SurveysWindows
 {
-    /// <summary>
-    /// Interaction logic for HospitalSurveysCategories.xaml
-    /// </summary>
     public partial class HospitalSurveysCategories : UserControl
     {
         public ObservableCollection<Survey> Surveys { get; set; }

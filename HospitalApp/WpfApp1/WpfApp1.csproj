@@ -166,11 +166,9 @@
     <Compile Include="Model\AnswerCollection.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Survey.cs" />
-    <Compile Include="Model\SurveyAnswer.cs" />
     <Compile Include="Model\HospitalSurvey.cs" />
     <Compile Include="Model\MedicalRecord.cs" />
     <Compile Include="Model\QuestionAndAnswers.cs" />
-    <Compile Include="Model\QuestionCollection.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\BloodGroup.cs" />
     <Compile Include="Model\Renovation.cs" />

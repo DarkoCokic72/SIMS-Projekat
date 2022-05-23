@@ -19,7 +19,7 @@ namespace WpfApp1.View.Manager.Rooms
 {
     public partial class SplitRooms1 : UserControl
     {
-        private RoomController roomController = new RoomController();
+        private readonly RoomController roomController = new RoomController();
         private string idBinding;
         public string IdBinding
         {

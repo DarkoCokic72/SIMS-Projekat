@@ -12,115 +12,101 @@ using WpfApp1.View.Rooms;
 
 namespace Service
 {
-   public class EquipmentService
-   {
-      public List<Equipment> GetAll()
-      {
+    public class EquipmentService
+    {
+        public List<Equipment> GetAll()
+        {
             return equipmentRepository.GetAll();
-      }
+        }
       
-      public List<Equipment> GetByRoomId(string roomId)
-      {
+        public List<Equipment> GetByRoomId(string roomId)
+        {
             return equipmentRepository.GetByRoomId(roomId);
-      }
+        }
       
-      public void UpdateAll(List<Equipment> equipment)
-      {
-         equipmentRepository.UpdateAll(equipment);
-      }
+        public void UpdateAll(List<Equipment> equipment)
+        {
+            equipmentRepository.UpdateAll(equipment);
+        }
 
         public void Relocate()
         {
-            while (true)
+            foreach (Relocation relocation in relocationRepository.GetAll())
             {
-                bool equipmentInRoomExists = false;
-                System.DateTime currentDate = DateTime.Now;
-                
-                foreach (Relocation r in relocationRepository.GetAll())
+                if (relocation.Date.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd")))
                 {
-                    if (r.Date.ToString("yyyy-MM-dd").Equals(currentDate.ToString("yyyy-MM-dd")))
-                    {
-                        List<Equipment> allEquipment = equipmentRepository.GetAll();
-                        //first take equipment from room
-                        for (int i = 0; i < allEquipment.Count; i++)
-                        {
-                            if ((allEquipment[i].Room.Id == r.Equipment.Room.Id) && (allEquipment[i].Id == r.Equipment.Id))
-                            {
-                               
-                                allEquipment[i].Quantity -= r.QuantityToRelocate;
-                                if (allEquipment[i].Quantity == 0)
-                                {
-                                    allEquipment.RemoveAt(i);
-                                }
-
-                                break;
-
-                            }
-
-                        }
-
-                       
-
-                        //now we put equipment in new room
-                        for (int i = 0; i < allEquipment.Count; i++)
-                        {
-                       
-                            if ((allEquipment[i].Room.Id == r.Room.Id) && (allEquipment[i].Id == r.Equipment.Id)) //equipment with that id alredy exist in room in which we want to relocate equipment
-                            {
-                                
-                                allEquipment[i].Quantity += r.QuantityToRelocate;
-                                equipmentInRoomExists = true;
-                                break;
-
-                            }
-
-                        }
-
-                        if (!equipmentInRoomExists)
-                        {
-                            allEquipment.Add(new Equipment(r.Equipment.Id, r.Equipment.Name, r.QuantityToRelocate, r.Equipment.Type, r.Room));
-                        }
-
-
-                        equipmentInRoomExists = false;
-                        equipmentRepository.UpdateAll(allEquipment);
-                        relocationRepository.Delete(r);
-                        break;
-                        
-                    }
-
-                }
-
-                
+                    List<Equipment> allEquipment = equipmentRepository.GetAll();
+                    allEquipment = TakeEquipmentFromOldRoom(allEquipment, relocation);
+                    allEquipment = MoveEquipmentToNewRoom(allEquipment, relocation);
+                    equipmentRepository.UpdateAll(allEquipment);
+                    relocationRepository.Delete(relocation);                
+                } 
             }
         }
       
-      public void CreateRelocationRequest(Relocation relocation)
-      {
+        public void CreateRelocationRequest(Relocation relocation)
+        {
             relocationRepository.Create(relocation);
-      }
+        }
 
-      public int MaxQuantityToRelocate(Equipment equipment)
-      {
+        public int MaxQuantityToRelocate(Equipment equipment)
+        {
             int quantity = equipment.Quantity;
             foreach (Relocation relocationRequest in relocationRepository.GetAll())
             {
-                if(equipment.Id == relocationRequest.Equipment.Id && equipment.Room == relocationRequest.Equipment.Room)
+                if (equipment.Id == relocationRequest.Equipment.Id && equipment.Room == relocationRequest.Equipment.Room)
                 {
                     quantity -= relocationRequest.QuantityToRelocate;
                 }
             }
 
             return quantity; 
-      }
+        }
 
-      public List<Equipment> SearchEquipment(string name, string quantity) 
-      {
+        public List<Equipment> SearchEquipment(string name, string quantity) 
+        {
             return equipmentRepository.SearchEquipment(name, quantity);
-      }
+        }
       
-      public RelocationRepository relocationRepository = new RelocationRepository();
-      public EquipmentRepository equipmentRepository = new EquipmentRepository();
+        private List<Equipment> TakeEquipmentFromOldRoom(List<Equipment> allEquipment, Relocation relocation)
+        {
+            for (int i = 0; i < allEquipment.Count; i++)
+            {
+                if ((allEquipment[i].Room.Id == relocation.Equipment.Room.Id) && (allEquipment[i].Id == relocation.Equipment.Id))
+                {
+                    allEquipment[i].Quantity -= relocation.QuantityToRelocate;
+                    if (allEquipment[i].Quantity == 0)
+                    {
+                        allEquipment.RemoveAt(i);
+                    }
+                    break;
+                }
+            }
+            return allEquipment;
+        }
+
+        private List<Equipment> MoveEquipmentToNewRoom(List<Equipment> allEquipment, Relocation relocation)
+        {
+            bool equipmentInRoomExist = false;
+            for (int i = 0; i < allEquipment.Count; i++)
+            {
+                if ((allEquipment[i].Room.Id == relocation.Room.Id) && (allEquipment[i].Id == relocation.Equipment.Id)) //equipment with that id alredy exist in room in which we want to relocate equipment
+                {
+                    allEquipment[i].Quantity += relocation.QuantityToRelocate;
+                    equipmentInRoomExist = true;
+                    break;
+                }
+            }
+
+            if (!equipmentInRoomExist)
+            {
+                allEquipment.Add(new Equipment(relocation.Equipment.Id, relocation.Equipment.Name, relocation.QuantityToRelocate, relocation.Equipment.Type, relocation.Room));
+            }
+            return allEquipment;
+        }
+
+        public RelocationRepository relocationRepository = new RelocationRepository();
+        public EquipmentRepository equipmentRepository = new EquipmentRepository();
    
-   }
+    }
 }

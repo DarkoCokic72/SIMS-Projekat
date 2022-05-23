@@ -14,7 +14,6 @@ namespace Repo
 {
    public class RoomRepository
    {
-
         public List<Room> GetAll()
         {
             return roomFileHandler.Read();
@@ -46,17 +45,11 @@ namespace Repo
             return null;
         }
       
-        public bool Add(Room room)
+        public void Add(Room room)
         {
-            if (GetById(room.Id) == null) {
-
-                List<Room> listOfRooms = GetAll();
-                listOfRooms.Add(room);
-                roomFileHandler.Save(listOfRooms);
-                return true;
-            }
-
-            return false;
+            List<Room> listOfRooms = GetAll();
+            listOfRooms.Add(room);
+            roomFileHandler.Save(listOfRooms);
         }
       
         public bool Update(Room room)
