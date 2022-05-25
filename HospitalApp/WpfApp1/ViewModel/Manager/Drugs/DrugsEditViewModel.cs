@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using Controller;
 using Model;
 using WpfApp1.View;
@@ -13,10 +12,9 @@ using WpfApp1.View.Manager.Drugs;
 
 namespace WpfApp1.ViewModel.Manager.Drugs
 {
-    public class DrugsCreateViewModel : BindableBase
+    class DrugsEditViewModel : BindableBase
     {
         private readonly DrugController drugController = new DrugController();
-        private readonly RoomController roomController = new RoomController();
         public static MyICommand SaveCommand { get; set; }
         public MyICommand CancelCommand { get; set; }
         public MyICommand HomePageCommand { get; set; }
@@ -45,7 +43,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
             {
                 nameBinding = value;
                 SaveCommand.RaiseCanExecuteChanged();
-                
+
             }
         }
 
@@ -93,12 +91,15 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
         public ObservableCollection<string> ReplacementBinding { get; set; }
 
-        public DrugsCreateViewModel()
+        public DrugsEditViewModel()
         {
             UserBinding = Login.userAccount.Name + " " + Login.userAccount.Surname;
             ReplacementBinding = new ObservableCollection<string>(FillComboBoxWithDrugs());
             CreateCommands();
-            SelectedReplacementBinding = "None";
+            NameBinding = DrugsWindow.SelectedDrug.Name;
+            ManufacturerBinding = DrugsWindow.SelectedDrug.Manufacturer;
+            IngredientsBinding = DrugsWindow.SelectedDrug.Ingredients;
+            SelectedReplacementBinding = DrugsWindow.SelectedDrug.Replacement;
         }
 
         private List<string> FillComboBoxWithDrugs()
@@ -124,7 +125,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
         private void OnCancel()
         {
-            ManagerHomePage.GetManagerHomePage().Content = new DrugsWindow();
+            ManagerHomePage.GetManagerHomePage().Content = new DrugsEditReason(); 
         }
 
         private void OnLogOut()
@@ -139,15 +140,15 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
         private void OnSave()
         {
-            drugController.Create(new Drug(NameBinding, 100, EquipmentType.drug, roomController.GetById("R1"), ManufacturerBinding, IngredientsBinding, SelectedReplacementBinding, true, null));
+            drugController.Update(new Drug(DrugsWindow.SelectedDrug.Id, NameBinding, 0, EquipmentType.drug, null, ManufacturerBinding, IngredientsBinding, SelectedReplacementBinding, true, null));
             ManagerHomePage.GetManagerHomePage().Content = new DrugsWindow();
         }
 
         private bool CanSave()
         {
-            return !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(ManufacturerBinding) && !string.IsNullOrEmpty(IngredientsBinding) && !Validation.DrugNameValidationRule.ValidationHasError
-                   && !Validation.RequiredNameFieldValidationRule.ValidationHasError && !Validation.RequiredManufacturerFieldValidationRule.ValidationHasError && !Validation.RequiredIngredientsFieldValidationRule.ValidationHasError;
-           
+            return !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(ManufacturerBinding) && !string.IsNullOrEmpty(IngredientsBinding) && !Validation.DrugNameValidationRule.ValidationHasError && !Validation.DrugsEditDrugNameValidationRule.ValidationHasError
+                   && !Validation.DrugsEditRequiredNameFieldValidationRule.ValidationHasError && !Validation.DrugsEditRequiredManufacturerFieldValidationRule.ValidationHasError && !Validation.DrugsEditRequiredIngredientsFieldValidationRule.ValidationHasError;
+
         }
 
     }

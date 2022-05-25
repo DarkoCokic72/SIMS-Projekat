@@ -41,30 +41,6 @@ namespace WpfApp1.Validation
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             ValidationHasError = false;
-            var s = value as string;
-            if (roomController.RoomIdExists(s))
-            {
-                ValidationHasError = true;
-                return new ValidationResult(false, "Taken id.");
-            }
-            else if (!Regex.IsMatch(s, @"R[0-9]+"))
-            {
-                ValidationHasError = true;
-                return new ValidationResult(false, "Wrong format.");
-            }
-            else
-            {
-                return new ValidationResult(true, null);
-            }
-        }
-    }
-    public class IdValidationRule1 : ValidationRule
-    {
-        private RoomController roomController = new RoomController();
-        public static bool ValidationHasError { get; set; }
-        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            ValidationHasError = false;
             var s = GetBoundValue(value) as string;
             if (roomController.RoomIdExists(s))
             {

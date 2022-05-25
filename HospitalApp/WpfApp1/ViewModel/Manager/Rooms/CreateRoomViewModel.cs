@@ -126,7 +126,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
 
         private bool CanSave()
         {
-            return !string.IsNullOrEmpty(IdBinding) && !Validation.IdValidationRule1.ValidationHasError;
+            return !string.IsNullOrEmpty(IdBinding) && !Validation.IdValidationRule.ValidationHasError;
         }
     }
 

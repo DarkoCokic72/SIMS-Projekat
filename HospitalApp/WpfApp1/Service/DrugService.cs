@@ -20,14 +20,14 @@ namespace WpfApp1.Service
             drugRepository.Create(drug);
         }
 
-        public bool Update(Drug drug, string oldNameOfDrug)
+        public bool Update(Drug drug)
         {
-            return drugRepository.Update(drug, oldNameOfDrug);
+            return drugRepository.Update(drug);
         }
 
-        public bool DrugExists(string drugName)
+        public bool DrugExists(string drugName, string oldDrugName)
         {
-            return drugRepository.DrugExists(drugName);
+            return drugRepository.DrugExists(drugName, oldDrugName);
         }
         public DrugRepository drugRepository = new DrugRepository();
     }

@@ -22,14 +22,14 @@ namespace Controller
           drugService.Create(drug);
       }
 
-      public bool Update(Drug drug, string oldNameOfDrug)
+      public bool Update(Drug drug)
       {
-            return drugService.Update(drug, oldNameOfDrug);
+            return drugService.Update(drug);
       }
 
-     public bool DrugExists(string drugName)
+     public bool DrugExists(string drugName, string oldDrugName)
      {
-         return drugService.DrugExists(drugName);
+         return drugService.DrugExists(drugName, oldDrugName);
      }
      public DrugService drugService = new DrugService();
    

@@ -3,24 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApp1.View.Manager.Drugs"
+             xmlns:local="clr-namespace:WpfApp1.View.Manager.Drugs" xmlns:Validation="clr-namespace:WpfApp1.Validation"
              mc:Ignorable="d" 
              Height="768" Width="1024">
     <Grid>
-        <Label FontSize="40" Content="Name:" Margin="42,211,683,481" Width="Auto" Height="Auto"/>
-        <Label FontSize="40" Content="Manufacturer:" Margin="47,315,683,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
-        <Label FontSize="40" Content="Ingredients:" Margin="47,418,683,274" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
-        <TextBox FontSize="40" x:Name="Name" Height="Auto" Margin="341,211,212,476" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
-        <TextBox FontSize="40" x:Name="Manufacturer" Height="Auto" Width="Auto" Margin="341,315,212,372" TextWrapping="Wrap" Text="{Binding NameBinding, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Back" Margin="214,650,560,17" Width="250" Click="Button_Click_Back"/>
-        <Button x:Name="SaveBtn" Background="SteelBlue" FontSize="60" Content="Save" Margin="523,650,251,17" Width="250" Click="Button_Click_Save" RenderTransformOrigin="0.501,0.501"/>
+        <Label VerticalContentAlignment="Center" FontSize="40" Content="Name:" Margin="42,211,683,481" Width="Auto" Height="Auto"/>
+        <Label VerticalContentAlignment="Center" FontSize="40" Content="Manufacturer:" Margin="47,315,683,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
+        <Label VerticalContentAlignment="Center" FontSize="40" Content="Ingredients:" Margin="47,418,683,274" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Name" Height="Auto" Margin="341,211,212,476" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822">
+        <TextBox.Text>
+            <Binding Path="NameBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                <Binding.ValidationRules>
+                        <Validation:DrugsEditRequiredNameFieldValidationRule ValidationStep="UpdatedValue"/>
+                        <Validation:DrugsEditDrugNameValidationRule ValidationStep="UpdatedValue"/>
+                    </Binding.ValidationRules>
+            </Binding>
+        </TextBox.Text>
+        <Validation.ErrorTemplate>
+            <ControlTemplate>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                    <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                </Grid>
+            </ControlTemplate>
+        </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Manufacturer" Height="Auto" Width="Auto" Margin="341,315,212,372" TextWrapping="Wrap">
+            <TextBox.Text>
+                <Binding Path="ManufacturerBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Validation:DrugsEditRequiredManufacturerFieldValidationRule ValidationStep="UpdatedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Button Background="SteelBlue" FontSize="60" Content="Back" Margin="214,650,560,17" Width="250" Command="{Binding CancelCommand}"/>
+        <Button x:Name="SaveBtn" Background="SteelBlue" FontSize="60" Content="Save" Margin="523,650,251,17" Width="250" Command="{Binding SaveCommand}"/>
         <Label Content="Edit invalid drug" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="261" Height="63"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>
-                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Click="Button_Click_HomePage">
+                <Button Width="90" Height="90" Margin="10,63,920.2,0" Background="Transparent" BorderThickness="0" Command="{Binding HomePageCommand}">
                     <Image Source="/WpfApp1;component/images/home.png" Height="64" Width="64"/>
                 </Button>
-                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
+                <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Command="{Binding LogOutCommand}">
                     <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
                 </Button>
                 <Button Width="90" Height="90" Margin="836,66,105.2,0" Background="Transparent" BorderThickness="0">
@@ -32,15 +81,39 @@
                     <Grid>
 
                         <Image Source="/WpfApp1;component/images/userr.png" Height="64" Margin="-128,0,65.6,0" RenderTransformOrigin="-0.384,0.4"/>
-                        <TextBox IsEnabled="False" FontSize="38" x:Name="User" BorderThickness="0" Background="Transparent" Margin="-59,0,-122.4,0" RenderTransformOrigin="0.5,0.5" />
+                        <TextBox Text="{Binding UserBinding}" IsEnabled="False" FontSize="38" x:Name="User" BorderThickness="0" Background="Transparent" Margin="-59,0,-122.4,0" RenderTransformOrigin="0.5,0.5" />
                     </Grid>
                 </Button>
 
             </Grid>
         </GroupBox>
-        <TextBox FontSize="40" x:Name="Ingredients" Height="Auto" Width="Auto" Margin="341,418,212,269" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <Label FontSize="40" Content="Replacement:" Margin="47,532,683,160" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
-        <ComboBox MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox_Replacement" HorizontalAlignment="Left" Margin="341,532,0,0" VerticalAlignment="Top" Width="471" Height="76" SelectionChanged="ComboBox_Replacement_SelectionChanged"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Ingredients" Height="Auto" Width="Auto" Margin="341,418,212,269" TextWrapping="Wrap">
+            <TextBox.Text>
+                <Binding Path="IngredientsBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Validation:DrugsEditRequiredIngredientsFieldValidationRule ValidationStep="UpdatedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label VerticalContentAlignment="Center" FontSize="40" Content="Replacement:" Margin="47,532,683,160" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
+        <ComboBox VerticalContentAlignment="Center" ItemsSource="{Binding ReplacementBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedReplacementBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxDropDownHeight="120" FontSize="40" HorizontalAlignment="Left" Margin="341,532,0,0" VerticalAlignment="Top" Width="471" Height="76"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
 
     </Grid>

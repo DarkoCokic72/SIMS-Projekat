@@ -9,8 +9,8 @@
     <Grid>
         <Button Height="100" Background="SteelBlue" Name="CancelBtn" FontSize="60"  Margin="214,632,558,36" Width="Auto" Click="Button_Click_Cancel" Content="Cancel"/>
         <Button Content="Next" Background="SteelBlue" Name="NextBtn" FontSize="60" Click="Button_Click_Next" Margin="528,632,241,36"/>
-        <ComboBox FontSize="40"  x:Name="Room" HorizontalAlignment="Left" Margin="457,243,0,0" VerticalAlignment="Top" Width="442" Height="81" SelectionChanged="Room_SelectionChanged"/>
-        <Label FontSize="40" Content="Room*:" HorizontalAlignment="Left" Margin="96,243,0,0" VerticalAlignment="Top" Height="75" Width="356"/>
+        <ComboBox VerticalContentAlignment="Center" FontSize="40"  x:Name="Room" HorizontalAlignment="Left" Margin="457,243,0,0" VerticalAlignment="Top" Width="442" Height="81" SelectionChanged="Room_SelectionChanged"/>
+        <Label VerticalContentAlignment="Center" FontSize="40" Content="Room*:" HorizontalAlignment="Left" Margin="96,243,0,0" VerticalAlignment="Top" Height="75" Width="356"/>
         <Label FontSize="40" Content="Description*:" HorizontalAlignment="Left" Margin="96,439,0,0" VerticalAlignment="Top" Height="74" Width="362" RenderTransformOrigin="0.492,0.648"/>
         <TextBox x:Name="Description" FontSize="40"  HorizontalAlignment="Left" Height="232" Margin="457,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442" TextChanged="Description_TextChanged"/>
         <Button Margin="914,10,9.6,638.4" Background="Transparent" BorderThickness="0" Click="Button_LogOut"/>

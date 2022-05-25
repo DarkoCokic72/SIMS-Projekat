@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,8 @@ namespace WpfApp1.View.Manager.Rooms
                 OnPropertyChanged("Id2Binding");
             }
         }
+
+        public ObservableCollection<RoomType> RoomTypeBinding { get; set; }
 
         public SplitRooms1(Room _room1, string _newId1, RoomType _newType1, string _newId2, RoomType _newType2)
         {
@@ -181,9 +184,11 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void FillRoomTypeComboBoxes()
         {
-            ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            RoomTypeBinding = new ObservableCollection<RoomType>(Enum.GetValues(typeof(RoomType)).Cast<RoomType>());
+            RoomTypeBinding.Remove(RoomType.Warehouse);
+            ComboBox.ItemsSource = RoomTypeBinding;
             ComboBox.SelectedItem = RoomType.ExaminationRoom;
-            ComboBox2.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            ComboBox2.ItemsSource = RoomTypeBinding;
             ComboBox2.SelectedItem = RoomType.ExaminationRoom;
         }
     }

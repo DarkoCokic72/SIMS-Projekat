@@ -31,7 +31,7 @@ namespace Repo
             drugFileHandler.Save(drugs);
         }
       
-        public bool Update(Drug newDrug, string oldNameOfDrug)
+        public bool Update(Drug newDrug)
         { 
             List<Drug> drugs = GetAll();
             for (int i = 0; i < drugs.Count; i++)
@@ -49,11 +49,11 @@ namespace Repo
             }
             return true;
         }
-        public bool DrugExists(string drugName)
+        public bool DrugExists(string drugName, string oldDrugName)
         {
             foreach (Drug drug in drugFileHandler.Read())
             {
-                if (drug.Name.ToLower() == drugName.ToLower())
+                if (drug.Name.ToLower() == drugName.ToLower() && drug.Name.ToLower() != oldDrugName.ToLower())
                 {
                     return true;
                 }

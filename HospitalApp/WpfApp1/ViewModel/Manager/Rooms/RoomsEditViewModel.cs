@@ -136,12 +136,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
 
         private bool CanSave()
         {
-            if (SelectedFloorBinding != RoomsWindowViewModel.SelectedRoom.Floor || SelectedTypeBinding != RoomsWindowViewModel.SelectedRoom.Type)
-            {
-                return true;
-            }
-
-            return false;
+             return true;
         }
     }
 }

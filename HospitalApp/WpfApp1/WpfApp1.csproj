@@ -211,13 +211,15 @@
     <Compile Include="Service\PhysicianService.cs" />
     <Compile Include="Service\SurveysService.cs" />
     <Compile Include="Service\UserAccountService.cs" />
-    <Compile Include="Validation\DrugsValidation.cs" />
+    <Compile Include="Validation\DrugsCreateValidation.cs" />
+    <Compile Include="Validation\DrugsEditValidation.cs" />
     <Compile Include="Validation\PatientValidation.cs" />
     <Compile Include="Validation\EquipmentRelocationValidation.cs" />
     <Compile Include="Validation\RenovationValidation.cs" />
     <Compile Include="Validation\RoomValidation.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
     <Compile Include="ViewModel\Manager\Drugs\DrugsCreateViewModel.cs" />
+    <Compile Include="ViewModel\Manager\Drugs\DrugsEditViewModel.cs" />
     <Compile Include="ViewModel\Manager\Rooms\CreateRoomViewModel.cs" />
     <Compile Include="ViewModel\Manager\Rooms\RoomsEditViewModel.cs" />
     <Compile Include="ViewModel\Manager\Rooms\RoomsEquipmentViewModel.cs" />
