@@ -111,6 +111,8 @@ namespace WpfApp1.View.Manager.Rooms
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             startDate = (DateTime)Calendar.SelectedDate;
+            BindingExpression binding = Duration.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
             if (!string.IsNullOrEmpty(Duration.Text) && !string.IsNullOrEmpty(Calendar.SelectedDate.ToString()) && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.MaxDurationValidationRule.ValidationHasError)
             {
                 ScheduleBtn.IsEnabled = true;

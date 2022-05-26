@@ -8,11 +8,11 @@
         mc:Ignorable="d"
         Height="768" Width="1024">
     <Grid>
-        <DataGrid FontSize="40" ColumnWidth="*" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgEquipment" ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" Margin="37,296,37,50" IsReadOnly="True" RenderTransformOrigin="0.65,0.495">
+        <DataGrid FontSize="40" ColumnWidth="*" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgEquipment" ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" Margin="10,283,10,50" IsReadOnly="True" RenderTransformOrigin="0.65,0.495">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Room" Binding="{Binding Room.Id}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Room" Binding="{Binding Room.Id}" Width="250"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="250"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label FontSize="32" Content="Equipment" HorizontalAlignment="Center" Margin="816,718,37,0" VerticalAlignment="Center" Width="171" Height="50"/>

@@ -62,8 +62,8 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="214,650,560,17" Width="250" Command="{Binding CancelCommand}"/>
-        <Button Name="SaveBtn" Background="SteelBlue" FontSize="60" Content="Save" Margin="523,650,251,17" Width="250" Command="{Binding SaveCommand}"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="212,650,562,17" Width="250" Command="{Binding CancelCommand}"/>
+        <Button Name="SaveBtn" Background="SteelBlue" FontSize="60" Content="Save" Margin="562,650,212,17" Width="250" Command="{Binding SaveCommand}"/>
         <Label Content="Create drug" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="207" Height="63"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

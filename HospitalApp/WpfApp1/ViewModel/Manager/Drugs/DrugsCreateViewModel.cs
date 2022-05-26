@@ -139,7 +139,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
         private void OnSave()
         {
-            drugController.Create(new Drug(NameBinding, 100, EquipmentType.drug, roomController.GetById("R1"), ManufacturerBinding, IngredientsBinding, SelectedReplacementBinding, true, null));
+            drugController.Create(new Drug(NameBinding.Trim(), 100, EquipmentType.drug, roomController.GetById("R1"), ManufacturerBinding, IngredientsBinding, SelectedReplacementBinding, true, null));
             ManagerHomePage.GetManagerHomePage().Content = new DrugsWindow();
         }
 

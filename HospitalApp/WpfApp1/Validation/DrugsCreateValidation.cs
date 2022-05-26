@@ -20,7 +20,7 @@ namespace WpfApp1.Validation
             {
                 ValidationHasError = false;
                 var s = GetBoundValue(value) as string;
-                if (drugsController.DrugExists(s, ""))
+                if (drugsController.DrugExists(s.Trim(), ""))
                 {
                     ValidationHasError = true;
                     DrugsCreateViewModel.SaveCommand.RaiseCanExecuteChanged();

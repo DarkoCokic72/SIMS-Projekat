@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -18,10 +19,10 @@ using Model;
 
 namespace WpfApp1.View.Manager.Rooms
 {
-    public partial class SplitRooms1 : UserControl
+    public partial class SplitRooms1 : UserControl, INotifyPropertyChanged
     {
         private readonly RoomController roomController = new RoomController();
-        private string idBinding;
+        public static string idBinding;
         public string IdBinding
         {
             get
@@ -30,12 +31,13 @@ namespace WpfApp1.View.Manager.Rooms
             }
             set
             {
-                idBinding = value;
+                if (value != null) idBinding = value.Trim();
+                else idBinding = value;
                 OnPropertyChanged("IdBinding");
             }
         }
 
-        private string id2Binding;
+        public static string id2Binding;
         public string Id2Binding
         {
             get
@@ -44,7 +46,8 @@ namespace WpfApp1.View.Manager.Rooms
             }
             set
             {
-                id2Binding = value;
+                if (value != null) id2Binding = value.Trim();
+                else id2Binding = value;
                 OnPropertyChanged("Id2Binding");
             }
         }
@@ -60,16 +63,16 @@ namespace WpfApp1.View.Manager.Rooms
             FillRoomComboBox();
             FillRoomTypeComboBoxes();
             NextBtn.IsEnabled = false;
-            
 
-            if(_room1 != null) 
+            Id2Binding = _newId2;
+            IdBinding = _newId1;
+            if (_room1 != null) 
             {
                 Room1.SelectedItem = _room1.Id;
-                IdBinding = _newId1;
                 ComboBox.SelectedItem = _newType1;
-                Id2Binding = _newId2;
                 ComboBox2.SelectedItem = _newType2;
             }
+           
         }
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
@@ -84,6 +87,10 @@ namespace WpfApp1.View.Manager.Rooms
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            BindingExpression binding = Id2.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
+            BindingExpression binding2 = Id.GetBindingExpression(TextBox.TextProperty);
+            binding2.UpdateSource();
             EnableOrDisableNextBtn();
         }
 
@@ -155,11 +162,13 @@ namespace WpfApp1.View.Manager.Rooms
 
         private bool EnableNextBtn()
         {
-            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-            && !string.IsNullOrEmpty(Id2.Text) && !Validation.IdValidationRule.ValidationHasError;
+            return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem) && !Validation.RoomIdMergeSplitValidationRule2.ValidationHasError
+            && !string.IsNullOrEmpty(Id2.Text) && !Validation.RoomIdMergeSplitValidationRule.ValidationHasError && !Validation.SameIdMergeSplitValidationRule.ValidationHasError;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
         public void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)

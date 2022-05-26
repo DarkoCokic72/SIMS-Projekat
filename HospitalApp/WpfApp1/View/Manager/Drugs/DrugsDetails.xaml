@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="DrugsDetails" WindowStyle="None" Height="625" Width="700" ResizeMode="NoResize" Background="LightBlue">
     <Grid>
-        <Button Background="SteelBlue" Height="100" FontSize="60" Content="Close" Margin="227,498,223,26.8" Width="250" Click="Button_Click_Back"/>
+        <Button Background="SteelBlue" Height="100" FontSize="60" Content="Close" Margin="226,498,224,26.8" Width="250" Click="Button_Click_Back"/>
         <Separator BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Left" Height="131" Margin="0,-12,-2,0" VerticalAlignment="Top" Width="702" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Drug details" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="58" Margin="10,0,0,0"/>
         <Label Content="Ingredients:" FontSize="40" HorizontalAlignment="Left" Margin="37,183,0,0" VerticalAlignment="Top" Width="259"/>

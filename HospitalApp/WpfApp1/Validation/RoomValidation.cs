@@ -42,7 +42,7 @@ namespace WpfApp1.Validation
         {
             ValidationHasError = false;
             var s = GetBoundValue(value) as string;
-            if (roomController.RoomIdExists(s))
+            if (roomController.RoomIdExists(s.Trim()))
             {
                 ValidationHasError = true;
                 CreateRoomViewModel.SaveCommand.RaiseCanExecuteChanged();

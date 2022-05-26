@@ -18,10 +18,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="dg" FontSize="40" ItemsSource="{Binding Path=Equipment}" SelectedItem="{Binding SelectedEquipment, Mode=TwoWay}" HorizontalAlignment="Center" Height="385" Margin="35,0,31,47" VerticalAlignment="Bottom" Width="958" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" Grid.RowSpan="4" Grid.Row="2">
+        <DataGrid Name="dg" FontSize="40" ItemsSource="{Binding Path=Equipment}" SelectedItem="{Binding SelectedEquipment, Mode=TwoWay}" HorizontalAlignment="Center" Height="385" Margin="10,0,10,47" VerticalAlignment="Bottom" Width="1004" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" Grid.RowSpan="4" Grid.Row="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="250"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Background="SteelBlue" FontSize="60" Content="Relocate" HorizontalAlignment="Left" Margin="385,81,0,75" Width="250" Grid.Row="1" Grid.RowSpan="2" Command="{Binding RelocateCommand}"></Button>

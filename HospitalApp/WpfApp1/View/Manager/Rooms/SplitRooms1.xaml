@@ -33,34 +33,66 @@
 
             </Grid>
         </GroupBox>
-        <Label VerticalContentAlignment="Center" Content="Room*:" FontSize="40" HorizontalAlignment="Left" Margin="248,213,0,0" VerticalAlignment="Top" Height="81" Width="179"/>
-        <ComboBox VerticalContentAlignment="Center" FontSize="40" Name="Room1" HorizontalAlignment="Left" Margin="432,213,0,0" VerticalAlignment="Top" Width="350" Height="81" SelectionChanged="ComboBox_SelectionChanged_1"/>
-        <Separator HorizontalAlignment="Left" Height="101" Margin="-9,256,0,0" VerticalAlignment="Top" Width="1033"/>
-        <Label VerticalContentAlignment="Center" Content="Data about new rooms" FontSize="32" HorizontalAlignment="Left" Margin="0,299,0,0" VerticalAlignment="Top" Width="384" Height="65"/>
-        <Label VerticalContentAlignment="Center" Width="Auto" Margin="10,392,869,295" Height="Auto" FontSize="40" Content="Id*:"/>
-        <Label VerticalContentAlignment="Center" Content="Type*:" FontSize="40" Margin="10,505,869,187"/>
-        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Id" Height="Auto" Margin="155,392,519,295" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+        <Label VerticalContentAlignment="Center" Content="Split room*:" FontSize="40" HorizontalAlignment="Left" Margin="57,208,0,0" VerticalAlignment="Top" Height="71" Width="262"/>
+        <ComboBox VerticalContentAlignment="Center" FontSize="40" Name="Room1" HorizontalAlignment="Left" Margin="341,208,0,0" VerticalAlignment="Top" Width="471" Height="71" SelectionChanged="ComboBox_SelectionChanged_1"/>
+        <Label VerticalContentAlignment="Center" Width="Auto" Margin="57,294,705,403" Height="Auto" FontSize="40" Content="Room 1 id*:"/>
+        <Label VerticalContentAlignment="Center" Content="Room 1 type*:" FontSize="40" Margin="57,375,705,322"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Id" Height="71" Margin="341,294,212,403" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
             <Binding Path="IdBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                 <Binding.ValidationRules>
-                    <Validation:IdValidationRule ValidationStep="RawProposedValue"/>
+                    <Validation:RoomIdMergeSplitValidationRule ValidationStep="RawProposedValue"/>
+                    <Validation:SameIdMergeSplitValidationRule ValidationStep="UpdatedValue"/>
                 </Binding.ValidationRules>
             </Binding>
+
         </TextBox>
-        <ComboBox VerticalContentAlignment="Center" MaxDropDownHeight="120" Width="350" FontSize="40" x:Name="ComboBox" Margin="155,500,519,187" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Separator HorizontalAlignment="Left" Height="54" Margin="-9,333,0,0" VerticalAlignment="Top" Width="1033" RenderTransformOrigin="0.499,-1.265"/>
-        <Label VerticalContentAlignment="Center" Width="Auto" Margin="523,392,350,295" Height="Auto" FontSize="40" Content="Id*:"/>
-        <Label VerticalContentAlignment="Center" Content="Type*:" FontSize="40" Margin="523,505,355,187"/>
-        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Id2" Height="81" Margin="660,392,14,295" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
-            <Binding Path="Id2Binding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+        <ComboBox Height="71" VerticalContentAlignment="Center" MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox" Margin="341,375,212,322" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label VerticalContentAlignment="Center" Width="Auto" Margin="57,461,705,236" Height="Auto" FontSize="40" Content="Room 2 id*:"/>
+        <Label VerticalContentAlignment="Center" Content="Room 2 type*:" FontSize="40" Margin="57,542,705,155"/>
+        <TextBox Height="71" VerticalContentAlignment="Center" Width="471" FontSize="40" x:Name="Id2" Margin="341,461,212,236" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+            <Binding Path="Id2Binding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
                 <Binding.ValidationRules>
-                    <Validation:IdValidationRule ValidationStep="RawProposedValue"/>
+                    <Validation:RoomIdMergeSplitValidationRule2 ValidationStep="RawProposedValue"/>
+                    <Validation:SameIdMergeSplitValidationRule ValidationStep="UpdatedValue"/>
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <ComboBox Height="81" VerticalContentAlignment="Center" MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox2" Margin="660,505,14,182" Width="Auto" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="216,631,558,36" Width="250" Click="Button_Click_Cancel"/>
-        <Button x:Name="NextBtn" Background="SteelBlue" FontSize="60" Content="Next" Margin="551,631,223,36" Width="250" Click="Button_Click_Next"/>
-        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
+        <ComboBox Height="71" Width="471" VerticalContentAlignment="Center" MaxDropDownHeight="120" FontSize="40" x:Name="ComboBox2" Margin="341,542,212,155" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="212,630,562,37" Width="250" Click="Button_Click_Cancel"/>
+        <Button x:Name="NextBtn" Background="SteelBlue" FontSize="60" Content="Next" Margin="562,630,212,37" Width="250" Click="Button_Click_Next"/>
+        <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="127" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
 
     </Grid>
 </UserControl>

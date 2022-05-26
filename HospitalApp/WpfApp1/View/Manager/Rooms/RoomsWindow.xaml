@@ -12,17 +12,17 @@
     </UserControl.DataContext>
     <Grid >
 
-        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgRooms" ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" AutoGenerateColumns="False" Margin="47,289,26,47" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495">
+        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgRooms" ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" AutoGenerateColumns="False" Margin="10,289,10,47" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="150"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
                 <DataGridTextColumn Header="Floor" Binding="{Binding Floor}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Background="SteelBlue" FontSize="60" Content="Add" Margin="47,176,767,500" Command="{Binding AddCommand}" Width="Auto" RenderTransformOrigin="-0.528,0.499"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Details" Margin="788,176,26,500" Width="Auto" Command="{Binding DetailsCommand}"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Edit" Width="Auto" Margin="293,176,516,500" Command="{Binding EditCommand}"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Delete" Width="Auto" Margin="549,176,267,500" Command="{Binding DeleteCommand}"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Add" Margin="45,176,769,500" Command="{Binding AddCommand}" Width="Auto" RenderTransformOrigin="-0.528,0.499"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Details" Margin="770,176,44,500" Width="Auto" Command="{Binding DetailsCommand}"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Edit" Width="Auto" Margin="289,176,520,500" Command="{Binding EditCommand}"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Delete" Width="Auto" Margin="534,176,282,500" Command="{Binding DeleteCommand}"/>
         <Label FontSize="30" Content="Rooms" HorizontalAlignment="Center" Margin="868,711,19.4,0.6" VerticalAlignment="Center" Width="123" Height="46" RenderTransformOrigin="2.372,5.988"/>
         <GroupBox BorderThickness="0" BorderBrush="Black" Margin="-9.2,-20,-9.8,624.6" Background="SteelBlue" Width="1043">
             <Grid>

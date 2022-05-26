@@ -146,7 +146,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
 
         private bool CanSave()
         {
-            return !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(ManufacturerBinding) && !string.IsNullOrEmpty(IngredientsBinding) && !Validation.DrugNameValidationRule.ValidationHasError && !Validation.DrugsEditDrugNameValidationRule.ValidationHasError
+            return !string.IsNullOrEmpty(NameBinding.Trim()) && !string.IsNullOrEmpty(ManufacturerBinding) && !string.IsNullOrEmpty(IngredientsBinding) && !Validation.DrugNameValidationRule.ValidationHasError && !Validation.DrugsEditDrugNameValidationRule.ValidationHasError
                    && !Validation.DrugsEditRequiredNameFieldValidationRule.ValidationHasError && !Validation.DrugsEditRequiredManufacturerFieldValidationRule.ValidationHasError && !Validation.DrugsEditRequiredIngredientsFieldValidationRule.ValidationHasError;
 
         }

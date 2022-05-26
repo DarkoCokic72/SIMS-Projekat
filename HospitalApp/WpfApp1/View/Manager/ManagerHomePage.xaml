@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="47,289,30,355" Grid.ColumnSpan="2" Grid.RowSpan="2">
+        <Menu Height="124" Background="SteelBlue" FontSize="60" Margin="47,276,30,368" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <MenuItem FontSize="60" Header="     ROOMS" Height="124" Width="432">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-90,-27" RenderTransformOrigin="1.5,1.065"/>
@@ -29,7 +29,7 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="25,289,62,355" Grid.Column="2" Grid.RowSpan="2">
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="25,276,62,368" Grid.Column="2" Grid.RowSpan="2">
             <MenuItem FontSize="60" Header="  EQUIPMENT" Height="124" Width="425">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="0,-17,-48,-21"/>
@@ -38,10 +38,10 @@
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue"  FontSize="40" Header="Download report" Height="82" Margin="0,0,-5.2,0"/>
             </MenuItem>
         </Menu>
-        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="50,104,27,156" Grid.Row="1" Grid.ColumnSpan="2" >
+        <Menu  Height="124" Background="SteelBlue" FontSize="60" Margin="50,91,27,169" Grid.Row="1" Grid.ColumnSpan="2" >
             <MenuItem FontSize="60" Header="      DRUGS" Height="124" Width="432" Click="MenuItem_Drugs"/>
         </Menu>
-        <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="28,104,59,156" Grid.Column="2" >
+        <Menu Height="124" Background="SteelBlue" FontSize="60" Grid.Row="1" Margin="28,91,59,169" Grid.Column="2" >
             <MenuItem FontSize="60" Header="    SURVEYS" Height="124" Width="425">
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>

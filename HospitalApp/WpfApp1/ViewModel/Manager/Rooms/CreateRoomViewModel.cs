@@ -105,7 +105,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
 
         private void OnSave()
         {
-            RoomsWindow.roomController.Add(new Room(IdBinding, SelectedTypeBinding, SelectedFloorBinding));
+            RoomsWindow.roomController.Add(new Room(IdBinding.Trim(), SelectedTypeBinding, SelectedFloorBinding));
             ManagerHomePage.GetManagerHomePage().Content = RoomsWindow.GetRoomsWindow();
         }
 

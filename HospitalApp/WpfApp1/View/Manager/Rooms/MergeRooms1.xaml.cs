@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace WpfApp1.View.Manager.Rooms
 {
     public partial class MergeRooms1 : UserControl
     {
-        private RoomController roomController = new RoomController();
+        private readonly RoomController roomController = new RoomController();
         private string idBinding;
         public string IdBinding
         {
@@ -34,6 +35,7 @@ namespace WpfApp1.View.Manager.Rooms
             }
         }
 
+        private ObservableCollection<RoomType> RoomTypeBinding { get; set; }
 
         public MergeRooms1(Room _room1, Room _room2, string _newId, RoomType _newType)
         {
@@ -44,7 +46,9 @@ namespace WpfApp1.View.Manager.Rooms
 
             Room1.ItemsSource = FillComboBoxWithRoomsId();
             Room2.ItemsSource = FillComboBoxWithRoomsId();
-            ComboBox.ItemsSource = Enum.GetValues(typeof(RoomType)).Cast<RoomType>();
+            RoomTypeBinding = new ObservableCollection<RoomType>(Enum.GetValues(typeof(RoomType)).Cast<RoomType>());
+            RoomTypeBinding.Remove(RoomType.Warehouse);
+            ComboBox.ItemsSource = RoomTypeBinding;
             ComboBox.SelectedItem = RoomType.ExaminationRoom;
             NextBtn.IsEnabled = false;
             Validation.IdValidationRule.ValidationHasError = false;
@@ -138,7 +142,7 @@ namespace WpfApp1.View.Manager.Rooms
         private bool EnableNextBtn()
         {
             return !string.IsNullOrEmpty(Id.Text) && !string.IsNullOrEmpty((string)Room1.SelectedItem)
-                    && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.IdValidationRule.ValidationHasError;
+                    && !string.IsNullOrEmpty((string)Room2.SelectedItem) && !Validation.RoomIdMergeSplitValidationRule.ValidationHasError;
         }
 
         private List<string> RemoveRoomsNotAtSameFloor(List<string> allRooms, Room selectedRoom)

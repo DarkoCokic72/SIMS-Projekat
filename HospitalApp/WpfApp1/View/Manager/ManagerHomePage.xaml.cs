@@ -80,7 +80,7 @@ namespace WpfApp1.View.Manager
 
         private void MenuItem_SchedulingSplit(object sender, RoutedEventArgs e)
         {
-            this.Content = new SplitRooms1(null, null, RoomType.Warehouse, null, RoomType.Warehouse);
+            this.Content = new SplitRooms1(null, null, RoomType.ExaminationRoom, null, RoomType.ExaminationRoom);
             
         }
 

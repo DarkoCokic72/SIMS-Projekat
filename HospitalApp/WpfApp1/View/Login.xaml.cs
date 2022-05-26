@@ -27,41 +27,10 @@ namespace WpfApp1.View
     public partial class Login : UserControl
     {
         public static UserAccount userAccount;
-        private String passwordBinding;
-        public String PasswordBinding
-        {
-            get
-            {
-                return passwordBinding;
-            }
-            set
-            {
-                passwordBinding = value;
-                OnPropertyChanged("PasswordBinding");
-            }
-        }
-
-        private String emailBinding;
-        public String EmailBinding
-        {
-            get
-            {
-                return emailBinding;
-            }
-            set
-            {
-                emailBinding = value;
-                OnPropertyChanged("EmailBinding");
-            }
-        }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         public Login()
         {
-            InitializeComponent();
             ManagerHomePage.managerHomePageInstance = null;
+            InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -72,7 +41,6 @@ namespace WpfApp1.View
             UserAccountRepository userAccountRepository = new UserAccountRepository(userAccountFileHandler);
             UserAccountService userAccountService = new UserAccountService(userAccountRepository);
             UserAccountController userAccountController = new UserAccountController(userAccountService);
-            Console.WriteLine(EmailBinding);
             userAccount = userAccountController.GetByEmailPassword(Email.Text, LoginPassword.Text);
             
 

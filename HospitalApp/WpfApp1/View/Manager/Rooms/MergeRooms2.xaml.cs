@@ -84,6 +84,8 @@ namespace WpfApp1.View.Manager.Rooms
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             startDate = (DateTime)Calendar.SelectedDate;
+            BindingExpression binding = Duration.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
             EnableOrDisableScheduleBtn();
         }
 

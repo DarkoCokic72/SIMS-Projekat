@@ -30,7 +30,7 @@
 
             </Grid>
         </GroupBox>
-        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgDrugs" ItemsSource="{Binding Drugs}" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}" AutoGenerateColumns="False" Margin="26,284,26,52" IsReadOnly="True" ColumnWidth="*">
+        <DataGrid FontSize="40" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name ="dgDrugs" ItemsSource="{Binding Drugs}" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}" AutoGenerateColumns="False" Margin="10,284,10,52" IsReadOnly="True" ColumnWidth="*">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}"/>
