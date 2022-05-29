@@ -104,7 +104,7 @@ namespace WpfApp1.View.Manager.Rooms
             
             roomController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
             this.Content = new ManagerHomePage();
-            
+            new SuccessfulActionWindow("Renovation was scheduled!");      
         }
 
 

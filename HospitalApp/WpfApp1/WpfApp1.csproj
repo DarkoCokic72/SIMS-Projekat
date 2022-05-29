@@ -253,6 +253,9 @@
     <Compile Include="View\Manager\ManagerHomePage.xaml.cs">
       <DependentUpon>ManagerHomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\Rooms\BasicRenovation.xaml.cs">
       <DependentUpon>BasicRenovation.xaml</DependentUpon>
     </Compile>
@@ -273,6 +276,9 @@
     </Compile>
     <Compile Include="View\Manager\Rooms\SplitRooms1.xaml.cs">
       <DependentUpon>SplitRooms1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\SuccessfulActionWindow.xaml.cs">
+      <DependentUpon>SuccessfulActionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\SurveysWindows\ChooseDoctor.xaml.cs">
       <DependentUpon>ChooseDoctor.xaml</DependentUpon>
@@ -471,6 +477,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Manager\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Manager\Rooms\BasicRenovation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -496,6 +506,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Manager\Rooms\SplitRooms1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\SuccessfulActionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -794,6 +808,8 @@
   <ItemGroup>
     <Resource Include="images\back.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\successful.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

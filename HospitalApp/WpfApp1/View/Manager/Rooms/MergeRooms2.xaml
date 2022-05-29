@@ -78,8 +78,8 @@
             </Binding>
         </TextBox>
         <Label FontSize="40" Content="Select start day*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,328,0,0" Height="75" Width="389"/>
-        <Button Background="SteelBlue" Height="100" FontSize="60" Content="Back" Margin="564,632,210,36" Width="250" Click="Button_Click_Back"/>
-        <Button Background="SteelBlue" x:Name="ScheduleBtn" FontSize="60" Content="Schedule" Margin="210,632,564,36" Width="250" Click="Button_Click_Schedule"/>
+        <Button Background="SteelBlue" Height="100" FontSize="60" Content="Back" Margin="210,632,564,36" Width="250" Click="Button_Click_Back"/>
+        <Button Background="SteelBlue" x:Name="ScheduleBtn" FontSize="60" Content="Schedule" Margin="564,632,210,36" Width="250" Click="Button_Click_Schedule"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-9,128,0,0" VerticalAlignment="Top" Width="1033"/>
     </Grid>
 </UserControl>

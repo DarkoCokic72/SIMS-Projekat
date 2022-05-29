@@ -47,6 +47,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         }
         public RoomsEquipmentViewModel()
         {
+            SelectedEquipment = null;
             UserBinding = Login.userAccount.Name + " " + Login.userAccount.Surname;
             IdBinding = RoomsWindowViewModel.SelectedRoom.Id;
             Equipment = new ObservableCollection<Equipment>(RoomsWindow.roomController.GetEquipment(RoomsWindowViewModel.SelectedRoom.Id));
@@ -80,6 +81,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         {
             if (SelectedEquipment == null)
             {
+                new NotificationWindow("Select equipment you want to relocate!");
                 return;
             }
             ManagerHomePage.GetManagerHomePage().Content = new EquipmentRelocation();

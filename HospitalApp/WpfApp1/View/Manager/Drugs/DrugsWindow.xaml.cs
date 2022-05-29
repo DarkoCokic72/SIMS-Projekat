@@ -59,7 +59,7 @@ namespace WpfApp1.View.Manager.Drugs
         {
             if(SelectedDrug == null || SelectedDrug.Valid == true)
             {
-                MessageBox.Show("Select invalid drug you want to edit.");
+                new NotificationWindow("Select invalid drug you want to edit!");
                 return;
             }
 

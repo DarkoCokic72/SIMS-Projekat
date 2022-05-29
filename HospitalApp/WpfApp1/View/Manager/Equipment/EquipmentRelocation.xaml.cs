@@ -86,6 +86,14 @@ namespace WpfApp1.View.Manager.Equipment
             equipmentController.CreateRelocationRequest(new Relocation((DateTime)Date.SelectedDate, int.Parse(Quantity.Text), roomController.GetById((string)Room.SelectedItem), ViewModel.Manager.Rooms.RoomsEquipmentViewModel.SelectedEquipment));
 
             this.Content = RoomsWindow.GetRoomsWindow();
+            if (((DateTime)Date.SelectedDate).ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd")))
+            {
+                new SuccessfulActionWindow("Equipment was moved!");
+            }
+            else
+            {
+                new SuccessfulActionWindow("Relocation request was created");
+            }
         }
 
         private void EnableOrDisableSaveBtn()

@@ -1,1 +1,1 @@
-[]
+[{"Id":"68a73ed0-6740-47aa-9f76-1ab4eb180490","Description":"q","StartDate":"2022-05-26T00:00:00","Duration":1,"Room":{"Id":"R1","Type":5,"Floor":0}}]

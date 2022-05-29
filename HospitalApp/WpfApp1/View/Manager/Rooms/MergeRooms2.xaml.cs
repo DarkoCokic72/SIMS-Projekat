@@ -79,6 +79,7 @@ namespace WpfApp1.View.Manager.Rooms
             Room room3 = new Room(newId, newType, room1.Floor);
             roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
+            new SuccessfulActionWindow("Rooms merge was scheduled!");
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)

@@ -11,6 +11,7 @@ using Model;
 using WpfApp1.View;
 using WpfApp1.View.Manager;
 using WpfApp1.View.Rooms;
+using WpfApp1.ViewModel.Manager.Rooms;
 
 namespace WpfApp1.ViewModel
 {
@@ -69,7 +70,7 @@ namespace WpfApp1.ViewModel
             if (!CheckIfRoomIsSelected()) return;
             if (SelectedRoom.Type == RoomType.Warehouse)
             {
-                MessageBox.Show("The warehouse cannot be edited!");
+                new NotificationWindow("The warehouse cannot be edited!");
                 return;
             }
             RoomsWindow.GetRoomsWindow().Content = new RoomsEdit();
@@ -81,7 +82,7 @@ namespace WpfApp1.ViewModel
             if (!CheckIfRoomIsSelected()) return;
             if (SelectedRoom.Type == RoomType.Warehouse)
             {
-                MessageBox.Show("The warehouse cannot be deleted!");
+                new NotificationWindow("The warehouse cannot be deleted!");
                 return;
             }
             RoomsDelete roomsDelete = new RoomsDelete();
@@ -112,7 +113,7 @@ namespace WpfApp1.ViewModel
         {
             if (SelectedRoom == null)
             {
-                MessageBox.Show("You need to select a row!");
+                new NotificationWindow("You need to select a row!");
                 return false;
             }
             return true;
