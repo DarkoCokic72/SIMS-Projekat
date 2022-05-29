@@ -5,6 +5,7 @@ using FileHandler;
 using Model;
 using Repo;
 using Service;
+using WpfApp1.Controller;
 using WpfApp1.Model;
 using WpfApp1.View;
 
@@ -23,21 +24,21 @@ namespace WpfApp1
                 equipmentController.Relocate();
             }
         });
-        private static RoomController roomController = new RoomController();
-        private static AppointmentFileHandler handler = new AppointmentFileHandler();
-        private static AppointmentRepository appointmentRepository = new AppointmentRepository(handler);
-        private static AppointmentService appointmentService = new AppointmentService(appointmentRepository);
-        private static AppointmentController appointmentController = new AppointmentController(appointmentService);
+        private static readonly RoomController roomController = new RoomController();
+        private static readonly RenovationController renovationController = new RenovationController();
         public static Thread RenovationThread = new Thread(() =>
         {
             while (true)
             {
-                roomController.Renovate();
+                renovationController.Renovate();
             }
         });
 
         public static bool CheckNotification = false;
-
+        private static AppointmentFileHandler handler = new AppointmentFileHandler();
+        private static AppointmentRepository appointmentRepository = new AppointmentRepository(handler);
+        private static AppointmentService appointmentService = new AppointmentService(appointmentRepository);
+        private static AppointmentController appointmentController = new AppointmentController(appointmentService);
         public static Thread AppointmentEdited = new Thread(() =>
         {
             while (true) 

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Model;
 using Service;
 using WpfApp1.Model;
+using WpfApp1.Service;
 
 namespace Controller
 {
@@ -45,25 +46,9 @@ namespace Controller
             return roomService.GetEquipment(roomId);
         }
 
-        public void SchedulingRenovation(Renovation renovation)
-        {
-            roomService.SchedulingRenovation(renovation);
-        }
-
         public List<System.DateTime> GetBusyDates(string roomId)
         {
             return roomService.GetBusyDates(roomId);
-        }
-
-        public void SchedulingAdvancedRenovation(AdvancedRenovation renovation) 
-        {
-            roomService.SchedulingAdvancedRenovation(renovation);
-        }
-
-        public void Renovate() 
-        {
-            roomService.Renovate();
-            
         }
 
         public bool RoomIdExists(string roomId) 
@@ -72,6 +57,5 @@ namespace Controller
         }
 
         public Service.RoomService roomService = new RoomService();
-       
     }
-    }
+}

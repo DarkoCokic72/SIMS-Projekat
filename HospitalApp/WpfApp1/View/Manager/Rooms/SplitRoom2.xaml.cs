@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Controller;
 using Model;
+using WpfApp1.Controller;
 
 namespace WpfApp1.View.Manager.Rooms
 {
@@ -24,6 +25,7 @@ namespace WpfApp1.View.Manager.Rooms
     public partial class SplitRoom2 : UserControl
     {
         private RoomController roomController = new RoomController();
+        private RenovationController renovationController = new RenovationController();
         public static List<DateTime> busyDates;
         public static DateTime startDate;
 
@@ -87,7 +89,7 @@ namespace WpfApp1.View.Manager.Rooms
         {
             Room room2 = new Room(newId1, newType1, room1.Floor);
             Room room3 = new Room(newId2, newType2, room1.Floor);
-            roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.split, startDate, int.Parse(Duration.Text), room1, room2, room3));
+            renovationController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.split, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
             new SuccessfulActionWindow("Room split was scheduled!");
         }

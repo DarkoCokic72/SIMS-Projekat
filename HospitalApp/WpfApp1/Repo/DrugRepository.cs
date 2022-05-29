@@ -31,7 +31,7 @@ namespace Repo
             drugFileHandler.Save(drugs);
         }
       
-        public bool Update(Drug newDrug)
+        public void Update(Drug newDrug)
         { 
             List<Drug> drugs = GetAll();
             for (int i = 0; i < drugs.Count; i++)
@@ -47,7 +47,6 @@ namespace Repo
                     drugFileHandler.Save(drugs);
                 }
             }
-            return true;
         }
         public bool DrugExists(string drugName, string oldDrugName)
         {
@@ -61,7 +60,7 @@ namespace Repo
             return false;
         }
 
-        public bool IsDrugAlreadyInList(List<Drug> drugs, Drug drugToAdd)
+        private bool IsDrugAlreadyInList(List<Drug> drugs, Drug drugToAdd)
         {
             foreach (Drug drug in drugs)
             {

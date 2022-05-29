@@ -22,9 +22,9 @@ namespace Controller
           drugService.Create(drug);
       }
 
-      public bool Update(Drug drug)
+      public void Update(Drug drug)
       {
-            return drugService.Update(drug);
+            drugService.Update(drug);
       }
 
      public bool DrugExists(string drugName, string oldDrugName)

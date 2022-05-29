@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Controller;
 using Model;
+using WpfApp1.Controller;
 
 namespace WpfApp1.View.Manager.Rooms
 {
@@ -23,8 +24,9 @@ namespace WpfApp1.View.Manager.Rooms
     /// </summary>
     public partial class MergeRooms2 : UserControl
     {
-        private RoomController roomController = new RoomController();
-        public static List<System.DateTime> busyDates;
+        private readonly RoomController roomController = new RoomController();
+        private readonly RenovationController renovationController = new RenovationController();
+        public static List<DateTime> busyDates;
         public static DateTime startDate;
 
         private Room room1;
@@ -77,7 +79,7 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             Room room3 = new Room(newId, newType, room1.Floor);
-            roomController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
+            renovationController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
             new SuccessfulActionWindow("Rooms merge was scheduled!");
         }

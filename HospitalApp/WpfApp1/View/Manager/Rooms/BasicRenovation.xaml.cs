@@ -28,10 +28,11 @@ namespace WpfApp1.View.Manager.Rooms
     /// </summary>
     public partial class BasicRenovation : UserControl, INotifyPropertyChanged
     {
-        private RoomController roomController = new RoomController();
-        private string roomId;
-        private string description;
-        public static List<System.DateTime> busyDates;
+        private readonly RoomController roomController = new RoomController();
+        private readonly RenovationController renovationController = new RenovationController();
+        private readonly string roomId;
+        private readonly string description;
+        public static List<DateTime> busyDates;
         public static DateTime startDate;
 
         private int durationBinding;
@@ -102,7 +103,7 @@ namespace WpfApp1.View.Manager.Rooms
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
         {
             
-            roomController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
+            renovationController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
             this.Content = new ManagerHomePage();
             new SuccessfulActionWindow("Renovation was scheduled!");      
         }
