@@ -74,8 +74,7 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Content = new RoomsEquipment();
-           
+            this.Content = new RoomsEquipment();   
         }
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)

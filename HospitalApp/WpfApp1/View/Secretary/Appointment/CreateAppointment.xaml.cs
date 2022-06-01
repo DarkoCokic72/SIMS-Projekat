@@ -18,8 +18,6 @@ namespace WpfApp1
 
     public partial class CreateAppointment : Window
     {
-
-        public static bool addedAppointment = false;
         public CreateAppointment()
         {
             InitializeComponent();
@@ -162,28 +160,24 @@ namespace WpfApp1
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            if (btn.Content.Equals("Cancel"))
+           
+            Close();
+        }
+
+        private void Button_Click_Save(object sender, RoutedEventArgs e)
+        {
+            if (AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding)))
             {
+                AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                 Close();
             }
-            else if (btn.Content.Equals("Save"))
+            else
             {
-
-                AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding));
-                addedAppointment = true;
-                if (addedAppointment == true)
-                {
-                    AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Appointment with that reg num already exists!", "Error");
-                }
+                MessageBox.Show("Appointment with that reg num already exists!", "Error");
             }
+            
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)

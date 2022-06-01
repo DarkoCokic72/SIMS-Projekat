@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using FileHandler;
 using Model;
+using WpfApp1;
 using WpfApp1.Model;
 
 namespace Repo
@@ -16,11 +17,11 @@ namespace Repo
         public GuestAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
         {
             List<GuestAccount> guestAccountList = GetAll();
-            foreach (GuestAccount r in guestAccountList)
+            foreach (GuestAccount account in guestAccountList)
             {
-                if (r.UniquePersonalNumber == uniquePersonalNumber)
+                if (account.UniquePersonalNumber == uniquePersonalNumber)
                 {
-                    return r;
+                    return account;
                 }
 
             }
@@ -28,45 +29,42 @@ namespace Repo
             return null;
         }
 
-        public void Add(GuestAccount guestAccount)
+        public bool Add(GuestAccount guestAccount)
         {
             List<GuestAccount> guestAccountList = GetAll();
             guestAccountList.Add(guestAccount);
             guestAccountFileHandler.Save(guestAccountList);
-            WpfApp1.CreateGuestAccount.addedGuestAccount = true;
-
+            return true;
         }
 
-        public void Update(GuestAccount guestAccount)
+        public bool Update(GuestAccount guestAccount)
         {
             List<GuestAccount> guestAccountList = GetAll();
 
-            if (WpfApp1.GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().UniquePersonalNumber != guestAccount.UniquePersonalNumber)
+           /* if (GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().UniquePersonalNumber != guestAccount.UniquePersonalNumber)
             {
                 for (int i = 0; i < guestAccountList.Count; i++)
                 {
 
                     if (guestAccountList[i].UniquePersonalNumber.Equals(guestAccount.UniquePersonalNumber))
                     {
-                        WpfApp1.GuestAccountsEdit.editedGuestAccount = false;
+                        GuestAccountsEdit.editedGuestAccount = false;
                         return;
                     }
                 }
-            }
+            }*/
 
             for (int i = 0; i < guestAccountList.Count; i++)
             {
-
-                if (guestAccountList[i].UniquePersonalNumber.Equals(WpfApp1.GuestAccountsWindow.guestAccountsWindowInstance.getSelectedGuestAccount().UniquePersonalNumber))
+                if (guestAccountList[i].UniquePersonalNumber.Equals(guestAccount.UniquePersonalNumber))
                 {
-
                     guestAccountList[i] = guestAccount;
                     guestAccountFileHandler.Save(guestAccountList);
-                    WpfApp1.GuestAccountsEdit.editedGuestAccount = true;
-                    return;
-
+                    return true;
                 }
             }
+
+            return false;
         }
 
         public void Remove(string id)
@@ -84,7 +82,7 @@ namespace Repo
             guestAccountFileHandler.Save(guestAccountList);
         }
 
-        public FileHandler.GuestAccountFileHandler guestAccountFileHandler;
+        public GuestAccountFileHandler guestAccountFileHandler;
 
         public GuestAccountRepository(GuestAccountFileHandler fileHandler)
         {

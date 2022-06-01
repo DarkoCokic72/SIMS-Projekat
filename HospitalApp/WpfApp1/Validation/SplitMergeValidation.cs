@@ -15,8 +15,6 @@ namespace WpfApp1.Validation
         public static bool ValidationHasError { get; set; }
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-
-
             ValidationHasError = false;
 
             if (value is int)
@@ -41,8 +39,6 @@ namespace WpfApp1.Validation
 
                 }
 
-
-
                 if (endDate >= firstBusyDate)
                 {
                     ValidationHasError = true;
@@ -63,7 +59,6 @@ namespace WpfApp1.Validation
         public static bool ValidationHasError { get; set; }
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-
 
             ValidationHasError = false;
 
@@ -112,7 +107,7 @@ namespace WpfApp1.Validation
         {
             ValidationHasError = false;
             var s = value as string;
-            if(string.IsNullOrEmpty(s)) return new ValidationResult(true, null);
+            if (string.IsNullOrEmpty(s)) return new ValidationResult(true, null);
             if (roomController.RoomIdExists(s.Trim()))
             {
                 ValidationHasError = true;

@@ -23,11 +23,7 @@ namespace Repo
         {
             foreach (Room room in GetAll())
             { 
-                if(room.Id == id)
-                {
-                    return room;
-                }   
-            
+                if (room.Id == id) return room;
             }
             return null;
         }
@@ -36,10 +32,7 @@ namespace Repo
         {
             foreach (Room room in GetAll())
             {
-                if (room.Type == RoomType.Warehouse)
-                {
-                    return room;
-                }
+                if (room.Type == RoomType.Warehouse) return room;
             }
 
             return null;
@@ -84,12 +77,9 @@ namespace Repo
 
         public bool RoomIdExists(string roomId)
         {
-            foreach(Room room in GetAll())
+            foreach (Room room in GetAll())
             {
-                if(room.Id == roomId)
-                {
-                    return true;
-                }
+                if (room.Id == roomId) return true; 
             }
             return false;
         }

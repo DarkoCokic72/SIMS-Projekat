@@ -18,11 +18,6 @@ namespace Model
         public string UniquePersonalNumber { get; set; }
 
         public Address address;
-
-        /// <summary>
-        /// Property for Address
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
         public Address Address
         {
             get
@@ -34,6 +29,5 @@ namespace Model
                 this.address = value;
             }
         }
-
     }
 }

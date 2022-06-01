@@ -39,7 +39,7 @@ namespace Service
         }
 
 
-        public Repo.PhysicianRepository physicianRepository = new PhysicianRepository();
+        public PhysicianRepository physicianRepository = new PhysicianRepository();
 
     }
 }

@@ -151,10 +151,10 @@ namespace WpfApp1
             UPNBinding = patient.UniquePersonalNumber;
             NameBinding = patient.Name;
             SurnameBinding = patient.Surname;
-            BloodGroupBinding = patient.bloodGroup;
+            BloodGroupBinding = patient.BloodGroup;
             EmailBinding = patient.Email;
             PhoneNumBinding = patient.PhoneNumber;
-            DateOfBirthBinding = patient.dateOfBirth;
+            DateOfBirthBinding = patient.DateOfBirth;
             PasswordBinding = patient.Password;
 
             Validation.UPNValidation.ValidationError = false;
@@ -224,7 +224,7 @@ namespace WpfApp1
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if ((BloodGroup)ComboBox.SelectedItem != patient.bloodGroup && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
+            if ((BloodGroup)ComboBox.SelectedItem != patient.BloodGroup && !Validation.StringToIntegerValidationRule.ValidationHasError && !Validation.IdValidationRule.ValidationHasError)
             {
                 SaveBtn.IsEnabled = true;
             }

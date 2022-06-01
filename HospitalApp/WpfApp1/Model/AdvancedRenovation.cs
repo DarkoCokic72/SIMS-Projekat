@@ -9,9 +9,9 @@ namespace Model
 {
    public class AdvancedRenovation
    {
-      public System.Guid Id { get; set; }
+      public Guid Id { get; set; }
       public RenovationType RenovationType { get; set; }
-      public System.DateTime StartDate { get; set; }
+      public DateTime StartDate { get; set; }
       public int Duration { get; set; }
       public Room Room1 { get; set; }
       public Room Room2 { get; set; }

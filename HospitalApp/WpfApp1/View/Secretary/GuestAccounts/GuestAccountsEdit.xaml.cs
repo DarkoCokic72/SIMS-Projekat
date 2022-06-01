@@ -156,10 +156,7 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-
-                GuestAccountsWindow.guestAccountsController.Update(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding));
-                editedGuestAccount = true;
-                if (editedGuestAccount == true)
+                if (GuestAccountsWindow.guestAccountsController.Update(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding)))
                 {
                     GuestAccountsWindow.guestAccountsWindowInstance.refreshContentOfGrid();
                     Close();
@@ -168,8 +165,6 @@ namespace WpfApp1
                 {
                     MessageBox.Show("Patient with that ID already exists!", "Error");
                 }
-
-
             }
 
         }

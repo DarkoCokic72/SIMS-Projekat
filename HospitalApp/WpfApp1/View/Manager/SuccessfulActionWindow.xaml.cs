@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp1.View.Manager
 {
-    /// <summary>
-    /// Interaction logic for SuccessfulActionWindow.xaml
-    /// </summary>
     public partial class SuccessfulActionWindow : Window
     {
         public SuccessfulActionWindow(string text)

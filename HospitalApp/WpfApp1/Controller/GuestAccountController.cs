@@ -18,14 +18,14 @@ namespace Controller
             return guestAccountService.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
 
-        public void Add(GuestAccount guestAccount)
+        public bool Add(GuestAccount guestAccount)
         {
-            guestAccountService.Add(guestAccount);
+            return guestAccountService.Add(guestAccount);
         }
 
-        public void Update(GuestAccount guestAccount)
+        public bool Update(GuestAccount guestAccount)
         {
-            guestAccountService.Update(guestAccount);
+            return guestAccountService.Update(guestAccount);
         }
 
         public void Remove(string id)

@@ -8,7 +8,6 @@ using Controller;
 
 namespace WpfApp1.View.Manager.Equipment
 {
-
     
     public partial class AllEquipment : UserControl
     {
@@ -26,8 +25,7 @@ namespace WpfApp1.View.Manager.Equipment
 
         private void Button_Click_HomePage(object sender, RoutedEventArgs e)
         {
-            this.Content = new ManagerHomePage();
-        
+            this.Content = new ManagerHomePage();      
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)

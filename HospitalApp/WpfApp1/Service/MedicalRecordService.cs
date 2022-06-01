@@ -18,14 +18,14 @@ namespace Service
             return medicalRecordRepository.GetByRegNum(regNum);
         }
 
-        public void Add(MedicalRecord medicalRecord)
+        public bool Add(MedicalRecord medicalRecord)
         {
-            medicalRecordRepository.Add(medicalRecord);
+            return medicalRecordRepository.Add(medicalRecord);
         }
 
-        public void Update(MedicalRecord medicalRecord)
+        public bool Update(MedicalRecord medicalRecord)
         {
-            medicalRecordRepository.Update(medicalRecord);
+            return medicalRecordRepository.Update(medicalRecord);
         }
 
         public void Remove(string regNum)
@@ -33,7 +33,7 @@ namespace Service
             medicalRecordRepository.Remove(regNum);
         }
 
-        public Repo.MedicalRecordRepository medicalRecordRepository;
+        public MedicalRecordRepository medicalRecordRepository;
 
         public MedicalRecordService(MedicalRecordRepository medicalRecordRepository)
         {

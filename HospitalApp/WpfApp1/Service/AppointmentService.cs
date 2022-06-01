@@ -18,14 +18,14 @@ namespace Service
             return appointmentRepository.GetById(id);
         }
 
-        public void Add(Appointment appointment)
+        public bool Add(Appointment appointment)
         {
-            appointmentRepository.Add(appointment);
+            return appointmentRepository.Add(appointment);
         }
 
-        public void Update(Appointment appointment)
+        public bool Update(Appointment appointment)
         {
-            appointmentRepository.Update(appointment);
+            return appointmentRepository.Update(appointment);
         }
 
         public void Remove(string id)
@@ -33,7 +33,7 @@ namespace Service
             appointmentRepository.Remove(id);
         }
 
-        public Repo.AppointmentRepository appointmentRepository;
+        public AppointmentRepository appointmentRepository;
 
         public AppointmentService(AppointmentRepository appointmentRepository)
         {

@@ -12,8 +12,8 @@ namespace FileHandler
 {
    public class RelocationFileHandler
    {
-      private string path = @"..\..\Data\RelocationData.txt";
-      private EventWaitHandle waitHandle = new EventWaitHandle(true, EventResetMode.AutoReset, "SHARED_BY_ALL_PROCESSES");
+        private string path = @"..\..\Data\RelocationData.txt";
+        private EventWaitHandle waitHandle = new EventWaitHandle(true, EventResetMode.AutoReset, "SHARED_BY_ALL_PROCESSES");
         public List<Relocation> Read()
         {
             waitHandle.WaitOne();
@@ -23,13 +23,12 @@ namespace FileHandler
             return relocation;
         }
       
-      public void Save(List<Relocation> relocation)
-      {
+        public void Save(List<Relocation> relocation)
+        {
             waitHandle.WaitOne();
             string relocationSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(relocation);
             System.IO.File.WriteAllText(path, relocationSerialized);
             waitHandle.Set();
         }
-   
    }
 }

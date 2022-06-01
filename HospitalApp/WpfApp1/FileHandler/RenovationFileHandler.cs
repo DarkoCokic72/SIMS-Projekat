@@ -11,22 +11,19 @@ namespace FileHandler
 {
    public class RenovationFileHandler
    {
-      private string path = @"..\..\Data\RenovationData.txt";
+        private string path = @"..\..\Data\RenovationData.txt";
 
-      public List<Renovation> Read()
-      {
+        public List<Renovation> Read()
+        {
             string renovationSerialized = System.IO.File.ReadAllText(path);
             List<Renovation> renovations = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Renovation>>(renovationSerialized);
             return renovations;
         }
-      
-      public void Save(List<Renovation> renovations)
-      {
-           
+
+        public void Save(List<Renovation> renovations)
+        {
             string renovationSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(renovations);
             System.IO.File.WriteAllText(path, renovationSerialized);
-            
         }
-   
    }
 }

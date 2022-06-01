@@ -16,7 +16,7 @@
         <Label Content="Id:*" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="212,10,0,0" Text="{Binding IdBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="97" FontSize="18" Height="34" RenderTransformOrigin="0.532,0.725"/>
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="292,320,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click" Height="39"  >
+        <Button Content="Save" HorizontalAlignment="Left" Margin="292,320,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click_Save" Height="39"  >
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>
@@ -25,7 +25,7 @@
         <ComboBox HorizontalAlignment="Left" Margin="212,60,0,0" VerticalAlignment="Top" Width="174" DisplayMemberPath="FullName" FontSize="18" x:Name="Patient" Text="{Binding PatientBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
         <Label Content="Patient:*" HorizontalAlignment="Left" Margin="86,60,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Physician:*" HorizontalAlignment="Left" Margin="68,108,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Button Content="Cancel" FontSize="20" HorizontalAlignment="Left" Margin="157,320,0,0" Click="Button_Click" VerticalAlignment="Top" Width="94" Height="39"/>
+        <Button Content="Cancel" FontSize="20" HorizontalAlignment="Left" Margin="157,320,0,0" Click="Button_Click_Cancel" VerticalAlignment="Top" Width="94" Height="39"/>
         <ComboBox HorizontalAlignment="Left" Margin="212,108,0,0" VerticalAlignment="Top" Width="174" DisplayMemberPath="FullName" FontSize="18" x:Name="Physician" Text="{Binding PhysicianBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
         <Label Content="Room:*" HorizontalAlignment="Left" Margin="94,159,0,0" VerticalAlignment="Top" FontSize="18"/>
         <ComboBox HorizontalAlignment="Left" Margin="212,159,0,0" DisplayMemberPath="Id" VerticalAlignment="Top" Width="174" FontSize="18" x:Name="Room" Text="{Binding RoomBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>

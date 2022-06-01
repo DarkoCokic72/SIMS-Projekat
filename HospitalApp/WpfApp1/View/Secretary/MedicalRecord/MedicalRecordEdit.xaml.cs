@@ -23,8 +23,6 @@ namespace WpfApp1
 {
     public partial class MedicalRecordEdit : Window, INotifyPropertyChanged
     {
-        public static Boolean editedMedicalRecord = false;
-
         private MedicalRecord medicalRecord;
 
         private string regNumBinding;
@@ -160,10 +158,7 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-
-                MedicalRecordWindow.medicalRecordController.Update(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding));
-                editedMedicalRecord = true;
-                if (editedMedicalRecord == true)
+                if (MedicalRecordWindow.medicalRecordController.Update(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding)))
                 {
                     MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
                     Close();

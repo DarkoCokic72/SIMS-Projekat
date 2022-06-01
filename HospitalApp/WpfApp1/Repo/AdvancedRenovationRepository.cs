@@ -1,8 +1,3 @@
-// File:    AdvancedRenovationRepository.cs
-// Author:  smvul
-// Created: Friday, May 6, 2022 11:47:39 PM
-// Purpose: Definition of Class AdvancedRenovationRepository
-
 using System;
 using System.Collections.Generic;
 using Model;

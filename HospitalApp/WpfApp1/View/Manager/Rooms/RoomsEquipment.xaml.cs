@@ -22,9 +22,6 @@ using WpfApp1.ViewModel.Manager.Rooms;
 
 namespace WpfApp1.View.Rooms
 {
-    /// <summary>
-    /// Interaction logic for RoomsEquipment.xaml
-    /// </summary>
     public partial class RoomsEquipment : UserControl
     {
         public RoomsEquipment()

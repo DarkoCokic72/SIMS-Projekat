@@ -24,8 +24,6 @@ namespace WpfApp1
 {
     public partial class AppointmentEdit : Window, INotifyPropertyChanged
     {
-        public static Boolean editedAppointment = false;
-
         private Appointment appointment;
 
         private string idBinding;
@@ -216,11 +214,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Save"))
             {
                 Appointment appointment = new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding);
-                appointment.Changed = true;
-
-                AppointmentWindow.appointmentController.Update(appointment);
-
-                if (editedAppointment == true)
+                if (AppointmentWindow.appointmentController.Update(appointment))
                 {
                     AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                     Close();

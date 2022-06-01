@@ -18,14 +18,14 @@ namespace Controller
             return medicalRecordService.GetByRegNum(regNum);
         }
 
-        public void Add(MedicalRecord medicalRecord)
+        public bool Add(MedicalRecord medicalRecord)
         {
-            medicalRecordService.Add(medicalRecord);
+            return medicalRecordService.Add(medicalRecord);
         }
 
-        public void Update(MedicalRecord medicalRecord)
+        public bool Update(MedicalRecord medicalRecord)
         {
-            medicalRecordService.Update(medicalRecord);
+           return medicalRecordService.Update(medicalRecord);
         }
 
         public void Remove(string regNum)
@@ -33,7 +33,7 @@ namespace Controller
             medicalRecordService.Remove(regNum);
         }
 
-        public Service.MedicalRecordService medicalRecordService;
+        public MedicalRecordService medicalRecordService;
 
         public MedicalRecordController(MedicalRecordService medicalRecordService)
         {

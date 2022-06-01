@@ -26,10 +26,10 @@
         </Grid.ColumnDefinitions>
         <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" AutoGenerateColumns="False" Name ="dgGuestAccounts" ItemsSource="{Binding Path=GuestAccounts}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Surname" Binding="{Binding surname}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Email" Binding="{Binding email}"></DataGridTextColumn>
-                <DataGridTextColumn Header="UPN" Binding="{Binding uniquePersonalNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
+                <DataGridTextColumn Header="UPN" Binding="{Binding UniquePersonalNumber}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button FontSize="30" Content="Create" Grid.Row="0"  Height ="Auto" Margin="75,10,63,4" Click="Button_Click" Width="Auto" Grid.Column="2" Grid.ColumnSpan="2"/>

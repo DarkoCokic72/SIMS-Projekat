@@ -12,8 +12,6 @@ namespace WpfApp1
 
     public partial class CreateGuestAccount : Window
     {
-
-        public static bool addedGuestAccount = false;
         public CreateGuestAccount()
         {
             InitializeComponent();
@@ -108,10 +106,7 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-
-                GuestAccountsWindow.guestAccountsController.Add(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding));
-                addedGuestAccount = true;
-                if (addedGuestAccount == true)
+                if (GuestAccountsWindow.guestAccountsController.Add(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding)))
                 {
                     GuestAccountsWindow.guestAccountsWindowInstance.refreshContentOfGrid();
                     Close();

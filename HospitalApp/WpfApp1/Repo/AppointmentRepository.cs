@@ -22,24 +22,23 @@ namespace Repo
                 {
                     return appointment;
                 }
-
             }
             return null;
         }
 
-        public void Add(Appointment appointment)
+        public bool Add(Appointment appointment)
         {
             List<Appointment> appointmentsList = GetAll();
             appointmentsList.Add(appointment);
             appointmentFileHandler.Save(appointmentsList);
-            WpfApp1.CreateAppointment.addedAppointment = true;
+            return true;
         }
 
-        public void Update(Appointment appointment)
+        public bool Update(Appointment appointment)
         {
             List<Appointment> appointmentsList = GetAll();
 
-
+            /*
             for (int i = 0; i < appointmentsList.Count; i++)
             {
 
@@ -47,21 +46,20 @@ namespace Repo
                 {
                     WpfApp1.AppointmentEdit.editedAppointment = false;
                 }
-            }
+            }*/
             
             for (int i = 0; i < appointmentsList.Count; i++)
             {
-
                 if (appointmentsList[i].Id.Equals(appointment.Id))
                 {
 
                     appointmentsList[i] = appointment;
                     appointmentFileHandler.Save(appointmentsList);
-                    WpfApp1.AppointmentEdit.editedAppointment = true;
-                    return;
-
+                    return true;
                 }
             }
+
+            return false;
         }
 
         public void Remove(string id)
@@ -80,7 +78,7 @@ namespace Repo
             appointmentFileHandler.Save(appointmentsList);
         }
 
-        public FileHandler.AppointmentFileHandler appointmentFileHandler;
+        public AppointmentFileHandler appointmentFileHandler;
 
         public AppointmentRepository(AppointmentFileHandler fileHandler)
         {

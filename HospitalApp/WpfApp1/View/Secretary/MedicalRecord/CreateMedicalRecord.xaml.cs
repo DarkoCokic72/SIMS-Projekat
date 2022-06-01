@@ -17,8 +17,6 @@ namespace WpfApp1
 
     public partial class CreateMedicalRecord : Window
     {
-
-        public static bool addedMedicalRecord = false;
         public CreateMedicalRecord()
         {
             InitializeComponent();
@@ -101,10 +99,7 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-
-                MedicalRecordWindow.medicalRecordController.Add(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding));
-                addedMedicalRecord = true;
-                if (addedMedicalRecord == true)
+                if (MedicalRecordWindow.medicalRecordController.Add(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding)))
                 {
                     MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
                     Close();

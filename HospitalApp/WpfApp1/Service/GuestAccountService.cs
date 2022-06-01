@@ -18,14 +18,14 @@ namespace Service
             return guestAccountRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
 
-        public void Add(GuestAccount guestAccount)
+        public bool Add(GuestAccount guestAccount)
         {
-            guestAccountRepository.Add(guestAccount);
+            return guestAccountRepository.Add(guestAccount);
         }
 
-        public void Update(GuestAccount guestAccount)
+        public bool Update(GuestAccount guestAccount)
         {
-            guestAccountRepository.Update(guestAccount);
+            return guestAccountRepository.Update(guestAccount);
         }
 
         public void Remove(string id)
@@ -33,7 +33,7 @@ namespace Service
             guestAccountRepository.Remove(id);
         }
 
-        public Repo.GuestAccountRepository guestAccountRepository;
+        public GuestAccountRepository guestAccountRepository;
 
         public GuestAccountService(GuestAccountRepository guestAccountRepository)
         {

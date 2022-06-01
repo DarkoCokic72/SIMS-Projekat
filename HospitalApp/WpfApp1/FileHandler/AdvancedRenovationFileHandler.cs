@@ -24,8 +24,8 @@ namespace FileHandler
             return renovations;
         }
       
-      public void Write(List<AdvancedRenovation> renovations)
-      {
+        public void Write(List<AdvancedRenovation> renovations)
+        {
             waitHandle.WaitOne();
             string renovationSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(renovations);
             System.IO.File.WriteAllText(path, renovationSerialized);

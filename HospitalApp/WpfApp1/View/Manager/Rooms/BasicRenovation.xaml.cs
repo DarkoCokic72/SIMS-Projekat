@@ -61,9 +61,9 @@ namespace WpfApp1.View.Manager.Rooms
 
             busyDates = roomController.GetBusyDates(roomId);
 
-            foreach (DateTime d in busyDates)
+            foreach (DateTime date in busyDates)
             {
-                Calendar.BlackoutDates.Add(new CalendarDateRange(d, d));
+                Calendar.BlackoutDates.Add(new CalendarDateRange(date, date));
             }
 
             ScheduleBtn.IsEnabled = false;
@@ -91,7 +91,6 @@ namespace WpfApp1.View.Manager.Rooms
             {
                 ScheduleBtn.IsEnabled = false;
             }
-
         }
 
 
@@ -100,9 +99,9 @@ namespace WpfApp1.View.Manager.Rooms
             this.Content = new BasicRenovation1(roomId, description);
         }
 
+
         private void Button_Click_Schedule(object sender, RoutedEventArgs e)
-        {
-            
+        {   
             renovationController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
             this.Content = new ManagerHomePage();
             new SuccessfulActionWindow("Renovation was scheduled!");      

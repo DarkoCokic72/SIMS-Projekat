@@ -12,10 +12,10 @@ namespace FileHandler
 {
    public class DrugFileHandler
    {
-      string path = @"..\..\Data\DrugsData.txt";
-      private EventWaitHandle waitHandle = new EventWaitHandle(true, EventResetMode.AutoReset, "SHARED_BY_ALL_PROCESSES");
-      public List<Drug> Read()
-      {
+        string path = @"..\..\Data\DrugsData.txt";
+        private EventWaitHandle waitHandle = new EventWaitHandle(true, EventResetMode.AutoReset, "SHARED_BY_ALL_PROCESSES");
+        public List<Drug> Read()
+        {
             waitHandle.WaitOne();
             string drugsSerialized = System.IO.File.ReadAllText(path);
             List<Drug> drugs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Drug>>(drugsSerialized);
@@ -23,8 +23,8 @@ namespace FileHandler
             return drugs;
         }
       
-      public void Save(List<Drug> drugs)
-      {
+        public void Save(List<Drug> drugs)
+        {
             waitHandle.WaitOne();
             string drugsSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(drugs);
             System.IO.File.WriteAllText(path, drugsSerialized);

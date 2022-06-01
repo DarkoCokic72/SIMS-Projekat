@@ -20,7 +20,7 @@ namespace WpfApp1.Service
             return userAccountRepository.GetByEmailPassword(email, password);
         }
 
-        public Repo.UserAccountRepository userAccountRepository;
+        public UserAccountRepository userAccountRepository;
 
         public UserAccountService(UserAccountRepository userAccountRepository)
         {

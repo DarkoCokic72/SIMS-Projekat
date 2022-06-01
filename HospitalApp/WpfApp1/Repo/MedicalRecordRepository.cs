@@ -26,30 +26,27 @@ namespace Repo
             {
                 if (medicalRecord.RegNum == regNum)
                 {
-
                     return medicalRecord;
-
                 }
-
             }
 
             return null;
         }
       
-      public void Add(MedicalRecord medicalRecord)
+      public bool Add(MedicalRecord medicalRecord)
       {
             List<MedicalRecord> medicalRecordList = GetAll();
             medicalRecordList.Add(medicalRecord);
             medicalRecordFileHandler.Save(medicalRecordList);
-            WpfApp1.CreateMedicalRecord.addedMedicalRecord = true;
+            return true;
             
         }
       
-      public void Update(MedicalRecord medicalRecord)
+      public bool Update(MedicalRecord medicalRecord)
       {
             List<MedicalRecord> medicalRecordList = GetAll();
 
-            if (WpfApp1.MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord().RegNum != medicalRecord.RegNum)
+            /*if (WpfApp1.MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord().RegNum != medicalRecord.RegNum)
             {
                 for (int i = 0; i < medicalRecordList.Count; i++)
                 {
@@ -61,21 +58,20 @@ namespace Repo
                         return;
                     }
                 }
-            }
+            }*/
 
             for (int i = 0; i < medicalRecordList.Count; i++)
             {
 
-                if (medicalRecordList[i].RegNum.Equals(WpfApp1.MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord().RegNum))
+                if (medicalRecordList[i].RegNum.Equals(medicalRecord.RegNum))
                 {
-
                     medicalRecordList[i] = medicalRecord;
                     medicalRecordFileHandler.Save(medicalRecordList);
-                    WpfApp1.MedicalRecordEdit.editedMedicalRecord = true;
-                    return;
-
+                    return true;
                 }
             }
+
+            return false;
         }
       
       public void Remove(string regNum)
@@ -94,7 +90,7 @@ namespace Repo
             medicalRecordFileHandler.Save(medicalRecordList);
         }
 
-        public FileHandler.MedicalRecordFileHandler medicalRecordFileHandler;
+        public MedicalRecordFileHandler medicalRecordFileHandler;
 
         public MedicalRecordRepository(MedicalRecordFileHandler fileHandler)
         {

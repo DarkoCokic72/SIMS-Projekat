@@ -40,9 +40,9 @@ namespace Repo
         {
             List<Drug> drugs = new List<Drug>();
             List<Equipment> toDelete = new List<Equipment>();
-            foreach(Equipment equipment in equipmentList) 
+            foreach (Equipment equipment in equipmentList) 
             {
-                if(equipment.Type == EquipmentType.drug) 
+                if (equipment.Type == EquipmentType.drug) 
                 {
                     drugs.Add(MakeDrugFromEquipment(equipment));
                     toDelete.Add(equipment);
@@ -56,24 +56,19 @@ namespace Repo
 
         public List<Equipment> SearchEquipment(string name, string quantity)
         {
-           
 
             if (string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
-            {
                 return GetByQuantity(int.Parse(quantity));
-            }
 
-            if (string.IsNullOrEmpty(quantity) && !string.IsNullOrEmpty(name)) 
-            {
+            else if (string.IsNullOrEmpty(quantity) && !string.IsNullOrEmpty(name)) 
                 return GetByName(name);
-            }
 
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
-            {
+            else if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity)) 
                 return GetByNameAndQuantity(name, int.Parse(quantity));
-            }
-          
-            return GetAll();         
+
+            else
+                return GetAll();
+            
         }
 
 
@@ -108,7 +103,6 @@ namespace Repo
                 if (equipment.Quantity >= quantity)
                 {
                     equipmentList.Add(equipment);
-
                 }
             }
 
@@ -123,7 +117,6 @@ namespace Repo
                 if (equipment.Name.ToLower().StartsWith(name.ToLower()))
                 {
                     equipmentList.Add(equipment);
-
                 }
             }
 

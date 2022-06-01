@@ -18,14 +18,14 @@ namespace Controller
             return appointmentService.GetById(id);
         }
 
-        public void Add(Appointment appointment)
+        public bool Add(Appointment appointment)
         {
-            appointmentService.Add(appointment);
+            return appointmentService.Add(appointment);
         }
 
-        public void Update(Appointment appointment)
+        public bool Update(Appointment appointment)
         {
-            appointmentService.Update(appointment);
+            return appointmentService.Update(appointment);
         }
 
         public void Remove(string id)
@@ -33,7 +33,7 @@ namespace Controller
             appointmentService.Remove(id);
         }
 
-        public Service.AppointmentService appointmentService;
+        public AppointmentService appointmentService;
 
         public AppointmentController(AppointmentService appointmentService)
         {

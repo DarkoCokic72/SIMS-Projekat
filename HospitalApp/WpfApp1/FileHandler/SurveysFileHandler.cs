@@ -15,7 +15,6 @@ namespace WpfApp1.FileHandler
             string surveysSerialized = System.IO.File.ReadAllText(path);
             List<Survey> surveys = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Survey>>(surveysSerialized);
             return surveys;
-
         }
 
         public void Save(List<Survey> surveys)
