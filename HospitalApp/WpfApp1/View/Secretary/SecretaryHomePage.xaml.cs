@@ -61,6 +61,12 @@ namespace WpfApp1.View.Secretary
                 CreateUrgentAppointment createUrgentAppointment = new CreateUrgentAppointment();
                 createUrgentAppointment.ShowDialog();
             }
+            if (btn.Content.Equals("PHYSICIANS"))
+            {
+                PhysicianReport physicianReport = new PhysicianReport();
+                physicianReport.ShowDialog();
+            }
+
 
         }
 

@@ -78,11 +78,9 @@ namespace WpfApp1
         }
 
         public static EquipmentPurchaseWindow GetEquipmentPurchaseWindow()
-        {
-            if (equipmentPurchaseWindowInstance == null)
-            {
-                equipmentPurchaseWindowInstance = new EquipmentPurchaseWindow();
-            }
+        {    
+            equipmentPurchaseWindowInstance = new EquipmentPurchaseWindow();
+            
             return equipmentPurchaseWindowInstance;
         }
 

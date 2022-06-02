@@ -26,6 +26,21 @@ namespace Repo
             return null;
         }
 
+        public List<Appointment> GetByPhysician(Physician physician, DateTime startDate, DateTime endDate)
+        {
+            List<Appointment> appointments = GetAll();
+            List<Appointment> appointmentsByPhysician = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
+            {
+                if (appointment.Physician.licenceID == physician.licenceID && appointment.DateOfAppointment >= startDate && appointment.DateOfAppointment <= endDate)
+                {
+                    appointmentsByPhysician.Add(appointment);
+                }
+            }
+
+            return appointmentsByPhysician;
+        }
+
         public bool Add(Appointment appointment)
         {
             List<Appointment> appointmentsList = GetAll();

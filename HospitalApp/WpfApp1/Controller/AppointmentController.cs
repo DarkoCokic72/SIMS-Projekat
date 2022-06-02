@@ -18,6 +18,11 @@ namespace Controller
             return appointmentService.GetById(id);
         }
 
+        public List<Appointment> GetByPhysician(Physician physician, DateTime startDate, DateTime endDate)
+        {
+            return appointmentService.GetByPhysician(physician, startDate, endDate);
+        }
+
         public bool Add(Appointment appointment)
         {
             return appointmentService.Add(appointment);

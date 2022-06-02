@@ -434,6 +434,12 @@
       <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\RoomService.cs" />
+    <Compile Include="View\Secretary\PhysicianReport\AppointmentsWindow.xaml.cs">
+      <DependentUpon>AppointmentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\PhysicianReport\PhysicianReport.xaml.cs">
+      <DependentUpon>PhysicianReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Secretary\PurchaseEquipment\EquipmentPurchaseWindow.xaml.cs">
       <DependentUpon>EquipmentPurchaseWindow.xaml</DependentUpon>
     </Compile>
@@ -729,6 +735,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Secretary\PhysicianReport\AppointmentsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\PhysicianReport\PhysicianReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Secretary\PurchaseEquipment\EquipmentPurchaseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -813,5 +827,6 @@
   <ItemGroup>
     <Resource Include="images\successful.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
