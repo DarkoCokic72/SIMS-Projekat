@@ -103,7 +103,20 @@ namespace Repo
 
         }
 
+        public List<DateTime> GetBusyDaysDueToAppointments(string roomId)
+        {
+            List<DateTime> days = new List<DateTime>();
+            foreach (PatientExaminationAppointment appointment in GetAll())
+            {
+                if (appointment.roomId == roomId)
+                {
+                    days.Add(appointment.datetimeOfAppointment);
+                }
+            }
+            return days;
+        }
 
 
     }
+
 }

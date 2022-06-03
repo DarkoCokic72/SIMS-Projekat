@@ -1,10 +1,3 @@
-
-/***********************************************************************
- * Module:  RoomRepository.cs
- * Author:  smvul
- * Purpose: Definition of the Class Repo.RoomRepository
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using FileHandler;
