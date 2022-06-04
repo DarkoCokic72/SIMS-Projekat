@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,11 @@ namespace WpfApp1.View.Manager
     /// </summary>
     public partial class ChangePassword : UserControl
     {
+
         public ChangePassword()
         {
             InitializeComponent();
+            this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             SaveBtn.IsEnabled = false;
         }
@@ -45,10 +48,21 @@ namespace WpfApp1.View.Manager
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
+            if (OldPassword.Password != Login.userAccount.Password)
+            {
+                ErrorLabel.Content = "Wrong old password!";
+                return;
+            }
+            else if (NewPassword.Password != RepeatPassword.Password)
+            {
+                ErrorLabel.Content = "Passwords do not match!";
+                return;
+            }
             UserAccountController userAccountController = new UserAccountController();
             userAccountController.ChangeManagerPassword(new Model.Manager(NewPassword.Password, Login.userAccount.UniquePersonalNumber));
             Login.userAccount = userAccountController.GetByUniquePersonalNumber(Login.userAccount.UniquePersonalNumber);
             this.Content = new ManagerProfile();
+            new SuccessfulActionWindow("Password is changed");
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
