@@ -17,6 +17,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         public static Equipment SelectedEquipment { get; set; }
         public MyICommand LogOutCommand { get; set; }
         public MyICommand HomePageCommand { get; set; }
+        public MyICommand ProfileCommand { get; set; }
         public MyICommand BackCommand { get; set; }
         public MyICommand RelocateCommand { get; set; }
         private string userBinding;
@@ -60,6 +61,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
             HomePageCommand = new MyICommand(OnHomePage);
             BackCommand = new MyICommand(OnBack);
             RelocateCommand = new MyICommand(OnRelocate);
+            ProfileCommand = new MyICommand(OnProfile);
         }
 
         public void OnLogOut()
@@ -70,6 +72,11 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         public void OnHomePage()
         {
             ManagerHomePage.GetManagerHomePage().Content = new ManagerHomePage();
+        }
+
+        public void OnProfile()
+        {
+            ManagerHomePage.GetManagerHomePage().Content = new ManagerProfile();
         }
 
         public void OnBack()

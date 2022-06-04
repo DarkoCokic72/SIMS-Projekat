@@ -4,6 +4,7 @@ using Repo;
 using System.Collections.Generic;
 using System.Windows;
 using WpfApp1.FileHandler;
+using WpfApp1.Model;
 
 namespace WpfApp1.Repo
 {
@@ -31,11 +32,12 @@ namespace WpfApp1.Repo
             }
         }
 
-        public UserAccountFileHandler userAccountFileHandler;
+        public UserAccountFileHandler userAccountFileHandler = new UserAccountFileHandler();
 
+        public UserAccountRepository() { }
         public UserAccountRepository(UserAccountFileHandler fileHandler)
         {
-            userAccountFileHandler = fileHandler;
+           userAccountFileHandler = fileHandler;
         }
 
         private UserAccount IsUserPatient(string email, string password)

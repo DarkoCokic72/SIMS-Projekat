@@ -39,6 +39,11 @@ namespace WpfApp1.View.Manager.Equipment
             dgEquipment.ItemsSource = new ObservableCollection<Model.Equipment>(equipmentController.SearchEquipment(Name.Text, Quantity.Text));
         }
 
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
+
         private void PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");

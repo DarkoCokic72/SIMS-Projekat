@@ -23,12 +23,9 @@
                 <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Click="Button_LogOut">
                     <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
                 </Button>
-                <Button Width="90" Height="90" Margin="836,66,105.2,0" Background="Transparent" BorderThickness="0">
-                    <Image Source="/WpfApp1;component/images/notificationBell.png" Height="64" Width="64"/>
-                </Button>
                 <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
                 <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
-                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="561,66,0,-3" VerticalAlignment="Top" Width="270" Height="93" RenderTransformOrigin="0.5,0.5">
+                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="656,64,0,-2" VerticalAlignment="Top" Width="270" Height="94" RenderTransformOrigin="0.5,0.5" Click="Button_Click_Profile">
                     <Grid>
 
                         <Image Source="/WpfApp1;component/images/userr.png" Height="64" Margin="-128,0,65.6,0" RenderTransformOrigin="-0.384,0.4"/>
@@ -39,19 +36,19 @@
             </Grid>
         </GroupBox>
         <Viewbox Margin="314,201,67,206">
-                <Calendar x:Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="177" Width="238" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
-                    <Calendar.CalendarDayButtonStyle >
-                        <Style TargetType="{x:Type CalendarDayButton}" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
-                            <Style.Triggers>
-                                <Trigger Property="IsBlackedOut" Value="True">
-                                    <Setter Property="Background" Value="Red"/>
-                                    <Setter Property="FrameworkContentElement.Cursor" Value="No"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Calendar.CalendarDayButtonStyle>
-                </Calendar>
-            </Viewbox>
+            <Calendar x:Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectionMode="SingleDate" Height="177" Width="238" DisplayDateStart="{x:Static sys:DateTime.Today}" IsTodayHighlighted="false">
+                <Calendar.CalendarDayButtonStyle >
+                    <Style TargetType="{x:Type CalendarDayButton}" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
+                        <Style.Triggers>
+                            <Trigger Property="IsBlackedOut" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="FrameworkContentElement.Cursor" Value="No"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Calendar.CalendarDayButtonStyle>
+            </Calendar>
+        </Viewbox>
         <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Duration" Margin="451,543,200,153" TextWrapping="Wrap" Width="Auto" TextChanged="TextBox_TextChanged" PreviewTextInput="PreviewTextInput">
             <Validation.ErrorTemplate>
                 <ControlTemplate>

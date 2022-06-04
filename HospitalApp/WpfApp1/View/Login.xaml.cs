@@ -41,7 +41,7 @@ namespace WpfApp1.View
             UserAccountRepository userAccountRepository = new UserAccountRepository(userAccountFileHandler);
             UserAccountService userAccountService = new UserAccountService(userAccountRepository);
             UserAccountController userAccountController = new UserAccountController(userAccountService);
-            userAccount = userAccountController.GetByEmailPassword(Email.Text, LoginPassword.Text);
+            userAccount = userAccountController.GetByEmailPassword(Email.Text, LoginPassword.Password);
             
 
             if (userAccount != null) 
