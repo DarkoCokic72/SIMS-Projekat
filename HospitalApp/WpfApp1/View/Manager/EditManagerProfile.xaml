@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApp1.View.Manager"
+             xmlns:local="clr-namespace:WpfApp1.View.Manager" xmlns:val="clr-namespace:WpfApp1.Validation"
              mc:Ignorable="d" 
              Height="768" Width="1024">
     <Grid>
@@ -29,16 +29,64 @@
         </GroupBox>
         <Label Content="Edit profile information" FontSize="32" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="384" Height="65"/>
         <Separator BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="133" Margin="-19,130,0,0" VerticalAlignment="Top" Width="1033"/>
-        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="PhoneNumber" Height="Auto" Margin="348,536,205,151" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822"/>
-        <Label VerticalContentAlignment="Center" Content="Phone number:" FontSize="40" HorizontalAlignment="Left" Margin="62,536,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
-        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Name" Height="Auto" Margin="348,336,205,351" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822"/>
-        <Label VerticalContentAlignment="Center" Content="Email:" FontSize="40" HorizontalAlignment="Left" Margin="62,237,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
-        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Surname" Height="Auto" Margin="348,435,205,252" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822"/>
-        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Email" Height="Auto" Margin="348,237,205,450" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822"/>
-        <Label VerticalContentAlignment="Center" Content="Surname:" FontSize="40" HorizontalAlignment="Left" Margin="62,435,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
-        <Label VerticalContentAlignment="Center" Content="Name:" FontSize="40" HorizontalAlignment="Left" Margin="57,336,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Save" Margin="569,637,205,30" Width="250" Click="Button_Click_Save"/>
-        <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="206,637,568,30" Width="250" Click="Button_Click_Cancel"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="PhoneNumber" Height="Auto" Margin="330,536,223,151" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextChanged">
+            <TextBox.Text>
+                <Binding Path="PhoneNumberBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <val:PhoneNumberValidationRule ValidationStep="ConvertedProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label VerticalContentAlignment="Center" Content="Phone number:" FontSize="40" HorizontalAlignment="Left" Margin="44,536,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Name" Height="Auto" Margin="330,336,223,351" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextChanged"/>
+        <Label VerticalContentAlignment="Center" Content="Email:" FontSize="40" HorizontalAlignment="Left" Margin="44,237,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Surname" Height="Auto" Margin="330,435,223,252" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextChanged"/>
+        <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Email" Height="Auto" Margin="330,237,223,450" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextChanged">
+            <TextBox.Text>
+                <Binding Path="EmailBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <val:EmailValidationRule ValidationStep="ConvertedProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label VerticalContentAlignment="Center" Content="Surname:" FontSize="40" HorizontalAlignment="Left" Margin="44,435,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
+        <Label VerticalContentAlignment="Center" Content="Name:" FontSize="40" HorizontalAlignment="Left" Margin="44,336,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
+        <Button Name="SaveBtn" Background="SteelBlue" FontSize="60" Content="Save" Margin="551,637,223,30" Width="250" Click="Button_Click_Save"/>
+        <Button Background="SteelBlue" FontSize="60" Content="Cancel" Margin="223,637,551,30" Width="250" Click="Button_Click_Cancel"/>
 
     </Grid>
 </UserControl>

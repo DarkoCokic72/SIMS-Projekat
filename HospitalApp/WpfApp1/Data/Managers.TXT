@@ -1,1 +1,1 @@
-[{"address":null,"Email":"manager@gmail.com","Password":"123","Name":"Ana","Surname":"Vulin","PhoneNumber":"063456829","UniquePersonalNumber":"1234567890123","Address":null}]
+[{"address":null,"Email":"manager@gmail.com","Password":"123","Name":"Ana","Surname":"Vulin","PhoneNumber":"0690386457","UniquePersonalNumber":"1234567890123","Address":null}]

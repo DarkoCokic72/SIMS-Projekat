@@ -25,6 +25,7 @@ namespace WpfApp1.View.Manager
         {
             InitializeComponent();
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
+            SaveBtn.IsEnabled = false;
         }
 
         private void Button_Click_Home_Page(object sender, RoutedEventArgs e)
@@ -53,6 +54,29 @@ namespace WpfApp1.View.Manager
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
             this.Content = new ManagerProfile();
+        }
+
+        private void EnableOrDisableSaveBtn()
+        {
+            if (EnableNextBtn())
+            {
+                SaveBtn.IsEnabled = true;
+            }
+            else
+            {
+                SaveBtn.IsEnabled = false;
+            }
+        }
+
+        private bool EnableNextBtn()
+        {
+            return !string.IsNullOrEmpty(OldPassword.Password) && !string.IsNullOrEmpty(NewPassword.Password)
+            && !string.IsNullOrEmpty(RepeatPassword.Password);
+        }
+
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            EnableOrDisableSaveBtn();
         }
     }
 }

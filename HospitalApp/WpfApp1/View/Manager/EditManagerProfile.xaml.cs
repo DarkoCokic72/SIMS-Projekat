@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,16 +20,54 @@ namespace WpfApp1.View.Manager
     /// <summary>
     /// Interaction logic for EditManagerProfile.xaml
     /// </summary>
-    public partial class EditManagerProfile : UserControl
+    public partial class EditManagerProfile : UserControl, INotifyPropertyChanged
     {
+        public static string emailBinding;
+        public string EmailBinding
+        {
+            get
+            {
+                return emailBinding;
+            }
+            set
+            {
+                emailBinding = value;
+                OnPropertyChanged("EmailBinding");
+            }
+        }
+
+        public static string phoneNumberBinding;
+        public string PhoneNumberBinding
+        {
+            get
+            {
+                return phoneNumberBinding;
+            }
+            set
+            {
+                phoneNumberBinding = value;
+                OnPropertyChanged("PhoneNumberBinding");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
         public EditManagerProfile()
         {
             InitializeComponent();
+            this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-            Email.Text = Login.userAccount.Email;
+            EmailBinding = Login.userAccount.Email;
             Name.Text = Login.userAccount.Name;
             Surname.Text = Login.userAccount.Surname;
-            PhoneNumber.Text = Login.userAccount.PhoneNumber;
+            PhoneNumberBinding = Login.userAccount.PhoneNumber;
         }
 
         private void Button_Click_Home_Page(object sender, RoutedEventArgs e)
@@ -57,6 +96,29 @@ namespace WpfApp1.View.Manager
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
             this.Content = new ManagerProfile();
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EnableOrDisableSaveBtn();
+        }
+
+        private void EnableOrDisableSaveBtn()
+        {
+            if (EnableNextBtn())
+            {
+                SaveBtn.IsEnabled = true;
+            }
+            else
+            {
+                SaveBtn.IsEnabled = false;
+            }
+        }
+
+        private bool EnableNextBtn()
+        {
+            return !string.IsNullOrEmpty(Email.Text) && !string.IsNullOrEmpty(Name.Text) 
+            && !string.IsNullOrEmpty(Surname.Text) && !string.IsNullOrEmpty(PhoneNumber.Text) && !Validation.EmailValidationRule.ValidationHasError && !Validation.PhoneNumberValidationRule.ValidationHasError;
         }
     }
 }
