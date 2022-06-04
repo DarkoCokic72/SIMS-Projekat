@@ -46,5 +46,10 @@ namespace WpfApp1.View.Manager.Drugs
         {
             this.Content = new Login();
         }
+
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
     }
 }

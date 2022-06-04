@@ -20,6 +20,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
         public static MyICommand SaveCommand { get; set; }
         public MyICommand CancelCommand { get; set; }
         public MyICommand HomePageCommand { get; set; }
+        public MyICommand ProfileCommand { get; set; }
         public MyICommand LogOutCommand { get; set; }
         private string userBinding;
         public string UserBinding
@@ -120,6 +121,7 @@ namespace WpfApp1.ViewModel.Manager.Drugs
             LogOutCommand = new MyICommand(OnLogOut);
             SaveCommand = new MyICommand(OnSave, CanSave);
             CancelCommand = new MyICommand(OnCancel);
+            ProfileCommand = new MyICommand(OnProfile);
         }
 
         private void OnCancel()
@@ -135,6 +137,11 @@ namespace WpfApp1.ViewModel.Manager.Drugs
         private void OnHomePage()
         {
             ManagerHomePage.GetManagerHomePage().Content = new ManagerHomePage();
+        }
+
+        private void OnProfile()
+        {
+            ManagerHomePage.GetManagerHomePage().Content = new ManagerProfile();
         }
 
         private void OnSave()

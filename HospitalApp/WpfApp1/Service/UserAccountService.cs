@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Model;
 using WpfApp1.Repo;
 
 namespace WpfApp1.Service
@@ -20,7 +21,26 @@ namespace WpfApp1.Service
             return userAccountRepository.GetByEmailPassword(email, password);
         }
 
-        public UserAccountRepository userAccountRepository;
+        public void EditManagerProfile(Manager manager)
+        {
+            managerRepository.EditManagerProfile(manager);
+        }
+
+        public void ChangeManagerPassword(Manager manager)
+        {
+            managerRepository.ChangeManagerPassword(manager);
+        }
+
+        public UserAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
+        {
+            return managerRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
+
+
+        public UserAccountRepository userAccountRepository = new UserAccountRepository();
+        public ManagerRepository managerRepository = new ManagerRepository();
+        
+        public UserAccountService() { }
 
         public UserAccountService(UserAccountRepository userAccountRepository)
         {

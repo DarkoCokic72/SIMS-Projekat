@@ -46,6 +46,11 @@ namespace WpfApp1.View.Manager.SurveysWindows
             this.Content = new Login();
         }
 
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
+
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             this.Content = new HospitalSurveysQuestions();

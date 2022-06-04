@@ -17,6 +17,8 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         public MyICommand SaveCommand { get; set; }
         public MyICommand CancelCommand { get; set; }
         public MyICommand HomePageCommand { get; set; }
+
+        public MyICommand ProfileCommand { get; set; }
         public MyICommand LogOutCommand { get; set; }
         private string userBinding;
         public string UserBinding
@@ -111,6 +113,7 @@ namespace WpfApp1.ViewModel.Manager.Rooms
             CancelCommand = new MyICommand(OnCancel);
             HomePageCommand = new MyICommand(OnHomePage);
             LogOutCommand = new MyICommand(OnLogOut);
+            ProfileCommand = new MyICommand(OnProfile);
         }
 
         private void OnSave()
@@ -127,6 +130,11 @@ namespace WpfApp1.ViewModel.Manager.Rooms
         private void OnLogOut()
         {
             ManagerHomePage.GetManagerHomePage().Content = new Login();
+        }
+
+        private void OnProfile()
+        {
+            ManagerHomePage.GetManagerHomePage().Content = new ManagerProfile();
         }
 
         private void OnHomePage()
