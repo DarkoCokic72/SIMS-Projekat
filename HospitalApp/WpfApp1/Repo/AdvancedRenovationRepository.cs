@@ -46,6 +46,27 @@ namespace Repo
             advancedRenovationFileHandler.Write(renovations);
         }
 
+        public List<DateTime> GetBusyDaysDueToAdvancedRenovation(string roomId)
+        {
+            List<DateTime> days = new List<DateTime>();
+            foreach (AdvancedRenovation renovation in GetByRoomId(roomId))
+            {
+                days.Add(renovation.StartDate);
+                days.AddRange(CalculateBusyDaysForAdvancedRenovationByDuration(renovation));
+            }
+            return days;
+        }
+
+        private List<DateTime> CalculateBusyDaysForAdvancedRenovationByDuration(AdvancedRenovation renovation)
+        {
+            List<DateTime> days = new List<DateTime>();
+            for (int i = 1; i < renovation.Duration; i++)
+            {
+                days.Add(renovation.StartDate.AddDays(i));
+            }
+            return days;
+        }
+
         public FileHandler.AdvancedRenovationFileHandler advancedRenovationFileHandler = new FileHandler.AdvancedRenovationFileHandler();
    
     }

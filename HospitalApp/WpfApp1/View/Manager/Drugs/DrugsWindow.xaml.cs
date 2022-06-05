@@ -67,6 +67,11 @@ namespace WpfApp1.View.Manager.Drugs
 
         }
 
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
+
         private void ShowFirstInvalidDrugs()
         {
             List<Drug> sortedDrugs = GetInvalidDrugs();

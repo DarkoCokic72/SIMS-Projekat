@@ -26,6 +26,7 @@ namespace WpfApp1.ViewModel
         public MyICommand DetailsCommand { get; set; }
         public MyICommand LogOutCommand { get; set; }
         public MyICommand HomePageCommand { get; set; }
+        public MyICommand ProfileCommand { get; set; }
         public UserControl CurrentPage { get; set; }
 
         private string userBinding;
@@ -57,11 +58,18 @@ namespace WpfApp1.ViewModel
             DetailsCommand = new MyICommand(OnDetails);
             LogOutCommand = new MyICommand(OnLogOut);
             HomePageCommand = new MyICommand(OnHomePage);
+            ProfileCommand = new MyICommand(OnProfile);
         }
 
         private void OnAdd()
         {
             RoomsWindow.GetRoomsWindow().Content = new CreateRoom();
+            RoomsWindow.roomsWindowInstance = null;
+        }
+
+        private void OnProfile()
+        {
+            RoomsWindow.GetRoomsWindow().Content = new ManagerProfile();
             RoomsWindow.roomsWindowInstance = null;
         }
 

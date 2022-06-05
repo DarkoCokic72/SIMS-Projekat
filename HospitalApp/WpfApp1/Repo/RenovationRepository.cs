@@ -30,11 +30,30 @@ namespace Repo
 
         public void Create(Renovation renovation)
         {
-
             List<Renovation> renovationList = renovationFileHandler.Read();
             renovationList.Add(renovation);
             renovationFileHandler.Save(renovationList);
+        }
 
+        public List<DateTime> GetBusyDaysDueToRenovation(string roomId)
+        {
+            List<DateTime> days = new List<DateTime>();
+            foreach (Renovation renovation in GetByRoomId(roomId))
+            {
+                days.Add(renovation.StartDate);
+                days.AddRange(CalculateBusyDaysForRenovationByDuration(renovation));
+            }
+            return days;
+        }
+
+        private List<DateTime> CalculateBusyDaysForRenovationByDuration(Renovation renovation)
+        {
+            List<DateTime> days = new List<DateTime>();
+            for (int i = 1; i < renovation.Duration; i++)
+            {
+                days.Add(renovation.StartDate.AddDays(i));
+            }
+            return days;
         }
 
         public FileHandler.RenovationFileHandler renovationFileHandler = new FileHandler.RenovationFileHandler();

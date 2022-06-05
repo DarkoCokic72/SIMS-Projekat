@@ -11,30 +11,30 @@
         <Label VerticalContentAlignment="Center" FontSize="40" Content="Manufacturer:" Margin="47,315,683,0" Width="Auto" Height="81" VerticalAlignment="Top"/>
         <Label VerticalContentAlignment="Center" FontSize="40" Content="Ingredients:" Margin="47,418,683,274" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254"/>
         <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Name" Height="Auto" Margin="341,211,212,476" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822">
-        <TextBox.Text>
-            <Binding Path="NameBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                <Binding.ValidationRules>
+            <TextBox.Text>
+                <Binding Path="NameBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
                         <Validation:DrugsEditRequiredNameFieldValidationRule ValidationStep="UpdatedValue"/>
                         <Validation:DrugsEditDrugNameValidationRule ValidationStep="UpdatedValue"/>
                     </Binding.ValidationRules>
-            </Binding>
-        </TextBox.Text>
-        <Validation.ErrorTemplate>
-            <ControlTemplate>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                    <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
-                </Grid>
-            </ControlTemplate>
-        </Validation.ErrorTemplate>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock FontSize="32" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
         </TextBox>
         <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="Manufacturer" Height="Auto" Width="Auto" Margin="341,315,212,372" TextWrapping="Wrap">
             <TextBox.Text>
@@ -72,12 +72,9 @@
                 <Button Width="90" Height="90" Margin="931,64,10.2,2" Background="Transparent" BorderThickness="0" Command="{Binding LogOutCommand}">
                     <Image Source="/WpfApp1;component/images/logout.png" Height="64" Width="64"/>
                 </Button>
-                <Button Width="90" Height="90" Margin="836,66,105.2,0" Background="Transparent" BorderThickness="0">
-                    <Image Source="/WpfApp1;component/images/notificationBell.png" Height="64" Width="64"/>
-                </Button>
                 <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
                 <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
-                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="561,66,0,-3" VerticalAlignment="Top" Width="270" Height="93" RenderTransformOrigin="0.5,0.5">
+                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="656,64,0,-2" VerticalAlignment="Top" Width="270" Height="94" RenderTransformOrigin="0.5,0.5" Command="{Binding ProfileCommand}">
                     <Grid>
 
                         <Image Source="/WpfApp1;component/images/userr.png" Height="64" Margin="-128,0,65.6,0" RenderTransformOrigin="-0.384,0.4"/>

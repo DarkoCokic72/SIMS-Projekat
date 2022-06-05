@@ -77,6 +77,11 @@ namespace WpfApp1.View.Manager.Rooms
             this.Content = new ManagerHomePage();
         }
 
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
+
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
             this.Content = new MergeRooms2(roomController.GetById((string)Room1.SelectedItem), roomController.GetById((string)Room2.SelectedItem),

@@ -1,1 +1,1 @@
-[{"patientExaminationAppointment":null,"address":null,"PatientExaminationAppointment":[],"email":"manager@gmail.com","password":"manager","name":"Ana","surname":"Vulin","phoneNumber":"063333333","uniquePersonalNumber":"1234567890123","Address":null}]
+[{"address":null,"Email":"manager@gmail.com","Password":"123","Name":"Ana","Surname":"Vulin","PhoneNumber":"0690386457","UniquePersonalNumber":"1234567890123","Address":null}]

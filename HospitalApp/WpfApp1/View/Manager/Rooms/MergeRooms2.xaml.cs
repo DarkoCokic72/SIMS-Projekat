@@ -97,6 +97,11 @@ namespace WpfApp1.View.Manager.Rooms
             this.Content = new ManagerHomePage();
         }
 
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
+
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             this.Content = new Login();

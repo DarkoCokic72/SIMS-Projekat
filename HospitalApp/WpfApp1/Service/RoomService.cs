@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  RoomRepository.cs
- * Author:  smvul
- * Purpose: Definition of the Class Repo.RoomRepository
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,9 +42,9 @@ namespace Service
 
         public List<DateTime> GetBusyDates(string roomId)
         {
-            List<DateTime> dates = GetBusyDaysDueToAppointments(roomId); 
-            dates.AddRange(GetBusyDaysDueToRenovation(roomId));
-            dates.AddRange(GetBusyDaysDueToAdvancedRenovation(roomId));
+            List<DateTime> dates = patientExaminationAppointmentRepository.GetBusyDaysDueToAppointments(roomId); 
+            dates.AddRange(renovationRepository.GetBusyDaysDueToRenovation(roomId));
+            dates.AddRange(advancedRenovationRepository.GetBusyDaysDueToAdvancedRenovation(roomId));
             dates.Distinct();
             return dates;
         }
@@ -58,62 +52,6 @@ namespace Service
         public bool RoomIdExists(string roomId)
         {
             return roomRepository.RoomIdExists(roomId);
-        }
-
-        private List<DateTime> GetBusyDaysDueToRenovation(string roomId)
-        {
-            List<DateTime> days = new List<DateTime>();
-            foreach (Renovation renovation in renovationRepository.GetByRoomId(roomId))
-            {
-                days.Add(renovation.StartDate);
-                days.AddRange(CalculateBusyDaysForRenovationByDuration(renovation));
-            }
-            return days;
-        }
-
-        private List<DateTime> CalculateBusyDaysForRenovationByDuration(Renovation renovation)
-        {
-            List<DateTime> days = new List<DateTime>();
-            for (int i = 1; i < renovation.Duration; i++)
-            {
-                days.Add(renovation.StartDate.AddDays(i));
-            }
-            return days;
-        }
-
-        private List<DateTime> GetBusyDaysDueToAdvancedRenovation(string roomId)
-        {
-            List<DateTime> days = new List<DateTime>();
-            foreach (AdvancedRenovation renovation in advancedRenovationRepository.GetByRoomId(roomId))
-            {
-                days.Add(renovation.StartDate);
-                days.AddRange(CalculateBusyDaysForAdvancedRenovationByDuration(renovation));
-            }
-            return days;
-        }
-
-        private List<DateTime> CalculateBusyDaysForAdvancedRenovationByDuration(AdvancedRenovation renovation)
-        {
-            List<DateTime> days = new List<DateTime>();
-            for (int i = 1; i < renovation.Duration; i++)
-            {
-                days.Add(renovation.StartDate.AddDays(i));
-            }
-            return days;
-        }
-
-
-        private List<DateTime> GetBusyDaysDueToAppointments(string roomId)
-        {
-            List<DateTime> days = new List<DateTime>();
-            foreach (PatientExaminationAppointment appointment in patientExaminationAppointmentRepository.GetAll())
-            {
-                if (appointment.roomId == roomId)
-                {
-                    days.Add(appointment.datetimeOfAppointment);
-                }
-            }
-            return days;
         }
 
         public RoomRepository roomRepository = new RoomRepository();
