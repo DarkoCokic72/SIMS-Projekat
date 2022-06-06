@@ -7,34 +7,36 @@
         xmlns:val="clr-namespace:WpfApp1.Validation" 
         d:DataContext="{d:DesignInstance Type=local:PatientsEdit}"
         mc:Ignorable="d"
-        Title="Create patient" Height="970" Width="800">
-    <Grid Height="1085" VerticalAlignment="Top">
+        Title="Create patient" Height="1036" Width="800">
+    <Grid Margin="0,0,2,-21" Background="LightGreen">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="241*"/>
+            <RowDefinition Height="170*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="241*"/>
+            <RowDefinition Height="240*"/>
+            <RowDefinition Height="240*"/>
+            <RowDefinition Height="240*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="132*"/>
+            <ColumnDefinition Width="132*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="132*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="106*"/>
+            <ColumnDefinition Width="131*"/>
         </Grid.ColumnDefinitions>
-        <Label FontSize="40" Content="UPN*:" Margin="0,99,2,10" Width="Auto" Height="Auto" Grid.Row="1" RenderTransformOrigin="0.804,0.516" Grid.Column="1"/>
-        <Label FontSize="40" Content="Name*:" Margin="95,10,24,101" Width="Auto" Height="Auto" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="Surname*:" Margin="48,102,24,10" Width="Auto" Height="Auto" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="Email*:" Margin="115,0,10,107" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label FontSize="40" Content="BloodGroup*:" Margin="0,10,10,97" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="PhoneNum*:" Margin="14,113,10,0" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="DateOfBirth*:" Margin="0,28,16,95" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="Password*:" Margin="48,113,16,10" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Label FontSize="40" Content="UPN*:" Margin="36,29,105,118" Height="75" Grid.Row="2" RenderTransformOrigin="0.804,0.516" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label FontSize="40" Content="Name*:" Margin="10,10,105,86" Width="Auto" Height="75" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label FontSize="40" Content="Surname*:" Margin="88,113,72,104" Width="Auto" Height="75" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Label FontSize="40" Content="Email*:" Margin="12,46,105,0" Width="Auto" Height="75" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
+        <Label FontSize="40" Content="BloodGroup*:" Height="75" Margin="28,62,105,33" Grid.Row="5" Grid.ColumnSpan="3"/>
+        <Label FontSize="40" Content="Phone*:" Height="75" Margin="0,86,105,10" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1" RenderTransformOrigin="0.485,0.48"/>
+        <Label FontSize="40" Content="Birthday*:" Margin="99,127,105,139" Height="75" Grid.Row="4" RenderTransformOrigin="-1.656,3.04" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Label FontSize="40" Content="Password*:" Margin="75,28,72,68" Grid.Row="4" Height="75" Grid.ColumnSpan="3"/>
 
-        <TextBox FontSize="40" Name="UPN" Height="Auto" Margin="50,99,92,31" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="1">
+        <TextBox FontSize="40" Name="UPN" Height="75" Width="300" Margin="0,0,91.513,118" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.Row="2" VerticalAlignment="Bottom" Grid.ColumnSpan="4" Grid.Column="3" Grid.RowSpan="2">
             <TextBox.Text>
                 <Binding Path="UPNBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -59,15 +61,15 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox FontSize="40" Name="Name" Height="Auto" Width="Auto" Margin="50,10,73,120" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2"/>
-        <TextBox FontSize="40" Name="Email" Height="Auto" Width="Auto" Margin="50,2,73,127" TextWrapping="Wrap" Text="{Binding Path=EmailBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="1"/>
-        <TextBox FontSize="40" x:Name="Surname" Height="Auto" Width="Auto" Margin="50,99,73,31" TextWrapping="Wrap" Text="{Binding Path=SurnameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2"/>
-        <TextBox FontSize="40" Name="PhoneNum" Height="Auto" Width="Auto" Margin="50,113,92,17" TextWrapping="Wrap" Text="{Binding Path=PhoneNumBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="2"/>
-        <DatePicker FontSize="30" x:Name="DatePicker" Grid.Column="2" HorizontalAlignment="Left" Margin="50,29,0,0" Grid.Row="3" VerticalAlignment="Top" SelectedDate="{Binding Path=DateOfBirthBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="4" Width="386" Height="57"/>
-        <ComboBox FontSize="30" Name="ComboBox" Margin="50,10,92,123" Width="Auto" Text="{Binding Path=BloodGroupBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="4" Grid.Column="2" Height="Auto" Grid.Row="2"/>
-        <TextBox FontSize="40" Name="Password" Height="Auto" Width="Auto" Margin="50,123,92,0" TextWrapping="Wrap" Text="{Binding Path=PasswordBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3"/>
-        <Button FontSize="40" Content="Cancel" Margin="39,51,0,0" Width="Auto" Height="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="4"/>
-        <Button FontSize="40" Content="Save" Margin="65,51,112,0" Width="Auto" Height="Auto" Click="Button_Click" Command="Save" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="4" RenderTransformOrigin="0.333,-0.521">
+        <TextBox FontSize="40" Name="Name" Height="75" Width="300" Margin="0,10,91.513,86" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="3"/>
+        <TextBox FontSize="40" x:Name="Surname" Height="75" Width="300" Margin="0,113,91.513,104" TextWrapping="Wrap" Text="{Binding Path=SurnameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="3" Grid.RowSpan="2"/>
+        <TextBox FontSize="40" Name="Email" Height="75" Width="300" Margin="0,46,91.513,0" TextWrapping="Wrap" Text="{Binding Path=EmailBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="3" Grid.Row="1"/>
+        <TextBox FontSize="40" Name="PhoneNum" Height="75" Width="300" Margin="0,86,91.513,10" TextWrapping="Wrap" Text="{Binding Path=PhoneNumBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.Row="3" Grid.ColumnSpan="4" Grid.Column="3"/>
+        <DatePicker FontSize="50" x:Name="DatePicker" HorizontalAlignment="Left" Margin="0,127,0,0" Grid.Row="4" VerticalAlignment="Top" SelectedDate="{Binding Path=DateOfBirthBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="300" Height="75" Grid.ColumnSpan="4" Grid.Column="3" Grid.RowSpan="2"/>
+        <ComboBox FontSize="40" Name="ComboBox" Margin="0,62,91.513,33" Width="300" Text="{Binding Path=BloodGroupBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="75" Grid.Row="5" Grid.ColumnSpan="4" Grid.Column="3"/>
+        <TextBox FontSize="40" Name="Password" Height="75" Width="300" Margin="0,28,91.513,68" TextWrapping="Wrap" Text="{Binding Path=PasswordBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="3"/>
+        <Button FontSize="40" Content="Cancel" Margin="65,43,54,0" Width="150" Height="70" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Click="Button_Click_Cancel" Grid.Row="6" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2" RenderTransformOrigin="0.527,0.186"/>
+        <Button FontSize="40" Content="Save" Margin="19,43,92,58" Width="150" Height="70" Background="BlueViolet" Click="Button_Click_Save" Command="Save" Grid.Row="6" RenderTransformOrigin="0.333,-0.521" Grid.ColumnSpan="3" Grid.Column="4">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>

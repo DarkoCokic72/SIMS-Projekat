@@ -5,27 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="PhysicianReport" Height="472.785" Width="582.12">
-    <Grid RenderTransformOrigin="0.49,0.502" Margin="-35,0,2,1">
+        Title="Physician report" Height="472.785" Width="582.12">
+    <Grid RenderTransformOrigin="0.49,0.502" Margin="-35,0,2,1" Background="LightGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="101*"/>
-            <ColumnDefinition Width="501*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="359*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="275.222,363,0,0" VerticalAlignment="Top" FontSize="40" Width="138" Command="Save" Click="Button_Click_Save" Height="54" Grid.Column="1"  >
+        <Button Content="Confirm" HorizontalAlignment="Left" Margin="152,353,0,0" VerticalAlignment="Top" FontSize="40" Width="150" Command="Save" Click="Button_Click_Confirm" Height="70" Grid.Column="2" Background="BlueViolet" RenderTransformOrigin="0.516,0.203">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>
 
         </Button>
-        <ComboBox HorizontalAlignment="Left" Margin="164.222,38,0,0" VerticalAlignment="Top" Width="282" FontSize="18" x:Name="Physician" DisplayMemberPath="Name" Text="{Binding Path=PhysicianBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="60" Grid.Column="1"/>
+        <ComboBox ToolTip="Choose a physician!" HorizontalAlignment="Left" Margin="22.216,50,0,0" VerticalAlignment="Top" Width="280" FontSize="40" x:Name="Physician" DisplayMemberPath="FullName" Text="{Binding Path=PhysicianBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="60" Grid.Column="2"/>
 
-        <Label Content="Physician:*" HorizontalAlignment="Left" Margin="36,38,0,0" VerticalAlignment="Top" FontSize="40" Height="60" Grid.ColumnSpan="2"/>
-        <Label Content="Start date:*" HorizontalAlignment="Left" Margin="28,150,0,0" VerticalAlignment="Top" FontSize="40" Grid.ColumnSpan="2"/>
-        <Button Content="Cancel" FontSize="40" HorizontalAlignment="Left" Margin="87.222,363,0,0" Click="Button_Click_Cancel" VerticalAlignment="Top" Width="138" Height="54" Grid.Column="1"/>
-        <Label Content="End date:*" HorizontalAlignment="Left" Margin="43,252,0,0" VerticalAlignment="Top" FontSize="40" Grid.ColumnSpan="2"/>
-        <DatePicker FontSize="30" x:Name="StartDate" Grid.Column="1" HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartDateBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="282" Height="57"/>
-        <DatePicker FontSize="30" x:Name="EndDate" Grid.Column="1" HorizontalAlignment="Left" Margin="164,252,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndDateBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="282" Height="57"/>
+        <Label Content="Physician:*" HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" FontSize="40" Height="75" Grid.ColumnSpan="3"/>
+        <Label Content="Start date:*" HorizontalAlignment="Left" Margin="43,150,0,0" VerticalAlignment="Top" FontSize="40" Grid.ColumnSpan="3"/>
+        <Button Content="Cancel" FontSize="40" HorizontalAlignment="Left" Margin="91,353,0,0" Click="Button_Click_Cancel" VerticalAlignment="Top" Width="150" Height="70" Grid.Column="1" Grid.ColumnSpan="2" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394"/>
+        <Label Content="End date:*" HorizontalAlignment="Left" Margin="58,240,0,0" VerticalAlignment="Top" FontSize="40" Grid.ColumnSpan="3"/>
+        <DatePicker FontSize="40" x:Name="StartDate" ToolTip="Choose a start date for the report!" Grid.Column="2" HorizontalAlignment="Left" Margin="22.216,150,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartDateBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="280" Height="57"/>
+        <DatePicker FontSize="40" x:Name="EndDate" ToolTip="Choose a end date for the report!" Grid.Column="2" HorizontalAlignment="Left" Margin="22.216,246,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndDateBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="280" Height="57"/>
+        <Label Content="*Start date must be greater than or equal to end date!" FontSize="13" Grid.Column="2" HorizontalAlignment="Left" Margin="6.216,207,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.071,-3.385" Width="316" Foreground="Red"/>
     </Grid>
 </Window>

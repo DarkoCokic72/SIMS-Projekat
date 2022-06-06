@@ -161,8 +161,7 @@ namespace WpfApp1
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
-        {
-           
+        {  
             Close();
         }
 
@@ -182,13 +181,11 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(IdBinding))
+            if (!string.IsNullOrEmpty(IdBinding) && Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null && DateOfAppointment != null)
             {
                 e.CanExecute = true;
             }
 
-        }
-
-       
+        }      
     }
 }

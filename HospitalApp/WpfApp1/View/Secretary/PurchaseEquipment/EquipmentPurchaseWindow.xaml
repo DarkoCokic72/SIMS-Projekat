@@ -6,23 +6,23 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Create request for new equipment" Height="269.083" Width="382.061">
-    <Grid RenderTransformOrigin="0.49,0.502" Margin="-35,0,2,0" Height="234" VerticalAlignment="Top">
+    <Grid RenderTransformOrigin="0.49,0.502" Margin="-35,0,2,0" Height="234" VerticalAlignment="Top" Background="LightGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="357*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="276,191,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click_Save"  >
+        <Button Content="Save" HorizontalAlignment="Left" Margin="276,191,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click_Save" Background="BlueViolet" RenderTransformOrigin="0.516,0.203" Height="34">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>
 
         </Button>
-        <ComboBox HorizontalAlignment="Left" Margin="167,38,0,0" VerticalAlignment="Top" Width="174" FontSize="18" x:Name="Equipment" DisplayMemberPath="Name" Text="{Binding Path=EquipmentBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
+        <ComboBox HorizontalAlignment="Left" ToolTip="Choose a equipment for purchase!" Margin="167,38,0,0" VerticalAlignment="Top" Width="174" FontSize="18" x:Name="Equipment" DisplayMemberPath="Name" Text="{Binding Path=EquipmentBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
 
         <Label Content="Name:*" HorizontalAlignment="Left" Margin="86,38,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Quantity:*" HorizontalAlignment="Left" Margin="65,120,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Button Content="Cancel" FontSize="20" HorizontalAlignment="Left" Margin="140,191,0,0" Click="Button_Click_Cancel" VerticalAlignment="Top" Width="94" Height="34"/>
-        <TextBox HorizontalAlignment="Left" FontSize="20" x:Name="Quantity" Margin="167,120,0,0" TextWrapping="Wrap" Text="{Binding Path=QuantityBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="92" Height="34"/>
+        <Button Content="Cancel" FontSize="20" HorizontalAlignment="Left" Margin="140,191,0,0" Click="Button_Click_Cancel" VerticalAlignment="Top" Width="94" Height="34" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394"/>
+        <TextBox HorizontalAlignment="Left" FontSize="20" ToolTip="Enter a number greater than 0!" x:Name="Quantity" Margin="167,120,0,0" TextWrapping="Wrap" Text="{Binding Path=QuantityBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="92" Height="34"/>
     </Grid>
 </Window>

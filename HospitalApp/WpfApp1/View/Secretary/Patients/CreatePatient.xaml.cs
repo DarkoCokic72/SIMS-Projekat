@@ -6,14 +6,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Model;
 using WpfApp1.Model;
+using WpfApp1.Validation;
 
 namespace WpfApp1
 {
 
     public partial class CreatePatient : Window
     {
-
-        public static bool addedPatient = false;
         public CreatePatient()
         {
             InitializeComponent();
@@ -21,8 +20,7 @@ namespace WpfApp1
             ComboBox.ItemsSource = Enum.GetValues(typeof(BloodGroup)).Cast<BloodGroup>();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-           
-            Validation.UPNValidation.ValidationError = false;
+            UPNValidation.ValidationError = false;
             DateOfBirthBinding = DateTime.Now;
         }
 
@@ -145,27 +143,21 @@ namespace WpfApp1
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            if (btn.Content.Equals("Cancel"))
+            Close();
+        }
+
+        private void Button_Click_Save(object sender, RoutedEventArgs e)
+        {
+            if (PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding)))
             {
+                PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
                 Close();
             }
-            else if (btn.Content.Equals("Save"))
+            else
             {
-
-                PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
-                addedPatient = true;
-                if (addedPatient == true)
-                {
-                    PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Patient with that ID already exists!", "Error");
-                }
+                MessageBox.Show("Patient with that ID already exists!", "Error");
             }
         }
 
@@ -178,17 +170,14 @@ namespace WpfApp1
             }
         }
 
-
-
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(SurnameBinding) && !string.IsNullOrEmpty(EmailBinding) && !string.IsNullOrEmpty(PhoneNumBinding) && !string.IsNullOrEmpty(PasswordBinding) &&
-                !Validation.UPNValidation.ValidationError)
+                !UPNValidation.ValidationError)
             {
                 e.CanExecute = true;
             }
 
         }
-
     }
 }

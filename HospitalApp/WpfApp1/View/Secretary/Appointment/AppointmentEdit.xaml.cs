@@ -135,8 +135,10 @@ namespace WpfApp1
 
         private List<Room> FillComboBoxWithRooms()
         {
+            RoomController roomController = new RoomController();
+            List<Room> rooms = roomController.GetAll();
             List<Room> roomsId = new List<Room>();
-            foreach (Room room in RoomsWindow.roomController.GetAll())
+            foreach (Room room in rooms)
             {
                 roomsId.Add(room);
             }
@@ -232,7 +234,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(IdBinding))
+            if (string.IsNullOrEmpty(IdBinding) && Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null)
             {
                 e.CanExecute = false;
             }

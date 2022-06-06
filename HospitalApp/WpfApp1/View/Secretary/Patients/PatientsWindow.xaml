@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Patients" Height="450" Width="820">
 
-    <Grid Margin="20">
+    <Grid Margin="20" Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -24,7 +24,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" AutoGenerateColumns="False" Name ="dgPatients" ItemsSource="{Binding Path=Patients}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
+        <DataGrid Background="LightBlue" CanUserResizeColumns="True" CanUserResizeRows="False" AutoGenerateColumns="False" Name ="dgPatients" ItemsSource="{Binding Path=Patients}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"></DataGridTextColumn>
@@ -32,7 +32,7 @@
                 <DataGridTextColumn Header="Phone number" Binding="{Binding PhoneNumber}"></DataGridTextColumn>
                 <DataGridTextColumn Header="UPN" Binding="{Binding UniquePersonalNumber}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Blood group" Binding="{Binding BloodGroup}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Date of birth" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
 
             </DataGrid.Columns>
         </DataGrid>

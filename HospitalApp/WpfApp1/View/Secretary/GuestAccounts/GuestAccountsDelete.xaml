@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Delete patient" Height="249.774" Width="401.016">
-    <Grid>
+    <Grid Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -23,9 +23,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button FontSize="40" Content="No" Margin="21,27,17,25" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="3" Height="Auto" Grid.Row="3" Grid.RowSpan="3"/>
-        <Button FontSize="40" Content="Yes" Margin="10,27,28,25" Width="Auto" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3" Height="Auto" Grid.RowSpan="3"/>
-        <Label FontSize="40" Content="Are you sure?"  Height="Auto" Width="250" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="3,0,10,11" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button FontSize="40" Content="No" Margin="21,27,25.333,25" Click="Button_Click" Width="150" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="3"/>
+        <Label FontSize="40" Content="Are you sure?"  Height="75" Width="250" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="3,1,10,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button FontSize="40" Content="Yes" Margin="48,27,0,25" Click="Button_Click" Width="150" Grid.ColumnSpan="3" Grid.Row="3" Background="BlueViolet" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="3"/>
 
     </Grid>
 </Window>

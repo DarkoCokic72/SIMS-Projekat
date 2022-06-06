@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using FileHandler;
 using Model;
+using WpfApp1;
 using WpfApp1.Model;
 
 namespace Repo
@@ -26,56 +27,36 @@ namespace Repo
             {
                 if (patient.UniquePersonalNumber == uniquePersonalNumber)
                 {
-
                     return patient;
-
                 }
 
             }
-
             return null;
-        }
-      
-      public void Add(Patient patient)
-      {
+      }
+
+        public bool Add(Patient patient)
+        {
             List<Patient> patientList = GetAll();
             patientList.Add(patient);
             patientFileHandler.Save(patientList);
-            WpfApp1.CreatePatient.addedPatient = true;
-            
+            return true;
         }
       
-      public void Update(Patient patient)
+      public bool Update(Patient patient)
       {
             List<Patient> patientList = GetAll();
-
-            if (WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber != patient.UniquePersonalNumber)
-            {
-                for (int i = 0; i < patientList.Count; i++)
-                {
-
-                    if (patientList[i].UniquePersonalNumber.Equals(patient.UniquePersonalNumber))
-                    {
-
-                        WpfApp1.PatientsEdit.editedPatient = false;
-                        return;
-                    }
-                }
-            }
 
             for (int i = 0; i < patientList.Count; i++)
             {
 
-                if (patientList[i].UniquePersonalNumber.Equals(WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber))
+                if (patientList[i].UniquePersonalNumber.Equals(PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber))
                 {
-
                     patientList[i] = patient;
                     patientFileHandler.Save(patientList);
-                    WpfApp1.PatientsEdit.editedPatient = true;
-                    return;
-
+                    return true;
                 }
             }
+            return false;
         }
       
       public void Remove(string id)
@@ -92,6 +73,22 @@ namespace Repo
             }
 
             patientFileHandler.Save(patientList);
+        }
+        public bool PatientUPNExists(string upn)
+        {
+            foreach (Patient patient in GetAll())
+            {
+                if (patient.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool PatientEmailExists(string email)
+        {
+            foreach (Patient patient in GetAll())
+            {
+                if (patient.Email == email) return true;
+            }
+            return false;
         }
 
         public FileHandler.PatientFileHandler patientFileHandler;

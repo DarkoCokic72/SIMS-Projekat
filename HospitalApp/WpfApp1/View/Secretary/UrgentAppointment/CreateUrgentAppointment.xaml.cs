@@ -18,8 +18,6 @@ namespace WpfApp1
 
     public partial class CreateUrgentAppointment : Window
     {
-
-        public static bool addedAppointment = false;
         public CreateUrgentAppointment()
         {
             InitializeComponent();
@@ -132,9 +130,7 @@ namespace WpfApp1
                 AppointmentService appointmentService = new AppointmentService(appointmentRepository);
                 AppointmentController appointmentController = new AppointmentController(appointmentService);
 
-                appointmentController.Add(new Appointment(physicians[0], Patient.SelectedItem as Patient, rooms[2], DateTime.Now, IdBinding, AppointmentTypeBinding));
-                addedAppointment = true;
-                if (addedAppointment == true)
+                if (appointmentController.Add(new Appointment(physicians[0], Patient.SelectedItem as Patient, rooms[2], DateTime.Now, IdBinding, AppointmentTypeBinding)))
                 {
                     Close();
                 }
@@ -148,7 +144,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(IdBinding))
+            if (!string.IsNullOrEmpty(IdBinding) && Patient.SelectedItem != null)
             {
                 e.CanExecute = true;
             }

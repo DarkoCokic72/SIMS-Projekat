@@ -52,22 +52,11 @@ namespace Repo
         public bool Update(Appointment appointment)
         {
             List<Appointment> appointmentsList = GetAll();
-
-            /*
-            for (int i = 0; i < appointmentsList.Count; i++)
-            {
-
-                if (appointmentsList[i].Id.Equals(appointment.Id))
-                {
-                    WpfApp1.AppointmentEdit.editedAppointment = false;
-                }
-            }*/
             
             for (int i = 0; i < appointmentsList.Count; i++)
             {
                 if (appointmentsList[i].Id.Equals(appointment.Id))
                 {
-
                     appointmentsList[i] = appointment;
                     appointmentFileHandler.Save(appointmentsList);
                     return true;

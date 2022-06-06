@@ -90,24 +90,20 @@ namespace WpfApp1
             Close();
         }
 
-        private void Button_Click_Save(object sender, RoutedEventArgs e)
+        private void Button_Click_Confirm(object sender, RoutedEventArgs e)
         {
 
             AppointmentsWindow appointmentsWindow = new AppointmentsWindow(Physician.SelectedItem as Physician, StartDateBinding, EndDateBinding);
             appointmentsWindow.ShowDialog();
             Close();
-
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (PhysicianBinding != null)
+            if (Physician.SelectedItem != null && StartDateBinding <= EndDateBinding)
             {
                 e.CanExecute = true;
             }
-
         }
-
-
     }
 }

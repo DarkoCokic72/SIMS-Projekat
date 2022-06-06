@@ -87,23 +87,22 @@ namespace WpfApp1
             if (btn.Content.Equals("Create"))
             {
                 CreatePatient createPatient = new CreatePatient();
-                createPatient.Show();
+                createPatient.ShowDialog();
             }
             else if (btn.Content.Equals("Edit"))
             {
-
                 PatientsEdit patientsEdit = new PatientsEdit();
-                patientsEdit.Show();
+                patientsEdit.ShowDialog();
 
             }
             else if (btn.Content.Equals("Delete"))
             {
-
                 PatientsDelete patientsDelete = new PatientsDelete();
                 patientsDelete.Show();
             }
 
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             patientsWindowInstance = null;

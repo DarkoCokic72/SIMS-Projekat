@@ -24,22 +24,30 @@ namespace Service
             return patientRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
       
-      public void Add(Patient patient)
+      public bool Add(Patient patient)
       {
-            patientRepository.Add(patient);
-        }
+            return patientRepository.Add(patient);
+      }
       
-      public void Update(Patient patient)
-      {
-            patientRepository.Update(patient);
+      public bool Update(Patient patient)
+        {
+            return patientRepository.Update(patient);
         }
       
       public void Remove(string id)
       {
             patientRepository.Remove(id);
-        }
+      }
+      public bool PatientUPNExists(string upn)
+      {
+            return patientRepository.PatientUPNExists(upn);
+      }
+      public bool PatientEmailExists(string email)
+      {
+             return patientRepository.PatientEmailExists(email);
+      }
 
-      public Repo.PatientRepository patientRepository;
+      public PatientRepository patientRepository;
 
       public PatientService(PatientRepository patientRepository)
         {
