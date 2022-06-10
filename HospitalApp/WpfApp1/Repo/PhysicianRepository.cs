@@ -19,6 +19,23 @@ namespace Repo
             return physicianFileHandler.Read();
         }
 
+        public bool UPNExists(string upn)
+        {
+            foreach (Physician physician in GetAll())
+            {
+                if (physician.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (Physician physician in GetAll())
+            {
+                if (physician.Email == email) return true;
+            }
+            return false;
+        }
+
         public Physician GetByLicenceID(string licenceID)
         {
             List<Physician> List = GetAll();

@@ -23,8 +23,17 @@ namespace Service
       {
             return patientRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
-      
-      public bool Add(Patient patient)
+
+        public bool UPNExists(string upn)
+        {
+            return patientRepository.UPNExists(upn);
+        }
+        public bool EmailExists(string email)
+        {
+            return patientRepository.EmailExists(email);
+        }
+
+        public bool Add(Patient patient)
       {
             return patientRepository.Add(patient);
       }
@@ -37,14 +46,6 @@ namespace Service
       public void Remove(string id)
       {
             patientRepository.Remove(id);
-      }
-      public bool PatientUPNExists(string upn)
-      {
-            return patientRepository.PatientUPNExists(upn);
-      }
-      public bool PatientEmailExists(string email)
-      {
-             return patientRepository.PatientEmailExists(email);
       }
 
       public PatientRepository patientRepository;

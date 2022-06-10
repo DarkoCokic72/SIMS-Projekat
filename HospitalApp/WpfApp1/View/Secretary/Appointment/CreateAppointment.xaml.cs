@@ -67,20 +67,6 @@ namespace WpfApp1
             return physiciansId;
         }
 
-        private string idBinding;
-        public string IdBinding
-        {
-            get
-            {
-                return idBinding;
-            }
-            set
-            {
-                idBinding = value;
-                OnPropertyChanged("IdBinding");
-            }
-        }
-
         private Patient patientBinding;
         public Patient PatientBinding
         {
@@ -167,7 +153,10 @@ namespace WpfApp1
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            if (AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding)))
+            AppointmentFileHandler appointmentFileHandler = new AppointmentFileHandler();
+            AppointmentRepository appointmentRepository = new AppointmentRepository(appointmentFileHandler);
+
+            if (AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, AppointmentTypeBinding)))
             {
                 AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                 Close();
@@ -181,7 +170,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(IdBinding) && Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null && DateOfAppointment != null)
+            if (Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null && DateOfAppointment != null)
             {
                 e.CanExecute = true;
             }

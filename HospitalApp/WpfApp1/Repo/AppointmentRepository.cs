@@ -26,6 +26,22 @@ namespace Repo
             return null;
         }
 
+        public int AppointmentID()
+        {
+            List<Appointment> appointmentsList = GetAll();
+            int maxID = 0;
+            
+            foreach (Appointment appointment in appointmentsList)
+            {
+                if (int.Parse(appointment.Id) > maxID) 
+                {
+                    maxID = int.Parse(appointment.Id);
+                }
+            }
+
+            return maxID + 1;
+        }
+
         public List<Appointment> GetByPhysician(Physician physician, DateTime startDate, DateTime endDate)
         {
             List<Appointment> appointments = GetAll();
@@ -44,6 +60,7 @@ namespace Repo
         public bool Add(Appointment appointment)
         {
             List<Appointment> appointmentsList = GetAll();
+            appointment.Id = AppointmentID().ToString();
             appointmentsList.Add(appointment);
             appointmentFileHandler.Save(appointmentsList);
             return true;

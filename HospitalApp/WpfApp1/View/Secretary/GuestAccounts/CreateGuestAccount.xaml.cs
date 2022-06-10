@@ -106,7 +106,7 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-                if (GuestAccountsWindow.guestAccountsController.Add(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding)))
+                if (GuestAccountsWindow.GetGuestAccountsWindow().guestAccountsController.Add(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding)))
                 {
                     GuestAccountsWindow.guestAccountsWindowInstance.refreshContentOfGrid();
                     Close();

@@ -18,8 +18,15 @@ namespace Controller
       {
             return physicianService.GetAll();
       }
-      
-      public Physician GetByLicenceID(string licenceID)
+       public bool EmailExists(string email)
+        {
+            return physicianService.EmailExists(email);
+        }
+       public bool UPNExists(string upn)
+        {
+            return physicianService.UPNExists(upn);
+        }
+        public Physician GetByLicenceID(string licenceID)
       {
             return physicianService.GetByLicenceID(licenceID);
         }

@@ -13,7 +13,22 @@ namespace Repo
         {
             return guestAccountFileHandler.Read();
         }
-
+        public bool UPNExists(string upn)
+        {
+            foreach (GuestAccount user in GetAll())
+            {
+                if (user.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (GuestAccount user in GetAll())
+            {
+                if (user.Email == email) return true;
+            }
+            return false;
+        }
         public GuestAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
         {
             List<GuestAccount> guestAccountList = GetAll();

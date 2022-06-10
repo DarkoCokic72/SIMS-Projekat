@@ -16,6 +16,22 @@ namespace WpfApp1.Repo
         {
             return secretaryFileHandler.Read();
         }
+        public bool UPNExists(string upn)
+        {
+            foreach (Secretary secretary in GetAll())
+            {
+                if (secretary.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (Secretary secretary in GetAll())
+            {
+                if (secretary.Email == email) return true;
+            }
+            return false;
+        }
 
         public FileHandler.SecretaryFileHandler secretaryFileHandler;
 

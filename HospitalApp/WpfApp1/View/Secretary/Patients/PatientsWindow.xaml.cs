@@ -26,7 +26,7 @@ namespace WpfApp1
     public partial class PatientsWindow : Window
     {
         public static PatientsWindow patientsWindowInstance;
-        public static PatientController patientController;
+        public PatientController patientController;
         public static Patient SelectedPatient { get; set; }
         public ObservableCollection<Patient> Patients { get; set; }
 

@@ -36,7 +36,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Yes"))
             {
                 Patient patient = PatientsWindow.patientsWindowInstance.getSelectedPatient();
-                PatientsWindow.patientController.Remove(patient.UniquePersonalNumber);
+                PatientsWindow.GetPatientsWindow().patientController.Remove(patient.UniquePersonalNumber);
 
                 PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
                 Close();

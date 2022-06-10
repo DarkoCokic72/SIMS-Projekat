@@ -4,8 +4,14 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using FileHandler;
 using Model;
+using Repo;
+using WpfApp1.Controller;
+using WpfApp1.FileHandler;
 using WpfApp1.Model;
+using WpfApp1.Repo;
+using WpfApp1.Service;
 using WpfApp1.Validation;
 
 namespace WpfApp1
@@ -150,14 +156,50 @@ namespace WpfApp1
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            if (PatientsWindow.patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding)))
+            PatientFileHandler patientFileHandler = new PatientFileHandler();
+            PatientRepository patientRepository = new PatientRepository(patientFileHandler);
+
+            ManagerFileHandler managerFileHandler = new ManagerFileHandler();
+            ManagerRepository managerRepository = new ManagerRepository(managerFileHandler);
+
+            SecretaryFileHandler secretaryFileHandler = new SecretaryFileHandler();
+            SecretaryRepository secretaryRepository = new SecretaryRepository(secretaryFileHandler);
+
+            PhysicianFileHandler physicianFileHandler = new PhysicianFileHandler();
+            PhysicianRepository physicianRepository = new PhysicianRepository();
+
+            GuestAccountFileHandler guestAccountFileHandler = new GuestAccountFileHandler();
+            GuestAccountRepository guestAccountRepository = new GuestAccountRepository(guestAccountFileHandler);
+
+            if (patientRepository.EmailExists(EmailBinding))
+            {
+                MessageBox.Show("Email already exists!", "Error");
+            }
+            else if (managerRepository.EmailExists(EmailBinding))
+            {
+                MessageBox.Show("Email already exists!", "Error");
+            }
+            else if (secretaryRepository.EmailExists(EmailBinding))
+            {
+                MessageBox.Show("Email already exists!", "Error");
+            }
+            else if (physicianRepository.EmailExists(EmailBinding))
+            {
+                MessageBox.Show("Email already exists!", "Error");
+            }
+            else if (guestAccountRepository.EmailExists(EmailBinding))
+            {
+                MessageBox.Show("Email already exists!", "Error");
+            }
+
+            else if (PatientsWindow.GetPatientsWindow().patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding)))
             {
                 PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
                 Close();
             }
             else
             {
-                MessageBox.Show("Patient with that ID already exists!", "Error");
+                MessageBox.Show("Mistake!", "Error");
             }
         }
 

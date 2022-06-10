@@ -26,7 +26,7 @@ namespace WpfApp1
     public partial class GuestAccountsWindow : Window
     {
         public static GuestAccountsWindow guestAccountsWindowInstance;
-        public static GuestAccountController guestAccountsController;
+        public GuestAccountController guestAccountsController;
         public ObservableCollection<GuestAccount> GuestAccounts { get; set; }
 
         public GuestAccountsWindow()

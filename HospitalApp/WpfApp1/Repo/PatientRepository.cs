@@ -19,8 +19,25 @@ namespace Repo
       {
             return patientFileHandler.Read();
         }
-      
-      public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+
+        public bool UPNExists(string upn)
+        {
+            foreach (Patient patient in GetAll())
+            {
+                if (patient.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (Patient patient in GetAll())
+            {
+                if (patient.Email == email) return true;
+            }
+            return false;
+        }
+
+        public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
       {
             List<Patient> patientsList = GetAll();
             foreach (Patient patient in patientsList)
@@ -73,22 +90,6 @@ namespace Repo
             }
 
             patientFileHandler.Save(patientList);
-        }
-        public bool PatientUPNExists(string upn)
-        {
-            foreach (Patient patient in GetAll())
-            {
-                if (patient.UniquePersonalNumber == upn) return true;
-            }
-            return false;
-        }
-        public bool PatientEmailExists(string email)
-        {
-            foreach (Patient patient in GetAll())
-            {
-                if (patient.Email == email) return true;
-            }
-            return false;
         }
 
         public FileHandler.PatientFileHandler patientFileHandler;

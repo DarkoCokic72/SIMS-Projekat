@@ -20,6 +20,14 @@ namespace WpfApp1.Service
         {
             return userAccountRepository.GetByEmailPassword(email, password);
         }
+        public bool UPNExists(string upn)
+        {
+            return userAccountRepository.UPNExists(upn);
+        }
+        public bool EmailExists(string email)
+        {
+            return userAccountRepository.EmailExists(email);
+        }
 
         public void EditManagerProfile(Manager manager)
         {

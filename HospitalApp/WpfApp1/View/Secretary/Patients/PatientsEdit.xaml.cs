@@ -203,10 +203,7 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-
-                PatientsWindow.patientController.Update(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
-
-                if (editedPatient == true)
+                if (PatientsWindow.GetPatientsWindow().patientController.Update(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding)))
                 {
                     PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
                     Close();
