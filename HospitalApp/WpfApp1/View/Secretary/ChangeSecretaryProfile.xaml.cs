@@ -61,7 +61,8 @@ namespace WpfApp1.View.Secretary
         {
             InitializeComponent();
             this.DataContext = this;
-            User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             EmailBinding = Login.userAccount.Email;
             Name.Text = Login.userAccount.Name;
             Surname.Text = Login.userAccount.Surname;

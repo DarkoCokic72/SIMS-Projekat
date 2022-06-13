@@ -26,6 +26,9 @@ namespace WpfApp1.View.Secretary
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Username.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
+            Date.Text = DateTime.Now.ToString();
+            //Video video = new Video();
+            //video.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,6 +68,11 @@ namespace WpfApp1.View.Secretary
             {
                 PhysicianReport physicianReport = new PhysicianReport();
                 physicianReport.ShowDialog();
+            }
+            if (btn.Content.Equals("HELP VIDEO"))
+            {
+                Video video = new Video();
+                video.ShowDialog();
             }
         }
         private void Button_Profile(object sender, RoutedEventArgs e)

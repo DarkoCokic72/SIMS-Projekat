@@ -9,7 +9,7 @@ namespace WpfApp1
 		public Video()
 		{
 			InitializeComponent();
-
+			WindowStartupLocation = WindowStartupLocation.CenterScreen;
 			DispatcherTimer timer = new DispatcherTimer();
 			timer.Interval = TimeSpan.FromSeconds(1);
 			timer.Tick += timer_Tick;

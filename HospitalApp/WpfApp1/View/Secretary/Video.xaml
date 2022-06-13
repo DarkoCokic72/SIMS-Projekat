@@ -1,13 +1,13 @@
 ﻿<Window x:Class="WpfApp1.Video"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VIdeo Tutorial" Height="300" Width="300">
+        Title="VIdeo Tutorial" Height="1000" Width="1000">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <MediaElement Source="https://www.youtube.com/watch?v=IK0s_MhOJ3A" LoadedBehavior="Manual" Name="mePlayer" />
+        <MediaElement Source="C:\Users\Korisnik\OneDrive\Radna površina\help.wmv" LoadedBehavior="Manual" Name="mePlayer" />
         <StackPanel Grid.Row="1">
             <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" Margin="5" />
             <WrapPanel HorizontalAlignment="Center">

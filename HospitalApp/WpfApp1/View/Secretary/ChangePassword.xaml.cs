@@ -23,6 +23,7 @@ namespace WpfApp1.View.Secretary
         public ChangePassword()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             SaveBtn.IsEnabled = false;
@@ -41,11 +42,10 @@ namespace WpfApp1.View.Secretary
                 return;
             }
             UserAccountController userAccountController = new UserAccountController();
-            userAccountController.ChangeManagerPassword(new Model.Manager(NewPassword.Password, Login.userAccount.UniquePersonalNumber));
+            userAccountController.ChangeSecretaryPassword(new Model.Secretary(NewPassword.Password, Login.userAccount.UniquePersonalNumber));
             Login.userAccount = userAccountController.GetByUniquePersonalNumber(Login.userAccount.UniquePersonalNumber);
             ChangeSecretaryProfile changeSecretaryProfile = new ChangeSecretaryProfile();
             changeSecretaryProfile.ShowDialog();
-            //new SuccessfulActionWindow("Password is changed");
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)

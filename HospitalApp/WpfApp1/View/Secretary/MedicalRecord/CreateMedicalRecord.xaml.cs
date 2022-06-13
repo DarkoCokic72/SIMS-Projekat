@@ -30,10 +30,18 @@ namespace WpfApp1
             List<Patient> patients = patientController.GetAll();
             List<Patient> patientsUPN = new List<Patient>();
 
+            MedicalRecordFileHandler medicalRecordFileHandler = new MedicalRecordFileHandler();
+            MedicalRecordRepository medicalRecordRepository = new MedicalRecordRepository(medicalRecordFileHandler);
+            MedicalRecordService medicalRecordService = new MedicalRecordService(medicalRecordRepository);
+            MedicalRecordController medicalRecordController = new MedicalRecordController(medicalRecordService);
+            List<MedicalRecord> medicalRecords = medicalRecordController.GetAll();
+
             foreach (Patient patient in patients)
-            {
-                patientsUPN.Add(patient);
-            }
+               // foreach (MedicalRecord medicalRecord in medicalRecords)
+                {
+                   // if (patient != medicalRecord.Patient)
+                    patientsUPN.Add(patient);
+                }
             Patient.ItemsSource = patientsUPN;
         }
 
@@ -84,7 +92,7 @@ namespace WpfApp1
                 medicalRecordWindow.ShowDialog();
             }
             else if (btn.Content.Equals("Save"))
-            {
+            {   
                 if (MedicalRecordWindow.GetMedicalRecordWindow().medicalRecordController.Add(new MedicalRecord(Patient.SelectedItem as Patient, AllergensBinding)))
                 {
                     MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();

@@ -23,9 +23,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button FontSize="40" Content="No" Margin="21,27,25.333,25" Click="Button_Click" Width="150" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="3"/>
-        <Label FontSize="40" Content="Are you sure?"  Height="75" Width="250" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="3,1,10,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button FontSize="40" Content="Yes" Margin="48,27,0,25" Click="Button_Click" Width="150" Grid.ColumnSpan="3" Grid.Row="3" Background="BlueViolet" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="3"/>
+        <Button FontSize="30" Content="No" Margin="21,27,25.333,25" Height="60" Click="Button_Click" Width="100" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="3"/>
+        <Label FontSize="30" Content="Are you sure?"  Height="60" Width="250" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="3,1,10,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button FontSize="30" Content="Yes" Margin="48,27,0,25" Click="Button_Click" Width="100" Grid.ColumnSpan="3" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="3"/>
 
     </Grid>
 </Window>
