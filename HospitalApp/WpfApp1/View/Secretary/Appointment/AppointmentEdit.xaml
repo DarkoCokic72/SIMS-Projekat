@@ -12,8 +12,6 @@
             <ColumnDefinition Width="357*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Id:*" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="212,10,0,0" Text="{Binding IdBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="97" FontSize="18" Height="34" RenderTransformOrigin="0.532,0.725"/>
 
         <Button Content="Save" HorizontalAlignment="Left" Margin="292,320,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click" Height="39" Background="BlueViolet" RenderTransformOrigin="0.39,0.524" >
             <Button.CommandBindings>

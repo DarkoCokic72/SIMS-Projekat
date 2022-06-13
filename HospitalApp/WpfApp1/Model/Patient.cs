@@ -14,16 +14,17 @@ namespace WpfApp1.Model
    {
        public DateTime DateOfBirth { get; set; }
        public BloodGroup BloodGroup { get; set; }
+       public bool IsGuestAccount { get; set; }
 
         public string FullName 
-        {
-            get { return Name + " " + Surname; }
-        }
+       {
+           get { return Name + " " + Surname; }
+       }
 
-        public Patient(String email, String password, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
+        public Patient(String email, String name, String surname, String phoneNumber, String uniqueuniquePersonalNumber, DateTime dateOfBirth, BloodGroup bloodGroup)
         {
             this.Email = email;
-            this.Password = password;
+            //this.Password = password;
             this.Name = name;
             this.Surname = surname;
             this.PhoneNumber = phoneNumber;

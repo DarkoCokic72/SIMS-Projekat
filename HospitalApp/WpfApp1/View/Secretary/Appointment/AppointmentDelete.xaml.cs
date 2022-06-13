@@ -36,7 +36,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Yes"))
             {
                 Appointment appointment = AppointmentWindow.appointmentWindowInstance.getSelectedAppointment();
-                AppointmentWindow.appointmentController.Remove(appointment.Id);
+                AppointmentWindow.GetAppointmentWindow().appointmentController.Remove(appointment.Id);
 
                 AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                 Close();

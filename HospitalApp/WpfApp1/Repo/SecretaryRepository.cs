@@ -16,6 +16,36 @@ namespace WpfApp1.Repo
         {
             return secretaryFileHandler.Read();
         }
+        public void EditSecretaryProfile(Secretary newSecretary)
+        {
+            List<Secretary> secretaries = GetAll();
+            for (int i = 0; i < secretaries.Count; i++)
+            {
+                if (secretaries[i].UniquePersonalNumber == newSecretary.UniquePersonalNumber)
+                {
+                    secretaries[i].Name = newSecretary.Name;
+                    secretaries[i].Surname = newSecretary.Surname;
+                    secretaries[i].PhoneNumber = newSecretary.PhoneNumber;
+                    secretaries[i].Email = newSecretary.Email;
+                }
+            }
+
+            secretaryFileHandler.Save(secretaries);
+        }
+
+        public void ChangeSecretaryPassword(Secretary newSecretary)
+        {
+            List<Secretary> secretaries = GetAll();
+            for (int i = 0; i < secretaries.Count; i++)
+            {
+                if (secretaries[i].UniquePersonalNumber == newSecretary.UniquePersonalNumber)
+                {
+                    secretaries[i].Password = newSecretary.Password;
+                }
+            }
+
+            secretaryFileHandler.Save(secretaries);
+        }
         public bool UPNExists(string upn)
         {
             foreach (Secretary secretary in GetAll())
@@ -34,6 +64,7 @@ namespace WpfApp1.Repo
         }
 
         public FileHandler.SecretaryFileHandler secretaryFileHandler;
+        public SecretaryRepository() { }
 
         public SecretaryRepository(SecretaryFileHandler fileHandler)
         {

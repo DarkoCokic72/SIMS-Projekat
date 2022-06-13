@@ -37,22 +37,6 @@ namespace WpfApp1
             Patient.ItemsSource = patientsUPN;
         }
 
-
-
-        private string regNumBinding;
-        public string RegNumBinding
-        {
-            get
-            {
-                return regNumBinding;
-            }
-            set
-            {
-                regNumBinding = value;
-                OnPropertyChanged("RegNumBinding");
-            }
-        }
-
         private Patient patientBinding;
         public Patient PatientBinding
         {
@@ -96,13 +80,17 @@ namespace WpfApp1
             if (btn.Content.Equals("Cancel"))
             {
                 Close();
+                MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
+                medicalRecordWindow.ShowDialog();
             }
             else if (btn.Content.Equals("Save"))
             {
-                if (MedicalRecordWindow.medicalRecordController.Add(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding)))
+                if (MedicalRecordWindow.GetMedicalRecordWindow().medicalRecordController.Add(new MedicalRecord(Patient.SelectedItem as Patient, AllergensBinding)))
                 {
                     MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
                     Close();
+                    MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
+                    medicalRecordWindow.ShowDialog();
                 }
                 else
                 {
@@ -113,7 +101,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(RegNumBinding))
+            if (Patient.SelectedItem != null)
             {
                 e.CanExecute = true;
             }

@@ -56,6 +56,30 @@ namespace Repo
 
             return appointmentsByPhysician;
         }
+        public bool PhysicianIsBusy(Physician physician, DateTime date)
+        {
+            List<Appointment> appointments = GetAll();
+            foreach (Appointment appointment in appointments)
+            {
+                if (appointment.Physician.licenceID == physician.licenceID && appointment.DateOfAppointment == date)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool RoomIsBusy(Room room, DateTime date)
+        {
+            List<Appointment> appointments = GetAll();
+            foreach (Appointment appointment in appointments)
+            {
+                if (appointment.Room.Id == room.Id && appointment.DateOfAppointment == date)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         public bool Add(Appointment appointment)
         {
@@ -68,14 +92,14 @@ namespace Repo
 
         public bool Update(Appointment appointment)
         {
-            List<Appointment> appointmentsList = GetAll();
-            
-            for (int i = 0; i < appointmentsList.Count; i++)
+            List<Appointment> appointmentList = GetAll();
+
+            for (int i = 0; i < appointmentList.Count; i++)
             {
-                if (appointmentsList[i].Id.Equals(appointment.Id))
+                if (appointmentList[i].Id.Equals(appointment.Id))
                 {
-                    appointmentsList[i] = appointment;
-                    appointmentFileHandler.Save(appointmentsList);
+                    appointmentList[i] = appointment;
+                    appointmentFileHandler.Save(appointmentList);
                     return true;
                 }
             }

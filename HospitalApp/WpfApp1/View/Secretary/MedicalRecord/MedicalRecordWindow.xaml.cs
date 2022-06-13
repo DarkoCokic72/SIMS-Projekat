@@ -26,7 +26,7 @@ namespace WpfApp1
     public partial class MedicalRecordWindow : Window
     {
         public static MedicalRecordWindow medicalRecordWindowInstance;
-        public static MedicalRecordController medicalRecordController;
+        public MedicalRecordController medicalRecordController;
         public ObservableCollection<MedicalRecord> MedicalRecords { get; set; }
 
         public MedicalRecordWindow()
@@ -85,21 +85,21 @@ namespace WpfApp1
 
             if (btn.Content.Equals("Create"))
             {
+                this.Close();
                 CreateMedicalRecord createMedicalRecord = new CreateMedicalRecord();
-                createMedicalRecord.Show();
+                createMedicalRecord.ShowDialog();
             }
             else if (btn.Content.Equals("Edit"))
             {
-
-                MedicalRecordEdit medicalRecordEdit = new MedicalRecordEdit();
-                medicalRecordEdit.Show();
+                //this.Close();
+                MedicalRecordEdit medicalRecordEdit = new MedicalRecordEdit(medicalRecord);
+                medicalRecordEdit.ShowDialog();
 
             }
             else if (btn.Content.Equals("Delete"))
             {
-
                 MedicalRecordDelete medicalRecordDelete = new MedicalRecordDelete();
-                medicalRecordDelete.Show();
+                medicalRecordDelete.ShowDialog();
             }
 
         }

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using FileHandler;
 using Model;
 using WpfApp1;
@@ -18,6 +19,19 @@ namespace Repo
       public List<Patient> GetAll()
       {
             return patientFileHandler.Read();
+      }
+        public List<Patient> IsGuestAccount()
+        {
+            List<Patient> patients = GetAll();
+            List<Patient> isGuestAccount = new List<Patient>();
+            foreach (Patient patient in patients)
+            {
+                if (!patient.IsGuestAccount)
+                {
+                    isGuestAccount.Add(patient);
+                }
+            }
+            return isGuestAccount;
         }
 
         public bool UPNExists(string upn)
@@ -50,10 +64,23 @@ namespace Repo
             }
             return null;
       }
+        public string CreatePassword(int length)
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
+        }
 
         public bool Add(Patient patient)
         {
             List<Patient> patientList = GetAll();
+            patient.IsGuestAccount = false;
+            patient.Password = CreatePassword(15);
             patientList.Add(patient);
             patientFileHandler.Save(patientList);
             return true;

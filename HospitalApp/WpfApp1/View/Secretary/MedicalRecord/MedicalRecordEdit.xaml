@@ -6,19 +6,13 @@
         xmlns:local="clr-namespace:WpfApp1"
         d:DataContext="{d:DesignInstance Type=local:MedicalRecordEdit}"
         mc:Ignorable="d"
-        Title="Medical record edit" Height="344.73" Width="435.604">
-    <Grid RenderTransformOrigin="0.49,0.502" Margin="0,-19,-8,0" Height="347" VerticalAlignment="Top" Background="LightGreen">
+        Title="MEDICAL RECORD" Height="372.408" Width="435.604">
+    <Grid RenderTransformOrigin="0.49,0.502" Margin="0,0,-8,0" Background="LightGreen" Height="384" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="581*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Register number:*" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontSize="18" Height="34" Width="152"/>
-        <TextBox HorizontalAlignment="Left" Margin="167,27,0,0" IsEnabled="False" TextWrapping="Wrap"  VerticalAlignment="Top" Width="227" FontSize="18" Name="REGNUM" TextChanged="TextBox_TextChanged" Height="34" RenderTransformOrigin="0.532,0.725">
-            <TextBox.Text>
-                <Binding Path="RegNumBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
-            </TextBox.Text>
-        </TextBox>
 
         <Button Content="Save" HorizontalAlignment="Left" Margin="300,284,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click" Height="31" Background="BlueViolet" RenderTransformOrigin="0.516,0.203">
             <Button.CommandBindings>

@@ -26,20 +26,6 @@ namespace WpfApp1
     {
         private Appointment appointment;
 
-        private string idBinding;
-        public string IdBinding
-        {
-            get
-            {
-                return idBinding;
-            }
-            set
-            {
-                idBinding = value;
-                OnPropertyChanged("IdBinding");
-            }
-        }
-
         private Patient patientBinding;
         public Patient PatientBinding
         {
@@ -128,7 +114,6 @@ namespace WpfApp1
             Room.SelectedItem = appointment.Room;
             Patient.SelectedItem = appointment.Patient;
             Physician.SelectedItem = appointment.Physician;
-            IdBinding = appointment.Id;
             DateOfAppointment.Value = appointment.DateOfAppointment;
             Type.SelectedItem = appointment.Type;
         }
@@ -212,21 +197,23 @@ namespace WpfApp1
             if (btn.Content.Equals("Cancel"))
             {
                 Close();
+                //AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
+                //appointmentWindow.ShowDialog();
             }
             else if (btn.Content.Equals("Save"))
             {
-                Appointment appointment = new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, AppointmentTypeBinding);
-                if (AppointmentWindow.appointmentController.Update(appointment))
+                if (AppointmentWindow.GetAppointmentWindow().appointmentController.Update(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, AppointmentTypeBinding)))
                 {
                     AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                     Close();
+
+                    //AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
+                    //appointmentWindow.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Appointment with that register number already exists!", "Error");
+                    MessageBox.Show("Mistake! ERROR!", "Error");
                 }
-
-
             }
 
         }
@@ -234,13 +221,13 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(IdBinding) && Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null)
+            if (Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null)
             {
-                e.CanExecute = false;
+                e.CanExecute = true;
             }
             else
             {
-                e.CanExecute = true;
+                e.CanExecute = false;
             }
         }
     }

@@ -19,6 +19,10 @@ namespace Controller
       {
             return patientService.GetAll();
       }
+        public List<Patient> IsGuestAccount()
+        {
+            return patientService.IsGuestAccount();
+        }
         public bool EmailExists(string email)
         {
             return patientService.EmailExists(email);

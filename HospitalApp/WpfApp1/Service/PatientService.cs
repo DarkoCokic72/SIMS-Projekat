@@ -17,10 +17,14 @@ namespace Service
       public List<Patient> GetAll()
       {
             return patientRepository.GetAll();
+      }
+        public List<Patient> IsGuestAccount()
+        {
+            return patientRepository.IsGuestAccount();
         }
-      
-      public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
-      {
+
+        public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+        {
             return patientRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
 

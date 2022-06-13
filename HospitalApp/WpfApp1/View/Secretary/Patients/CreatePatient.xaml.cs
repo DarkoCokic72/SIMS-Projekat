@@ -128,7 +128,7 @@ namespace WpfApp1
                 OnPropertyChanged("DateOfBirthBinding");
             }
         }
-
+/*
         private string passwordBinding;
         public string PasswordBinding
         {
@@ -143,7 +143,7 @@ namespace WpfApp1
             }
         }
 
-
+*/
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -152,6 +152,8 @@ namespace WpfApp1
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
             Close();
+            PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
+            patientsWindow.ShowDialog();
         }
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
@@ -192,10 +194,33 @@ namespace WpfApp1
                 MessageBox.Show("Email already exists!", "Error");
             }
 
-            else if (PatientsWindow.GetPatientsWindow().patientController.Add(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding)))
+            else if (patientRepository.UPNExists(UPNBinding))
+            {
+                MessageBox.Show("UPN already exists!", "Error");
+            }
+            else if (managerRepository.UPNExists(UPNBinding))
+            {
+                MessageBox.Show("UPN already exists!", "Error");
+            }
+            else if (secretaryRepository.UPNExists(UPNBinding))
+            {
+                MessageBox.Show("UPN already exists!", "Error");
+            }
+            else if (physicianRepository.UPNExists(UPNBinding))
+            {
+                MessageBox.Show("UPN already exists!", "Error");
+            }
+            else if (guestAccountRepository.UPNExists(UPNBinding))
+            {
+                MessageBox.Show("UPN already exists!", "Error");
+            }
+
+            else if (PatientsWindow.GetPatientsWindow().patientController.Add(new Patient(EmailBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding)))
             {
                 PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
                 Close();
+                PatientsWindow patientsWindow = PatientsWindow.GetPatientsWindow();
+                patientsWindow.ShowDialog();
             }
             else
             {
@@ -214,8 +239,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(SurnameBinding) && !string.IsNullOrEmpty(EmailBinding) && !string.IsNullOrEmpty(PhoneNumBinding) && !string.IsNullOrEmpty(PasswordBinding) &&
-                !UPNValidation.ValidationError)
+            if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(SurnameBinding) && !string.IsNullOrEmpty(EmailBinding) && !string.IsNullOrEmpty(PhoneNumBinding) && !UPNValidation.ValidationError)
             {
                 e.CanExecute = true;
             }

@@ -20,7 +20,6 @@ namespace WpfApp1
 
     public partial class GuestAccountsEdit : Window, INotifyPropertyChanged
     {
-        public static Boolean editedGuestAccount = false;
         private GuestAccount guestAccount;
 
         private string uPNBinding;
@@ -79,7 +78,7 @@ namespace WpfApp1
             }
         }
 
-        private String passwordBinding;
+       /* private String passwordBinding;
         public String PasswordBinding
         {
             get
@@ -93,8 +92,7 @@ namespace WpfApp1
             }
         }
 
-
-
+        */
         public GuestAccountsEdit()
         {
 
@@ -108,7 +106,7 @@ namespace WpfApp1
             NameBinding = guestAccount.Name;
             SurnameBinding = guestAccount.Surname;
             EmailBinding = guestAccount.Email;
-            PasswordBinding = guestAccount.Password;
+            //PasswordBinding = guestAccount.Password;
 
             Validation.UPNValidation.ValidationError = false;
 
@@ -156,7 +154,9 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-                if (GuestAccountsWindow.GetGuestAccountsWindow().guestAccountsController.Update(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding)))
+                GuestAccount guestAccountt = new GuestAccount(EmailBinding, NameBinding, SurnameBinding, UPNBinding);
+                guestAccountt.Password = guestAccount.Password;
+                if (GuestAccountsWindow.GetGuestAccountsWindow().guestAccountsController.Update(guestAccountt))
                 {
                     GuestAccountsWindow.guestAccountsWindowInstance.refreshContentOfGrid();
                     Close();

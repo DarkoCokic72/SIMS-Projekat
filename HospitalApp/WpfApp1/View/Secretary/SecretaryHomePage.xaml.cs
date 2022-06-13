@@ -66,16 +66,18 @@ namespace WpfApp1.View.Secretary
                 PhysicianReport physicianReport = new PhysicianReport();
                 physicianReport.ShowDialog();
             }
-
+        }
+        private void Button_Profile(object sender, RoutedEventArgs e)
+        {
+            ChangeSecretaryProfile secretaryProfile = new ChangeSecretaryProfile();
+            secretaryProfile.ShowDialog();
 
         }
-
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             App.CheckNotification = false;
             Login login = new Login();
             this.Close();
-
         }
 
     }

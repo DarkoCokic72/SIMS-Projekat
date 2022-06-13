@@ -32,10 +32,38 @@ namespace Repo
 
             return null;
         }
-      
-      public bool Add(MedicalRecord medicalRecord)
+        public MedicalRecord GetByPatient(Patient patient)
+        {
+            List<MedicalRecord> medicalRecordsList = GetAll();
+            foreach (MedicalRecord medicalRecord in medicalRecordsList)
+            {
+                if (medicalRecord.Patient.UniquePersonalNumber == patient.UniquePersonalNumber)
+                {
+                    return medicalRecord;
+                }
+            }
+            return null;
+        }
+        public int MedicalRecordID()
+        {
+            List<MedicalRecord> medicalRecordList = GetAll();
+            int maxID = 0;
+
+            foreach (MedicalRecord medicalRecord in medicalRecordList)
+            {
+                if (int.Parse(medicalRecord.RegNum) > maxID)
+                {
+                    maxID = int.Parse(medicalRecord.RegNum);
+                }
+            }
+
+            return maxID + 1;
+        }
+
+        public bool Add(MedicalRecord medicalRecord)
       {
             List<MedicalRecord> medicalRecordList = GetAll();
+            medicalRecord.RegNum = MedicalRecordID().ToString();
             medicalRecordList.Add(medicalRecord);
             medicalRecordFileHandler.Save(medicalRecordList);
             return true;

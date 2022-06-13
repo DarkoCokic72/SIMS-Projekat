@@ -12,9 +12,8 @@ namespace Model
         public Patient Patient { get; set; }
         public string Allergens { get; set; }
 
-        public MedicalRecord(string regNum, Patient patient, string allergens)
+        public MedicalRecord(Patient patient, string allergens)
         {
-            this.RegNum = regNum;
             this.Patient = patient;
             this.Allergens = allergens;
         }

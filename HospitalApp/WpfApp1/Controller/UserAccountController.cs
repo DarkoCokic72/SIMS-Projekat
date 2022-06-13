@@ -31,6 +31,15 @@ namespace WpfApp1.Controller
         {
             userAccountService.ChangeManagerPassword(manager);
         }
+        public void EditSecretaryProfile(Secretary secretary)
+        {
+            userAccountService.EditSecretaryProfile(secretary);
+        }
+
+        public void ChangeSecretaryPassword(Secretary secretary)
+        {
+            userAccountService.ChangeSecretaryPassword(secretary);
+        }
 
         public UserAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
         {

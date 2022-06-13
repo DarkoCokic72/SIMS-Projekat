@@ -36,7 +36,7 @@ namespace WpfApp1
             else if (btn.Content.Equals("Yes"))
             {
                 MedicalRecord medicalRecord = MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord();
-                MedicalRecordWindow.medicalRecordController.Remove(medicalRecord.RegNum);
+                MedicalRecordWindow.GetMedicalRecordWindow().medicalRecordController.Remove(medicalRecord.RegNum);
 
                 MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
                 Close();
