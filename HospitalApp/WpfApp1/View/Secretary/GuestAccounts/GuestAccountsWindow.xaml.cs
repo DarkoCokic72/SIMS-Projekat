@@ -26,7 +26,7 @@ namespace WpfApp1
     public partial class GuestAccountsWindow : Window
     {
         public static GuestAccountsWindow guestAccountsWindowInstance;
-        public static GuestAccountController guestAccountsController;
+        public GuestAccountController guestAccountsController;
         public ObservableCollection<GuestAccount> GuestAccounts { get; set; }
 
         public GuestAccountsWindow()
@@ -82,21 +82,21 @@ namespace WpfApp1
 
             if (btn.Content.Equals("Create"))
             {
+                this.Close();
                 CreateGuestAccount createGuestAccount = new CreateGuestAccount();
-                createGuestAccount.Show();
+                createGuestAccount.ShowDialog();
             }
             else if (btn.Content.Equals("Edit"))
             {
-
+                //this.Close();
                 GuestAccountsEdit guestAccountsEdit = new GuestAccountsEdit();
-                guestAccountsEdit.Show();
+                guestAccountsEdit.ShowDialog();
 
             }
             else if (btn.Content.Equals("Delete"))
             {
-
                 GuestAccountsDelete guestAccountsDelete = new GuestAccountsDelete();
-                guestAccountsDelete.Show();
+                guestAccountsDelete.ShowDialog();
             }
 
         }

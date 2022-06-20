@@ -19,13 +19,12 @@ namespace Model
         public bool Changed { get; set; }
 
 
-        public Appointment(Physician physician, Patient patient, Room room, DateTime date, string id, AppointmentType type)
+        public Appointment(Physician physician, Patient patient, Room room, DateTime date, AppointmentType type)
         {
             this.Physician = physician;
             this.Patient = patient;
             this.Room = room;
             this.DateOfAppointment = date;
-            this.Id = id;
             this.Type = type;
         }
 

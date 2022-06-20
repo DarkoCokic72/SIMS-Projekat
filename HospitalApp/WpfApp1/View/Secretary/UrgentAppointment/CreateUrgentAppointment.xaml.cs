@@ -130,7 +130,7 @@ namespace WpfApp1
                 AppointmentService appointmentService = new AppointmentService(appointmentRepository);
                 AppointmentController appointmentController = new AppointmentController(appointmentService);
 
-                if (appointmentController.Add(new Appointment(physicians[0], Patient.SelectedItem as Patient, rooms[2], DateTime.Now, IdBinding, AppointmentTypeBinding)))
+                if (appointmentController.Add(new Appointment(physicians[0], Patient.SelectedItem as Patient, rooms[2], DateTime.Now, AppointmentTypeBinding)))
                 {
                     Close();
                 }

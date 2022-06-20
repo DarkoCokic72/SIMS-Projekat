@@ -92,10 +92,9 @@ namespace WpfApp1
 
         private void Button_Click_Confirm(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
             AppointmentsWindow appointmentsWindow = new AppointmentsWindow(Physician.SelectedItem as Physician, StartDateBinding, EndDateBinding);
             appointmentsWindow.ShowDialog();
-            Close();
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)

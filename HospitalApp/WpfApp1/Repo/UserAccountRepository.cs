@@ -31,6 +31,22 @@ namespace WpfApp1.Repo
                 return null;
             }
         }
+        public bool UPNExists(string upn)
+        {
+            foreach (UserAccount user in GetAll())
+            {
+                if (user.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (UserAccount user in GetAll())
+            {
+                if (user.Email == email) return true;
+            }
+            return false;
+        }
 
         public UserAccountFileHandler userAccountFileHandler = new UserAccountFileHandler();
 

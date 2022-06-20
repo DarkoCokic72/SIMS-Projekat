@@ -1,4 +1,8 @@
-﻿using Microsoft.SqlServer.Dac.Model;
+﻿using Controller;
+using Microsoft.SqlServer.Dac.Model;
+using Syncfusion.DocIO.DLS;
+using Syncfusion.DocToPDFConverter;
+using Syncfusion.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.View.Manager;
 using WpfApp1.View.Secretary;
 
 namespace WpfApp1.View.Secretary
@@ -26,6 +31,9 @@ namespace WpfApp1.View.Secretary
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Username.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
+            Date.Text = DateTime.Now.ToString();
+            //Video video = new Video();
+            //video.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,16 +74,23 @@ namespace WpfApp1.View.Secretary
                 PhysicianReport physicianReport = new PhysicianReport();
                 physicianReport.ShowDialog();
             }
-
+            if (btn.Content.Equals("HELP VIDEO"))
+            {
+                Video video = new Video();
+                video.ShowDialog();
+            }
+        }
+        private void Button_Profile(object sender, RoutedEventArgs e)
+        {
+            ChangeSecretaryProfile secretaryProfile = new ChangeSecretaryProfile();
+            secretaryProfile.ShowDialog();
 
         }
-
         private void Button_LogOut(object sender, RoutedEventArgs e)
         {
             App.CheckNotification = false;
             Login login = new Login();
             this.Close();
-
         }
 
     }

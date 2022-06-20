@@ -19,13 +19,26 @@ namespace Controller
       {
             return patientService.GetAll();
       }
-      
-      public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
-      {
-            return patientService.GetByUniquePersonalNumber(uniquePersonalNumber);
-      }
-      
-      public bool Add(Patient patient)
+        public List<Patient> IsGuestAccount()
+        {
+            return patientService.IsGuestAccount();
+        }
+        public bool EmailExists(string email)
+        {
+            return patientService.EmailExists(email);
+        }
+        public bool UPNExists(string upn)
+        {
+            return patientService.UPNExists(upn);
+        }
+
+        /*
+        public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+        {
+              return patientService.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
+        */
+        public bool Add(Patient patient)
       {
            return patientService.Add(patient);
       }
@@ -40,21 +53,11 @@ namespace Controller
             patientService.Remove(id);
       }
 
-      public bool PatientUPNExists(string upn)
-      {
-            return patientService.PatientUPNExists(upn);
-      }
-
-      public bool PatientEmailExists(string email)
-      {
-            return patientService.PatientEmailExists(email);
-      }
-
-        public PatientService patientService;
+      public PatientService patientService;
 
       public PatientController(PatientService patientService)
-        {
+      {
             this.patientService = patientService;
-        }
+      }
     }
 }

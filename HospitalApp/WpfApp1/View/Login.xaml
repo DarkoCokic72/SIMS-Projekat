@@ -8,7 +8,7 @@
           Height="768" Width="1024">
     <Grid>
         <local:Frame Name="LoginWindow" NavigationUIVisibility="Hidden" />
-        <Label Content="LOGIN PAGE" HorizontalAlignment="Left" Margin="354,100,0,0" VerticalAlignment="Top" Width="288" Height="69" FontSize="50"/>
+        <Label Content=" LOGIN PAGE" HorizontalAlignment="Left" Margin="364,95,0,0" VerticalAlignment="Top" Width="334" Height="69" FontSize="50"/>
         <Label Content="   Email:" HorizontalAlignment="Left" Margin="443,230,0,0" VerticalAlignment="Top" Width="141" FontSize="30" Background="#FFF3D0C2" Height="48"/>
         <TextBox Name="Email" ToolTip=" Please enter your valid email" HorizontalAlignment="Left" Height="43" Margin="382,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="25"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="443,326,0,0" VerticalAlignment="Top" Width="141" Background="#FFF3D0C2" FontSize="30"/>

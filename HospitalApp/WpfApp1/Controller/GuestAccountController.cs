@@ -12,7 +12,18 @@ namespace Controller
         {
             return guestAccountService.GetAll();
         }
-
+        public List<GuestAccount> IsGuestAccount()
+        {
+            return guestAccountService.IsGuestAccount();
+        }
+        public bool EmailExists(string email)
+        {
+            return guestAccountService.EmailExists(email);
+        }
+        public bool UPNExists(string upn)
+        {
+            return guestAccountService.UPNExists(upn);
+        }
         public GuestAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
         {
             return guestAccountService.GetByUniquePersonalNumber(uniquePersonalNumber);

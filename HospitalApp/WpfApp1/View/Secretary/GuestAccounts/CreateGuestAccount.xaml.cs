@@ -78,7 +78,7 @@ namespace WpfApp1
             }
         }
 
-        private string passwordBinding;
+       /* private string passwordBinding;
         public string PasswordBinding
         {
             get
@@ -91,6 +91,7 @@ namespace WpfApp1
                 OnPropertyChanged("PasswordBinding");
             }
         }
+       */
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -103,13 +104,19 @@ namespace WpfApp1
             if (btn.Content.Equals("Cancel"))
             {
                 Close();
+                GuestAccountsWindow guestAccountsWindow = GuestAccountsWindow.GetGuestAccountsWindow();
+                guestAccountsWindow.ShowDialog();
             }
             else if (btn.Content.Equals("Save"))
             {
-                if (GuestAccountsWindow.guestAccountsController.Add(new GuestAccount(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, UPNBinding)))
+
+                if (GuestAccountsWindow.GetGuestAccountsWindow().guestAccountsController.Add(new GuestAccount(EmailBinding, NameBinding, SurnameBinding, UPNBinding)))
                 {
                     GuestAccountsWindow.guestAccountsWindowInstance.refreshContentOfGrid();
                     Close();
+
+                    GuestAccountsWindow guestAccountsWindow = GuestAccountsWindow.GetGuestAccountsWindow();
+                    guestAccountsWindow.ShowDialog();
                 }
                 else
                 {
@@ -131,7 +138,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(SurnameBinding) && !string.IsNullOrEmpty(EmailBinding) && !string.IsNullOrEmpty(PasswordBinding) &&
+            if (!string.IsNullOrEmpty(UPNBinding) && !string.IsNullOrEmpty(NameBinding) && !string.IsNullOrEmpty(SurnameBinding) && !string.IsNullOrEmpty(EmailBinding) &&
                 !Validation.UPNValidation.ValidationError)
             {
                 e.CanExecute = true;

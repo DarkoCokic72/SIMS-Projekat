@@ -12,6 +12,18 @@ namespace Service
         {
             return guestAccountRepository.GetAll();
         }
+        public List<GuestAccount> IsGuestAccount()
+        {
+            return guestAccountRepository.IsGuestAccount();
+        }
+        public bool UPNExists(string upn)
+        {
+            return guestAccountRepository.UPNExists(upn);
+        }
+        public bool EmailExists(string email)
+        {
+            return guestAccountRepository.EmailExists(email);
+        }
 
         public GuestAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
         {

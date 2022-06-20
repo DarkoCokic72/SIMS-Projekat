@@ -25,8 +25,9 @@ namespace WpfApp1
 
     public partial class PatientsWindow : Window
     {
+        public MedicalRecord medicalRecord;
         public static PatientsWindow patientsWindowInstance;
-        public static PatientController patientController;
+        public PatientController patientController;
         public static Patient SelectedPatient { get; set; }
         public ObservableCollection<Patient> Patients { get; set; }
 
@@ -50,7 +51,6 @@ namespace WpfApp1
             if (patientsWindowInstance == null)
             {
                 patientsWindowInstance = new PatientsWindow();
-
             }
 
             return patientsWindowInstance;
@@ -86,11 +86,13 @@ namespace WpfApp1
 
             if (btn.Content.Equals("Create"))
             {
+                this.Close();
                 CreatePatient createPatient = new CreatePatient();
                 createPatient.ShowDialog();
             }
             else if (btn.Content.Equals("Edit"))
             {
+                //this.Close();
                 PatientsEdit patientsEdit = new PatientsEdit();
                 patientsEdit.ShowDialog();
 
@@ -98,9 +100,14 @@ namespace WpfApp1
             else if (btn.Content.Equals("Delete"))
             {
                 PatientsDelete patientsDelete = new PatientsDelete();
-                patientsDelete.Show();
+                patientsDelete.ShowDialog();
             }
-
+            else if (btn.Content.Equals("Medical record"))
+            {
+                //medicalRecord = MedicalRecordWindow.medicalRecordWindowInstance.medicalRecordController.GetByPatient(patient);
+                MedicalRecordEdit medicalRecordEdit = new MedicalRecordEdit(patient);
+                medicalRecordEdit.ShowDialog();
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)

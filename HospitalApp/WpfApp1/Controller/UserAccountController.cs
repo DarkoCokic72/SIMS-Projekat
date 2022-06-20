@@ -31,10 +31,28 @@ namespace WpfApp1.Controller
         {
             userAccountService.ChangeManagerPassword(manager);
         }
+        public void EditSecretaryProfile(Secretary secretary)
+        {
+            userAccountService.EditSecretaryProfile(secretary);
+        }
+
+        public void ChangeSecretaryPassword(Secretary secretary)
+        {
+            userAccountService.ChangeSecretaryPassword(secretary);
+        }
 
         public UserAccount GetByUniquePersonalNumber(string uniquePersonalNumber)
         {
             return userAccountService.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
+
+        public bool EmailExists(string email)
+        {
+            return userAccountService.EmailExists(email);
+        }
+        public bool UPNExists(string upn)
+        {
+            return userAccountService.UPNExists(upn);
         }
 
         public Service.UserAccountService userAccountService = new UserAccountService();

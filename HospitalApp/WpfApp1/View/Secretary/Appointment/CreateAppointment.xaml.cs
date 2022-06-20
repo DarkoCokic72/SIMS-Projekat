@@ -67,20 +67,6 @@ namespace WpfApp1
             return physiciansId;
         }
 
-        private string idBinding;
-        public string IdBinding
-        {
-            get
-            {
-                return idBinding;
-            }
-            set
-            {
-                idBinding = value;
-                OnPropertyChanged("IdBinding");
-            }
-        }
-
         private Patient patientBinding;
         public Patient PatientBinding
         {
@@ -163,14 +149,30 @@ namespace WpfApp1
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {  
             Close();
+            AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
+            appointmentWindow.ShowDialog();
         }
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            if (AppointmentWindow.appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, IdBinding, AppointmentTypeBinding)))
+            AppointmentFileHandler appointmentFileHandler = new AppointmentFileHandler();
+            AppointmentRepository appointmentRepository = new AppointmentRepository(appointmentFileHandler);
+
+            if (appointmentRepository.PhysicianIsBusy(Physician.SelectedItem as Physician, DateOfAppointmentBinding))
+            {
+                MessageBox.Show("Physician is busy at the selected time!", "Error");
+            }
+            else if (appointmentRepository.RoomIsBusy(Room.SelectedItem as Room, DateOfAppointmentBinding))
+            {
+                MessageBox.Show("Room is busy at the selected time!", "Error");
+            }
+            else if (AppointmentWindow.GetAppointmentWindow().appointmentController.Add(new Appointment(Physician.SelectedItem as Physician, Patient.SelectedItem as Patient, Room.SelectedItem as Room, DateOfAppointment.Value.Value, AppointmentTypeBinding)))
             {
                 AppointmentWindow.appointmentWindowInstance.refreshContentOfGrid();
                 Close();
+
+                AppointmentWindow appointmentWindow = AppointmentWindow.GetAppointmentWindow();
+                appointmentWindow.ShowDialog();
             }
             else
             {
@@ -181,7 +183,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(IdBinding) && Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null && DateOfAppointment != null)
+            if (Physician.SelectedItem != null && Patient.SelectedItem != null && Room.SelectedItem != null && DateOfAppointment != null)
             {
                 e.CanExecute = true;
             }

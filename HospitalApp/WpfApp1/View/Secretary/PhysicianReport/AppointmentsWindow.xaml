@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Appointments" Height="450" Width="800">
-    <Grid Margin="20" Background="LightBlue">
+    <Grid Margin="20" Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -23,7 +23,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Background="LightGreen" CanUserResizeColumns="True" CanUserResizeRows="True" AutoGenerateColumns="False" Name ="dgAppointments" ItemsSource="{Binding Path=Appointments}" Margin="58,8.6,52.6,0" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
+        <DataGrid CanUserResizeColumns="True" CanUserResizeRows="True" AutoGenerateColumns="False" Name ="dgAppointments" ItemsSource="{Binding Path=Appointments}" Margin="58,8.6,52.6,0" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Patient" Binding="{Binding Patient.FullName}"></DataGridTextColumn>
@@ -33,5 +33,6 @@
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" FontSize="20" Content="Create PDF" Grid.Row="0"  Height ="40" Margin="72,24,53,0" Click="Button_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
