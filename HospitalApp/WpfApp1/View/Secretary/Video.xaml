@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WpfApp1.Video"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VIdeo Tutorial" Height="1000" Width="1000">
+        Title="VIdeo Tutorial" Height="1000" Width="1100">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

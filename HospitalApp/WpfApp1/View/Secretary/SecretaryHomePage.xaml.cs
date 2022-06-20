@@ -1,4 +1,8 @@
-﻿using Microsoft.SqlServer.Dac.Model;
+﻿using Controller;
+using Microsoft.SqlServer.Dac.Model;
+using Syncfusion.DocIO.DLS;
+using Syncfusion.DocToPDFConverter;
+using Syncfusion.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.View.Manager;
 using WpfApp1.View.Secretary;
 
 namespace WpfApp1.View.Secretary

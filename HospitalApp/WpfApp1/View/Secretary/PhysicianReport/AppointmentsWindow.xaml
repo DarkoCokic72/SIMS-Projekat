@@ -33,5 +33,6 @@
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" FontSize="20" Content="Create PDF" Grid.Row="0"  Height ="40" Margin="72,24,53,0" Click="Button_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
