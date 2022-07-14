@@ -42,6 +42,16 @@ namespace WpfApp1.Controller
             return userAccountService.EmailAlreadyExists(email);
         }
 
+        public void EditSecretaryProfile(Secretary secretary)
+        {
+            userAccountService.EditSecretaryProfile(secretary);
+        }
+
+        public void ChangeSecretaryPassword(Secretary secretary)
+        {
+            userAccountService.ChangeSecretaryPassword(secretary);
+        }
+
         public Service.UserAccountService userAccountService = new UserAccountService();
 
         public UserAccountController() { }
