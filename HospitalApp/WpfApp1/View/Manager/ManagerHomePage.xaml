@@ -46,7 +46,7 @@
                 <MenuItem.Icon>
                     <Image Source="/WpfApp1;component/images/arrow.png" Margin="35,-26,-76,-27"/>
                 </MenuItem.Icon>
-                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Hospital"  Height="82" Click="Button_Click_Hospital" Width="420"/>
+                <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Hospital"  Height="76" Click="Button_Click_Hospital" Width="420"/>
                 <MenuItem BorderBrush="SteelBlue" BorderThickness="2" Background="LightBlue" FontSize="40" Header="Doctors"  Height="82" Width="420" Click="Button_Click_Doctors"/>
             </MenuItem>
 
@@ -61,11 +61,10 @@
                 </Button>
                 <Separator BorderBrush="Black" BorderThickness="4" Margin="0,10,0.2,0" Height="97" VerticalAlignment="Top"/>
                 <Label FontSize="24" Content="ZdravoHospital" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
-                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="656,64,0,-2" VerticalAlignment="Top" Width="270" Height="94" RenderTransformOrigin="0.5,0.5" Click="Button_Click_Profile">
-                    <Grid>
-
-                        <Image Source="/WpfApp1;component/images/userr.png" Height="64" Margin="-128,0,65.6,0" RenderTransformOrigin="-0.384,0.4"/>
-                        <TextBox IsEnabled="False" FontSize="38" Name="User" BorderThickness="0" Background="Transparent" Margin="-59,0,-122.4,0" RenderTransformOrigin="0.5,0.5" />
+                <Button  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="664,64,0,0" VerticalAlignment="Top" Width="262" Height="90" RenderTransformOrigin="0.5,0.5" Click="Button_Click_Profile">
+                    <Grid Width="270" Height="84">
+                        <Image Source="/WpfApp1;component/images/userr.png" Margin="0,10,199,0" RenderTransformOrigin="-0.384,0.4"/>
+                        <TextBox IsEnabled="False" BorderBrush="Transparent" Background="Transparent" TextWrapping="Wrap"  VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="32" Name="User" BorderThickness="0" Margin="76,0,0,0" RenderTransformOrigin="0.5,0.5" Width="194" />
                     </Grid>
                 </Button>
 

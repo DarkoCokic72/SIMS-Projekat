@@ -1,1 +1,1 @@
-[]
+[{"Id":"165228a4-fef1-41a9-b8ac-2cd019da4fbb","RenovationType":0,"StartDate":"2022-06-29T00:00:00","Duration":2,"Room1":{"Id":"R6","Type":0,"Floor":0},"Room2":{"Id":"R2","Type":0,"Floor":0},"Room3":{"Id":"R4","Type":0,"Floor":0}}]

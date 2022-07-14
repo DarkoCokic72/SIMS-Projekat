@@ -261,6 +261,9 @@
     <Compile Include="View\Manager\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\ConfirmationWindow.xaml.cs">
+      <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\Drugs\DrugsCreate.xaml.cs">
       <DependentUpon>DrugsCreate.xaml</DependentUpon>
     </Compile>
@@ -484,6 +487,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Manager\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Manager\ConfirmationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -863,6 +870,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\hospitalLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />

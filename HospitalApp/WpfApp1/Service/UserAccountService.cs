@@ -36,6 +36,10 @@ namespace WpfApp1.Service
             return managerRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
 
+        public bool EmailAlreadyExists(string email)
+        {
+            return userAccountRepository.EmailAlreadyExists(email);
+        }
 
         public UserAccountRepository userAccountRepository = new UserAccountRepository();
         public ManagerRepository managerRepository = new ManagerRepository();

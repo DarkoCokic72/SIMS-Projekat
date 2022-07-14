@@ -1,1 +1,1 @@
-[{"Id":"R1","Type":5,"Floor":0},{"Id":"R6","Type":0,"Floor":0},{"Id":"R9","Type":0,"Floor":0},{"Id":"R2","Type":0,"Floor":0}]
+[{"Id":"R1","Type":5,"Floor":0},{"Id":"R6","Type":0,"Floor":0},{"Id":"R9","Type":0,"Floor":1},{"Id":"R2","Type":0,"Floor":0}]

@@ -57,5 +57,10 @@ namespace WpfApp1.View.Manager
         {
             this.Content = new ChangePassword();
         }
+
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace WpfApp1.View.Manager.Rooms
             InitializeComponent();
             this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
-
+            DurationBinding = 1;
             room1 = _room1;
             newId1 = _newId1;
             newType1 = _newType1;
@@ -91,7 +91,7 @@ namespace WpfApp1.View.Manager.Rooms
             Room room3 = new Room(newId2, newType2, room1.Floor);
             renovationController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.split, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
-            new SuccessfulActionWindow("Room split was scheduled!");
+            new SuccessfulActionWindow("Room split is scheduled!");
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)

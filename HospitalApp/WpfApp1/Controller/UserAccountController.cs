@@ -37,6 +37,11 @@ namespace WpfApp1.Controller
             return userAccountService.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
 
+        public bool EmailAlreadyExists(string email)
+        {
+            return userAccountService.EmailAlreadyExists(email);
+        }
+
         public Service.UserAccountService userAccountService = new UserAccountService();
 
         public UserAccountController() { }

@@ -55,6 +55,7 @@ namespace WpfApp1.View.Manager.Rooms
 
             InitializeComponent();
             this.DataContext = this;
+            DurationBinding = 1;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             roomId = _roomId;
             description = _description;
@@ -108,7 +109,7 @@ namespace WpfApp1.View.Manager.Rooms
         {   
             renovationController.SchedulingRenovation(new Model.Renovation(roomController.GetById(roomId), description, startDate, int.Parse(Duration.Text)));
             this.Content = new ManagerHomePage();
-            new SuccessfulActionWindow("Renovation was scheduled!");      
+            new SuccessfulActionWindow("Renovation is scheduled!");      
         }
 
 

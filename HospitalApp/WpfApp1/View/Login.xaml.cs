@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,15 +36,35 @@ namespace WpfApp1.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(Email.Text))
+            {
+                ErrorLabel.Content = "Please enter your email!";
+                return;
+            }
 
+            if (string.IsNullOrEmpty(LoginPassword.Password))
+            {
+                ErrorLabel.Content = "Please enter your password!";
+                return;
+            }
+            if (!Regex.IsMatch(Email.Text, @"^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}"))
+            {
+                ErrorLabel.Content = "Wrong email format!";
+                return;
+            }
             
+
             UserAccountFileHandler userAccountFileHandler = new UserAccountFileHandler();
             UserAccountRepository userAccountRepository = new UserAccountRepository(userAccountFileHandler);
             UserAccountService userAccountService = new UserAccountService(userAccountRepository);
             UserAccountController userAccountController = new UserAccountController(userAccountService);
             userAccount = userAccountController.GetByEmailPassword(Email.Text, LoginPassword.Password);
             
-
+            if (userAccount == null)
+            {
+                ErrorLabel.Content = "Wrong email or/and password!";
+                return;
+            }
             if (userAccount != null) 
             {
 
@@ -126,6 +147,11 @@ namespace WpfApp1.View
         {
             var myWindow = Window.GetWindow(this);
             myWindow.Close();
+        }
+
+        private void LoginWindow_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
         }
     }
 }

@@ -92,5 +92,10 @@ namespace WpfApp1.View.Manager
         {
             EnableOrDisableSaveBtn();
         }
+
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
+        }
     }
 }

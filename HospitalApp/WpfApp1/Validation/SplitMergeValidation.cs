@@ -39,7 +39,7 @@ namespace WpfApp1.Validation
 
                 }
 
-                if (endDate >= firstBusyDate)
+                if (endDate.Date > firstBusyDate.Date)
                 {
                     ValidationHasError = true;
                     return new ValidationResult(false, "Busy day\nis included.");
@@ -84,7 +84,7 @@ namespace WpfApp1.Validation
 
                 }
 
-                if (endDate >= firstBusyDate)
+                if (endDate.Date > firstBusyDate.Date)
                 {
                     ValidationHasError = true;
                     return new ValidationResult(false, "Busy day\nis included.");

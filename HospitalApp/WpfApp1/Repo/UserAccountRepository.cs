@@ -25,11 +25,45 @@ namespace WpfApp1.Repo
             else if (manager != null) return manager;
             else if (secretary != null) return secretary;
             else if (physician != null) return physician;
-            else
+            else return null;
+            
+        }
+
+        public bool EmailAlreadyExists(string email)
+        {
+
+            PatientFileHandler patientFileHandler = new PatientFileHandler();
+            PatientRepository patientRepository = new PatientRepository(patientFileHandler);
+            foreach (UserAccount user in patientRepository.GetAll())
             {
-                MessageBox.Show("BAD LOGIN!\nWrong email or password!", "Error");
-                return null;
+                if (user.Email == email)
+                {
+                    return true;
+                }
             }
+
+            SecretaryFileHandler secretaryFileHandler = new SecretaryFileHandler();
+            SecretaryRepository secretaryRepository = new SecretaryRepository(secretaryFileHandler);
+            foreach (UserAccount user in secretaryRepository.GetAll())
+            {
+                if (user.Email == email)
+                {
+                    return true;
+                }
+
+            }
+
+  
+            PhysicianRepository physicianRepository = new PhysicianRepository();
+            foreach (UserAccount user in physicianRepository.GetAll())
+            {
+                if (user.Email == email)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public UserAccountFileHandler userAccountFileHandler = new UserAccountFileHandler();

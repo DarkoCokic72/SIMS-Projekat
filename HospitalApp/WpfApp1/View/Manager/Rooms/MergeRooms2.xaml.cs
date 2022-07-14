@@ -52,6 +52,7 @@ namespace WpfApp1.View.Manager.Rooms
         {
             InitializeComponent();
             this.DataContext = this;
+            DurationBinding = 1;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
 
             room1 = _room1;
@@ -81,7 +82,7 @@ namespace WpfApp1.View.Manager.Rooms
             Room room3 = new Room(newId, newType, room1.Floor);
             renovationController.SchedulingAdvancedRenovation(new AdvancedRenovation(RenovationType.merge, startDate, int.Parse(Duration.Text), room1, room2, room3));
             this.Content = new ManagerHomePage();
-            new SuccessfulActionWindow("Rooms merge was scheduled!");
+            new SuccessfulActionWindow("Rooms merge is scheduled!");
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)

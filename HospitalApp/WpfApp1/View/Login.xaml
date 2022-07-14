@@ -7,15 +7,17 @@
         mc:Ignorable="d"
           Height="768" Width="1024">
     <Grid>
-        <local:Frame Name="LoginWindow" NavigationUIVisibility="Hidden" />
-        <Label Content="LOGIN PAGE" HorizontalAlignment="Left" Margin="354,100,0,0" VerticalAlignment="Top" Width="288" Height="69" FontSize="50"/>
-        <Label Content="   Email:" HorizontalAlignment="Left" Margin="443,230,0,0" VerticalAlignment="Top" Width="141" FontSize="30" Background="#FFF3D0C2" Height="48"/>
-        <TextBox Name="Email" ToolTip=" Please enter your valid email" HorizontalAlignment="Left" Height="43" Margin="382,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="25"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="443,326,0,0" VerticalAlignment="Top" Width="141" Background="#FFF3D0C2" FontSize="30"/>
-        <PasswordBox Name="LoginPassword" ToolTip="Please enter your password" HorizontalAlignment="Left" Height="43" Margin="382,381,0,0" VerticalAlignment="Top" Width="260" FontSize="30"/>
-            <Button ToolTip="Login" HorizontalAlignment="Left" Margin="421,470,0,0" VerticalAlignment="Top" Width="193" Height="61" RenderTransformOrigin="0.78,0.175" FontSize="40" Click="Button_Click" Content="LOGIN" FontWeight="Bold" AutomationProperties.AcceleratorKey="Enter" Foreground="#FF1923EE"/>
-            <Button Width="90" Height="90" Margin="924,10,10,668" Background="Transparent" BorderThickness="0" Click="Button_Click_1">
-            <Image Source="/WpfApp1;component/images/x.png" Height="64" Width="64"/>
+        <local:Frame Name="LoginWindow" NavigationUIVisibility="Hidden" Navigated="LoginWindow_Navigated" />
+        <Label Foreground="SteelBlue" Content="Zdravo Hospital" HorizontalAlignment="Left" Margin="341,176,0,0" VerticalAlignment="Top" Width="374" Height="72" FontSize="50"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="110,317,0,0" VerticalAlignment="Top" Width="207" FontSize="40" Height="66" VerticalContentAlignment="Center" RenderTransformOrigin="0.517,-0.096"/>
+        <TextBox Name="Email" ToolTip=" Please enter your valid email" HorizontalAlignment="Left" Height="66" Margin="322,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="459" FontSize="40" VerticalContentAlignment="Center"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="110,409,0,0" VerticalAlignment="Top" Width="207" FontSize="40" Height="71" VerticalContentAlignment="Center"/>
+        <PasswordBox Name="LoginPassword" ToolTip="Please enter your password" HorizontalAlignment="Left" Height="66" Margin="322,409,0,0" VerticalAlignment="Top" Width="459" FontSize="40" VerticalContentAlignment="Center"/>
+        <Button ToolTip="Login" HorizontalAlignment="Left" Margin="384,510,0,0" VerticalAlignment="Top" Width="255" Height="100" RenderTransformOrigin="0.78,0.175" FontSize="60" Click="Button_Click" Content="Login" AutomationProperties.AcceleratorKey="Enter" Background="SteelBlue"/>
+        <Button Margin="962,10,10,705" Background="Transparent" BorderThickness="0" Click="Button_Click_1">
+            <Image Source="/WpfApp1;component/images/x.png" Height="37" Width="37"/>
         </Button>
+        <Image HorizontalAlignment="Left" Source="/WpfApp1;component/images/hospitalLogo.png" Height="130" Margin="446,46,0,0" VerticalAlignment="Top" Width="131"/>
+        <Label Name="ErrorLabel" FontSize="40" HorizontalContentAlignment="Center" Foreground="Red" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,615,0,0" VerticalAlignment="Top" Height="93" Width="1004"/>
     </Grid>
 </UserControl>

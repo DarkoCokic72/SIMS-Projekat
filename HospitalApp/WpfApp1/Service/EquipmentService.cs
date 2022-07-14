@@ -63,9 +63,9 @@ namespace Service
             return quantity; 
         }
 
-        public List<Equipment> SearchEquipment(string name, string quantity) 
+        public List<Equipment> SearchEquipment(string name, string room, string quantity) 
         {
-            return equipmentRepository.SearchEquipment(name, quantity);
+            return equipmentRepository.SearchEquipment(name, room, quantity);
         }
       
         private List<Equipment> TakeEquipmentFromOldRoom(List<Equipment> allEquipment, Relocation relocation)

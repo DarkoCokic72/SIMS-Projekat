@@ -3,6 +3,7 @@
 // Created: Friday, April 15, 2022 7:52:54 PM
 // Purpose: Definition of Class EquipmentRepository
 
+using System;
 using System.Collections.Generic;
 using Model;
 using WpfApp1.Model;
@@ -54,20 +55,32 @@ namespace Repo
         }
 
 
-        public List<Equipment> SearchEquipment(string name, string quantity)
+        public List<Equipment> SearchEquipment(string name, string room, string quantity)
         {
-
-            if (string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
-                return GetByQuantity(int.Parse(quantity));
-
-            else if (string.IsNullOrEmpty(quantity) && !string.IsNullOrEmpty(name)) 
-                return GetByName(name);
-
-            else if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity)) 
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(room) && !string.IsNullOrEmpty(quantity)){
+                return GetByNameRoomAndQuantity(name, room, int.Parse(quantity));
+            }
+            else if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(room)){
+                return GetByNameAndRoom(name, room);
+            } else if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(quantity))
+            {
                 return GetByNameAndQuantity(name, int.Parse(quantity));
-
+            } else if (!string.IsNullOrEmpty(room) && !string.IsNullOrEmpty(quantity))
+            {
+                return GetByRoomAndQuantity(room, int.Parse(quantity));
+            } else if (!string.IsNullOrEmpty(name)){
+                return GetByName(name);
+            } else if (!string.IsNullOrEmpty(room))
+            {
+                return GetByRoom(room);
+            } else if (!string.IsNullOrEmpty(quantity))
+            {
+                return GetByQuantity(int.Parse(quantity));
+            }
             else
+            {
                 return GetAll();
+            }
             
         }
 
@@ -100,7 +113,7 @@ namespace Repo
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in GetAll())
             {
-                if (equipment.Quantity >= quantity)
+                if (equipment.Quantity == quantity)
                 {
                     equipmentList.Add(equipment);
                 }
@@ -123,12 +136,68 @@ namespace Repo
             return equipmentList;
         }
 
+        private List<Equipment> GetByRoom(string roomId)
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            {
+                if (equipment.Room.Id.ToLower().StartsWith(roomId.ToLower()))
+                {
+                    equipmentList.Add(equipment);
+                }
+            }
+
+            return equipmentList;
+        }
+
+        private List<Equipment> GetByNameAndRoom(string name, string roomId)
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            {
+                if (equipment.Room.Id.ToLower().Equals(roomId.ToLower()) && equipment.Name.ToLower().Equals(name.ToLower()))
+                {
+                    equipmentList.Add(equipment);
+                }
+            }
+
+            return equipmentList;
+        }
+
         private List<Equipment> GetByNameAndQuantity(string name, int quantity)
         {
             List<Equipment> equipmentList = new List<Equipment>();
             foreach (Equipment equipment in GetAll())
             {
-                if (equipment.Name.ToLower().StartsWith(name.ToLower()) && equipment.Quantity >= quantity)
+                if (equipment.Quantity == quantity && equipment.Name.ToLower().Equals(name.ToLower()))
+                {
+                    equipmentList.Add(equipment);
+                }
+            }
+
+            return equipmentList;
+        }
+
+        private List<Equipment> GetByRoomAndQuantity(string room, int quantity)
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            {
+                if (equipment.Quantity == quantity && equipment.Room.Id.ToLower().Equals(room.ToLower()))
+                {
+                    equipmentList.Add(equipment);
+                }
+            }
+
+            return equipmentList;
+        }
+
+        private List<Equipment> GetByNameRoomAndQuantity(string name, string roomId, int quantity)
+        {
+            List<Equipment> equipmentList = new List<Equipment>();
+            foreach (Equipment equipment in GetAll())
+            { 
+                if (equipment.Name.ToLower().Equals(name.ToLower()) && equipment.Room.Id.ToLower().Equals(roomId.ToLower()) && equipment.Quantity == quantity)
                 {
                     equipmentList.Add(equipment);
                 }

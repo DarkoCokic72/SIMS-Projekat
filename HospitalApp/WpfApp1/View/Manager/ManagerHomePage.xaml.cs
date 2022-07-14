@@ -35,7 +35,7 @@ namespace WpfApp1.View.Manager
         public ManagerHomePage()
         {
             InitializeComponent();
-            
+            this.DataContext = this;
             User.Text = Login.userAccount.Name + " " + Login.userAccount.Surname;
             DrugsWindow.SelectedDrug = null;
             RoomsWindowViewModel.SelectedRoom = null;
@@ -79,22 +79,22 @@ namespace WpfApp1.View.Manager
                 WParagraphStyle style = document.AddParagraphStyle("Normal") as WParagraphStyle;
                 style.CharacterFormat.FontName = "Calibri";
                 style.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
-                style.CharacterFormat.FontSize = 11f;
+                style.CharacterFormat.FontSize = 16f;
                 style.ParagraphFormat.AfterSpacing = 8;
                 style.ParagraphFormat.FirstLineIndent = 36f;
 
                 style = document.AddParagraphStyle("Heading 1") as WParagraphStyle;
                 style.ApplyBaseStyle("Normal");
                 style.CharacterFormat.FontName = "Calibri Light";
-                style.CharacterFormat.FontSize = 16f;
+                style.CharacterFormat.FontSize = 40f;
                 style.CharacterFormat.TextColor = System.Drawing.Color.FromArgb(46, 116, 181);
 
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.ApplyStyle("Heading 1");
                 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-                paragraph.ParagraphFormat.AfterSpacing = 10;
+                paragraph.ParagraphFormat.AfterSpacing = 25;
                 WTextRange textRange = paragraph.AppendText("\nIzve\u0161taj stanja opreme Zdravo Korporacije") as WTextRange;
-                textRange.CharacterFormat.FontSize = 18f;
+                textRange.CharacterFormat.FontSize = 30f;
                 textRange.CharacterFormat.FontName = "Calibri";
                 string text =
                 " Datum kreiranja izve\u0161taja: " + DateTime.Now.ToShortDateString() + "\n Vreme kreiranja izve\u0161taja: " + DateTime.Now.ToShortTimeString();
@@ -113,15 +113,14 @@ namespace WpfApp1.View.Manager
 
                 //Appends paragraph with header.
                 IWParagraph paragraphTable = table[0, 0].AddParagraph();
-
                 paragraphTable = table[0, 1].AddParagraph();
-                paragraphTable.AppendText("Name");
+                paragraphTable.AppendText("Naziv");
 
                 paragraphTable = table[0, 2].AddParagraph();
-                paragraphTable.AppendText("Room");
+                paragraphTable.AppendText("Prostorija");
 
                 paragraphTable = table[0, 3].AddParagraph();
-                paragraphTable.AppendText("Quantity");
+                paragraphTable.AppendText("Kolicina");
 
 
                 // Dodavnje kroz for petlju
@@ -149,7 +148,8 @@ namespace WpfApp1.View.Manager
                 {
                     table[redova, kolona].CellFormat.HorizontalMerge = CellMerge.Continue;
                 }
-
+                
+                
                 //Apply built-in table style to the table.
                 table.ApplyStyle(BuiltinTableStyle.MediumShading1Accent1);
 
@@ -157,6 +157,18 @@ namespace WpfApp1.View.Manager
                 DocToPDFConverter converter = new DocToPDFConverter();
                 //Converts Word document into PDF document
                 PdfDocument pdfDocument = converter.ConvertToPDF(document);
+
+                //Create a header and draw an image
+                RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
+                PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
+                PdfImage image = new PdfBitmap("C:\\Users\\smvul\\Desktop\\simssss\\SIMS-Projekat\\HospitalApp\\WpfApp1\\images\\hospitalLogo.png");
+                //Draw an image in the header
+                header.Graphics.DrawImage(image, new PointF(9, 0), new SizeF(54, 54));
+                PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f, PdfFontStyle.Italic);
+                header.Graphics.DrawString("Zdravo Hospital\nNikole Tesle 22 Novi Sad", font, PdfBrushes.Black, new PointF(70, 25));
+               // header.Graphics.DrawString()
+                //Add the header at the top
+                pdfDocument.Template.Top = header;
 
                 //Save and close the PDF document 
                 pdfDocument.Save("C:\\Users\\smvul\\Desktop\\simssss\\SIMS-Projekat\\HospitalApp\\IzvestajOpreme.pdf");

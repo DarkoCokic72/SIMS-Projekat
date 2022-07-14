@@ -87,11 +87,10 @@ namespace WpfApp1.View.Manager
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            UserAccountController userAccountController = new UserAccountController();
-            userAccountController.EditManagerProfile(new Model.Manager(Email.Text, Name.Text, Surname.Text, PhoneNumber.Text, Login.userAccount.UniquePersonalNumber));
-            Login.userAccount = userAccountController.GetByUniquePersonalNumber(Login.userAccount.UniquePersonalNumber);
-            this.Content = new ManagerProfile();
+            ConfirmationWindow confirmationWindow = new ConfirmationWindow(Email.Text, Name.Text, Surname.Text, PhoneNumber.Text);
+            confirmationWindow.ShowDialog();
         }
+
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
@@ -119,6 +118,11 @@ namespace WpfApp1.View.Manager
         {
             return !string.IsNullOrEmpty(Email.Text) && !string.IsNullOrEmpty(Name.Text) 
             && !string.IsNullOrEmpty(Surname.Text) && !string.IsNullOrEmpty(PhoneNumber.Text) && !Validation.EmailValidationRule.ValidationHasError && !Validation.PhoneNumberValidationRule.ValidationHasError;
+        }
+
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            this.Content = new ManagerProfile();
         }
     }
 }
