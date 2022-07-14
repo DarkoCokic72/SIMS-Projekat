@@ -26,7 +26,7 @@ namespace WpfApp1
     public partial class AppointmentWindow : Window
     {
         public static AppointmentWindow appointmentWindowInstance;
-        public static AppointmentController appointmentController;
+        public AppointmentController appointmentController;
         public ObservableCollection<Appointment> Appointments { get; set; }
 
         public AppointmentWindow()
@@ -61,7 +61,7 @@ namespace WpfApp1
 
         public Appointment getSelectedAppointment()
         {
-            return (Appointment)dgAppointments.SelectedItem; ;
+            return (Appointment)dgAppointments.SelectedItem;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -82,12 +82,13 @@ namespace WpfApp1
 
             if (btn.Content.Equals("Create"))
             {
+                this.Close();
                 CreateAppointment createAppointment = new CreateAppointment();
                 createAppointment.Show();
             }
             else if (btn.Content.Equals("Edit"))
             {
-
+                //this.Close();
                 AppointmentEdit appointmentEdit = new AppointmentEdit();
                 appointmentEdit.Show();
 

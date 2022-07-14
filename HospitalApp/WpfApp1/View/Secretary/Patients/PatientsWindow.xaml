@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Patients" Height="450" Width="820">
 
-    <Grid Margin="20">
+    <Grid Margin="20" Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -24,7 +24,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" AutoGenerateColumns="False" Name ="dgPatients" ItemsSource="{Binding Path=Patients}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
+        <DataGrid CanUserResizeColumns="True" CanUserResizeRows="False" AutoGenerateColumns="False" Name ="dgPatients" ItemsSource="{Binding Path=Patients}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"></DataGridTextColumn>
@@ -32,13 +32,14 @@
                 <DataGridTextColumn Header="Phone number" Binding="{Binding PhoneNumber}"></DataGridTextColumn>
                 <DataGridTextColumn Header="UPN" Binding="{Binding UniquePersonalNumber}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Blood group" Binding="{Binding BloodGroup}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Date of birth" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button FontSize="30" Content="Create" Grid.Row="0"  Height ="Auto" Margin="75,10,63,4" Click="Button_Click" Width="Auto" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Button FontSize="30" Content="Edit" Grid.Column="3" Width="Auto" Grid.Row="0" Height ="Auto" Margin="82,10,55,4" Click="Button_Click" Grid.ColumnSpan="2"/>
-        <Button FontSize="30"  Grid.ColumnSpan="2" Content="Delete" Grid.Row="0" Height ="Auto" Grid.Column="4" Width="Auto" Margin="90,10,53,4" Click="Button_Click"/>
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" FontSize="20" Content="Create" Grid.Row="0"  Height ="40" Margin="39,24,9.667,0" Click="Button_Click" Width="80" Grid.Column="3"/>
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" FontSize="20" Content="Edit" Grid.Column="4" Width="80" Grid.Row="0" Height ="40" Margin="19.333,24,29.667,0" Click="Button_Click" />
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" FontSize="20"  Grid.ColumnSpan="2" Content="Delete" Grid.Row="0" Height ="40" Grid.Column="4" Width="80" Margin="124.333,24,53.333,0" Click="Button_Click"/>
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Height="40" FontSize="20" Content="Medical record" Grid.Row="0" Margin="58,24,59,0" Click="Button_Click" Grid.ColumnSpan="2"/>
     </Grid>
 
 

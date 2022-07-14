@@ -17,6 +17,14 @@ namespace Service
         {
             return physicianRepository.GetAll();
         }
+        public bool UPNExists(string upn)
+        {
+            return physicianRepository.UPNExists(upn);
+        }
+        public bool EmailExists(string email)
+        {
+            return physicianRepository.EmailExists(email);
+        }
 
         public Physician GetByLicenceID(string licenceID)
         {

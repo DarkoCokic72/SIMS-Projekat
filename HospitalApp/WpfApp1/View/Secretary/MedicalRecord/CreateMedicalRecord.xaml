@@ -7,25 +7,23 @@
         d:DataContext="{d:DesignInstance Type=local:MedicalRecordEdit}"
         mc:Ignorable="d"
         Title="Create new medical record" Height="356.298" Width="424.036">
-    <Grid RenderTransformOrigin="0.49,0.502" Margin="0,0,-8,0" Height="333" VerticalAlignment="Top">
+    <Grid RenderTransformOrigin="0.49,0.502" Margin="0,0,-8,0" Height="333" VerticalAlignment="Top" Background="LightGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="357*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Register number:*" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox Name="RegNum" HorizontalAlignment="Left" Margin="220,27,0,0" Text="{Binding Path=RegNumBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="129" FontSize="18" Height="34" RenderTransformOrigin="0.532,0.725"/>
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="300,284,0,0" VerticalAlignment="Top" FontSize="20" Width="94" Command="Save" Click="Button_Click" Height="34"  >
+        <Button Content="Save" HorizontalAlignment="Left" Margin="286,252,0,0" VerticalAlignment="Top" FontSize="30" Width="100" Command="Save" Click="Button_Click" Height="60" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.516,0.203">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>
 
         </Button>
-        <ComboBox HorizontalAlignment="Left" Margin="220,84,0,0" VerticalAlignment="Top" Width="174" DisplayMemberPath="FullName" FontSize="18" Name="Patient" Text="{Binding Path=PatientBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.39,0.524" Height="34"/>
+        <ComboBox HorizontalAlignment="Left" Margin="159,21,0,0" VerticalAlignment="Top" Width="227" DisplayMemberPath="FullName" FontSize="30" Name="Patient" Text="{Binding Path=PatientBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.387,0.294" Height="60"/>
 
-        <Label Content="Patient:*" HorizontalAlignment="Left" Margin="86,84,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Allergens:*" HorizontalAlignment="Left" Margin="67,144,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="167,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="227" FontSize="18" x:Name="Allergens" Height="88" RenderTransformOrigin="0.532,0.725" Text="{Binding Path=AllergensBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Cancel" FontSize="20" HorizontalAlignment="Left" Margin="179,284,0,0" Click="Button_Click" VerticalAlignment="Top" Width="94" Height="34"/>
+        <Label Content="Patient:*" HorizontalAlignment="Left" Margin="34,21,0,0" VerticalAlignment="Top" FontSize="30" RenderTransformOrigin="0.369,-0.566"/>
+        <Label Content="Allergens:*" HorizontalAlignment="Left" Margin="2,116,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <TextBox HorizontalAlignment="Left" Margin="159,116,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="227" FontSize="30" x:Name="Allergens" Height="90" RenderTransformOrigin="0.532,0.725" Text="{Binding Path=AllergensBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Cancel" FontSize="30" HorizontalAlignment="Left" Margin="159,252,0,0" Click="Button_Click" VerticalAlignment="Top" Width="100" Height="60" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394"/>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Medical records" Height="450" Width="800">
-    <Grid Margin="20">
+    <Grid Margin="20" Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -31,8 +31,8 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button FontSize="30" Content="Create" Grid.Row="0"  Height ="Auto" Margin="75,10,63,4" Click="Button_Click" Width="Auto" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Button FontSize="30" Content="Edit" Grid.Column="3" Width="Auto" Grid.Row="0" Height ="Auto" Margin="82,10,55,4" Click="Button_Click" Grid.ColumnSpan="2"/>
-        <Button FontSize="30"  Grid.ColumnSpan="2" Content="Delete" Grid.Row="0" Height ="Auto" Grid.Column="4" Width="Auto" Margin="90,10,53,4" Click="Button_Click"/>
+        <Button FontSize="20" Content="Create" Grid.Row="0"  Height ="40" Margin="23,24,22,0" Click="Button_Click" Width="80" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394"/>
+        <Button FontSize="20" Content="Edit" Grid.Column="4" Width="80" Grid.Row="0" Height ="40" Margin="10,24,35,0" Click="Button_Click" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394"/>
+        <Button FontSize="20"  Grid.ColumnSpan="2" Content="Delete" Grid.Row="0" Height ="40" Grid.Column="4" Width="80" Margin="117,24,53,0" Click="Button_Click" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394"/>
     </Grid>
 </Window>

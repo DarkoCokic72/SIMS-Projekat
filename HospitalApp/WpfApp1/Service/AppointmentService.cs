@@ -18,6 +18,10 @@ namespace Service
             return appointmentRepository.GetById(id);
         }
 
+        public List<Appointment> GetByPhysician(Physician physician, DateTime startDate, DateTime endDate)
+        {
+            return appointmentRepository.GetByPhysician(physician, startDate, endDate);
+        }
         public bool Add(Appointment appointment)
         {
             return appointmentRepository.Add(appointment);

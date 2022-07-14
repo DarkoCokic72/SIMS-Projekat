@@ -60,6 +60,23 @@ namespace WpfApp1.Repo
             return null;
         }
 
+        public bool UPNExists(string upn)
+        {
+            foreach (Manager manager in GetAll())
+            {
+                if (manager.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (Manager manager in GetAll())
+            {
+                if (manager.Email == email) return true;
+            }
+            return false;
+        }
+
         public FileHandler.ManagerFileHandler managerFileHandler = new ManagerFileHandler();
 
         public ManagerRepository() { }

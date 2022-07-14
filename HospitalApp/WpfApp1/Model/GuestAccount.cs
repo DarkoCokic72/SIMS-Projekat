@@ -12,10 +12,12 @@ namespace WpfApp1.Model
 {
     public class GuestAccount : UserAccount
     {
-        public GuestAccount(String email, String password, String name, String surname, String uniqueuniquePersonalNumber)
+        public bool IsGuestAccount { get; set; }
+
+        public GuestAccount(String email, String name, String surname, String uniqueuniquePersonalNumber)
         {
             this.Email = email;
-            this.Password = password;
+            //this.Password = password;
             this.Name = name;
             this.Surname = surname;
             this.UniquePersonalNumber = uniqueuniquePersonalNumber;

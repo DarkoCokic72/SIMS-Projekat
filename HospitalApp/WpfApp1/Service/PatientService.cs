@@ -17,29 +17,42 @@ namespace Service
       public List<Patient> GetAll()
       {
             return patientRepository.GetAll();
+      }
+        public List<Patient> IsGuestAccount()
+        {
+            return patientRepository.IsGuestAccount();
         }
-      
-      public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
-      {
+
+        public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+        {
             return patientRepository.GetByUniquePersonalNumber(uniquePersonalNumber);
         }
-      
-      public void Add(Patient patient)
-      {
-            patientRepository.Add(patient);
+
+        public bool UPNExists(string upn)
+        {
+            return patientRepository.UPNExists(upn);
         }
-      
-      public void Update(Patient patient)
+        public bool EmailExists(string email)
+        {
+            return patientRepository.EmailExists(email);
+        }
+
+        public bool Add(Patient patient)
       {
-            patientRepository.Update(patient);
+            return patientRepository.Add(patient);
+      }
+      
+      public bool Update(Patient patient)
+        {
+            return patientRepository.Update(patient);
         }
       
       public void Remove(string id)
       {
             patientRepository.Remove(id);
-        }
+      }
 
-      public Repo.PatientRepository patientRepository;
+      public PatientRepository patientRepository;
 
       public PatientService(PatientRepository patientRepository)
         {

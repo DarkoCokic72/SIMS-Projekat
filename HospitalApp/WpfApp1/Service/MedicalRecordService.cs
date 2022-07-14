@@ -17,6 +17,10 @@ namespace Service
         {
             return medicalRecordRepository.GetByRegNum(regNum);
         }
+        public MedicalRecord GetByPatient(Patient patient)
+        {
+            return medicalRecordRepository.GetByPatient(patient);
+        }
 
         public bool Add(MedicalRecord medicalRecord)
         {

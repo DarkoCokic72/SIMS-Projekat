@@ -6,8 +6,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using FileHandler;
 using Model;
+using WpfApp1;
 using WpfApp1.Model;
 
 namespace Repo
@@ -17,65 +19,88 @@ namespace Repo
       public List<Patient> GetAll()
       {
             return patientFileHandler.Read();
+      }
+        public List<Patient> IsGuestAccount()
+        {
+            List<Patient> patients = GetAll();
+            List<Patient> isGuestAccount = new List<Patient>();
+            foreach (Patient patient in patients)
+            {
+                if (!patient.IsGuestAccount)
+                {
+                    isGuestAccount.Add(patient);
+                }
+            }
+            return isGuestAccount;
         }
-      
-      public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+
+        public bool UPNExists(string upn)
+        {
+            foreach (Patient patient in GetAll())
+            {
+                if (patient.UniquePersonalNumber == upn) return true;
+            }
+            return false;
+        }
+        public bool EmailExists(string email)
+        {
+            foreach (Patient patient in GetAll())
+            {
+                if (patient.Email == email) return true;
+            }
+            return false;
+        }
+
+        public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
       {
             List<Patient> patientsList = GetAll();
             foreach (Patient patient in patientsList)
             {
                 if (patient.UniquePersonalNumber == uniquePersonalNumber)
                 {
-
                     return patient;
-
                 }
 
             }
-
             return null;
+      }
+        public string CreatePassword(int length)
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
         }
-      
-      public void Add(Patient patient)
-      {
+
+        public bool Add(Patient patient)
+        {
             List<Patient> patientList = GetAll();
+            patient.IsGuestAccount = false;
+            patient.Password = CreatePassword(15);
             patientList.Add(patient);
             patientFileHandler.Save(patientList);
-            WpfApp1.CreatePatient.addedPatient = true;
-            
+            return true;
         }
       
-      public void Update(Patient patient)
+      public bool Update(Patient patient)
       {
             List<Patient> patientList = GetAll();
-
-            if (WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber != patient.UniquePersonalNumber)
-            {
-                for (int i = 0; i < patientList.Count; i++)
-                {
-
-                    if (patientList[i].UniquePersonalNumber.Equals(patient.UniquePersonalNumber))
-                    {
-
-                        WpfApp1.PatientsEdit.editedPatient = false;
-                        return;
-                    }
-                }
-            }
 
             for (int i = 0; i < patientList.Count; i++)
             {
 
-                if (patientList[i].UniquePersonalNumber.Equals(WpfApp1.PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber))
+                if (patientList[i].UniquePersonalNumber.Equals(PatientsWindow.patientsWindowInstance.getSelectedPatient().UniquePersonalNumber))
                 {
-
                     patientList[i] = patient;
                     patientFileHandler.Save(patientList);
-                    WpfApp1.PatientsEdit.editedPatient = true;
-                    return;
-
+                    return true;
                 }
             }
+            return false;
         }
       
       public void Remove(string id)

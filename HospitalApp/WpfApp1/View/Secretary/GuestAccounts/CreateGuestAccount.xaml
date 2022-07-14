@@ -8,7 +8,7 @@
         d:DataContext="{d:DesignInstance Type=local:GuestAccountsEdit}"
         mc:Ignorable="d"
         Title="Create guest account" Height="781.332" Width="800">
-    <Grid Margin="0,0,0,-335">
+    <Grid Margin="0,0,0,-1" Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -25,13 +25,12 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label FontSize="40" Content="UPN*:" Margin="0,99,2,10" Width="Auto" Height="Auto" Grid.Row="1" RenderTransformOrigin="0.804,0.516" Grid.Column="1"/>
-        <Label FontSize="40" Content="Name*:" Margin="95,10,24,101" Width="Auto" Height="Auto" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="Surname*:" Margin="48,102,24,10" Width="Auto" Height="Auto" Grid.ColumnSpan="2"/>
-        <Label FontSize="40" Content="Email*:" Margin="115,0,10,107" Width="Auto" Height="Auto" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label FontSize="40" Content="Password*:" Margin="40,45,24,78" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Label FontSize="30" Content="UPN*:" Margin="68,7,66,43" Width="Auto" Height="75" Grid.Row="3" RenderTransformOrigin="0.804,0.516" Grid.ColumnSpan="2"/>
+        <Label FontSize="30" Content="Name*:" Margin="68,51,52,0" Width="Auto" Height="75" Grid.ColumnSpan="2"/>
+        <Label FontSize="30" Content="Surname*:" Margin="38,30,34,20" Width="Auto" Height="75" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label FontSize="30" Content="Email*:" Margin="68,14,96,36" Width="100" Height="75" RenderTransformOrigin="0.466,-0.254" Grid.ColumnSpan="2" Grid.Row="2"/>
 
-        <TextBox FontSize="40" Name="UPN" Height="Auto" Margin="50,99,92,31" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="1">
+        <TextBox FontSize="30" Name="UPN" Height="60" Margin="10,0,113,50" TextWrapping="Wrap" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3">
             <TextBox.Text>
                 <Binding Path="UPNBinding" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
@@ -56,12 +55,11 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox FontSize="40" Name="Name" Height="Auto" Width="Auto" Margin="50,10,73,120" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2"/>
-        <TextBox FontSize="40" Name="Email" Height="Auto" Width="Auto" Margin="50,2,73,127" TextWrapping="Wrap" Text="{Binding Path=EmailBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="1"/>
-        <TextBox FontSize="40" x:Name="Surname" Height="Auto" Width="Auto" Margin="50,99,73,31" TextWrapping="Wrap" Text="{Binding Path=SurnameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2"/>
-        <TextBox FontSize="40" Name="Password" Height="Auto" Width="Auto" Margin="69,59,73,64" TextWrapping="Wrap" Text="{Binding Path=PasswordBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="2"/>
-        <Button FontSize="40" Content="Cancel" Margin="115,41,56,10" Width="Auto" Height="Auto" Click="Button_Click1" Grid.ColumnSpan="3" Grid.Row="3"/>
-        <Button FontSize="40" Content="Save" Margin="35,41,10,10" Width="Auto" Height="Auto" Click="Button_Click1" Command="Save" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="0.333,-0.521">
+        <TextBox FontSize="30" Name="Name" Height="60" Width="Auto" Margin="10,41,113,10" TextWrapping="Wrap" Text="{Binding Path=NameBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2"/>
+        <TextBox FontSize="30" x:Name="Surname" Height="60" Width="Auto" Margin="10,30,113,20" TextWrapping="Wrap" Text="{Binding Path=SurnameBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="1"/>
+        <TextBox FontSize="30" Name="Email" Height="60" Width="Auto" Margin="10,14,113,36" TextWrapping="Wrap" Text="{Binding Path=EmailBinding, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="-0.274,-0.822" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="2"/>
+        <Button FontSize="30" Content="Cancel" Margin="54,75,10,100" Width="200" Height="75" Click="Button_Click1" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2"/>
+        <Button FontSize="30" Content="Save" Margin="83,75,113,100" Width="200" Height="75" Click="Button_Click1" Command="Save" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" Grid.RowSpan="2">
             <Button.CommandBindings>
                 <CommandBinding Command="Save" CanExecute="Save_CanExecute"/>
             </Button.CommandBindings>

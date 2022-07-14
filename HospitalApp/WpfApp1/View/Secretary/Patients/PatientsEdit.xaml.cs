@@ -12,15 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FileHandler;
 using Model;
+using Repo;
+using WpfApp1.FileHandler;
 using WpfApp1.Model;
+using WpfApp1.Repo;
 
 namespace WpfApp1
 {
 
     public partial class PatientsEdit : Window, INotifyPropertyChanged
     {
-        public static Boolean editedPatient = false;
         private Patient patient;
 
         private string uPNBinding;
@@ -121,7 +124,7 @@ namespace WpfApp1
             }
         }
 
-        private String passwordBinding;
+       /* private String passwordBinding;
         public String PasswordBinding
         {
             get
@@ -135,7 +138,7 @@ namespace WpfApp1
             }
         }
 
-
+        */
 
         public PatientsEdit()
         {
@@ -155,7 +158,7 @@ namespace WpfApp1
             EmailBinding = patient.Email;
             PhoneNumBinding = patient.PhoneNumber;
             DateOfBirthBinding = patient.DateOfBirth;
-            PasswordBinding = patient.Password;
+            //PasswordBinding = patient.Password;
 
             Validation.UPNValidation.ValidationError = false;
 
@@ -203,20 +206,18 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-
-                PatientsWindow.patientController.Update(new Patient(EmailBinding, PasswordBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding));
-
-                if (editedPatient == true)
+                Patient patientt = new Patient(EmailBinding, NameBinding, SurnameBinding, PhoneNumBinding, UPNBinding, DateOfBirthBinding, BloodGroupBinding);
+                patientt.Password = patient.Password;
+                if (PatientsWindow.GetPatientsWindow().patientController.Update(patientt))
                 {
                     PatientsWindow.patientsWindowInstance.refreshContentOfGrid();
+                    
                     Close();
                 }
                 else
                 {
                     MessageBox.Show("Patient with that ID already exists!", "Error");
                 }
-
-
             }
 
         }

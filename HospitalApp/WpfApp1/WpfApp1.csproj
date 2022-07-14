@@ -423,6 +423,12 @@
     <Compile Include="View\Physiciann\Medications\MedicationView.xaml.cs">
       <DependentUpon>MedicationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Secretary\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\ChangeSecretaryProfile.xaml.cs">
+      <DependentUpon>ChangeSecretaryProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml.cs">
       <DependentUpon>CreateMedicalRecord.xaml</DependentUpon>
     </Compile>
@@ -473,6 +479,12 @@
       <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\RoomService.cs" />
+    <Compile Include="View\Secretary\PhysicianReport\AppointmentsWindow.xaml.cs">
+      <DependentUpon>AppointmentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\PhysicianReport\PhysicianReport.xaml.cs">
+      <DependentUpon>PhysicianReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Secretary\PurchaseEquipment\EquipmentPurchaseWindow.xaml.cs">
       <DependentUpon>EquipmentPurchaseWindow.xaml</DependentUpon>
     </Compile>
@@ -481,6 +493,9 @@
     </Compile>
     <Compile Include="View\Secretary\UrgentAppointment\CreateUrgentAppointment.xaml.cs">
       <DependentUpon>CreateUrgentAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Secretary\Video.xaml.cs">
+      <DependentUpon>Video.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -706,6 +721,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Secretary\ChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\ChangeSecretaryProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Secretary\MedicalRecord\CreateMedicalRecord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -784,6 +807,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Secretary\PhysicianReport\AppointmentsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\PhysicianReport\PhysicianReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Secretary\PurchaseEquipment\EquipmentPurchaseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -795,6 +826,10 @@
     <Page Include="View\Secretary\UrgentAppointment\CreateUrgentAppointment.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Secretary\Video.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -873,6 +908,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\hospitalLogo.png" />
+    <Folder Include="ViewModel\Secretary\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />

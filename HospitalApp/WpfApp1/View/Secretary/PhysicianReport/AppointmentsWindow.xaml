@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfApp1.AppointmentWindow"
+﻿<Window x:Class="WpfApp1.AppointmentsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -23,7 +23,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid CanUserResizeColumns="True" CanUserResizeRows="True" AutoGenerateColumns="False" Name ="dgAppointments" ItemsSource="{Binding Path=Appointments}" Margin="58,8.6,52.6,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
+        <DataGrid CanUserResizeColumns="True" CanUserResizeRows="True" AutoGenerateColumns="False" Name ="dgAppointments" ItemsSource="{Binding Path=Appointments}" Margin="58,8.6,52.6,0" IsReadOnly="True" ColumnWidth="*" RenderTransformOrigin="0.65,0.495" Grid.ColumnSpan="6" Grid.RowSpan="5" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Patient" Binding="{Binding Patient.FullName}"></DataGridTextColumn>
@@ -33,8 +33,6 @@
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button FontSize="20" Content="Create" Grid.Row="0"  Height ="40" Margin="35,24,10,0" Click="Button_Click" Width="80" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" />
-        <Button FontSize="20" Content="Edit" Grid.Column="4" Grid.Row="0" Height ="40" Margin="10,24,31,0" Click="Button_Click" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" />
-        <Button FontSize="20" Content="Delete" Grid.Row="0" Height ="40" Grid.Column="4" Width="80" Margin="117,24,53,0" Click="Button_Click" Grid.ColumnSpan="2" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" />
+        <Button Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" RenderTransformOrigin="0.524,0.394" FontSize="20" Content="Create PDF" Grid.Row="0"  Height ="40" Margin="72,24,53,0" Click="Button_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

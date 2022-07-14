@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Repo;
 using Service;
 using WpfApp1.Model;
 
@@ -17,39 +18,46 @@ namespace Controller
       public List<Patient> GetAll()
       {
             return patientService.GetAll();
+      }
+        public List<Patient> IsGuestAccount()
+        {
+            return patientService.IsGuestAccount();
         }
-      
-      public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+        public bool EmailExists(string email)
+        {
+            return patientService.EmailExists(email);
+        }
+        public bool UPNExists(string upn)
+        {
+            return patientService.UPNExists(upn);
+        }
+
+        /*
+        public Patient GetByUniquePersonalNumber(string uniquePersonalNumber)
+        {
+              return patientService.GetByUniquePersonalNumber(uniquePersonalNumber);
+        }
+        */
+        public bool Add(Patient patient)
       {
-            return patientService.GetByUniquePersonalNumber(uniquePersonalNumber);
-        }
+           return patientService.Add(patient);
+      }
       
-      public void Add(Patient patient)
+      public bool Update(Patient patient)
       {
-            patientService.Add(patient);
-        }
-      
-      public void Update(Patient patient)
-      {
-            patientService.Update(patient);
-        }
+            return patientService.Update(patient);
+      }
       
       public void Remove(string id)
       {
             patientService.Remove(id);
-        }
+      }
 
-      public Service.PatientService patientService;
+      public PatientService patientService;
 
       public PatientController(PatientService patientService)
-        {
+      {
             this.patientService = patientService;
-        }
-
-       /* DODATO OVO ??
-       public PatientController()
-        {
-        }
-       */
+      }
     }
 }

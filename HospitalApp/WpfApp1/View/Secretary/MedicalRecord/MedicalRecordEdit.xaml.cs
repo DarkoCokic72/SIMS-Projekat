@@ -24,20 +24,8 @@ namespace WpfApp1
     public partial class MedicalRecordEdit : Window, INotifyPropertyChanged
     {
         private MedicalRecord medicalRecord;
-
-        private string regNumBinding;
-        public string RegNumBinding
-        {
-            get
-            {
-                return regNumBinding;
-            }
-            set
-            {
-                regNumBinding = value;
-                OnPropertyChanged("RegNumBinding");
-            }
-        }
+        private Patient patient;
+        MedicalRecordController medicalRecordController;
 
         private Patient patientBinding;
         public Patient PatientBinding
@@ -67,22 +55,61 @@ namespace WpfApp1
             }
         }
 
-        public MedicalRecordEdit()
+        public MedicalRecordEdit(Patient patient)
+        {
+
+            InitializeComponent();
+            this.patient = patient;
+            this.DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            MedicalRecordFileHandler medicalRecordFileHandler = new MedicalRecordFileHandler();
+            MedicalRecordRepository medicalRecordRepository = new MedicalRecordRepository(medicalRecordFileHandler);
+            MedicalRecordService medicalRecordService = new MedicalRecordService(medicalRecordRepository);
+            medicalRecordController = new MedicalRecordController(medicalRecordService);
+
+            medicalRecord = medicalRecordController.GetByPatient(patient);
+
+            if (medicalRecord == null) 
+            {
+                MessageBox.Show("There is no medical record");
+                return;
+            }
+
+            Patient.ItemsSource = ComboBoxPatients();
+
+            Patient.SelectedItem = medicalRecord.Patient;
+            AllergensBinding = medicalRecord.Allergens;
+
+        }
+
+        public MedicalRecordEdit(MedicalRecord med)
         {
 
             InitializeComponent();
             this.DataContext = this;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            medicalRecord = MedicalRecordWindow.medicalRecordWindowInstance.getSelectedMedicalRecord();
+            MedicalRecordFileHandler medicalRecordFileHandler = new MedicalRecordFileHandler();
+            MedicalRecordRepository medicalRecordRepository = new MedicalRecordRepository(medicalRecordFileHandler);
+            MedicalRecordService medicalRecordService = new MedicalRecordService(medicalRecordRepository);
+            medicalRecordController = new MedicalRecordController(medicalRecordService);
+
+            medicalRecord = med;
+
+            if (medicalRecord == null)
+            {
+                MessageBox.Show("There is no medical record");
+                return;
+            }
 
             Patient.ItemsSource = ComboBoxPatients();
 
-            RegNumBinding = medicalRecord.RegNum;
             Patient.SelectedItem = medicalRecord.Patient;
             AllergensBinding = medicalRecord.Allergens;
 
         }
+
         private List<Patient> ComboBoxPatients()
         {
 
@@ -158,9 +185,10 @@ namespace WpfApp1
             }
             else if (btn.Content.Equals("Save"))
             {
-                if (MedicalRecordWindow.medicalRecordController.Update(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding)))
+                MedicalRecord med = new MedicalRecord(Patient.SelectedItem as Patient, AllergensBinding);
+                med.RegNum = medicalRecord.RegNum;
+                if (medicalRecordController.Update(med))
                 {
-                    MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
                     Close();
                 }
                 else
@@ -175,14 +203,8 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(RegNumBinding))
-            {
-                e.CanExecute = false;
-            }
-            else
-            {
+
                 e.CanExecute = true;
-            }
         }
         
     }

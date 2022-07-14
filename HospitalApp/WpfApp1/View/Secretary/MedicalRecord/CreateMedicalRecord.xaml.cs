@@ -30,27 +30,19 @@ namespace WpfApp1
             List<Patient> patients = patientController.GetAll();
             List<Patient> patientsUPN = new List<Patient>();
 
+            MedicalRecordFileHandler medicalRecordFileHandler = new MedicalRecordFileHandler();
+            MedicalRecordRepository medicalRecordRepository = new MedicalRecordRepository(medicalRecordFileHandler);
+            MedicalRecordService medicalRecordService = new MedicalRecordService(medicalRecordRepository);
+            MedicalRecordController medicalRecordController = new MedicalRecordController(medicalRecordService);
+            List<MedicalRecord> medicalRecords = medicalRecordController.GetAll();
+
             foreach (Patient patient in patients)
-            {
-                patientsUPN.Add(patient);
-            }
+               // foreach (MedicalRecord medicalRecord in medicalRecords)
+                {
+                   // if (patient != medicalRecord.Patient)
+                    patientsUPN.Add(patient);
+                }
             Patient.ItemsSource = patientsUPN;
-        }
-
-
-
-        private string regNumBinding;
-        public string RegNumBinding
-        {
-            get
-            {
-                return regNumBinding;
-            }
-            set
-            {
-                regNumBinding = value;
-                OnPropertyChanged("RegNumBinding");
-            }
         }
 
         private Patient patientBinding;
@@ -96,13 +88,17 @@ namespace WpfApp1
             if (btn.Content.Equals("Cancel"))
             {
                 Close();
+                MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
+                medicalRecordWindow.ShowDialog();
             }
             else if (btn.Content.Equals("Save"))
-            {
-                if (MedicalRecordWindow.medicalRecordController.Add(new MedicalRecord(RegNumBinding, Patient.SelectedItem as Patient, AllergensBinding)))
+            {   
+                if (MedicalRecordWindow.GetMedicalRecordWindow().medicalRecordController.Add(new MedicalRecord(Patient.SelectedItem as Patient, AllergensBinding)))
                 {
                     MedicalRecordWindow.medicalRecordWindowInstance.refreshContentOfGrid();
                     Close();
+                    MedicalRecordWindow medicalRecordWindow = MedicalRecordWindow.GetMedicalRecordWindow();
+                    medicalRecordWindow.ShowDialog();
                 }
                 else
                 {
@@ -113,7 +109,7 @@ namespace WpfApp1
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(RegNumBinding))
+            if (Patient.SelectedItem != null)
             {
                 e.CanExecute = true;
             }

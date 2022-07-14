@@ -17,6 +17,10 @@ namespace Controller
         {
             return medicalRecordService.GetByRegNum(regNum);
         }
+        public MedicalRecord GetByPatient(Patient patient)
+        {
+            return medicalRecordService.GetByPatient(patient);
+        }
 
         public bool Add(MedicalRecord medicalRecord)
         {
